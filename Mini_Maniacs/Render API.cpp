@@ -60,6 +60,7 @@ void RenderFront::Update(void)
   Time last = timeMarker;
   timeMarker = std::chrono::high_resolution_clock::now();
   std::chrono::high_resolution_clock::duration delta = timeMarker - last;
+  long long sleep_duration = frameRateMillis - delta.count();
 #ifdef _DEBUG
   std::cout << "Start Time: " 
             << last.time_since_epoch().count() 
@@ -68,10 +69,12 @@ void RenderFront::Update(void)
             << ", Duration: " 
             << delta.count() 
             << ", Sleeping for" 
-            << frameRateMillis - delta.count() 
+            << sleep_duration
             << std::endl;
 #endif
-  SDL_Delay(frameRateMillis - delta.count());
+  if (sleep_duration < 0)
+    sleep_duration = 0;
+  SDL_Delay(sleep_duration);
 
   SDL_RenderPresent(renderer);
   SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
