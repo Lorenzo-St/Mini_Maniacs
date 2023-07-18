@@ -60,7 +60,7 @@ void RenderFront::Update(void)
   Time last = timeMarker;
   timeMarker = std::chrono::high_resolution_clock::now();
   std::chrono::high_resolution_clock::duration delta = timeMarker - last;
-  long long sleep_duration = frameRateMillis - delta.count();
+  long long sleep_duration = frameRateMillis - std::chrono::duration_cast<std::chrono::microseconds>(delta).count();
 #ifdef _DEBUG
   std::cout << "Start Time: " 
             << last.time_since_epoch().count() 
