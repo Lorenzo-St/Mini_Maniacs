@@ -79,6 +79,8 @@ void RenderFront::Update(void)
   SDL_RenderPresent(renderer);
   SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
   SDL_RenderClear(renderer);
+  timeMarker = std::chrono::high_resolution_clock::now();
+
 }
 
 
