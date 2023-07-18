@@ -14,20 +14,23 @@ int main(int argc, char* argv[])
 {
   RenderFront front;
   front.Init();
-
+  if (front.GetError() != 0) 
+  {
+    front.Shutdown();
+    return -1;
+  }
   SDL_Event event;
   while (SDL_PollEvent(&event) || true)
   {
     front.Update();
-    //SDL_Rect reky = { .5f, .25f, .5f, .5f };
+    SDL_Rect reky = { .5f, .25f, .5f, .5f };
 
-    //int test = SDL_RenderGeometry(renderer, nullptr, verticies, 3, nullptr, 3);
+    int test = SDL_RenderGeometry(front.GetRenderer(), nullptr, verticies, 3, nullptr, 3);
 #if 0
     std::cout << test << std::endl;
 #endif
-    //SDL_RenderPresent(renderer);
-    //SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    //SDL_RenderFillRect(renderer, &reky);
+
+    SDL_RenderFillRect(front.GetRenderer(), &reky);
 
   }
 

@@ -19,6 +19,10 @@ public:
   void SetTranslation(glm::vec2 pos);
   void SetScale(glm::vec2 scale);
   void SetRotation(float rotation);
+#ifdef _DEBUG
+  SDL_Renderer* GetRenderer(void) { return renderer; };
+  SDL_Window* GetWindow(void) { return window; };
+#endif
 private:
   int Width = 1280;
   int Height = 720;
