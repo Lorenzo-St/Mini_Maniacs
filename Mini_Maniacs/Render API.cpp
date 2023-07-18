@@ -28,7 +28,7 @@ void RenderFront::Init(void)
     return;
   }
 
-  window = SDL_CreateWindow("SDL2 Test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Width, Height, SDL_WINDOW_SHOWN);
+  window = SDL_CreateWindow("SDL2 Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Width, Height, SDL_WINDOW_SHOWN);
   if (window == nullptr)
   {
     errorState = 101;
@@ -45,7 +45,7 @@ void RenderFront::Init(void)
   errorState = SDL_RenderSetScale(renderer, float(Width), float(Height));
 
   frameRateMillis = long long((1.0f / TargetFrameRate) * 1000);
-
+  timeMarker = Time::clock::now();
 }
 
 void RenderFront::Shutdown(void) 
