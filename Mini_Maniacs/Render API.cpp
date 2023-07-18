@@ -45,6 +45,7 @@ void RenderFront::Init(void)
   errorState = SDL_RenderSetScale(renderer, float(Width), float(Height));
 
   frameRateMillis = long long((1.0f / TargetFrameRate) * 10000);
+  std::cout << frameRateMillis << std::endl;
   timeMarker = Time::clock::now();
 }
 
