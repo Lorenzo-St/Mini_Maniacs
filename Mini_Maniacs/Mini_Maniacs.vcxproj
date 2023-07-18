@@ -71,17 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>$(SolutionDir)SDL2\Lib\x64\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)SDL2\Inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)SDL2\Lib\x64\;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <IncludePath>$(SolutionDir)SDL2\Inc;$(SolutionDir)GLM</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>E:\My Stuff\Programmin Projects\Mini_Maniacs\SDL2\Lib\x64\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)SDL2\Lib\x64\;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <IncludePath>$(SolutionDir)SDL2\Inc;$(SolutionDir)GLM</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>E:\My Stuff\Programmin Projects\Mini_Maniacs\SDL2\Lib\x64\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)SDL2\Lib\x64\;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <IncludePath>$(SolutionDir)SDL2\Inc;$(SolutionDir)GLM</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>E:\My Stuff\Programmin Projects\Mini_Maniacs\SDL2\Lib\x64\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)SDL2\Lib\x64\;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <IncludePath>$(SolutionDir)SDL2\Inc;$(SolutionDir)GLM</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
