@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
   front.Init();
 
   SDL_Event event;
-  while (SDL_WaitEvent(&event))
+  while (SDL_PollEvent(&event) || true)
   {
     front.Update();
     //SDL_Rect reky = { .5f, .25f, .5f, .5f };
