@@ -20,8 +20,14 @@ int main(int argc, char* argv[])
     return -1;
   }
   SDL_Event event;
-  while (SDL_PollEvent(&event) || true)
+  bool running = true;
+  while (running)
   {
+    SDL_PollEvent(&event);
+    if (event.quit.type == 1)
+    {
+      running = false;
+    }
     front.Update();
     SDL_Rect reky = { .5f, .25f, .5f, .5f };
 
