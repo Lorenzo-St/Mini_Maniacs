@@ -67,6 +67,8 @@ void RenderFront::Update(void)
             << timeMarker.time_since_epoch().count() 
             << ", Duration: " 
             << delta.count() 
+            << ", Sleeping for" 
+            << frameRateMillis - delta.count() 
             << std::endl;
 #endif
   SDL_Delay(frameRateMillis - delta.count());
