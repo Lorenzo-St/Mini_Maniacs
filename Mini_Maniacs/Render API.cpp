@@ -42,7 +42,6 @@ void RenderFront::Init(void)
   }
   SDL_Rect rect = { 0, 0, Width, Height };
   errorState = SDL_RenderSetViewport(renderer, &rect);
-  errorState = SDL_RenderSetScale(renderer, float(Width), float(Height));
 
   frameRateMillis = long long((1.0f / TargetFrameRate) * 10000);
   std::cout << frameRateMillis << std::endl;
@@ -86,14 +85,11 @@ void RenderFront::Update(void)
 }
 
 
+
+
 void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 {
-  std::vector<SDL_Vertex> verts = std::vector<SDL_Vertex>(mesh);
-  for (auto& vert : verts) 
-  {
-
-  }
-  errorState = SDL_RenderGeometry(renderer, nullptr, mesh.data(), mesh.size(), nullptr, 0);
+  
 }
 
 void RenderFront::SetMatrix(glm::mat4x4 const& matrix) 

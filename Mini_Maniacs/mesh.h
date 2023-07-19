@@ -1,7 +1,9 @@
 #pragma once
 #include "SDL.h"
 #include <vector>
+#include "Vertex.h"
 class RenderFront;
+
 class Mesh 
 {
 public:

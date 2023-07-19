@@ -10,21 +10,11 @@ std::vector<SDL_Vertex> verticies =
   {{ 1.0f, 1.0f},{0,0,255,255},{1.0f,0.0f}}
 };
 
-typedef union temp 
-{
-  glm::vec2 pos;
-  SDL_FPoint position;
-};
 
 int main(int argc, char* argv[])
 {
   RenderFront front;
   front.Init();
-  temp lol;
-  lol.pos = { 1, 1 };
-  std::cout << lol.pos.x << ", " << lol.pos.y << std::endl;
-  std::cout << lol.position.x << ", " << lol.position.y << std::endl;
-
   if (front.GetError() != 0) 
   {
     front.Shutdown();
