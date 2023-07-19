@@ -112,7 +112,7 @@ inline SDL_FPoint convert(glm::vec2 f)
 void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 {
   const glm::mat4x4 projection = renderMatrix;
-  const glm::mat4x4 proj = glm::ortho<float>(-Width, Width, -Height / 2.0f, Height / 2.0f);
+  const glm::mat4x4 proj = glm::ortho<float>(-Width * 1.0f, Width * 1.0f, -Height / 2.0f, Height / 2.0f);
   std::vector<SDL_Vertex> temp = mesh;
   for (auto& vert : temp) 
   {
