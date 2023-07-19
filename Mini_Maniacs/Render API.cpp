@@ -1,7 +1,8 @@
-#include "SDL.h"
-#include "Render API.h"
 #include <iostream>
 #include <chrono>
+#include <thread>
+#include "SDL.h"
+#include "Render API.h"
 #include "Time.h"
 #include "../GLM/ext/matrix_transform.hpp"
 #include "../GLM/ext/matrix_clip_space.hpp"
@@ -62,7 +63,8 @@ void RenderFront::Update(void)
   Timer last = timeMarker;
   timeMarker = std::chrono::high_resolution_clock::now();
   std::chrono::high_resolution_clock::duration delta = timeMarker - last;
-  long long sleep_duration = frameRateMillis - std::chrono::duration_cast<std::chrono::microseconds>(delta).count();
+  std::chrono::duration<double, std::milli> delta_ms(frameRateMillis - delta.count());
+  auto delta_ms_duration = std::chrono::duration_cast<std::chrono::milliseconds>(delta_ms);
 #if _DEBUG && 1
   std::cout << "Start Time: " 
             << last.time_since_epoch().count() 
@@ -70,14 +72,15 @@ void RenderFront::Update(void)
             << timeMarker.time_since_epoch().count() 
             << ", Duration: " 
             << delta.count() 
-            << ", Sleeping for: " 
-            << sleep_duration
+            << "delta_ms: " 
+            << delta_ms_duration.count()
             << std::endl;
 #endif
-  if (sleep_duration < 0)
-    sleep_duration = 0;
   Time.deltaTime(static_cast<float>(frameRateMillis)/ 10000.0f);
-  SDL_Delay(static_cast<Uint32>(sleep_duration));
+  std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
+
+
+
   SDL_RenderPresent(renderer);
   SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
   SDL_RenderClear(renderer);
