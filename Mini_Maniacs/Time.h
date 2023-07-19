@@ -20,4 +20,5 @@ private:
   float rT;
 };
 
+extern ITime Time;
 static ITime Time;

@@ -76,7 +76,7 @@ void RenderFront::Update(void)
   if (sleep_duration < 0)
     sleep_duration = 0;
   Time.deltaTime(static_cast<float>(frameRateMillis)/ 10000.0f);
-  SDL_Delay(sleep_duration);
+  SDL_Delay(static_cast<Uint32>(sleep_duration));
 
   SDL_RenderPresent(renderer);
   SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);

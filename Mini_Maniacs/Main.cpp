@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
       running = false;
     }
     front.Update();
-    SDL_Rect reky = { .5f, .25f, .5f, .5f };
+    SDL_Rect reky = { 100, 100, 100, 100 };
     int test = SDL_RenderGeometry(front.GetRenderer(), nullptr, verticies, 3, nullptr, 3);
 #if 1
     std::cout << 1.0f/Time.deltaTime() << std::endl;
