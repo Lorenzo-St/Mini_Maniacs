@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
     api.Draw(verticies);
     pos.x += 20 * Time.deltaTime();
     if (pos.x >= api.GetWindowWidth() / 2.0f)
-      pos.x = -api.GetWindowWidth() / 2.0f;
+      pos.x = -(api.GetWindowWidth() / 2.0f);
 #if 0
     std::cout << "FR: " << 1.0/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
