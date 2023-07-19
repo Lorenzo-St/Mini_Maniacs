@@ -63,7 +63,7 @@ void RenderFront::Update(void)
   timeMarker = std::chrono::high_resolution_clock::now();
   std::chrono::high_resolution_clock::duration delta = timeMarker - last;
   long long sleep_duration = frameRateMillis - std::chrono::duration_cast<std::chrono::microseconds>(delta).count();
-#if _DEBUG && 0
+#if _DEBUG && 1
   std::cout << "Start Time: " 
             << last.time_since_epoch().count() 
             << ", End Time: " 
@@ -78,7 +78,6 @@ void RenderFront::Update(void)
     sleep_duration = 0;
   Time.deltaTime(static_cast<float>(frameRateMillis)/ 10000.0f);
   SDL_Delay(static_cast<Uint32>(sleep_duration));
-  std::cout << sleep_duration << std::endl;
   SDL_RenderPresent(renderer);
   SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
   SDL_RenderClear(renderer);
