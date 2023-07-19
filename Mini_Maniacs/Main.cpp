@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     SDL_Rect reky = { 100, 100, 100, 100 };
     int test = SDL_RenderGeometry(front.GetRenderer(), nullptr, verticies, 3, nullptr, 3);
 #if 1
-    std::cout << 1.0f/Time.deltaTime() << std::endl;
+    std::cout << "FR: " << 1.0f/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
 
     SDL_RenderFillRect(front.GetRenderer(), &reky);
