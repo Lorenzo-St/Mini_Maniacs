@@ -2,8 +2,7 @@
 #include <chrono>
 #include <thread>
 #include "SDL.h"
-#include "Render API.h"
-#include "Time.h"
+#include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
 #include "../GLM/ext/matrix_clip_space.hpp"
 
@@ -118,7 +117,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   for (auto& vert : temp) 
   {
     glm::vec2 t = glm::vec2(glm::vec4(convert(vert.position), 0, 1) * projection * proj);
-    glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f, Height / 2.0f);
+    glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y);
     vert.position = convert(m);
   }
   SDL_RenderGeometry(renderer, nullptr, temp.data(), static_cast<int>(temp.size()), nullptr, 0);
