@@ -50,7 +50,7 @@ void RenderFront::Init(void)
   SDL_Rect rect = { 0, 0, Width, Height };
   errorState = SDL_RenderSetViewport(renderer, &rect);
 
-  frameRateMillis = (1.0 / TargetFrameRate) * 1000;
+  frameRateMillis = (1.0f / TargetFrameRate) * 1000;
 #if _DEBUG && 0
   std::cout << frameRateMillis << std::endl;
 #endif
@@ -87,7 +87,7 @@ void RenderFront::Update(void)
       << delta_ms_duration.count()
       << std::endl;
 #endif
-    Time.deltaTime(frameRateMillis / 1000.0);
+    Time.deltaTime(frameRateMillis / 1000.0f);
     std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
   }
 
@@ -121,7 +121,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
     glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f, Height / 2.0f);
     vert.position = convert(m);
   }
-  SDL_RenderGeometry(renderer, nullptr, temp.data(), temp.size(), nullptr, 0);
+  SDL_RenderGeometry(renderer, nullptr, temp.data(), static_cast<int>(temp.size()), nullptr, 0);
 }
 
 void RenderFront::SetMatrix(glm::mat4x4 const& matrix) 
