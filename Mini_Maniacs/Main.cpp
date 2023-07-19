@@ -23,12 +23,10 @@ int main(int argc, char* argv[])
   }
   SDL_Event event;
   bool running = true;
-  glm::mat4x4 mat = glm::identity<glm::mat4x4>();
-  mat = glm::translate(mat, { 100, 0, 0 });
-  mat = glm::scale(mat, { 200, 300, 0 });
-  mat = glm::rotate(mat, 0.f, { 0,0,1 });
-  mat = glm::transpose(mat);
-  front.SetMatrix(mat);
+  glm::vec2 pos = { 0,0 };
+  glm::vec2 scale(300, 250);
+  float rot = 0;
+  front.SetMatrixData(pos, scale, rot);
   while (running)
   {
     SDL_PollEvent(&event);
@@ -37,7 +35,10 @@ int main(int argc, char* argv[])
       running = false;
     }
     front.Update();
+    front.SetMatrixData(pos, scale, rot);
     front.Draw(verticies);
+    pos.x += 50;
+    rot += 1;
 #if 0
     std::cout << "FR: " << 1.0f/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
