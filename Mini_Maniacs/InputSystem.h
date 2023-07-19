@@ -15,8 +15,8 @@ typedef union input
 typedef struct Binding 
 {
   Action action;
-  bool triggered;
-
+  char type;
+  input binding;
 }Binding;
 
 
@@ -32,5 +32,6 @@ public:
   void addBinding(Action a, Binding b);
 
 private:
-
+  std::vector<Binding> bindings;
+  std::vector<bool> triggered;
 };
