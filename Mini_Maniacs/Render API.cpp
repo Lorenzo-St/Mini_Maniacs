@@ -36,7 +36,7 @@ void RenderFront::Init(void)
     errorState = 101;
     return;
   }
-  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE);
+  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE | SDL_RENDERER_PRESENTVSYNC);
   if (renderer == nullptr) 
   {
     errorState = 102;
