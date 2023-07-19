@@ -65,7 +65,6 @@ void RenderFront::Update(void)
   std::chrono::duration<double, std::milli> delta = timeMarker - last;
   if (delta.count() < frameRateMillis)
   {
-
     std::chrono::duration<double, std::milli> delta_ms(frameRateMillis - delta.count());
     auto delta_ms_duration = std::chrono::duration_cast<std::chrono::milliseconds>(delta_ms);
 #if _DEBUG && 1
