@@ -3,7 +3,8 @@
 #include <iostream>
 #include <chrono>
 #include "Time.h"
-#include "../GLM/gtx/matrix_transform_2d.hpp"
+#include "../GLM/ext/matrix_transform.hpp"
+#include "../GLM/ext/matrix_clip_space.hpp"
 RendErr errorState = 0;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> Timer;
 
@@ -85,13 +86,13 @@ void RenderFront::Update(void)
 
 }
 
-glm::mat3x3 RenderFront::projectToSDLSpace(void) const
+glm::mat4x4 RenderFront::projectToSDLSpace(void) const
 {
   glm::ivec2 winSize;
   SDL_GetWindowSize(window, &winSize.x, &winSize.y);
   const glm::vec2 winSizeHalf = glm::vec2(winSize) / 2.f;
-  glm::mat3x3 mat(1.0f);
-  mat = glm::translate(mat, winSizeHalf) * glm::scale(mat, { winSizeHalf.x, winSizeHalf.y });
+  glm::mat4x4 mat(1.0f);
+  mat = glm::translate(mat, glm::vec3(winSizeHalf, 0)) * glm::scale(mat, { winSizeHalf.x, winSizeHalf.y, 0 }) * glm::ortho<float>(0, winSize.x, winSize.y, 0);
   return mat;
 }
 
@@ -116,24 +117,24 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   SDL_RenderGeometry(renderer, nullptr, temp.data(), temp.size(), nullptr, 0);
 }
 
-void RenderFront::SetMatrix(glm::mat3x3 const& matrix) 
+void RenderFront::SetMatrix(glm::mat4x4 const& matrix) 
 {
   renderMatrix = matrix;
 }
 
 void RenderFront::SetTranslation(glm::vec2 pos) 
 {
-  renderMatrix = glm::translate(renderMatrix, pos);
+  renderMatrix = glm::translate(renderMatrix, glm::vec3(pos, 0));
 }
 
 void RenderFront::SetScale(glm::vec2 scale) 
 {
-  renderMatrix = glm::scale(renderMatrix, scale);
+  renderMatrix = glm::scale(renderMatrix, glm::vec3(scale,1));
 }
 
 void RenderFront::SetRotation(float rotation) 
 {
-  renderMatrix = glm::rotate(renderMatrix, rotation);
+  renderMatrix = glm::rotate(renderMatrix, rotation, glm::vec3(0,0,1));
 }
 
 
