@@ -91,7 +91,7 @@ glm::mat3x3 RenderFront::projectToSDLSpace(void) const
   SDL_GetWindowSize(window, &winSize.x, &winSize.y);
   const glm::vec2 winSizeHalf = glm::vec2(winSize) / 2.f;
   glm::mat3x3 mat(1.0f);
-  mat = glm::translate(mat, winSizeHalf) * glm::scale(mat, { winSizeHalf.x, -winSizeHalf.y });
+  mat = glm::translate(mat, winSizeHalf) * glm::scale(mat, { winSizeHalf.x, winSizeHalf.y });
   return mat;
 }
 
