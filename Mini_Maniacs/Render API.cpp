@@ -46,7 +46,7 @@ void RenderFront::Init(void)
   SDL_Rect rect = { 0, 0, Width, Height };
   errorState = SDL_RenderSetViewport(renderer, &rect);
 
-  frameRateMillis = long long((1.0f / TargetFrameRate) * 1000);
+  frameRateMillis = long long((1.0 / TargetFrameRate) * 1000);
 #if _DEBUG && 0
   std::cout << frameRateMillis << std::endl;
 #endif
@@ -83,7 +83,7 @@ void RenderFront::Update(void)
       << delta_ms_duration.count()
       << std::endl;
 #endif
-    Time.deltaTime(static_cast<float>(frameRateMillis) / 1000.0f);
+    Time.deltaTime(static_cast<double>(frameRateMillis) / 1000.0);
     std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
   }
 
