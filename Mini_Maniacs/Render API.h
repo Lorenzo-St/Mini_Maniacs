@@ -22,7 +22,7 @@ public:
 
 
   void Draw(std::vector<SDL_Vertex> const& mesh) const;
-  void SetMatrix(glm::mat4x4 const& matrix);
+  void SetMatrix(glm::mat3x3 const& matrix);
   void SetTranslation(glm::vec2 pos);
   void SetScale(glm::vec2 scale);
   void SetRotation(float rotation);
@@ -39,6 +39,6 @@ private:
   SDL_Window* window = nullptr;
   SDL_Renderer* renderer = nullptr;
   SDL_Rect ViewPort;
-  glm::mat3x3 renderMatrix = glm::mat4x4(1.0f);
+  glm::mat3x3 renderMatrix = glm::mat3x3(1.0f);
   glm::mat3x3 projectToSDLSpace(void) const;
 };

@@ -116,24 +116,24 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   SDL_RenderGeometry(renderer, nullptr, temp.data(), temp.size(), nullptr, 0);
 }
 
-void RenderFront::SetMatrix(glm::mat4x4 const& matrix) 
+void RenderFront::SetMatrix(glm::mat3x3 const& matrix) 
 {
-
+  renderMatrix = matrix;
 }
 
 void RenderFront::SetTranslation(glm::vec2 pos) 
 {
-
+  renderMatrix = glm::translate(renderMatrix, pos);
 }
 
 void RenderFront::SetScale(glm::vec2 scale) 
 {
-
+  renderMatrix = glm::scale(renderMatrix, scale);
 }
 
 void RenderFront::SetRotation(float rotation) 
 {
-
+  renderMatrix = glm::rotate(renderMatrix, rotation);
 }
 
 
