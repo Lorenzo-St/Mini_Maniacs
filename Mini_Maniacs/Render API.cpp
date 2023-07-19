@@ -4,9 +4,9 @@
 #include <chrono>
 #include "Time.h"
 RendErr errorState = 0;
-typedef std::chrono::time_point<std::chrono::high_resolution_clock> Time;
+typedef std::chrono::time_point<std::chrono::high_resolution_clock> Timer;
 
-Time timeMarker = Time();
+Timer timeMarker = Timer();
 
 RendErr RenderFront::GetError(void)
 {
@@ -46,7 +46,7 @@ void RenderFront::Init(void)
 
   frameRateMillis = long long((1.0f / TargetFrameRate) * 10000);
   std::cout << frameRateMillis << std::endl;
-  timeMarker = Time::clock::now();
+  timeMarker = Timer::clock::now();
 }
 
 void RenderFront::Shutdown(void) 
@@ -58,7 +58,7 @@ void RenderFront::Shutdown(void)
 
 void RenderFront::Update(void) 
 {
-  Time last = timeMarker;
+  Timer last = timeMarker;
   timeMarker = std::chrono::high_resolution_clock::now();
   std::chrono::high_resolution_clock::duration delta = timeMarker - last;
   long long sleep_duration = frameRateMillis - std::chrono::duration_cast<std::chrono::microseconds>(delta).count();
@@ -75,7 +75,7 @@ void RenderFront::Update(void)
 #endif
   if (sleep_duration < 0)
     sleep_duration = 0;
-  Times.deltaTime(frameRateMillis / 10000.0f);
+  Time.deltaTime(frameRateMillis / 10000.0f);
   SDL_Delay(sleep_duration);
 
   SDL_RenderPresent(renderer);

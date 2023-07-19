@@ -21,3 +21,4 @@ private:
 };
 
 static ITime Times;
+static ITime& Time = Times;
