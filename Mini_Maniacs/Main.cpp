@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
     //  pos.x = -front.GetWindowWidth() / 2.0f;
     rot += 2 * Time.deltaTime();
 #if 1
-    std::cout << "FR: " << 1.0f/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
+    std::cout << "FR: " << 1.0/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
 
 
