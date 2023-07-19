@@ -117,7 +117,7 @@ void RenderFront::SetMatrix(glm::mat4x4 const& matrix)
 
 void RenderFront::SetTranslation(glm::vec2 pos) 
 {
-  //pos += glm::vec2(Width / 2.0f, Height / 2.0f);
+  pos.y *= -1;
   renderMatrix = glm::translate(renderMatrix, glm::vec3(pos, 0));
 }
 
