@@ -86,14 +86,6 @@ void RenderFront::Update(void)
 
 }
 
-glm::mat4x4 RenderFront::projectToSDLSpace(void) const
-{
-  glm::ivec2 winSize = { Width, Height };
-  const glm::vec2 winSizeHalf = glm::vec2(winSize) / 2.f;
-  glm::mat4x4 mat(1.0f);
-  mat = glm::translate(mat, glm::vec3(winSizeHalf, 0)) * glm::scale(mat, { winSizeHalf.x, winSizeHalf.y, 0 }) * glm::ortho<float>(0, winSize.x, 0, winSize.y);
-  return mat;
-}
 
 inline glm::vec2 convert(SDL_FPoint f) 
 {
@@ -107,7 +99,7 @@ inline SDL_FPoint convert(glm::vec2 f)
 
 void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 {
-  const glm::mat3x3 projection = projectToSDLSpace() * renderMatrix;
+  const glm::mat3x3 projection = renderMatrix;
   std::vector<SDL_Vertex> temp = mesh;
   for (auto& vert : temp) 
   {

@@ -40,5 +40,4 @@ private:
   SDL_Renderer* renderer = nullptr;
   SDL_Rect ViewPort;
   glm::mat4x4 renderMatrix = glm::mat4x4(1.0f);
-  glm::mat4x4 projectToSDLSpace(void) const;
 };
