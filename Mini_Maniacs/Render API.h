@@ -14,7 +14,7 @@ public:
   void Update(void);
 
 
-  void Draw(std::vector<SDL_Vertex> const& mesh);
+  void Draw(std::vector<SDL_Vertex> const& mesh) const;
   void SetMatrix(glm::mat4x4 const& matrix);
   void SetTranslation(glm::vec2 pos);
   void SetScale(glm::vec2 scale);

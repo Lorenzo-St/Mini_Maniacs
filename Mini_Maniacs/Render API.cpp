@@ -85,7 +85,7 @@ void RenderFront::Update(void)
 }
 
 
-void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) 
+void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 {
 
 }

@@ -1,14 +1,20 @@
 #pragma once
 #include "SDL.h"
 #include <vector>
-
+class RenderFront;
 class Mesh 
 {
 public:
+  
+  Mesh(RenderFront const& front) { Renderer = &front; }
+  Mesh(Mesh const& m) { Renderer = m.Renderer; verticies = std::vector<SDL_Vertex>(m.verticies); }
+
   void AddVertex(SDL_FPoint position, SDL_Color  color, SDL_FPoint tex_coord);
+  void Draw(void);
+
 private:
   std::vector<SDL_Vertex> verticies;
-
+  const RenderFront* Renderer;
 };
 
 
