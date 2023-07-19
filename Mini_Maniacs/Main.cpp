@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
   }
   SDL_Event event;
   bool running = true;
-  front.SetScale({ 1000.f, 100.f });
+  front.SetScale({ 10.f, 10.f });
   front.SetTranslation({ 0, 0 });
   while (running)
   {
