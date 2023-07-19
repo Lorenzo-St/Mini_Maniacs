@@ -40,7 +40,6 @@ int main(int argc, char* argv[])
     pos.x += 10 * Time.deltaTime();
     if (pos.x >= front.GetWindowWidth() / 2.0f)
       pos.x = -front.GetWindowWidth() / 2.0f;
-    rot += 2 * Time.deltaTime();
 #if 0
     std::cout << "FR: " << 1.0/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
