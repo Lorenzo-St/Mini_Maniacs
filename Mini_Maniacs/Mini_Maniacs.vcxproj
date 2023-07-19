@@ -175,6 +175,7 @@ git commit -am "Succesful $(ConfigurationName) build on $(Platform)"</Command>
   <ItemGroup>
     <ClInclude Include="mesh.h" />
     <ClInclude Include="Render API.h" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
