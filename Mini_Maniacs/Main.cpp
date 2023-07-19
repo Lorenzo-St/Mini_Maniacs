@@ -3,18 +3,28 @@
 #include "Render API.h"
 #include "mesh.h"
 #include "Time.h"
-SDL_Vertex verticies[] =
+std::vector<SDL_Vertex> verticies =
 {
   {{ 0.0f, 1.0f},{255,0,0,255},{0.0f,0.0f}},
   {{ 0.5f, 0.0f},{0,255,0,255},{0.5f,1.0f}},
   {{ 1.0f, 1.0f},{0,0,255,255},{1.0f,0.0f}}
 };
 
+typedef union temp 
+{
+  glm::vec2 pos;
+  SDL_FPoint position;
+};
 
 int main(int argc, char* argv[])
 {
   RenderFront front;
   front.Init();
+  temp lol;
+  lol.pos = { 1, 1 };
+  std::cout << lol.pos.x << ", " << lol.pos.y << std::endl;
+  std::cout << lol.position.x << ", " << lol.position.y << std::endl;
+
   if (front.GetError() != 0) 
   {
     front.Shutdown();
@@ -31,8 +41,8 @@ int main(int argc, char* argv[])
     }
     front.Update();
     SDL_Rect reky = { 100, 100, 100, 100 };
-    int test = SDL_RenderGeometry(front.GetRenderer(), nullptr, verticies, 3, nullptr, 3);
-#if 1
+    front.Draw(verticies);
+#if 0
     std::cout << "FR: " << 1.0f/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
 

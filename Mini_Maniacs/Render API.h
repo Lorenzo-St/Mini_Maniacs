@@ -31,6 +31,6 @@ private:
   SDL_Window* window = nullptr;
   SDL_Renderer* renderer = nullptr;
   SDL_Rect ViewPort;
-  glm::mat3x3 renderMatrix;
+  glm::mat3x3 renderMatrix = glm::mat4x4(1.0f);
   
 };
