@@ -177,13 +177,16 @@ git push</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EventProcessing.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="Render API.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EventProcessing.h" />
     <ClInclude Include="mesh.h" />
+    <ClInclude Include="Object.hpp" />
     <ClInclude Include="Render API.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Vertex.h" />

@@ -1,4 +1,5 @@
 #include "SDL.h"
+#include "EventProcessing.h"
 #include <iostream>
 #include "Render API.h"
 #include "mesh.h"
@@ -29,11 +30,7 @@ int main(int argc, char* argv[])
   front.SetMatrixData(pos, scale, rot);
   while (running)
   {
-    SDL_PollEvent(&event);
-    if (event.type == SDL_QUIT)
-    {
-      running = false;
-    }
+
     front.Update();
     front.SetMatrixData(pos, scale, rot);
     front.Draw(verticies);
@@ -43,8 +40,18 @@ int main(int argc, char* argv[])
 #if 0
     std::cout << "FR: " << 1.0/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
+    while (SDL_PollEvent(&event)) 
+    {
+      if (event.type == SDL_QUIT || event.type == SDL_APP_TERMINATING)
+      {
+        running = false;
+      }
+      else 
+      {
+        ProcessEvent(event);
+      }
 
-
+    }
   }
 
   return 0;

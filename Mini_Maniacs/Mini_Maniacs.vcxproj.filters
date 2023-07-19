@@ -36,6 +36,9 @@
     <ClCompile Include="Time.cpp">
       <Filter>Source Files\Render Backend</Filter>
     </ClCompile>
+    <ClCompile Include="EventProcessing.cpp">
+      <Filter>Source Files\Render Backend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">
@@ -49,6 +52,12 @@
     </ClInclude>
     <ClInclude Include="Vertex.h">
       <Filter>Source Files\Render Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="EventProcessing.h">
+      <Filter>Source Files\Render Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
