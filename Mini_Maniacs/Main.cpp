@@ -27,6 +27,7 @@ int main(int argc, char* argv[])
   mat = glm::translate(mat, { 100, 0, 0 });
   mat = glm::scale(mat, { 200, 300, 0 });
   mat = glm::rotate(mat, 0.f, { 0,0,1 });
+  mat = glm::transpose(mat);
   front.SetMatrix(mat);
   while (running)
   {
