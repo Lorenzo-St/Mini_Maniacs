@@ -20,5 +20,4 @@ private:
   float rT;
 };
 
-static ITime Times;
-static ITime& Time = Times;
+static ITime Time;
