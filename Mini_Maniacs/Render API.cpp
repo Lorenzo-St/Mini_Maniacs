@@ -60,6 +60,9 @@ void RenderFront::Shutdown(void)
 
 void RenderFront::Update(void) 
 {
+  SDL_RenderPresent(renderer);
+  SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+  SDL_RenderClear(renderer);
   Timer last = timeMarker;
   timeMarker = Timer::clock::now();
   std::chrono::duration<double, std::milli> delta = timeMarker - last;
@@ -83,9 +86,6 @@ void RenderFront::Update(void)
   }
 
 
-  SDL_RenderPresent(renderer);
-  SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-  SDL_RenderClear(renderer);
   timeMarker = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::milli> sleep_time = timeMarker - last;
   std::cout << "Time: " << (delta + sleep_time).count() << std::endl;
