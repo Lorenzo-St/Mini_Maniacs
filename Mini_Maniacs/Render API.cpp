@@ -83,7 +83,7 @@ void RenderFront::Update(void)
       << delta_ms_duration.count()
       << std::endl;
 #endif
-    Time.deltaTime(static_cast<double>(frameRateMillis) / 1000.0);
+    Time.deltaTime(frameRateMillis / 1000.0);
     std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
   }
 
