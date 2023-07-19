@@ -47,7 +47,9 @@ void RenderFront::Init(void)
   errorState = SDL_RenderSetViewport(renderer, &rect);
 
   frameRateMillis = long long((1.0f / TargetFrameRate) * 1000);
+#if _DEBUG && 0
   std::cout << frameRateMillis << std::endl;
+#endif
   timeMarker = Timer::clock::now();
 }
 
@@ -70,7 +72,7 @@ void RenderFront::Update(void)
   {
     std::chrono::duration<double, std::milli> delta_ms(frameRateMillis - delta.count());
     auto delta_ms_duration = std::chrono::duration_cast<std::chrono::milliseconds>(delta_ms);
-#if _DEBUG && 1
+#if _DEBUG && 0
     std::cout << "Start Time: "
       << last.time_since_epoch().count()
       << ", End Time: "
@@ -88,7 +90,9 @@ void RenderFront::Update(void)
 
   timeMarker = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::milli> sleep_time = timeMarker - last;
+#if _DEBUG && 0
   std::cout << "Time: " << (delta + sleep_time).count() << std::endl;
+#endif
 }
 
 
