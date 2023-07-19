@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     api.Update();
     api.SetMatrixData(pos, scale, rot);
     api.Draw(verticies);
-    pos.x += 50 * Time.deltaTime();
+    pos.x += 200 * Time.deltaTime();
     if (pos.x >= api.GetWindowWidth() / 2.0f + scale.x)
       pos.x = -(api.GetWindowWidth() / 2.0f + scale.x);
 #if 0
