@@ -30,6 +30,9 @@
     <ClCompile Include="Render API.cpp">
       <Filter>Source Files\Render Backend</Filter>
     </ClCompile>
+    <ClCompile Include="mesh.cpp">
+      <Filter>Source Files\Render Backend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">

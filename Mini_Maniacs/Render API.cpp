@@ -2,7 +2,7 @@
 #include "Render API.h"
 #include <iostream>
 #include <chrono>
-
+#include "Time.h"
 RendErr errorState = 0;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> Time;
 
@@ -75,6 +75,7 @@ void RenderFront::Update(void)
 #endif
   if (sleep_duration < 0)
     sleep_duration = 0;
+  Times.deltaTime(frameRateMillis / 10000.0f);
   SDL_Delay(sleep_duration);
 
   SDL_RenderPresent(renderer);

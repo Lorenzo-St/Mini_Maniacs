@@ -1,7 +1,8 @@
 #include "SDL.h"
 #include <iostream>
 #include "Render API.h"
-
+#include "mesh.h"
+#include "Time.h"
 SDL_Vertex verticies[] =
 {
   {{ 0.0f, 1.0f},{255,0,0,255},{0.0f,0.0f}},
