@@ -123,6 +123,7 @@ void RenderFront::SetTranslation(glm::vec2 pos)
 
 void RenderFront::SetScale(glm::vec2 scale) 
 {
+  scale *= glm::vec2(1.0f/Width, 1.0f/Height);
   renderMatrix = glm::scale(renderMatrix, glm::vec3(scale,1));
 }
 
