@@ -74,7 +74,7 @@ void RenderFront::Update(void)
       << timeMarker.time_since_epoch().count()
       << ", Duration: "
       << delta.count()
-      << "delta_ms: "
+      << " delta_ms: "
       << delta_ms_duration.count()
       << std::endl;
 #endif
