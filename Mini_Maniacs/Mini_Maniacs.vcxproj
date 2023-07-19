@@ -101,7 +101,9 @@
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\x64\SDL2.dll" "$(OutDir)" /s /r /y /q
 
-git commit -am "Succesful $(ConfigurationName) build on $(Platform)"</Command>
+git add -A
+git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
+git push</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -123,7 +125,9 @@ git commit -am "Succesful $(ConfigurationName) build on $(Platform)"</Command>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\x64\SDL2.dll" "$(OutDir)" /s /r /y /q
 
-git commit -am "Succesful $(ConfigurationName) build on $(Platform)"</Command>
+git add -A
+git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
+git push</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -143,7 +147,9 @@ git commit -am "Succesful $(ConfigurationName) build on $(Platform)"</Command>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\x64\SDL2.dll" "$(OutDir)" /s /r /y /q
 
-git commit -am "Succesful $(ConfigurationName) build on $(Platform)"</Command>
+git add -A
+git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
+git push</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -165,7 +171,9 @@ git commit -am "Succesful $(ConfigurationName) build on $(Platform)"</Command>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\x64\SDL2.dll" "$(OutDir)" /s /r /y /q
 
-git commit -am "Succesful $(ConfigurationName) build on $(Platform)"</Command>
+git add -A
+git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
+git push</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
