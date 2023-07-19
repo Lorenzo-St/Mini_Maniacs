@@ -37,7 +37,7 @@ private:
   int Width = 1280;
   int Height = 720;
   int TargetFrameRate = 60;
-  double frameRateMillis = 0;
+  float frameRateMillis = 0;
   SDL_Window* window = nullptr;
   SDL_Renderer* renderer = nullptr;
   SDL_Rect ViewPort;
