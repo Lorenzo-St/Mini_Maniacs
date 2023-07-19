@@ -75,7 +75,7 @@ void RenderFront::Update(void)
 #endif
   if (sleep_duration < 0)
     sleep_duration = 0;
-  Time.deltaTime(static_cast<float>((frameRateMillis / 10000.0f)));
+  Time.deltaTime(static_cast<float>(frameRateMillis)/ 10000.0f);
   SDL_Delay(sleep_duration);
 
   SDL_RenderPresent(renderer);
