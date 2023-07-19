@@ -37,10 +37,10 @@ int main(int argc, char* argv[])
     front.Update();
     front.SetMatrixData(pos, scale, rot);
     front.Draw(verticies);
-    pos.x += 50;
+    pos.x += 1;
     if (pos.x >= front.GetWindowWidth() / 2.0f)
       pos.x = -front.GetWindowWidth() / 2.0f;
-    rot += .01;
+    rot += .1;
 #if 0
     std::cout << "FR: " << 1.0f/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
