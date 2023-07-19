@@ -92,7 +92,7 @@ glm::mat4x4 RenderFront::projectToSDLSpace(void) const
   SDL_GetWindowSize(window, &winSize.x, &winSize.y);
   const glm::vec2 winSizeHalf = glm::vec2(winSize) / 2.f;
   glm::mat4x4 mat(1.0f);
-  mat = glm::translate(mat, glm::vec3(winSizeHalf, 0)) * glm::scale(mat, { winSizeHalf.x, -winSizeHalf.y, 0 }) * glm::ortho<float>(0, winSize.x, winSize.y, 0);
+  mat = glm::translate(mat, glm::vec3(winSizeHalf, 0)) * glm::scale(mat, { winSizeHalf.x, -winSizeHalf.y, 0 }) * glm::ortho<float>(0, winSize.x, 0, winSize.y);
   return mat;
 }
 
