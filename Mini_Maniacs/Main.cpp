@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
     api.SetMatrixData(pos, scale, rot);
     api.Draw(verticies);
     pos.x += 200 * Time.deltaTime();
-    rot += 5 * Time.deltaTime();
+    rot += 1 * Time.deltaTime();
     if (pos.x >= api.GetWindowWidth() / 2.0f + scale.x)
       pos.x = -(api.GetWindowWidth() / 2.0f + scale.x);
 #if 0
