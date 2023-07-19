@@ -6,6 +6,10 @@
 #include "Time.h"
 #include "../GLM/ext/matrix_transform.hpp"
 #include "../GLM/ext/matrix_clip_space.hpp"
+
+RenderFront api;
+
+
 RendErr errorState = 0;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> Timer;
 

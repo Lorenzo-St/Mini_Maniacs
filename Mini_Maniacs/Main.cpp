@@ -15,11 +15,10 @@ std::vector<SDL_Vertex> verticies =
 
 int main(int argc, char* argv[])
 {
-  RenderFront front;
-  front.Init();
-  if (front.GetError() != 0) 
+  api.Init();
+  if (api.GetError() != 0)
   {
-    front.Shutdown();
+    api.Shutdown();
     return -1;
   }
   SDL_Event event;
@@ -27,16 +26,16 @@ int main(int argc, char* argv[])
   glm::vec2 pos = { 0,0 };
   glm::vec2 scale(100, 100);
   float rot = 0;
-  front.SetMatrixData(pos, scale, rot);
+  api.SetMatrixData(pos, scale, rot);
   while (running)
   {
 
-    front.Update();
-    front.SetMatrixData(pos, scale, rot);
-    front.Draw(verticies);
+    api.Update();
+    api.SetMatrixData(pos, scale, rot);
+    api.Draw(verticies);
     pos.x += 20 * Time.deltaTime();
-    if (pos.x >= front.GetWindowWidth() / 2.0f)
-      pos.x = -front.GetWindowWidth() / 2.0f;
+    if (pos.x >= api.GetWindowWidth() / 2.0f)
+      pos.x = -api.GetWindowWidth() / 2.0f;
 #if 0
     std::cout << "FR: " << 1.0/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif

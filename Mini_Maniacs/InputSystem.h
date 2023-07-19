@@ -41,3 +41,5 @@ public:
 private:
   std::vector<Binding> bindings;
 };
+
+extern InputSystem Input;

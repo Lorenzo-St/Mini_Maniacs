@@ -1,5 +1,7 @@
 #include "InputSystem.h"
 
+InputSystem Input;
+
 void InputSystem::Update(void)
 {
   for (auto& binding : bindings)
