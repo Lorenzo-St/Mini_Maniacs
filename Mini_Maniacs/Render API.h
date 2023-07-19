@@ -3,7 +3,6 @@
 #include "glm.hpp"
 #include <vector>
 #include "Time.h"
-#include "Vertex.h"
 typedef long RendErr;
 
 class RenderFront 

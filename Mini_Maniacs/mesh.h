@@ -1,7 +1,6 @@
 #pragma once
 #include "SDL.h"
 #include <vector>
-#include "Vertex.h"
 #include "Object.hpp"
 class RenderFront;
 
