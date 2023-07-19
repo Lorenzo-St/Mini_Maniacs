@@ -9,7 +9,7 @@ SDL_Vertex verticies[] =
   {{ 0.5f, 0.0f},{0,255,0,255},{0.5f,1.0f}},
   {{ 1.0f, 1.0f},{0,0,255,255},{1.0f,0.0f}}
 };
-static STime Time;
+
 
 int main(int argc, char* argv[])
 {

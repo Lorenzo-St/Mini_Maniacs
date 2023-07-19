@@ -33,6 +33,9 @@
     <ClCompile Include="mesh.cpp">
       <Filter>Source Files\Render Backend</Filter>
     </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Source Files\Render Backend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">
