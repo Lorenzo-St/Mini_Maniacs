@@ -80,7 +80,6 @@ void RenderFront::Update(void)
 #endif
     Time.deltaTime(static_cast<float>(frameRateMillis) / 10000.0f);
     std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
-
   }
 
 
@@ -88,7 +87,8 @@ void RenderFront::Update(void)
   SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
   SDL_RenderClear(renderer);
   timeMarker = std::chrono::high_resolution_clock::now();
-
+  std::chrono::duration<double, std::milli> sleep_time = timeMarker - last;
+  std::cout << "Time: " << (delta + sleep_time).count() << std::endl;
 }
 
 
