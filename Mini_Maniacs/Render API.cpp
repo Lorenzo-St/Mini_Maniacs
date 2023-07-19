@@ -116,21 +116,4 @@ void RenderFront::SetMatrix(glm::mat4x4 const& matrix)
   renderMatrix = matrix;
 }
 
-void RenderFront::SetTranslation(glm::vec2 pos) 
-{
-  pos.y *= -1;
-  renderMatrix = glm::translate(renderMatrix, glm::vec3(pos, 1));
-}
-
-void RenderFront::SetScale(glm::vec2 scale) 
-{
-  scale *= glm::vec2(1.0f/Width, 1.0f/Height);
-  renderMatrix = glm::scale(renderMatrix, glm::vec3(scale,1));
-}
-
-void RenderFront::SetRotation(float rotation) 
-{
-  renderMatrix = glm::rotate(renderMatrix, rotation, glm::vec3(0,0,1));
-}
-
 
