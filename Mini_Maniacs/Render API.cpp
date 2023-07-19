@@ -61,24 +61,28 @@ void RenderFront::Shutdown(void)
 void RenderFront::Update(void) 
 {
   Timer last = timeMarker;
-  timeMarker = std::chrono::high_resolution_clock::now();
-  std::chrono::high_resolution_clock::duration delta = timeMarker - last;
-  std::chrono::duration<double, std::milli> delta_ms(frameRateMillis - delta.count());
-  auto delta_ms_duration = std::chrono::duration_cast<std::chrono::milliseconds>(delta_ms);
-#if _DEBUG && 1
-  std::cout << "Start Time: " 
-            << last.time_since_epoch().count() 
-            << ", End Time: " 
-            << timeMarker.time_since_epoch().count() 
-            << ", Duration: " 
-            << delta.count() 
-            << "delta_ms: " 
-            << delta_ms_duration.count()
-            << std::endl;
-#endif
-  Time.deltaTime(static_cast<float>(frameRateMillis)/ 10000.0f);
-  std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
+  timeMarker = Timer::clock::now();
+  std::chrono::duration<double, std::milli> delta = timeMarker - last;
+  if (delta.count() < frameRateMillis)
+  {
 
+    std::chrono::duration<double, std::milli> delta_ms(frameRateMillis - delta.count());
+    auto delta_ms_duration = std::chrono::duration_cast<std::chrono::milliseconds>(delta_ms);
+#if _DEBUG && 1
+    std::cout << "Start Time: "
+      << last.time_since_epoch().count()
+      << ", End Time: "
+      << timeMarker.time_since_epoch().count()
+      << ", Duration: "
+      << delta.count()
+      << "delta_ms: "
+      << delta_ms_duration.count()
+      << std::endl;
+#endif
+    Time.deltaTime(static_cast<float>(frameRateMillis) / 10000.0f);
+    std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
+
+  }
 
 
   SDL_RenderPresent(renderer);
