@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
   SDL_Event event;
   bool running = true;
   front.SetTranslation({ 0, -100 });
-  front.SetScale({1280, 720 });
+  front.SetScale({100, 200 });
   while (running)
   {
     SDL_PollEvent(&event);
