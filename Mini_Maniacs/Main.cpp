@@ -32,13 +32,11 @@ int main(int argc, char* argv[])
       running = false;
     }
     front.Update();
-    SDL_Rect reky = { 100, 100, 100, 100 };
     front.Draw(verticies);
 #if 0
     std::cout << "FR: " << 1.0f/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
 
-    SDL_RenderFillRect(front.GetRenderer(), &reky);
 
   }
 
