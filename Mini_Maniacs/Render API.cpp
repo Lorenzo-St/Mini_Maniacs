@@ -105,9 +105,8 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   for (auto& vert : temp) 
   {
     glm::vec2 t = convert(vert.position);
-    glm::vec3 m = proj * projection * glm::vec4(t, 1, 1);
-    glm::vec2 l = glm::vec2(m) * glm::vec2(Width, Height);
-    vert.position = convert(l);
+    glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f, Height / 2.0f);
+    vert.position = convert(m);
   }
   SDL_RenderGeometry(renderer, nullptr, temp.data(), temp.size(), nullptr, 0);
 }
