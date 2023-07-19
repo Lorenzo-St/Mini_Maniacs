@@ -3,6 +3,7 @@
 #include <iostream>
 #include <chrono>
 #include "Time.h"
+#include "../GLM/gtx/matrix_transform_2d.hpp"
 RendErr errorState = 0;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> Timer;
 
@@ -34,7 +35,7 @@ void RenderFront::Init(void)
     errorState = 101;
     return;
   }
-  renderer = SDL_CreateRenderer(window, -1, 0);
+  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE);
   if (renderer == nullptr) 
   {
     errorState = 102;
@@ -84,12 +85,35 @@ void RenderFront::Update(void)
 
 }
 
+glm::mat3x3 RenderFront::projectToSDLSpace(void) const
+{
+  glm::ivec2 winSize;
+  SDL_GetWindowSize(window, &winSize.x, &winSize.y);
+  const glm::vec2 winSizeHalf = glm::vec2(winSize) / 2.f;
+  glm::mat3x3 mat(1.0f);
+  glm::translate(mat, winSizeHalf) * glm::scale(mat, { winSizeHalf.x, -winSizeHalf.y });
+  return mat;
+}
 
+inline glm::vec2 convert(SDL_FPoint f) 
+{
+  return { f.x, f.y };
+}
 
+inline SDL_FPoint convert(glm::vec2 f)
+{
+  return { f.x, f.y };
+}
 
 void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 {
-  
+  const glm::mat3x3 projection = projectToSDLSpace() * renderMatrix;
+  std::vector<SDL_Vertex> temp = mesh;
+  for (auto& vert : temp) 
+  {
+    vert.position = convert(glm::vec2(glm::vec3( convert(vert.position), 1 ) * projection));
+  }
+  SDL_RenderGeometry(renderer, nullptr, temp.data(), temp.size(), nullptr, 0);
 }
 
 void RenderFront::SetMatrix(glm::mat4x4 const& matrix) 
