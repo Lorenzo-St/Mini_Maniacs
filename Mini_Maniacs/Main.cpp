@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
     front.Update();
     front.SetMatrixData(pos, scale, rot);
     front.Draw(verticies);
-    pos.x += 10 * Time.deltaTime();
+    pos.x += 20 * Time.deltaTime();
     if (pos.x >= front.GetWindowWidth() / 2.0f)
       pos.x = -front.GetWindowWidth() / 2.0f;
 #if 0
