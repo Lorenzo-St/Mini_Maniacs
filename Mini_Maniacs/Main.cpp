@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
     api.SetTexture(t);
     api.Draw(verticies);
     api.SetTexture(nullptr);
-    pos.x += xSpeed * Time.deltaTime();
+    //pos.x += xSpeed * Time.deltaTime();
     rot += 1 * Time.deltaTime();
     if (pos.x >= api.GetWindowWidth() / 2.0f + scale.x)
       pos.x = -(api.GetWindowWidth() / 2.0f + scale.x);
