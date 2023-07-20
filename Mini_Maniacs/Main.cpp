@@ -1,6 +1,4 @@
-#ifndef _DEBUG
-#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
-#endif
+
 #include "SDL.h"
 #include <iostream>
 #include "Backend.h"
