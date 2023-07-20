@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     if (pos.x >= api.GetWindowWidth() / 2.0f + scale.x)
       pos.x = -(api.GetWindowWidth() / 2.0f + scale.x);
     if (Input.isPressed(Enter))
-      speed += speed;
+      speed += speed * Time.deltaTime();
     else
       speed = 200;
 #if 0
