@@ -24,6 +24,7 @@ Texture TextureManager::LoadTexture(std::string const& filename)
   SDL_UpdateTexture(texture, &tex, file, w * channels);
 
   SDL_SetTextureScaleMode(texture, textureScalingForLoad);
+
   textures.push_back(texture);
   stbi_image_free(file);
   return texture;
