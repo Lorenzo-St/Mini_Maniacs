@@ -8,7 +8,7 @@ void InputSystem::Update(void)
 {
   for (auto& binding : bindings)
   {
-#if _DEBUG
+#if _DEBUG && 0
     std::cout << "Key : " 
       << binding.binding.key 
       << " Pressed : " 

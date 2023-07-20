@@ -25,16 +25,21 @@ int main(int argc, char* argv[])
   glm::vec2 scale(100, 100);
   float rot = 0;
   api.SetMatrixData(pos, scale, rot);
+  float speed = 200;
   while (running)
   {
 
     api.Update();
     api.SetMatrixData(pos, scale, rot);
     api.Draw(verticies);
-    pos.x += 200 * Time.deltaTime();
+    pos.x += speed * Time.deltaTime();
     rot += 1 * Time.deltaTime();
     if (pos.x >= api.GetWindowWidth() / 2.0f + scale.x)
       pos.x = -(api.GetWindowWidth() / 2.0f + scale.x);
+    if (Input.isPressed(Enter))
+      speed = 1000;
+    else
+      speed = 200;
 #if 0
     std::cout << "FR: " << 1.0/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
