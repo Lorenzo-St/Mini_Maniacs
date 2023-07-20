@@ -1,6 +1,7 @@
 #include "InputSystem.h"
 #if _DEBUG
 #include <iostream>
+#include <string>
 #endif
 InputSystem Input;
 
@@ -66,7 +67,7 @@ void InputSystem::inputEvent(SDL_Event event)
         (binding.pressed == false) ? binding.triggered = true : 0;
         binding.pressed = true;
 #if _DEBUG
-        std::cout << "Pressed: " << event.key.keysym.sym << std::endl;
+        std::cout << "Pressed: " << static_cast<char>(event.key.keysym.sym) << std::endl;
 #endif
       }
     }
@@ -75,10 +76,12 @@ void InputSystem::inputEvent(SDL_Event event)
     for (auto& binding : bindings)
     {
       if (binding.binding.key == event.key.keysym.sym)
+      {  
         binding.pressed = false;
 #if _DEBUG
-      std::cout << "Released: " << event.key.keysym.sym << std::endl;
+        std::cout << "Released: " << static_cast<char>(event.key.keysym.sym) << std::endl;
 #endif
+      }
     }
     break;
   
