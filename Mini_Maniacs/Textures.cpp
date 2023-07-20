@@ -21,7 +21,7 @@ Texture TextureManager::LoadTexture(std::string const& filename)
     break;
   }
   SDL_Rect tex = {0,0,w,h};
-  SDL_UpdateTexture(texture, &tex, file, w);
+  SDL_UpdateTexture(texture, &tex, file, w * channels);
 
   SDL_SetTextureScaleMode(texture, textureScalingForLoad);
   textures.push_back(texture);
