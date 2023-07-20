@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
   Input.addBinding(Enter, { SDLK_g });
   api.Init();
   
-  Texture t = Textures.LoadTexture(std::string("C:\\Users\\amyst\\Pictures\\hVZzYdGI.jpeg"));
+  Texture t = Textures.LoadTexture(std::string("C:\\Users\\amyst\\Pictures\\tax em.png"));
   if (api.GetError() != 0)
   {
     api.Shutdown();
