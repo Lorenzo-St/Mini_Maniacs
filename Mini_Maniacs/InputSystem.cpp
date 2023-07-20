@@ -66,7 +66,7 @@ void InputSystem::inputEvent(SDL_Event event)
         (binding.pressed == false) ? binding.triggered = true : 0;
         binding.pressed = true;
 #if _DEBUG
-        std::cout << "Pressed: " << event.key.keysym.scancode;
+        std::cout << "Pressed: " << event.key.keysym.sym << std::endl;
 #endif
       }
     }
@@ -76,6 +76,9 @@ void InputSystem::inputEvent(SDL_Event event)
     {
       if (binding.binding.key == event.key.keysym.sym)
         binding.pressed = false;
+#if _DEBUG
+      std::cout << "Released: " << event.key.keysym.sym << std::endl;
+#endif
     }
     break;
   
