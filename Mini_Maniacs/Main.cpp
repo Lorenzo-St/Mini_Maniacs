@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
   SDL_Event event;
   bool running = true;
   glm::vec2 pos = { 0,0 };
-  glm::vec2 scale(100, 100);
+  glm::vec2 scale(100, -100);
   float rot = 0;
   api.SetMatrixData(pos, scale, rot);
   float xSpeed = 200;
