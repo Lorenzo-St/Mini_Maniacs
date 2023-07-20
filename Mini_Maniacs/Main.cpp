@@ -17,9 +17,9 @@ std::vector<SDL_Vertex> verticies =
 
 int main(int argc, char* argv[])
 {
-  Texture t = Textures.LoadTexture(std::string("C:\\Users\\amyst\\Pictures\\hVZzYdGI.jpeg"));
   Input.addBinding(Enter, { SDLK_g });
   api.Init();
+  Texture t = Textures.LoadTexture(std::string("C:\\Users\\amyst\\Pictures\\hVZzYdGI.jpeg"));
   if (api.GetError() != 0)
   {
     api.Shutdown();
