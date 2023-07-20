@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
 {
   Input.addBinding(Enter, { SDLK_g });
   api.Init();
+  
   Texture t = Textures.LoadTexture(std::string("C:\\Users\\amyst\\Pictures\\hVZzYdGI.jpeg"));
   if (api.GetError() != 0)
   {

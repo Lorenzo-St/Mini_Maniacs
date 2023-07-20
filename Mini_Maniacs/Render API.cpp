@@ -54,6 +54,7 @@ void RenderFront::Init(void)
   std::cout << frameRateMillis << std::endl;
 #endif
   timeMarker = Timer::clock::now();
+  Textures.SetRenderer(renderer);
 }
 
 void RenderFront::Shutdown(void) 
