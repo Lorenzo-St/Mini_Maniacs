@@ -38,7 +38,11 @@ int main(int argc, char* argv[])
       pos.x = -(api.GetWindowWidth() / 2.0f + scale.x);
     if (Input.isPressed(Enter))
       speed += speed * Time.deltaTime();
-    else
+    else if (speed > 200) 
+    {
+      speed *= .75f;
+    }
+    else if(speed < 200)
       speed = 200;
 #if 0
     std::cout << "FR: " << 1.0/Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
