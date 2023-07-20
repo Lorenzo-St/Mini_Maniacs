@@ -1,7 +1,11 @@
+#if !_DEBUG
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+#endif
 #include "SDL.h"
 #include <iostream>
 #include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
+
 std::vector<SDL_Vertex> verticies =
 {
   {{-0.5f,-0.5f},{255,  0,  0,255},{0.0f,0.0f}},
