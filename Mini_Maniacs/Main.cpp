@@ -1,9 +1,6 @@
 #include "SDL.h"
-#include "EventProcessing.h"
 #include <iostream>
-#include "Render API.h"
-#include "mesh.h"
-#include "Time.h"
+#include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
 std::vector<SDL_Vertex> verticies =
 {
@@ -15,6 +12,7 @@ std::vector<SDL_Vertex> verticies =
 
 int main(int argc, char* argv[])
 {
+  Input.addBinding(Enter, { SDLK_g });
   api.Init();
   if (api.GetError() != 0)
   {

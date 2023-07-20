@@ -5,6 +5,7 @@
 #include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
 #include "../GLM/ext/matrix_clip_space.hpp"
+#include "InputSystem.h"
 
 RenderFront api;
 
@@ -96,6 +97,7 @@ void RenderFront::Update(void)
 #if _DEBUG && 0
   std::cout << "Time: " << (delta + sleep_time).count() << std::endl;
 #endif
+  Input.Update();
 }
 
 

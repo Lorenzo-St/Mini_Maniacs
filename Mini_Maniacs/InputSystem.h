@@ -3,6 +3,8 @@
 #include <vector>
 typedef enum InputActions 
 {
+  Enter, 
+  Back,
 
 }Action;
 
@@ -37,6 +39,7 @@ public:
 
   void addBinding(Action a, char type,input b);
   void addBinding(Action a, input b);
+  void inputEvent(SDL_Event event);
 
 private:
   std::vector<Binding> bindings;

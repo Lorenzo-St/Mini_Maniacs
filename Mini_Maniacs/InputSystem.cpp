@@ -1,13 +1,17 @@
 #include "InputSystem.h"
-
+#if _DEBUG
+#include <iostream>
+#endif
 InputSystem Input;
 
 void InputSystem::Update(void)
 {
   for (auto& binding : bindings)
   {
+#if _DEBUG
+    std::cout << "Key : " << binding.binding.key << " Pressed : " << binding.pressed << std::endl;
+#endif
     binding.triggered = false;
-    binding.pressed = false;
   }
 }
 
@@ -43,5 +47,29 @@ void InputSystem::addBinding(Action a, input b)
 {
   bindings.push_back(Binding(a, b));
 }
+
+void InputSystem::inputEvent(SDL_Event event) 
+{
+  switch (event.type)
+  {
+  case SDL_KEYDOWN:
+    for (auto& binding : bindings)
+    {
+      if (binding.binding.key == event.key.keysym.sym)
+        binding.pressed = true, binding.triggered = true;
+    }
+    break;
+  case SDL_KEYUP:
+    for (auto& binding : bindings)
+    {
+      if (binding.binding.key == event.key.keysym.sym)
+        binding.pressed = false;
+    }
+    break;
+  
+  }
+
+}
+
 
 
