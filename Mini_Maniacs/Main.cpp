@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
       speed += speed * Time.deltaTime();
     else if (speed > 200) 
     {
-      speed *= .75f;
+      speed *= .9f;
     }
     else if(speed < 200)
       speed = 200;
