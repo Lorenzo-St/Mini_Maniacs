@@ -62,7 +62,10 @@ void InputSystem::inputEvent(SDL_Event event)
     for (auto& binding : bindings)
     {
       if (binding.binding.key == event.key.keysym.sym)
-        binding.pressed = true, binding.triggered = true;
+      {
+        (binding.pressed == false) ? binding.triggered = true : 0;
+        binding.pressed = true;
+      }
     }
     break;
   case SDL_KEYUP:
