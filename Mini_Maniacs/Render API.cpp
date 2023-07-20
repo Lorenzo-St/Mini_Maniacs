@@ -5,7 +5,6 @@
 #include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
 #include "../GLM/ext/matrix_clip_space.hpp"
-#include "InputSystem.h"
 
 RenderFront api;
 
@@ -22,7 +21,7 @@ RendErr RenderFront::GetError(void)
 
 // The function to initialize the render backend.
 // 
-// After call, Make sure to check GetError() for error state
+// After calling this, Make sure to check GetError() for error state
 //  If error state is not 0, then error has occured and 
 //  Interface is not initialized
 //
@@ -35,7 +34,7 @@ void RenderFront::Init(void)
     return;
   }
 
-  window = SDL_CreateWindow("SDL2 Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Width, Height, SDL_WINDOW_SHOWN);
+  window = SDL_CreateWindow(PROJECT_NAME, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Width, Height, SDL_WINDOW_SHOWN);
   if (window == nullptr)
   {
     errorState = 101;

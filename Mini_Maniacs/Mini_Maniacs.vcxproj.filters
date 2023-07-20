@@ -42,6 +42,12 @@
     <ClCompile Include="InputSystem.cpp">
       <Filter>Source Files\Render Backend</Filter>
     </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Source Files\Render Backend</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.h">
+      <Filter>Source Files\Render Backend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">

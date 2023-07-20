@@ -1,6 +1,6 @@
-
-#include "SDL.h"
 #include <iostream>
+#include <string>
+#include "SDL.h"
 #include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
 
@@ -17,6 +17,7 @@ std::vector<SDL_Vertex> verticies =
 
 int main(int argc, char* argv[])
 {
+  Texture t = Textures.LoadTexture(std::string("C:\\Users\\amyst\\Pictures\\hVZzYdGI.jpeg"));
   Input.addBinding(Enter, { SDLK_g });
   api.Init();
   if (api.GetError() != 0)
