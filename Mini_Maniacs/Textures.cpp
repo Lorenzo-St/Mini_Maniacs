@@ -43,4 +43,14 @@ void TextureManager::SetScalingMode(SDL_ScaleMode s)
   textureScalingForLoad = s;
 }
 
+void TextureManager::DropAll(void) 
+{
+  for (auto& texture : textures) 
+  {
+    SDL_DestroyTexture(texture);
+  }
+}
+
+
+
 TextureManager Textures;

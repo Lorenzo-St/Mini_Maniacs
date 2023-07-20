@@ -12,7 +12,8 @@ public:
   Texture LoadTexture(const char* filename);
 
   void DropTexture(Texture t);
-  
+  void DropAll(void);
+
   void SetRenderer(SDL_Renderer* r) { renderer = r; };
   void SetScalingMode(SDL_ScaleMode s);
 private:

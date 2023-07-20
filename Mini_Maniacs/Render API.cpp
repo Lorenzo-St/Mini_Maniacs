@@ -59,6 +59,7 @@ void RenderFront::Init(void)
 
 void RenderFront::Shutdown(void) 
 {
+  Textures.DropAll();
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   SDL_Quit();
