@@ -4,6 +4,7 @@
 #include <vector>
 #include "Time.h"
 typedef long RendErr;
+typedef SDL_Texture* Texture;
 
 class RenderFront 
 {
@@ -19,7 +20,7 @@ public:
   void Draw(std::vector<SDL_Vertex> const& mesh) const;
   void SetMatrix(glm::mat4x4 const& matrix);
   void SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
-
+  void SetTexture(Texture texture);
   // Window Stuff
   int GetWindowWidth(void) { return Width; }
   int GetWindowHeight(void) { return Height; }
@@ -42,7 +43,8 @@ private:
   Camera c = { {0,0} };
   SDL_Window* window = nullptr;
   SDL_Renderer* renderer = nullptr;
-  SDL_Rect ViewPort;
+  SDL_Rect ViewPort = {0};
+  Texture activeTexture = nullptr;
   glm::mat4x4 renderMatrix = glm::mat4x4(1.0f);
 };
 

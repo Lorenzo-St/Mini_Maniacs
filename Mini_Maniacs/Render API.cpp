@@ -5,7 +5,6 @@
 #include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
 #include "../GLM/ext/matrix_clip_space.hpp"
-
 RenderFront api;
 
 
@@ -123,7 +122,8 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
     glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y);
     vert.position = convert(m);
   }
-  SDL_RenderGeometry(renderer, nullptr, temp.data(), static_cast<int>(temp.size()), nullptr, 0);
+  SDL_RenderGeometry(renderer, activeTexture, temp.data(), static_cast<int>(temp.size()), nullptr, 0);
+  //activeTexture = nullptr;
 }
 
 void RenderFront::SetMatrix(glm::mat4x4 const& matrix) 
@@ -140,4 +140,11 @@ void RenderFront::SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation)
   mat = glm::transpose(mat);
   renderMatrix = mat;
 }
+
+void RenderFront::SetTexture(Texture texture)
+{
+  activeTexture = texture;
+}
+
+
 

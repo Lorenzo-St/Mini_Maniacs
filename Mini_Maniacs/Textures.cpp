@@ -3,6 +3,8 @@
 #include "Textures.h"
 #include "SDL.h"
 
+TextureManager Textures;
+
 Texture TextureManager::LoadTexture(std::string const& filename)
 {
   int w, h, channels;
@@ -53,4 +55,3 @@ void TextureManager::DropAll(void)
 
 
 
-TextureManager Textures;
