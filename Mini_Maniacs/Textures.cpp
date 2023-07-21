@@ -10,6 +10,7 @@ Texture TextureManager::LoadTexture(std::string const& filename)
   int w, h, channels;
 
   unsigned char* file = stbi_load(filename.c_str(), &w, &h, &channels, 0);
+ 
   SDL_Texture* texture = nullptr;
   switch (channels) 
   {
