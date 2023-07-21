@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Game Code">
       <UniqueIdentifier>{22348928-5095-4068-8e3f-9bb2d408cb2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System">
+      <UniqueIdentifier>{02691bfe-1970-46e7-acb4-076b7e5ca98e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -48,6 +51,9 @@
     <ClCompile Include="Textures.h">
       <Filter>Source Files\Render Backend</Filter>
     </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Engine Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">
@@ -70,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="InputSystem.h">
       <Filter>Source Files\Render Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Source Files\Engine Code</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>Source Files\Engine Code\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

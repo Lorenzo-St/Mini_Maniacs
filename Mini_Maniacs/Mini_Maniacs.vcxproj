@@ -183,6 +183,7 @@ git push</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Textures.h" />
     <ClCompile Include="EventProcessing.cpp" />
     <ClCompile Include="InputSystem.cpp" />
@@ -194,11 +195,13 @@ git push</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Backend.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="EventProcessing.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Render API.h" />
+    <ClInclude Include="system.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
