@@ -1,4 +1,6 @@
 #pragma once
+class Stream;
+
 class Object 
 {
 public:
@@ -13,7 +15,7 @@ public:
 
   virtual void OnDestroy(void) { return; };
   virtual void OnAwake(void) { return; };
-  
+  virtual void Read(Stream* s) {};
   virtual Object* Clone() = 0;
 private:
 

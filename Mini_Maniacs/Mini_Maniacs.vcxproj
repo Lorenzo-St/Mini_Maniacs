@@ -190,6 +190,7 @@ git push</Command>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="Render API.cpp" />
+    <ClCompile Include="Stream.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
@@ -204,6 +205,7 @@ git push</Command>
     <ClInclude Include="RNG.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneSystem.h" />
+    <ClInclude Include="Stream.h" />
     <ClInclude Include="system.h" />
     <ClInclude Include="Temp.h" />
     <ClInclude Include="Textures.h" />

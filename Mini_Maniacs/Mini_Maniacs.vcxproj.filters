@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Engine Code\NonSystems">
       <UniqueIdentifier>{2172d49d-3684-4433-a5f4-1d9d00770735}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System\SceneSystem">
+      <UniqueIdentifier>{558b3ae7-b743-4b5a-85bd-debacd987de6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Code\System\Entity System">
+      <UniqueIdentifier>{2aa8897d-e39a-4791-a6e5-960c5fd2237c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -58,7 +64,10 @@
       <Filter>Source Files\Engine Code</Filter>
     </ClCompile>
     <ClCompile Include="SceneSystem.cpp">
-      <Filter>Source Files\Engine Code\System</Filter>
+      <Filter>Source Files\Engine Code\System\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Stream.cpp">
+      <Filter>Source Files\Engine Code\NonSystems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,9 +98,6 @@
     <ClInclude Include="system.h">
       <Filter>Source Files\Engine Code\System</Filter>
     </ClInclude>
-    <ClInclude Include="SceneSystem.h">
-      <Filter>Source Files\Engine Code\System</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Source Files\Engine Code</Filter>
     </ClInclude>
@@ -103,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="Textures.h">
       <Filter>Source Files\Render Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneSystem.h">
+      <Filter>Source Files\Engine Code\System\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Stream.h">
+      <Filter>Source Files\Engine Code\NonSystems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
