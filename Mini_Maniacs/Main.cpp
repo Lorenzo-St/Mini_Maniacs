@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     //pos.x += xSpeed * Time.deltaTime();
     //rot += 1 * Time.deltaTime();
     scale.x += xSpeed * Time.deltaTime();
-    scale.y += xSpeed * Time.deltaTime();
+    scale.y += xSpeed * .75f * Time.deltaTime();
 
     if (pos.x >= api.GetWindowWidth() / 2.0f + scale.x)
       pos.x = -(api.GetWindowWidth() / 2.0f + scale.x);
