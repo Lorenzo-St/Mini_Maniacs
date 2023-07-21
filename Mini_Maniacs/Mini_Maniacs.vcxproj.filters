@@ -54,9 +54,6 @@
     <ClCompile Include="Textures.cpp">
       <Filter>Source Files\Render Backend</Filter>
     </ClCompile>
-    <ClCompile Include="Textures.h">
-      <Filter>Source Files\Render Backend</Filter>
-    </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Engine Code</Filter>
     </ClCompile>
@@ -103,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="RNG.h">
       <Filter>Source Files\Engine Code\NonSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Source Files\Render Backend</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

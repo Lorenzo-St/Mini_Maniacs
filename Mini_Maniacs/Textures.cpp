@@ -5,6 +5,12 @@
 
 TextureManager Textures;
 
+void TextureManager::SetRenderer(SDL_Renderer* r)
+{ 
+  renderer = r; 
+}
+
+
 Texture TextureManager::LoadTexture(std::string const& filename)
 {
   int w, h, channels;
