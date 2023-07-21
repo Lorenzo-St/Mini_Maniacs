@@ -19,16 +19,20 @@ void SceneSystem::Update(void)
 #if _DEBUG && 1
     std::cout << "Changing Scene" << std::endl;
 #endif
-    Active->Exit();
-    if(!restarting)
-      delete Active;
-    Active = nullptr;
+    if (Active) 
+    {
+      Active->Exit();
+      if (!restarting)
+        delete Active;
+      Active = nullptr;
+    }
 
     Active = nextScene;
     nextScene = nullptr;
     
-      
-    Active->Init();
+    if(Active)
+      Active->Init();
+    
     changing = false;
     restarting = false;
   }
