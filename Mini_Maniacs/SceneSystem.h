@@ -18,5 +18,6 @@ private:
   Scene* nextScene = nullptr;
   bool restarting;
   bool changing;
+  SceneSystem* Clone() { return nullptr; };
   
 };
