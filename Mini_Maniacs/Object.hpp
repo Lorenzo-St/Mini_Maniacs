@@ -5,14 +5,14 @@ public:
   Object(void) {};
   Object(Object const& o) {};
 
-  void Awake(void) { return; };
-  void Init(void) { return; };
-  void Update(void) { return; };
-  void Render(void) { return; };
-  void Exit(void) { return; };
+  virtual void Awake(void) { return; };
+  virtual void Init(void) { return; };
+  virtual void Update(void) { return; };
+  virtual void Render(void) { return; };
+  virtual void Exit(void) { return; };
 
-  void OnDestroy(void) { return; };
-  void OnAwake(void) { return; };
+  virtual void OnDestroy(void) { return; };
+  virtual void OnAwake(void) { return; };
   
   virtual Object* Clone() = 0;
 private:
