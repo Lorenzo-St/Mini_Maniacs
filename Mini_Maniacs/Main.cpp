@@ -2,6 +2,7 @@
 #include <string>
 #include "SDL.h"
 #include "Backend.h"
+#include "Engine.h"
 #include "../GLM/ext/matrix_transform.hpp"
 
 std::vector<SDL_Vertex> verticies =
@@ -17,15 +18,13 @@ std::vector<SDL_Vertex> verticies =
 
 int main(int argc, char* argv[])
 {
+  Engine engine;
+  engine.Init();
+  engine.Update();
   Input.addBinding(Enter, { SDLK_g });
-  api.Init();
   
   Texture t = Textures.LoadTexture(std::string("C:\\Users\\amyst\\Pictures\\tax em.png"));
-  if (api.GetError() != 0)
-  {
-    api.Shutdown();
-    return -1;
-  }
+
   SDL_Event event;
   bool running = true;
   glm::vec2 pos = { 0,0 };

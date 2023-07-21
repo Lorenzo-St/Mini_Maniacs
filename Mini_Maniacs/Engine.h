@@ -16,7 +16,6 @@ public:
   errState GetErr(void);
 
 private:
-  Engine* Clone() {};
+  Engine* Clone() { return nullptr; };
   std::vector<System*> Systems;
-  RenderFront api;
 };
