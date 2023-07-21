@@ -22,6 +22,7 @@ public:
     updates = 0;
     Random<float> r;
     api.SetMatrixData({ r.Next(-200.f, 200.f), r.Next(-200.f, 200.f) }, {100, 100}, 0);
+    std::cout << r.Next() << std::endl;
   }
   void Update()
   {

@@ -13,10 +13,9 @@ public:
 
   }
 
-  template<typename t>
   t Next(void)
   {
-
+    return static_cast<t>(engine());
   }
 
 template<typename t>
