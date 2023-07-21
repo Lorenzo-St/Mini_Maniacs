@@ -43,8 +43,8 @@ int main(int argc, char* argv[])
     api.SetTexture(nullptr);
     //pos.x += xSpeed * Time.deltaTime();
     //rot += 1 * Time.deltaTime();
-    scale.x += 10 * Time.deltaTime();
-    scale.y += 10 * Time.deltaTime();
+    scale.x += xSpeed * Time.deltaTime();
+    scale.y += xSpeed * Time.deltaTime();
 
     if (pos.x >= api.GetWindowWidth() / 2.0f + scale.x)
       pos.x = -(api.GetWindowWidth() / 2.0f + scale.x);
