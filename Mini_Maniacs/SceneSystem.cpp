@@ -13,10 +13,8 @@ void SceneSystem::Init(void)
 
 void SceneSystem::Update(void) 
 {
-  if (Active == nullptr) 
-    return;
 
-  if (nextScene != nullptr) 
+  if (changing) 
   {
 #if _DEBUG && 1
     std::cout << "Changing Scene" << std::endl;
@@ -31,7 +29,12 @@ void SceneSystem::Update(void)
     
       
     Active->Init();
+    changing = false;
+    restarting = false;
   }
+  if (Active == nullptr)
+    return;
+
 #if _DEBUG && 1
   std::cout << "Updating Scene" << std::endl;
 #endif
@@ -65,4 +68,5 @@ void SceneSystem::SetNextScene(Scene* s)
     restarting = true;
   s->SetSceneSystem(this); 
   nextScene = s;
+  changing = true;
 }
