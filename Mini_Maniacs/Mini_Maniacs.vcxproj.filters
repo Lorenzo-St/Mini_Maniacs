@@ -34,8 +34,14 @@
     <Filter Include="Source Files\Engine Code\System\SceneSystem">
       <UniqueIdentifier>{558b3ae7-b743-4b5a-85bd-debacd987de6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine Code\System\Entity System">
+    <Filter Include="Source Files\Engine Code\System\EntitySystem">
       <UniqueIdentifier>{2aa8897d-e39a-4791-a6e5-960c5fd2237c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Entitiy">
+      <UniqueIdentifier>{7a59fb8c-52ad-49ac-bd5a-8037656f1055}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component">
+      <UniqueIdentifier>{52334a97-935a-4940-8aad-4e58b3a46d1b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="Stream.cpp">
       <Filter>Source Files\Engine Code\NonSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="EntitySystem.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +124,18 @@
     </ClInclude>
     <ClInclude Include="Stream.h">
       <Filter>Source Files\Engine Code\NonSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="EntitySystem.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Entitiy</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumMacros.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

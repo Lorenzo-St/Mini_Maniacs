@@ -6,7 +6,7 @@ class Scene;
 class SceneSystem : public System
 {
 public:
-;
+
   void Init(void);
   void Update(void);
   void Exit(void);
