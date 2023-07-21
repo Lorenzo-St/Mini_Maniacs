@@ -39,7 +39,7 @@ void SceneSystem::Update(void)
   if (Active == nullptr)
     return;
 
-#if _DEBUG && 1
+#if _DEBUG && 0
   std::cout << "Updating Scene" << std::endl;
 #endif
   Active->Update();
