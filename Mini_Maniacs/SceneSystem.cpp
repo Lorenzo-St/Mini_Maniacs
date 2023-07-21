@@ -16,7 +16,7 @@ void SceneSystem::Update(void)
 
   if (changing) 
   {
-#if _DEBUG && 1
+#if _DEBUG && 0
     std::cout << "Changing Scene" << std::endl;
 #endif
     if (Active) 
