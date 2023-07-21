@@ -1,6 +1,10 @@
+#if _DEBUG
+#include <iostream>
+#endif
 #include "SceneSystem.h"
 #include "Scene.h"
 #include "Temp.h"
+
 
 void SceneSystem::Init(void) 
 {
@@ -14,6 +18,9 @@ void SceneSystem::Update(void)
 
   if (nextScene != nullptr) 
   {
+#if _DEBUG && 1
+    std::cout << "Changing Scene" << std::endl;
+#endif
     Active->Exit();
     if(!restarting)
       delete Active;
@@ -25,7 +32,11 @@ void SceneSystem::Update(void)
       
     Active->Init();
   }
+#if _DEBUG && 1
+  std::cout << "Updating Scene" << std::endl;
+#endif
   Active->Update();
+
 
 }
 
