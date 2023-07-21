@@ -146,5 +146,8 @@ void RenderFront::SetTexture(Texture texture)
   activeTexture = texture;
 }
 
-
+Mesh* RenderFront::CreateMesh(void) 
+{ 
+  return new Mesh(this); 
+}
 

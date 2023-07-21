@@ -5,6 +5,7 @@
 #include "Time.h"
 typedef long RendErr;
 typedef SDL_Texture* Texture;
+class Mesh;
 
 class RenderFront 
 {
@@ -21,6 +22,11 @@ public:
   void SetMatrix(glm::mat4x4 const& matrix);
   void SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
   void SetTexture(Texture texture);
+  
+  // Create mesh for drawing
+  Mesh* CreateMesh(void);
+  
+
   // Window Stuff
   int GetWindowWidth(void) { return Width; }
   int GetWindowHeight(void) { return Height; }
