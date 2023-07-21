@@ -8,7 +8,7 @@
 RenderFront api;
 
 
-RendErr errorState = 0;
+static RendErr errorState = 0;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> Timer;
 
 Timer timeMarker = Timer();

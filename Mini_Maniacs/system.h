@@ -1,7 +1,9 @@
 #pragma once
 #include "Object.hpp"
-class System : Object
+class System : public Object
 {
-  virtual System* Clone(System const& s) = 0;
-
+public:
+  virtual System* Clone() = 0;
+  System() = default;
+  bool operator==(const System& other) const = delete;
 };
