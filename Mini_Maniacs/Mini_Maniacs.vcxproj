@@ -202,6 +202,7 @@ git push</Command>
     <ClInclude Include="mesh.h" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Render API.h" />
+    <ClInclude Include="RNG.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneSystem.h" />
     <ClInclude Include="system.h" />

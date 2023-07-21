@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Game Code\Scenes">
       <UniqueIdentifier>{7033f46b-4915-4ba1-81a5-e81222c14074}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\NonSystems">
+      <UniqueIdentifier>{2172d49d-3684-4433-a5f4-1d9d00770735}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="Temp.h">
       <Filter>Source Files\Game Code\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="RNG.h">
+      <Filter>Source Files\Engine Code\NonSystems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
