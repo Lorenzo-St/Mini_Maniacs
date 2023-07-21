@@ -18,4 +18,6 @@ public:
 private:
   Engine* Clone() { return nullptr; };
   std::vector<System*> Systems;
+  bool running = true;
+
 };
