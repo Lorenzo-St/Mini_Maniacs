@@ -10,7 +10,7 @@ public:
   void Update()
   {
     ++updates;
-    if (updates >= 200)
+    if (updates >= 100)
       getSceneSystem()->SetNextScene(this);
   }
   void Exit() 
