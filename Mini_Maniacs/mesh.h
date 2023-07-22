@@ -1,6 +1,7 @@
 #pragma once
-#include "SDL.h"
 #include <vector>
+#include <stdexcept>
+#include "SDL.h"
 #include "Object.hpp"
 #include "Render API.h"
 
@@ -18,12 +19,13 @@ public:
   void AddVertex(SDL_FPoint position, SDL_Color  color, SDL_FPoint tex_coord);
   void Draw(void);
   void Destroy(void) { delete this; }
+  Mesh() { if (Renderer == nullptr)throw std::runtime_error("Renderer not set, Create first mesh from render API to set"); }
 private:
   Mesh(RenderFront const* front) { Renderer = front; }
   Mesh(Mesh const& m) { Renderer = m.Renderer; verticies = std::vector<SDL_Vertex>(m.verticies); }
 
   std::vector<SDL_Vertex> verticies;
-  const RenderFront* Renderer;
+  static inline RenderFront const* Renderer;
 };
 
 

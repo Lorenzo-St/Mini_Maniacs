@@ -16,12 +16,15 @@ public:
   virtual void Update(void) { return; }
   virtual void Render(void) { return; }
   virtual void Exit  (void) { return; }
-
   Object* getParent  (void) { return Parent; }
   ComponentType getType(void) { return type; }
   
+  virtual constexpr bool set() = 0;
+
   virtual void OnCollision(void) { return; };
+
   constexpr bool setType(std::string s) { type = toEnum(s); return true; }
+  
   inline constexpr std::string className(const std::string& prettyFunction)
   {
     size_t colons = prettyFunction.find("::");

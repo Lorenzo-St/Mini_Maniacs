@@ -19,5 +19,5 @@ private:
   void OnDestroy(void) {};
   void OnAwake(void) {};
   Scene* Clone() { return new Scene(); }
-  SceneSystem* sceneSystem;
+  static inline SceneSystem* sceneSystem;
 };
