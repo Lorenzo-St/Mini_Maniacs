@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <algorithm>
+#include <stdexcept>
 #include "Object.hpp"
 #include "EntitySystem.h"
 #include "Component.h"
@@ -27,10 +28,11 @@ public:
   {
     
   };
-  Entity(Object* p) { SetParent(p); SetRoot(false); };
-  Entity(EntitySystem* e) { SetParent(e); SetRoot(true); };
-  Entity(Entity const* e) { components = e->components; }
+  Entity(Object* p) { if (es == nullptr)throw std::runtime_error("You need to create at least 1 entity from the entity system"); SetParent(p); SetRoot(false); };
+  Entity(EntitySystem* e) { SetParent(nullptr); es = e; SetRoot(true); };
+  Entity(Entity const* e);
   Entity* Clone() { return new Entity(this); }
 private:
   std::vector<Component*> components;
+  static inline EntitySystem* es;
 };

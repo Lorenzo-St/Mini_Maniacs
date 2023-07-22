@@ -24,11 +24,14 @@ void EntitySystem::Exit(void)
 Entity* EntitySystem::CreateEntity(void) 
 {
   Entity* e = new Entity(this);
+  return e;
 }
 
 Entity* EntitySystem::CreateEntity(const char* file) 
 {
 
+
+  return nullptr;
 }
 
 void EntitySystem::DestroyAll(void) 

@@ -42,3 +42,14 @@ void Entity::SetActive(bool b)
     }
   }
 };
+
+Entity::Entity(Entity const* e)
+{ 
+  if (es == nullptr)
+    throw std::runtime_error("You need to create at least 1 entity from the entity system"); 
+  for (auto& c : e->components)
+    components.push_back(c->Clone());
+}
+
+
+

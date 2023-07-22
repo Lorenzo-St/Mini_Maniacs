@@ -11,6 +11,7 @@ class Component : Object
 {
 public:
   virtual void Read() = 0;
+  virtual Component* Clone() = 0;
   virtual void Awake (void) { return; }
   virtual void Init  (void) { return; }
   virtual void Update(void) { return; }
