@@ -5,13 +5,13 @@
 #include "RNG.h"
 
 
-
 class TempScene : public Scene
 {
 public:
   Mesh* m;
   void Init() 
   {
+
     m = api.CreateMesh();
     m->AddVertex({ -.5f, -.5f }, { 255,   0, 255, 255 }, { 0, 1 });
     m->AddVertex({ -.5f,  .5f }, {   0, 255, 255, 255 }, { 0, 0 });

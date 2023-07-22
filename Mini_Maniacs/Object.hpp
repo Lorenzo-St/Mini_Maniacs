@@ -17,6 +17,17 @@ public:
   virtual void OnAwake(void) { return; };
   virtual void Read(Stream* s) {};
   virtual Object* Clone() = 0;
+
+  void SetActive(bool b) { Active = b; }
+  bool isActive(void) { return Active; }
+  bool isRoot(void) { return rootObject; }
+  void SetRoot(bool b) { rootObject = b; }
+  Object* Parent(void) { return parent; }
+  void SetParent(Object* p) { parent = p; }
+
 private:
+  bool rootObject = false;
+  bool Active = true;
+  Object* parent = nullptr;
 
 };

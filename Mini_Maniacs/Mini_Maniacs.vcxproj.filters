@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Engine Code\System\EntitySystem\Component">
       <UniqueIdentifier>{52334a97-935a-4940-8aad-4e58b3a46d1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game Code\Components">
+      <UniqueIdentifier>{284b7390-5af0-4605-8e1a-2970849af5b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -77,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="EntitySystem.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Entitiy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="EnumMacros.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>Source Files\Game Code\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

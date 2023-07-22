@@ -15,6 +15,8 @@ public:
   Entity* CreateEntity(void);
   Entity* CreateEntity(const char* file);
 
+  void DestroyAll(void);
+
 
 private:
   std::vector<Entity*> entities;
