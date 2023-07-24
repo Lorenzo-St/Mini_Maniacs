@@ -24,7 +24,7 @@ public:
     std::sort(components.begin(), components.end(), sorter());
   }
   template<typename g>
-  Component* GetComponent() 
+  g* GetComponent() 
   {
     ComponentTypeEnum::ComponentType t = ComponentTypeEnum::typeToEnum<g>();
     int start = 0;
@@ -38,11 +38,11 @@ public:
       else if (c > t)
         end = midPoint;
       else if (c == t)
-        return components[midPoint];
+        return static_cast<g*>(components[midPoint]);
         
     }
     if (components[end]->getType() == t)
-      return components[end];
+      return static_cast<g*>(components[end]);
     return nullptr;
   };
   Entity(Object* p) {  SetParent(p); SetRoot(false); const_cast<EntitySystem&>(es).AddEntity(this); };

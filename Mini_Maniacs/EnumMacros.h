@@ -26,7 +26,7 @@
 
 #define CASE_NAME(name) case name: return #name;
 #define IF_NAME(name) if(string == #name) return name;
-#define IF_TYPE(name) if(t == name) return name;
+#define IF_TYPE(name) if(typeid(t) == typeid(::##name)) return name;
 
 #define CREATE_ENUM(name,...)              \
 namespace name##Enum{                      \
