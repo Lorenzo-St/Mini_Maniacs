@@ -59,6 +59,8 @@ void Entity::Read(Stream* s)
     std::string token = s->ReadString();
     if (token == "")
       break;
+    else if (token == "<Name")
+      name = s->ReadString();
     else if (token == "<Transform>")
     {
       Transform* t = new Transform();
