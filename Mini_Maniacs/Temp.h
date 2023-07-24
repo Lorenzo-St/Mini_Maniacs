@@ -4,7 +4,6 @@
 #include "Backend.h"
 #include "RNG.h"
 
-
 class TempScene : public Scene
 {
 public:
@@ -22,6 +21,7 @@ public:
     updates = 0;
     Random<float> r;
     api.SetMatrixData({ r.Next(-200.f, 200.f), r.Next(-200.f, 200.f) }, {100, 100}, 0);
+    
   }
   void Update()
   {

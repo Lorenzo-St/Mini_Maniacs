@@ -26,13 +26,13 @@ public:
   template<typename g>
   Component* GetComponent() 
   {
-    ComponentType t = typeToEnum<g>();
+    ComponentTypeEnum::ComponentType t = ComponentTypeEnum::typeToEnum<g>();
     int start = 0;
     int end = components.size();
     while(end > start)
     {
       int midPoint = (start + end) / 2.f;
-      ComponentType c = components[midPoint]->getType();
+      ComponentTypeEnum::ComponentType c = components[midPoint]->getType();
       if (c < t)
         start = midPoint;
       else if (c > t)

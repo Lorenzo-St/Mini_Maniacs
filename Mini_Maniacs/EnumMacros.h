@@ -28,7 +28,9 @@
 #define IF_NAME(name) if(string == #name) return name;
 #define IF_TYPE(name) if(t == name) return name;
 
-#define CREATE_ENUM(name,...)enum name {reserved = 0,  __VA_ARGS__}; \
+#define CREATE_ENUM(name,...)              \
+namespace name##Enum{                      \
+enum name {reserved = 0,  __VA_ARGS__};    \
 constexpr const char* toString(name _t) {  \
 using enum name;                           \
 switch (_t) {                              \
@@ -46,6 +48,7 @@ template<typename t>                       \
 constexpr name typeToEnum(){               \
 FOR_EACH(IF_TYPE, __VA_ARGS__)             \
 throw std::logic_error("Non-Existant Enum Type");\
+}                                          \
 }
 
 

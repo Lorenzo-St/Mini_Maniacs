@@ -18,13 +18,13 @@ public:
   virtual void Render(void) { return; }
   virtual void Exit  (void) { return; }
   Object* getParent  (void) { return Parent; }
-  ComponentType getType(void) { return type; }
+  ComponentTypeEnum::ComponentType getType(void) { return type; }
   
   virtual constexpr bool set() = 0;
 
   virtual void OnCollision(void) { return; };
 
-  constexpr bool setType(std::string s) { type = toEnum(s); return true; }
+  constexpr bool setType(std::string s) { type = ComponentTypeEnum::toEnum(s); return true; }
   
   inline constexpr std::string className(const std::string& prettyFunction)
   {
@@ -41,7 +41,7 @@ public:
   friend bool operator< (Component const& lhs, Component const& rhs);
 private:
   Object* Parent;
-  ComponentType type;
+  ComponentTypeEnum::ComponentType type;
 };
 
 typedef struct sorter
