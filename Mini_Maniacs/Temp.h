@@ -3,14 +3,19 @@
 #include "Scene.h"
 #include "Backend.h"
 #include "RNG.h"
-
+#include "Entity.h"
+#include "EntitySystem.h"
+#include "test.h"
 class TempScene : public Scene
 {
 public:
   Mesh* m;
+  
+  Entity* e;
   void Init() 
   {
-
+    e = new Entity();
+    e->AddComponent(new Transform());
     m = api.CreateMesh();
     m->AddVertex({ -.5f, -.5f }, { 255,   0, 255, 255 }, { 0, 1 });
     m->AddVertex({ -.5f,  .5f }, {   0, 255, 255, 255 }, { 0, 0 });
@@ -33,6 +38,7 @@ public:
   }
   void Exit() 
   {
+    delete e;
     m->Destroy();
     m = nullptr;
     ++restarts;

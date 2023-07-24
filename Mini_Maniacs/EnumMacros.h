@@ -1,7 +1,7 @@
 #pragma once
 #include <stdexcept>
 #define PARENS ()
-
+#define __PRETTY_FUNCTION__ __FUNCSIG__
 
 
 #define FOR_EACH(macro, ...) __VA_OPT__(CHAIN1(macro, __VA_ARGS__))

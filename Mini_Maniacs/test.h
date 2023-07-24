@@ -9,9 +9,10 @@ public:
   {
 
   }
-
+  Transform* Clone() { return nullptr; };
+  void Read() { };
 private:
-  constexpr bool set() { setType(__CLASS_NAME__); };
+  constexpr bool set() { setType(__CLASS_NAME__); return true; };
 };
 
 

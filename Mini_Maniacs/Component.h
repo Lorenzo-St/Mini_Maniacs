@@ -7,7 +7,7 @@ CREATE_ENUM(ComponentType, Transform, Physics, Mesh);
 
 
 
-class Component : Object
+class Component : public Object
 {
 public:
   virtual void Read() = 0;
