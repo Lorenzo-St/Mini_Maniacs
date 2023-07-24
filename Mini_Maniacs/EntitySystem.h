@@ -28,8 +28,9 @@ public:
   EntitySystem* GetActive(void) { return active; }
 
 private:
+  EntitySystem* Clone() { throw std::runtime_error("no"); }
   EntityContainer activeScene;
   EntityContainer prototypes;
-  static EntitySystem* active;
+  static inline EntitySystem* active;
 
 };

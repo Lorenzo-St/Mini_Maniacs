@@ -16,8 +16,8 @@ public:
 private:
   Scene* Active = nullptr;
   Scene* nextScene = nullptr;
-  bool restarting;
-  bool changing;
+  bool restarting = false;
+  bool changing = false;
   SceneSystem* Clone() { return nullptr; };
   
 };
