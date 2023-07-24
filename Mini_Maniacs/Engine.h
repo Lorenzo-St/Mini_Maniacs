@@ -11,7 +11,7 @@ public:
   void Update(void);
   void Exit(void);
 
-  void addSystem(System* s) { Systems.push_back(s); }
+  constexpr void addSystem(System* s) { Systems.push_back(s); }
 
   errState GetErr(void);
 

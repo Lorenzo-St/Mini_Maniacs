@@ -28,7 +28,7 @@ public:
   {
     
   };
-  Entity(Object* p) { if (es == nullptr)throw std::runtime_error("You need to create at least 1 entity from the entity system"); SetParent(p); SetRoot(false); };
+  Entity(Object* p) { if (es == nullptr)throw std::runtime_error("You need to create at least 1 entity from the entity system"); SetParent(p); SetRoot(false); es->AddEntity(this); };
   Entity(EntitySystem* e) { SetParent(nullptr); es = e; SetRoot(true); };
   Entity(Entity const* e);
   Entity* Clone() { return new Entity(this); }

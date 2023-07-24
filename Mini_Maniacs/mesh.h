@@ -19,13 +19,12 @@ public:
   void AddVertex(SDL_FPoint position, SDL_Color  color, SDL_FPoint tex_coord);
   void Draw(void);
   void Destroy(void) { delete this; }
-  Mesh() { if (Renderer == nullptr)throw std::runtime_error("Renderer not set, Create first mesh from render API to set"); }
+  Mesh() {  };
   Mesh(Mesh const& m) { verticies = std::vector<SDL_Vertex>(m.verticies); }
 private:
-  Mesh(RenderFront const* front) { Renderer = front; }
 
   std::vector<SDL_Vertex> verticies;
-  static inline RenderFront const* Renderer;
+  static inline RenderFront const& Renderer = api;
 };
 
 

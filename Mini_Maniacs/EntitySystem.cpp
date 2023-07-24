@@ -3,7 +3,8 @@
 
 void EntitySystem::Init(void) 
 {
-
+  prototypes.add(new Entity(this));
+  prototypes.destroyAll();
 }
 
 void EntitySystem::Update(void) 
@@ -18,16 +19,24 @@ void EntitySystem::Render(void)
 
 void EntitySystem::Exit(void) 
 {
-
+  activeScene.destroyAll();
 }
 
-Entity* EntitySystem::CreateEntity(void) 
+void EntitySystem::AddEntity(Entity* e)
 {
-  Entity* e = new Entity(this);
-  return e;
+  activeScene.add(e);
 }
 
-Entity* EntitySystem::CreateEntity(const char* file) 
+
+Entity* EntitySystem::CloneEntity(Entity* e) 
+{
+  Entity* el = e->Clone();
+  activeScene.add(el);
+  return el;
+}
+
+
+Entity* EntitySystem::CreateEntity(const char* archetypeName) 
 {
 
 

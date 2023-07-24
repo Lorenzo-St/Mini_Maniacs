@@ -148,6 +148,6 @@ void RenderFront::SetTexture(Texture texture)
 
 Mesh* RenderFront::CreateMesh(void) 
 { 
-  return new Mesh(this); 
+  return new Mesh(); 
 }
 

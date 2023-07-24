@@ -2,6 +2,7 @@
 #include <vector>
 #include <stdexcept>
 #include "system.h"
+#include "EntityContainer.h"
 class Entity;
 
 class EntitySystem : public System 
@@ -19,13 +20,16 @@ public:
   void Render(void);
   void Exit(void);
 
-  Entity* CreateEntity(void);
-  Entity* CreateEntity(const char* file);
+  void AddEntity(Entity* e);
 
+  Entity* CreateEntity(const char* file);
+  Entity* CloneEntity(Entity* e);
   void DestroyAll(void);
   EntitySystem* GetActive(void) { return active; }
 
 private:
-  std::vector<Entity*> entities;
+  EntityContainer activeScene;
+  EntityContainer prototypes;
   static EntitySystem* active;
+
 };

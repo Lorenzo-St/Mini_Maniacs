@@ -7,5 +7,5 @@ void Mesh::AddVertex(SDL_FPoint position, SDL_Color  color, SDL_FPoint tex_coord
 
 void Mesh::Draw(void) 
 {
-  Renderer->Draw(verticies);
+  Renderer.Draw(verticies);
 }
