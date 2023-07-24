@@ -23,10 +23,27 @@ public:
     components.push_back(c);
     std::sort(components.begin(), components.end(), sorter());
   }
-  template<typename t>
+  template<typename g>
   Component* GetComponent() 
   {
-    ComponentType t = typeToEnum<t>();
+    ComponentType t = typeToEnum<g>();
+    int start = 0;
+    int end = components.size();
+    while(end > start)
+    {
+      int midPoint = (start + end) / 2.f;
+      ComponentType c = components[midPoint]->getType();
+      if (c < t)
+        start = midPoint;
+      else if (c > t)
+        end = midPoint;
+      else if (c == t)
+        return components[midPoint];
+        
+    }
+    if (components[end]->getType() == t)
+      return components[end];
+    return nullptr;
   };
   Entity(Object* p) {  SetParent(p); SetRoot(false); const_cast<EntitySystem&>(es).AddEntity(this); };
   Entity(Entity const* e);
