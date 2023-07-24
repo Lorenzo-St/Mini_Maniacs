@@ -9,7 +9,7 @@
 class TempScene : public Scene
 {
 public:
-  Mesh* m;
+  mesh* m;
   
   Entity* e;
   void Init() 
@@ -17,12 +17,6 @@ public:
     e = new Entity();
 
     e->AddComponent(new Transform());
-    e->AddComponent(new Sprite());
-    e->AddComponent(new Animation());
-    e->AddComponent(new mesh());
-    e->AddComponent(new Physics());
-    e->AddComponent(new Ai());
-    e->AddComponent(new Door());
     m = api.CreateMesh();
     m->AddVertex({ -.5f, -.5f }, { 255,   0, 255, 255 }, { 0, 1 });
     m->AddVertex({ -.5f,  .5f }, {   0, 255, 255, 255 }, { 0, 0 });
@@ -33,7 +27,6 @@ public:
     updates = 0;
     Random<float> r;
     api.SetMatrixData({ r.Next(-200.f, 200.f), r.Next(-200.f, 200.f) }, {100, 100}, 0);
-    Ai* a = e->GetComponent<Ai>();
   }
   void Update()
   {
@@ -46,6 +39,7 @@ public:
   void Exit() 
   {
     delete e;
+    e = nullptr;
     m->Destroy();
     m = nullptr;
     ++restarts;

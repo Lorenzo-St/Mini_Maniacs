@@ -7,20 +7,20 @@
 
 class RenderFront;
 
-class Mesh : Object
+class mesh : Object
 {
 public:
-  friend Mesh* RenderFront::CreateMesh(void);
-  Mesh* Clone(void) 
+  friend mesh* RenderFront::CreateMesh(void);
+  mesh* Clone(void) 
   {
-    return new Mesh(*this);
+    return new mesh(*this);
   } 
 
   void AddVertex(SDL_FPoint position, SDL_Color  color, SDL_FPoint tex_coord);
   void Draw(void);
   void Destroy(void) { delete this; }
-  Mesh() {  };
-  Mesh(Mesh const& m) { verticies = std::vector<SDL_Vertex>(m.verticies); }
+  mesh() {  };
+  mesh(mesh const& m) { verticies = std::vector<SDL_Vertex>(m.verticies); }
 private:
 
   std::vector<SDL_Vertex> verticies;

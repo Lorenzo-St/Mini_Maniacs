@@ -5,7 +5,7 @@
 #include "Time.h"
 typedef long RendErr;
 typedef SDL_Texture* Texture;
-class Mesh;
+class mesh;
 
 class RenderFront 
 {
@@ -24,7 +24,7 @@ public:
   void SetTexture(Texture texture);
   
   // Create mesh for drawing
-  Mesh* CreateMesh(void);
+  mesh* CreateMesh(void);
   
 
   // Window Stuff

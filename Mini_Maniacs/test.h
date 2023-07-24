@@ -16,14 +16,14 @@ private:
   const bool s = set();
 };
 
-class mesh : public Component
+class Mesh : public Component
 {
 public:
-  mesh()
+  Mesh()
   {
 
   }
-  mesh* Clone() { return nullptr; };
+  Mesh* Clone() { return nullptr; };
   void Read() { };
 private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
