@@ -26,7 +26,7 @@ public:
   template<typename t>
   Component* GetComponent() 
   {
-    
+    ComponentType t = typeToEnum<t>();
   };
   Entity(Object* p) {  SetParent(p); SetRoot(false); const_cast<EntitySystem&>(es).AddEntity(this); };
   Entity(Entity const* e);
