@@ -105,7 +105,7 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)SDL2\lib\x64\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
+      <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
 
 git add -A
 git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
@@ -135,7 +135,7 @@ git push</Command>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)SDL2\lib\x64\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
+      <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
 
 git add -A
 git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
@@ -161,7 +161,7 @@ git push</Command>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)SDL2\lib\x64\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
+      <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
 
 git add -A
 git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
@@ -191,7 +191,7 @@ git push</Command>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)SDL2\lib\x64\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
+      <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
 
 git add -A
 git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
