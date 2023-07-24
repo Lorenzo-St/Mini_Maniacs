@@ -10,11 +10,22 @@ typedef struct sorter sorter;
 class Entity : public Object 
 {
 public:
+  // Ctors and Dtors
+  Entity(Object* p) {  SetParent(p); SetRoot(false); const_cast<EntitySystem&>(es).AddEntity(this); };
+  Entity(Entity const* e);
+  Entity* Clone() { return new Entity(this); }
+  Entity() {};
+
+  void Read(Stream* s);
+
   void Awake(void);
   void Init(void);
   void Update(void);
   void Render(void);
   void Exit(void);
+
+  void SetName(std::string s) { name = std::string(s); }
+  bool isNamed(std::string s) { return name == s; }
 
   void SetActive(bool b);
 
@@ -45,11 +56,9 @@ public:
       return static_cast<g*>(components[end]);
     return nullptr;
   };
-  Entity(Object* p) {  SetParent(p); SetRoot(false); const_cast<EntitySystem&>(es).AddEntity(this); };
-  Entity(Entity const* e);
-  Entity* Clone() { return new Entity(this); }
-  Entity() {};
+
 private:
+  std::string name;
   std::vector<Component*> components;
   static const inline EntitySystem& es = EntitySystem::GetActive();
 };

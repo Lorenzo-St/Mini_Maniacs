@@ -1,5 +1,6 @@
 #include "EntitySystem.h"
 #include "Entity.h"
+#include "Stream.h"
 
 void EntitySystem::Init(void) 
 {
@@ -42,7 +43,18 @@ Entity* EntitySystem::CloneEntity(Entity* e)
 
 Entity* EntitySystem::CreateEntity(const char* archetypeName) 
 {
+  Entity* archi = prototypes.Find(archetypeName);
+  if (archi == nullptr)
+  {
+    std::string path = "./Managed/" + std::string(archetypeName) + ".dat";
+    Stream s = Stream(path.c_str());
+    std::string token = s.ReadString();
+    if (token != "<Entity>")
+      return nullptr;
 
+    archi = new Entity();
+    archi->Read(&s);
+  }
 
   return nullptr;
 }

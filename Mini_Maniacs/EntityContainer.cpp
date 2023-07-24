@@ -32,6 +32,16 @@ void EntityContainer::remove(Entity* e)
 
 };
 
+Entity* EntityContainer::Find(const char* name) 
+{
+  for (auto& e : entities) 
+  {
+    if (e->isNamed(std::string(name)))
+      return e;
+  }
+  return nullptr;
+}
+
 
 EntityContainer::~EntityContainer() 
 { 

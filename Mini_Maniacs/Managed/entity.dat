@@ -1,0 +1,15 @@
+<Entity>
+  <Name>
+    Steve
+  <Transform>
+    <Position>
+	  1.0
+	  2.0
+	<Velocity>
+	  1.0
+	  2.0
+	<Acceleration>
+	  5.0
+	  6.0
+	<Drag>
+	  1.0

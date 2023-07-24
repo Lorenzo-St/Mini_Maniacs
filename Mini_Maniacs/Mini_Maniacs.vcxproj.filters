@@ -49,6 +49,12 @@
     <Filter Include="Source Files\Engine Code\System\EntitySystem\EntityContainer">
       <UniqueIdentifier>{b4819336-aeaa-4588-95a4-a2993362d6de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components">
+      <UniqueIdentifier>{d5c92178-8cec-487e-afd9-de8ebb1832ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Transform">
+      <UniqueIdentifier>{aeec19a4-5b55-4442-b241-1ac771b89fd7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -92,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="EntityContainer.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\EntityContainer</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,11 +161,14 @@
     <ClInclude Include="EnumMacros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="test.h">
-      <Filter>Source Files\Game Code\Components</Filter>
-    </ClInclude>
     <ClInclude Include="EntityContainer.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\EntityContainer</Filter>
+    </ClInclude>
+    <ClInclude Include="Component_Stim.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Transform</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

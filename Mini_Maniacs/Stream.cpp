@@ -1,4 +1,5 @@
 #include "Stream.h"
+#include "glm.hpp"
 Stream::Stream(const char* file) 
 {
   fileStream.open(file);
@@ -24,9 +25,17 @@ float Stream::ReadFloat(void)
   return f;
 }
 
-SDL_FPoint Stream::ReadVector(void) 
+SDL_FPoint Stream::ReadFPoint(void) 
 {
   SDL_FPoint fp = {};
+  fileStream >> fp.x;
+  fileStream >> fp.y;
+  return fp;
+}
+
+glm::vec2 Stream::ReadVector(void)
+{
+  glm::vec2  fp = {};
   fileStream >> fp.x;
   fileStream >> fp.y;
   return fp;

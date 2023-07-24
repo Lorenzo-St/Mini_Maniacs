@@ -5,7 +5,7 @@
 #include "RNG.h"
 #include "Entity.h"
 #include "EntitySystem.h"
-#include "test.h"
+#include "Transform.h"
 class TempScene : public Scene
 {
 public:
@@ -14,9 +14,8 @@ public:
   Entity* e;
   void Init() 
   {
-    e = new Entity();
+    e = EntitySystem::GetActive().CreateEntity("Entity");
 
-    e->AddComponent(new Transform());
     m = api.CreateMesh();
     m->AddVertex({ -.5f, -.5f }, { 255,   0, 255, 255 }, { 0, 1 });
     m->AddVertex({ -.5f,  .5f }, {   0, 255, 255, 255 }, { 0, 0 });

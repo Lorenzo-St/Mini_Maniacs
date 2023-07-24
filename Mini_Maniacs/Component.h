@@ -3,14 +3,14 @@
 #include "EnumMacros.h"
 #include <typeinfo>
 #include <string>
-CREATE_ENUM(ComponentType, Transform, Physics, mesh, Animation, Ai, Door, Sprite);
+CREATE_ENUM(ComponentType, Transform, Physics, Mesh, Sprite);
 
 
 
 class Component : public Object
 {
 public:
-  virtual void Read() = 0;
+  virtual void Read(Stream* s) = 0;
   virtual Component* Clone() = 0;
   virtual void Awake (void) { return; }
   virtual void Init  (void) { return; }
