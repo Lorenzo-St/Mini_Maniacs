@@ -31,6 +31,7 @@ public:
   Entity(Object* p) {  SetParent(p); SetRoot(false); const_cast<EntitySystem&>(es).AddEntity(this); };
   Entity(Entity const* e);
   Entity* Clone() { return new Entity(this); }
+  Entity() {};
 private:
   std::vector<Component*> components;
   static const inline EntitySystem& es = EntitySystem::GetActive();

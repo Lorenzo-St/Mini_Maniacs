@@ -3,7 +3,7 @@
 
 void EntitySystem::Init(void) 
 {
-  prototypes.add(new Entity(this));
+  prototypes.add(new Entity());
   prototypes.destroyAll();
 }
 
