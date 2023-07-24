@@ -13,6 +13,7 @@ public:
   EntityContainer(EntityContainer const* other) { entities = other->entities; }
 
   void add(Entity* e) { entities.push_back(e); }
+
   void destroyAll(void);
   void remove(Entity* e);
   void Update();

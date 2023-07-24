@@ -26,6 +26,10 @@ void EntitySystem::AddEntity(Entity* e)
 {
   activeScene.add(e);
 }
+//void EntitySystem::AddEntity(Entity* e) const
+//{
+//  activeScene.add(e);
+//}
 
 
 Entity* EntitySystem::CloneEntity(Entity* e) 

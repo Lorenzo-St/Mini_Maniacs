@@ -21,11 +21,12 @@ public:
   void Exit(void);
 
   void AddEntity(Entity* e);
+  //void AddEntity(Entity* e) const;
 
   Entity* CreateEntity(const char* file);
   Entity* CloneEntity(Entity* e);
   void DestroyAll(void);
-  EntitySystem* GetActive(void) { return active; }
+  static constexpr EntitySystem& GetActive(void) { return *active; }
 
 private:
   EntitySystem* Clone() { throw std::runtime_error("no"); }
