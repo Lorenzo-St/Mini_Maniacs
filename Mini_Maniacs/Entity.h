@@ -27,11 +27,11 @@ public:
   g* GetComponent() 
   {
     ComponentTypeEnum::ComponentType t = ComponentTypeEnum::typeToEnum<g>();
-    int start = 0;
-    int end = components.size();
+    size_t start = 0;
+    size_t end = components.size();
     while(end > start)
     {
-      int midPoint = (start + end) / 2.f;
+      size_t midPoint = (start + end) / 2;
       ComponentTypeEnum::ComponentType c = components[midPoint]->getType();
       if (c < t)
         start = midPoint;
