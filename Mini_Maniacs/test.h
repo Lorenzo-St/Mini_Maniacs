@@ -13,6 +13,7 @@ public:
   void Read() { };
 private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
 };
 
 class mesh : public Component
@@ -26,6 +27,7 @@ public:
   void Read() { };
 private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
 };
 
 class Animation : public Component
@@ -39,6 +41,7 @@ public:
   void Read() { };
 private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
 };
 class Ai : public Component
 {
@@ -51,6 +54,7 @@ public:
   void Read() { };
 private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
 };
 class Door : public Component
 {
@@ -63,6 +67,7 @@ public:
   void Read() { };
 private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
 };
 
 class Physics : public Component
@@ -76,6 +81,7 @@ public:
   void Read() { };
 private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
 };
 
 class Sprite : public Component
@@ -89,6 +95,7 @@ public:
   void Read() { };
 private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
 };
 
 
