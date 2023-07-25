@@ -204,6 +204,7 @@ git push</Command>
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="EntitySystem.cpp" />
+    <ClCompile Include="MeshComp.cpp" />
     <ClCompile Include="SceneSystem.cpp" />
     <ClCompile Include="EventProcessing.cpp" />
     <ClCompile Include="InputSystem.cpp" />
@@ -227,6 +228,7 @@ git push</Command>
     <ClInclude Include="EventProcessing.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="mesh.h" />
+    <ClInclude Include="MeshComp.h" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Render API.h" />
     <ClInclude Include="RNG.h" />

@@ -55,6 +55,12 @@
     <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Transform">
       <UniqueIdentifier>{aeec19a4-5b55-4442-b241-1ac771b89fd7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Mesh">
+      <UniqueIdentifier>{e1661955-a69b-4bc6-871c-131d82d2e6bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics">
+      <UniqueIdentifier>{71302e7f-49b6-4b7a-a797-3cabe4343d86}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -101,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshComp.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshComp.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

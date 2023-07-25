@@ -4,7 +4,7 @@
 #if _DEBUG
 #include <iostream>
 #endif
-void Transform::Read(Stream* s) 
+void Transform::Read(Stream* s)
 {
   // In file order, 
   // <Transform>
@@ -20,26 +20,29 @@ void Transform::Read(Stream* s)
   //   <Drag>
   //     0.0
   // <Next Component>
-  std::string token = s->ReadString();
-  if (token == "<Position>")
+  while (true)
   {
-    pos = s->ReadVector();
-    token = s->ReadString();
-  }
-  if (token == "<Velocity>") 
-  {
-    velocity = s->ReadVector();
-    token = s->ReadString();
-  }
-  if (token == "<Acceleration>")
-  {
-    acceleration = s->ReadVector();
-    token = s->ReadString();
-  }
-  if (token == "<Drag>")
-  {
-    drag = s->ReadFloat();
-    token = s->ReadString();
+
+
+    std::string token = s->ReadString();
+    if (token == "<Position>")
+    {
+      pos = s->ReadVector();
+    }
+    if (token == "<Velocity>")
+    {
+      velocity = s->ReadVector();
+    }
+    if (token == "<Acceleration>")
+    {
+      acceleration = s->ReadVector();
+    }
+    if (token == "<Drag>")
+    {
+      drag = s->ReadFloat();
+    }
+    if (token == "</Transform>")
+      break;
   }
 }
 

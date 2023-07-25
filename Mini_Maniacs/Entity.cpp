@@ -2,6 +2,7 @@
 #include "Component.h"
 #include "Stream.h"
 #include "Transform.h"
+#include "MeshComp.h"
 
 void Entity::Awake(void) 
 {
@@ -64,17 +65,17 @@ void Entity::Read(Stream* s)
     else if (token == "<Name>")
       name = s->ReadString();
     else if (token == "<Transform>")
-    {
       c = new Transform();
-    }
+    else if (token == "<Mesh>") 
+      c = new Mesh();
+
+
+
     if (c) 
     {
       c->Read(s);
       AddComponent(c);
     }
-    
-
-
   }
 
 }

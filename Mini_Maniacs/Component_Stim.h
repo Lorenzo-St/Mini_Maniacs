@@ -9,7 +9,7 @@ public:
     
   }
   Stim* Clone() { return nullptr; };
-  void Read() { };
+  void Read(Stream* s) { };
 private:
   // -------------------------
   // Required Component things
