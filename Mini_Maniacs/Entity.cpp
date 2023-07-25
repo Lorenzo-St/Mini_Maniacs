@@ -57,7 +57,7 @@ void Entity::Read(Stream* s)
 {
   while (true)
   {
-
+    Component* c = nullptr;
     std::string token = s->ReadString();
     if (token == "")
       break;
@@ -65,10 +65,14 @@ void Entity::Read(Stream* s)
       name = s->ReadString();
     else if (token == "<Transform>")
     {
-      Transform* t = new Transform();
-      t->Read(s);
+      c = new Transform();
     }
-
+    if (c) 
+    {
+      c->Read(s);
+      AddComponent(c);
+    }
+    
 
 
   }
