@@ -30,7 +30,7 @@ public:
   void Update()
   {
     ++updates;
-    if (updates >= 100)
+    if (updates >= 400)
       getSceneSystem()->SetNextScene(this);
 
     m->Draw();
