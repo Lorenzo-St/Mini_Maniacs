@@ -32,7 +32,7 @@ public:
     ++updates;
     if (updates >= 400)
       getSceneSystem()->SetNextScene(this);
-    api.SetMatrixData({ 0,0 }, { 100,100 }, 0);
+    //api.SetMatrixData({ 0,0 }, { 100,100 }, 0);
     m->Draw();
   }
   void Exit() 
