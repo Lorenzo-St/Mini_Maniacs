@@ -10,11 +10,12 @@ void EntitySystem::Init(void)
 
 void EntitySystem::Update(void) 
 {
-
+  activeScene.Update();
 }
 
 void EntitySystem::Render(void) 
 {
+  activeScene.Render();
 
 }
 
