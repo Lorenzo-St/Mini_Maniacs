@@ -15,9 +15,9 @@ public:
   Entity(Entity const* e);
   Entity* Clone() { return new Entity(this); }
   Entity() {};
-
+  ~Entity() { for (auto& e : components) { delete e; } components.clear(); }
+  
   void Read(Stream* s);
-
   void Awake(void);
   void Init(void);
   void Update(void);

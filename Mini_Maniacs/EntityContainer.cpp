@@ -6,6 +6,8 @@ void EntityContainer::destroyAll()
 {
   for (auto& e : entities)
     delete e;
+  entities.clear();
+
 }
 
 void EntityContainer::Update() 
@@ -49,4 +51,5 @@ EntityContainer::~EntityContainer()
   { 
     delete e; 
   } 
+  entities.clear();
 }
