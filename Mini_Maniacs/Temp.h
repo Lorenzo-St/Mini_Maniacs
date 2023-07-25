@@ -42,6 +42,7 @@ public:
     m->Destroy();
     m = nullptr;
     ++restarts;
+    EntitySystem::GetActive().DestroyAll();
   }
 private:
 

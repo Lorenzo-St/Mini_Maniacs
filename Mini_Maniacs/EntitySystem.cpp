@@ -65,5 +65,5 @@ Entity* EntitySystem::CreateEntity(const char* archetypeName)
 
 void EntitySystem::DestroyAll(void) 
 {
-
+  activeScene.destroyAll();
 }
