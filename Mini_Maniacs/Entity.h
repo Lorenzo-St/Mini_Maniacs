@@ -35,6 +35,7 @@ public:
   void AddComponent(Component* c) 
   {
     components.push_back(c);
+    c->SetParent(this);
     std::sort(components.begin(), components.end(), sorter());
   }
   template<typename g>
