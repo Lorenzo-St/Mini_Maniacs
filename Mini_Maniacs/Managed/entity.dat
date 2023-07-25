@@ -11,6 +11,11 @@
 	<Acceleration>
 	  0.0
 	  0.0
+	<Scale>
+	  100
+	  300
+	<Rotation>
+	  30
 	<Drag>
 	  1.0
   </Transform>

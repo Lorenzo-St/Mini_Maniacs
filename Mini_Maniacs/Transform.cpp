@@ -23,25 +23,20 @@ void Transform::Read(Stream* s)
   while (true)
   {
 
-
     std::string token = s->ReadString();
     if (token == "<Position>")
-    {
       pos = s->ReadVector();
-    }
-    if (token == "<Velocity>")
-    {
+    else if (token == "<Velocity>")
       velocity = s->ReadVector();
-    }
-    if (token == "<Acceleration>")
-    {
+    else if (token == "<Acceleration>")
       acceleration = s->ReadVector();
-    }
-    if (token == "<Drag>")
-    {
+    else if (token == "<Scale>")
+      scale = s->ReadVector();
+    else if (token == "<Rotation>")
+      rot = s->ReadFloat();
+    else if (token == "<Drag>")
       drag = s->ReadFloat();
-    }
-    if (token == "</Transform>")
+    else if (token == "</Transform>")
       break;
   }
 }
