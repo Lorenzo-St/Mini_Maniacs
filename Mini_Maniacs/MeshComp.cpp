@@ -43,7 +43,7 @@ void Mesh::Read(Stream* s)
     
   }
   token = s->ReadString();
-  if (token == "</Sprite>")
+  if (token == "</Mesh>")
     return;
 
 
