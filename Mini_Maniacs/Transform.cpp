@@ -1,6 +1,9 @@
 #include "Transform.h"
 #include "Time.h"
 #include "Stream.h"
+#if _DEBUG
+#include <iostream>
+#endif
 void Transform::Read(Stream* s) 
 {
   // In file order, 
@@ -17,7 +20,6 @@ void Transform::Read(Stream* s)
   //   <Drag>
   //     0.0
   // <Next Component>
-
   std::string token = s->ReadString();
   if (token == "<Position>")
   {
@@ -45,7 +47,9 @@ void Transform::Update(void)
 {
   velocity += acceleration * Time.deltaTime() * drag;
   pos += velocity * Time.deltaTime();
-
+#if _DEBUG
+  std::cout << pos.x << "," << pos.y << std::endl;
+#endif
 }
 
 
