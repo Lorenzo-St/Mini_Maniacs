@@ -54,9 +54,11 @@ Entity* EntitySystem::CreateEntity(const char* archetypeName)
 
     archi = new Entity();
     archi->Read(&s);
+    prototypes.add(archi);
   }
 
-  return nullptr;
+  Entity* e = archi->Clone();
+  return e;
 }
 
 void EntitySystem::DestroyAll(void) 
