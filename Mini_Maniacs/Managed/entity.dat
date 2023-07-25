@@ -3,20 +3,20 @@
     Steve
   <Transform>
     <Position>
-	  1.0
-	  2.0
+	  100.0
+	  200.0
 	<Velocity>
-	  1.0
-	  2.0
+	  0.0
+	  0.0
 	<Acceleration>
-	  5.0
-	  6.0
+	  0.0
+	  0.0
 	<Drag>
 	  1.0
   </Transform>
   <Mesh>
 	<Count>
-	  6
+	  3
 	<Points>
 	  -0.5
 	  -0.5

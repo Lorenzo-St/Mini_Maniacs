@@ -44,10 +44,15 @@ glm::vec2 Stream::ReadVector(void)
 SDL_Color Stream::ReadColor(void) 
 {
   SDL_Color c = {};
-  fileStream >> c.r;
-  fileStream >> c.g;
-  fileStream >> c.b;
-  fileStream >> c.a;
+  glm::vec4 in = {};
+  fileStream >> in.r;
+  fileStream >> in.g;
+  fileStream >> in.b;
+  fileStream >> in.a;
+  c.r = in.r;
+  c.g = in.g;
+  c.b = in.b;
+  c.a = in.a;
   return c;
 }
 
