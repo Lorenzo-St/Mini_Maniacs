@@ -37,8 +37,6 @@ public:
   }
   void Exit() 
   {
-    delete e;
-    e = nullptr;
     m->Destroy();
     m = nullptr;
     ++restarts;
