@@ -3,9 +3,9 @@
 #include "EnumMacros.h"
 #include <typeinfo>
 #include <string>
-CREATE_ENUM(ComponentType, Transform, Physics, Mesh, Sprite);
+CREATE_ENUM(ComponentType, Transform, Mesh);
 
-
+class Entity;
 
 class Component : public Object
 {
@@ -17,7 +17,7 @@ public:
   virtual void Update(void) { return; }
   virtual void Render(void) { return; }
   virtual void Exit  (void) { return; }
-  Object* getParent  (void) { return Parent; }
+  Entity* GetParent  (void) { return Parent; }
   ComponentTypeEnum::ComponentType getType(void) { return type; }
   
   virtual constexpr bool set() = 0;
@@ -40,7 +40,7 @@ public:
 
   friend bool operator< (Component const& lhs, Component const& rhs);
 private:
-  Object* Parent;
+  Entity* Parent;
   ComponentTypeEnum::ComponentType type;
 };
 

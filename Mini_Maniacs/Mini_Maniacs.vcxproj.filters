@@ -61,6 +61,9 @@
     <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics">
       <UniqueIdentifier>{71302e7f-49b6-4b7a-a797-3cabe4343d86}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Sprite">
+      <UniqueIdentifier>{524731e3-74c9-4230-ae86-256677765fe1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -107,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="MeshComp.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="MeshComp.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,11 +1,23 @@
-#include "MeshComp.h"
+#include "Backend.h"
+#include "Transform.h"
 #include "Stream.h"
-
+#include "MeshComp.h"
+#include "Entity.h"
 void Mesh::AddVertex(SDL_FPoint* pos, SDL_Color* color, SDL_FPoint* UV) 
 {
   if(m)
     const_cast<mesh*>(m)->AddVertex(pos, color, UV);
 
+}
+void Mesh::Render(void) 
+{ 
+  if (m) 
+  {
+    Transform* t = GetParent()->GetComponent<Transform>();
+    api.SetMatrixData(t->GetPosition(), t->GetScale(), t->GetRotation());
+    m->Draw();
+
+  }
 }
 
 void Mesh::Read(Stream* s) 

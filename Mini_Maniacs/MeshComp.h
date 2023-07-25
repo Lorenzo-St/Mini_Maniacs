@@ -8,7 +8,7 @@ public:
   Mesh(Mesh const* ml) : m(ml->m) {  }
   Mesh* Clone() { return new Mesh(this); };
   void Read(Stream* s);
-  void Update(void) { if(m) m->Draw(); }
+  void Render(void);
   void SetMesh(mesh* me) { m = me; };
   void CreateMesh(void) { m = new mesh(); }
   void AddVertex(SDL_FPoint* pos, SDL_Color* color, SDL_FPoint* UV);

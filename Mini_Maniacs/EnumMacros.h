@@ -27,8 +27,9 @@
 #define CASE_NAME(name) case name: return #name;
 #define IF_NAME(name) if(string == #name) return name;
 #define IF_TYPE(name) if(typeid(t) == typeid(::name)) return name;
-
+#define PREDEFCLASS(name) class name;
 #define CREATE_ENUM(name,...)              \
+FOR_EACH(PREDEFCLASS, __VA_ARGS__)         \
 namespace name##Enum{                      \
 enum name {reserved = 0,  __VA_ARGS__};    \
 constexpr const char* toString(name _t) {  \
