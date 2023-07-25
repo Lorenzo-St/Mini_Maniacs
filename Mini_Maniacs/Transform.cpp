@@ -50,7 +50,7 @@ void Transform::Update(void)
 {
   velocity += acceleration * Time.deltaTime() * drag;
   pos += velocity * Time.deltaTime();
-#if _DEBUG
+#if _DEBUG && 0
   std::cout << pos.x << "," << pos.y << std::endl;
 #endif
 }
