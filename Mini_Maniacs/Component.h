@@ -17,6 +17,7 @@ public:
   virtual void Update(void) { return; }
   virtual void Render(void) { return; }
   virtual void Exit  (void) { return; }
+  void SetParent(Entity* e) { Parent = e; }
   Entity* GetParent  (void) { return Parent; }
   ComponentTypeEnum::ComponentType getType(void) { return type; }
   
