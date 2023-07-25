@@ -6,7 +6,7 @@ class Transform : public Component
 {
 public:
   Transform() = default;
-  Transform(Transform const* t) { pos = t->pos; velocity = t->velocity; acceleration = t->acceleration; drag = t->drag; };
+  Transform(Transform const* t) { pos = t->pos; velocity = t->velocity; acceleration = t->acceleration; drag = t->drag; scale = t->scale; rot = t->rot; };
   Transform* Clone() { return new Transform(this); };
 
   void Read(Stream* s);
