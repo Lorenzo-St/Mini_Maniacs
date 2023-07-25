@@ -63,8 +63,13 @@ Entity::Entity(Entity const* e)
 { 
   name = e->name;
   protoType = e->protoType;
-  for (auto& c : e->components)
-    components.push_back(c->Clone());
+  for (auto& c : e->components) 
+  {
+    Component* c2 = c->Clone();
+    c2->SetParent(this);
+    components.push_back(c2);
+
+  }
 }
 
 void Entity::Read(Stream* s) 
