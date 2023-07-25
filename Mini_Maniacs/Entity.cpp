@@ -47,6 +47,8 @@ void Entity::SetActive(bool b)
 
 Entity::Entity(Entity const* e)
 { 
+  name = e->name;
+
   for (auto& c : e->components)
     components.push_back(c->Clone());
 }
