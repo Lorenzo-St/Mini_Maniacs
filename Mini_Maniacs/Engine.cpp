@@ -38,9 +38,12 @@ void Engine::Update(void)
     }
     api.Update();
     for (auto& system : Systems)
-    {
       system->Update();
-    }
+  
+    for (auto& system : Systems)
+      system->Render();
+  
+  
 #if 0
     std::cout << "FR: " << 1.0 / Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
