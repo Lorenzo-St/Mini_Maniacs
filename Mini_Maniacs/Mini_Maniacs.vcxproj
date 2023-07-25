@@ -202,7 +202,6 @@ git push</Command>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="EntitySystem.cpp" />
     <ClCompile Include="MeshComp.cpp" />
     <ClCompile Include="SceneSystem.cpp" />
@@ -222,7 +221,7 @@ git push</Command>
     <ClInclude Include="Component_Stim.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="EntityContainer.h" />
+    <ClInclude Include="Container.h" />
     <ClInclude Include="EntitySystem.h" />
     <ClInclude Include="EnumMacros.h" />
     <ClInclude Include="EventProcessing.h" />

@@ -3,6 +3,19 @@
 #include "Stream.h"
 #include "Transform.h"
 #include "MeshComp.h"
+#include "EntitySystem.h"
+
+Entity::Entity(void) 
+{ 
+  es = &EntitySystem::GetActive(); 
+};
+
+Entity::Entity(Object* p) 
+{ 
+  SetParent(p); 
+  SetRoot(false); 
+  const_cast<EntitySystem*>(es)->AddEntity(this); 
+};
 
 void Entity::Awake(void) 
 {
@@ -49,7 +62,7 @@ void Entity::SetActive(bool b)
 Entity::Entity(Entity const* e)
 { 
   name = e->name;
-
+  protoType = e->protoType;
   for (auto& c : e->components)
     components.push_back(c->Clone());
 }

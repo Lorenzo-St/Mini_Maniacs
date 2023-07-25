@@ -3,18 +3,18 @@
 #include <algorithm>
 #include <stdexcept>
 #include "Object.hpp"
-#include "EntitySystem.h"
 #include "Component.h"
 typedef struct sorter sorter;
+class EntitySystem;
 
 class Entity : public Object 
 {
 public:
   // Ctors and Dtors
-  Entity(Object* p) {  SetParent(p); SetRoot(false); const_cast<EntitySystem&>(es).AddEntity(this); };
+  Entity(Object* p);
   Entity(Entity const* e);
+  Entity();
   Entity* Clone() { return new Entity(this); }
-  Entity() {};
   ~Entity() { for (auto& e : components) { delete e; } components.clear(); }
   
   void Read(Stream* s);
@@ -64,5 +64,5 @@ private:
   std::string name;
   std::string protoType;
   std::vector<Component*> components;
-  static const inline EntitySystem& es = EntitySystem::GetActive();
+  static const inline EntitySystem* es;
 };

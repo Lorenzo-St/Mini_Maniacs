@@ -2,7 +2,8 @@
 #include <vector>
 #include <stdexcept>
 #include "system.h"
-#include "EntityContainer.h"
+#include "Entity.h"
+#include "Container.h"
 class Entity;
 
 class EntitySystem : public System 
@@ -30,8 +31,8 @@ public:
 
 private:
   EntitySystem* Clone() { throw std::runtime_error("no"); }
-  EntityContainer activeScene;
-  EntityContainer prototypes;
+  Container<Entity> activeScene;
+  Container<Entity> prototypes;
   static inline EntitySystem* active;
 
 };

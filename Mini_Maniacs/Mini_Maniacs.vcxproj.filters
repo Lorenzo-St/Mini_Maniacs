@@ -102,9 +102,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Entitiy</Filter>
     </ClCompile>
-    <ClCompile Include="EntityContainer.cpp">
-      <Filter>Source Files\Engine Code\System\EntitySystem\EntityContainer</Filter>
-    </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Transform</Filter>
     </ClCompile>
@@ -170,7 +167,7 @@
     <ClInclude Include="EnumMacros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EntityContainer.h">
+    <ClInclude Include="Container.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\EntityContainer</Filter>
     </ClInclude>
     <ClInclude Include="Component_Stim.h">
