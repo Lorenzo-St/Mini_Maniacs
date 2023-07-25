@@ -61,5 +61,6 @@ Entity* EntityContainer::FindProto(const char* name)
     if (e->isProto(std::string(name)))
       return e;
   }
+  return nullptr;
 }
 
