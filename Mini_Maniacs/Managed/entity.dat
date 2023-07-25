@@ -3,8 +3,8 @@
     Steve
   <Transform>
     <Position>
-	  100.0
-	  200.0
+	  20.0
+	  30.0
 	<Velocity>
 	  0.0
 	  0.0
@@ -12,8 +12,8 @@
 	  0.0
 	  0.0
 	<Scale>
-	  100
-	  300
+	  50
+	  40
 	<Rotation>
 	  30
 	<Drag>
