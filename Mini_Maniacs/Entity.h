@@ -27,6 +27,9 @@ public:
   void SetName(std::string s) { name = std::string(s); }
   bool isNamed(std::string s) { return name == s; }
 
+  void setProto(std::string s) { protoType = std::string(s); }
+  bool isProto(std::string s) { return protoType == s; }
+
   void SetActive(bool b);
 
   void AddComponent(Component* c) 
@@ -59,6 +62,7 @@ public:
 
 private:
   std::string name;
+  std::string protoType;
   std::vector<Component*> components;
   static const inline EntitySystem& es = EntitySystem::GetActive();
 };

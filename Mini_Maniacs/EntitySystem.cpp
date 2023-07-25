@@ -44,7 +44,7 @@ Entity* EntitySystem::CloneEntity(Entity* e)
 
 Entity* EntitySystem::CreateEntity(const char* archetypeName) 
 {
-  Entity* archi = prototypes.Find(archetypeName);
+  Entity* archi = prototypes.FindProto(archetypeName);
   if (archi == nullptr)
   {
     std::string path = "./Managed/" + std::string(archetypeName) + ".dat";
@@ -54,6 +54,7 @@ Entity* EntitySystem::CreateEntity(const char* archetypeName)
       return nullptr;
 
     archi = new Entity();
+    archi->setProto(archetypeName);
     archi->Read(&s);
     prototypes.add(archi);
   }

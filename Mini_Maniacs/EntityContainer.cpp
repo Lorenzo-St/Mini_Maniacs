@@ -53,3 +53,13 @@ EntityContainer::~EntityContainer()
   } 
   entities.clear();
 }
+
+Entity* EntityContainer::FindProto(const char* name)
+{
+  for (auto& e : entities)
+  {
+    if (e->isProto(std::string(name)))
+      return e;
+  }
+}
+
