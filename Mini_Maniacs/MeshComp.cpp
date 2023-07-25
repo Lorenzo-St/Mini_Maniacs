@@ -4,7 +4,7 @@
 void Mesh::AddVertex(SDL_FPoint* pos, SDL_Color* color, SDL_FPoint* UV) 
 {
   if(m)
-    m->AddVertex(pos, color, UV);
+    const_cast<mesh*>(m)->AddVertex(pos, color, UV);
 
 }
 
@@ -39,7 +39,7 @@ void Mesh::Read(Stream* s)
     SDL_FPoint f = s->ReadFPoint();
     SDL_Color c = s->ReadColor();
     SDL_FPoint u = s->ReadFPoint();
-    m->AddVertex(&f, &c, &u);
+    const_cast<mesh*>(m)->AddVertex(&f, &c, &u);
     
   }
   token = s->ReadString();

@@ -4,11 +4,9 @@
 class Mesh : public Component
 {
 public:
-  Mesh()
-  {
-
-  }
-  Mesh* Clone() { return nullptr; };
+  Mesh() = default;
+  Mesh(Mesh const* ml) : m(ml->m) {  }
+  Mesh* Clone() { return new Mesh(this); };
   void Read(Stream* s);
   void Update(void) { if(m) m->Draw(); }
   void SetMesh(mesh* me) { m = me; };
@@ -22,7 +20,7 @@ private:
   const bool s = set();
   // -------------------------
 
-  mesh* m = nullptr;
+  const mesh* m = nullptr;
 
 };
 

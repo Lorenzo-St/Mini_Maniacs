@@ -19,7 +19,9 @@ public:
   void AddVertex(SDL_FPoint position, SDL_Color  color, SDL_FPoint tex_coord);
   void AddVertex(SDL_FPoint const* position, SDL_Color const* color, SDL_FPoint const* tex_coord);
 
+  void Draw(void) const;
   void Draw(void);
+
   void Destroy(void) { delete this; }
   mesh() {  };
   mesh(mesh const& m) { verticies = std::vector<SDL_Vertex>(m.verticies); }

@@ -10,7 +10,12 @@ void mesh::AddVertex(SDL_FPoint const* position, SDL_Color const* color, SDL_FPo
   verticies.push_back({ *position, *color, *tex_coord });
 }
 
-void mesh::Draw(void) 
+void mesh::Draw(void) const
+{
+  Renderer.Draw(verticies);
+}
+
+void mesh::Draw(void)
 {
   Renderer.Draw(verticies);
 }
