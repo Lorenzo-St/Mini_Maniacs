@@ -48,8 +48,8 @@ public:
 
   friend bool operator< (Component const& lhs, Component const& rhs);
 private:
-  Entity* Parent;
-  ComponentTypeEnum::ComponentType type;
+  Entity* Parent = nullptr;
+  ComponentTypeEnum::ComponentType type = ComponentTypeEnum::reserved;
 };
 
 typedef struct sorter

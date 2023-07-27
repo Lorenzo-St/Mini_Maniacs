@@ -129,6 +129,9 @@
     <ClCompile Include="CollissionFunctions.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders</Filter>
     </ClCompile>
+    <ClCompile Include="Container.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\EntityContainer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">

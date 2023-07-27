@@ -17,7 +17,7 @@ public:
 
   void CheckCollision(Collider* other);
   constexpr std::string GetName(void) { return __CLASS_NAME__; };
-
+  std::vector<std::array<glm::vec2, 2>> const& getSegments(void) { return linesSegments; }
 private:
   // -------------------------
   // Required Component things

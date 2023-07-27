@@ -11,10 +11,11 @@ public:
     Strange
   };
   Collider() = default;
-  Collider* Clone() = 0;
-  void Read(Stream* s) = 0;
+  Collider* Clone() { return new Collider(this); };
+  Collider(Collider const* c) { ColliderType = c->ColliderType; }
+  void Read(Stream* s) {};
   constexpr void SetType(type t) { ColliderType = t; }
-  virtual void CheckCollision(Collider* other) = 0;
+  virtual void CheckCollision(Collider* other) {};
   type isType(void) { return ColliderType; }
   constexpr std::string GetName(void) { return __CLASS_NAME__; };
 

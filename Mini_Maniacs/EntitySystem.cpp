@@ -11,6 +11,7 @@ void EntitySystem::Init(void)
 void EntitySystem::Update(void) 
 {
   activeScene.Update();
+  activeScene.DoCollisions();
 }
 
 void EntitySystem::Render(void) 

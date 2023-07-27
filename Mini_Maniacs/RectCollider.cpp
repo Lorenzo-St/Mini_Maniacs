@@ -36,5 +36,7 @@ void RectCollider::CheckCollision(Collider* other)
   {
     RectEllipCollision(this, other);
   }
+  else if(other->isType() == Rectangle)
+    RectangleCollision(this, other);
 }
 

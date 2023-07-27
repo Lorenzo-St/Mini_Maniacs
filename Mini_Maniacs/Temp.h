@@ -6,15 +6,21 @@
 #include "Entity.h"
 #include "EntitySystem.h"
 #include "Transform.h"
+#include "RectCollider.h"
 class TempScene : public Scene
 {
 public:
   Entity* e;
+  Entity* floor;
   void Init() 
   {
     e = EntitySystem::GetActive().CreateEntity("Entity");
-
-
+    floor = new Entity();
+    floor->AddComponent(new RectCollider());
+    floor->AddComponent(new Transform());
+    floor->GetComponent<Transform>()->SetPosition({ 0, -100 });
+    floor->GetComponent<RectCollider>()->addLine({ -500, 0 }, { 500, 0 });
+    EntitySystem::GetActive().AddEntity(floor);
     updates = 0;
     Random<float> r;
     api.SetMatrixData({ r.Next(-200.f, 200.f), r.Next(-200.f, 200.f) }, {100, 100}, 0);

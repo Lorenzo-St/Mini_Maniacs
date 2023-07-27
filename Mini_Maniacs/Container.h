@@ -1,8 +1,10 @@
 #pragma once
 #include <vector>
+#include <string>
 #include "Object.hpp"
-
-template<typename t>
+#include "Collider.h"
+class Entity;
+template<typename t = Entity>
 class Container : public Object
 {
 public:
@@ -66,6 +68,26 @@ public:
   {
     for (auto& e : entities)
       e->Update();
+  }
+
+  void DoCollisions()
+  {
+    int loc = 0;
+    for (auto entity : entities)
+    {
+      loc++;
+      Collider* c = entity->GetComponent<Collider>();
+      if (!c)
+        continue;
+      for (int i = loc; i < entities.size(); i++)
+      {
+        Entity* e = entities[i];
+        Collider* c2 = e->GetComponent<Collider>();
+        if (!c2)
+          continue;
+        c->CheckCollision(c2);
+      }
+    }
   }
 
   void Render()
