@@ -1,6 +1,5 @@
 #include "Backend.h"
 #include "Transform.h"
-#include "RectCollider.h"
 #include "Stream.h"
 #include "MeshComp.h"
 #include "Entity.h"
