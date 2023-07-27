@@ -1,4 +1,5 @@
 #pragma once
+#include <array>
 #include <vector>
 #include "Component.h"
 #include "GLM.hpp"
@@ -7,18 +8,13 @@
 class RectCollider : public Collider
 {
 public:
-  RectCollider()
-  {
-    width = 1;
-    height = 1;
-  }
-  RectCollider(RectCollider const* r) : width(r->width), height(r->height) {};
+  RectCollider() { }
+  RectCollider(RectCollider const* r) { linesSegments = r->linesSegments; };
   RectCollider* Clone() { return new RectCollider(this); };
   void Read(Stream* s);
 
-  void SetDimensions(float w, float h) { width = w; height = h; };
-  glm::vec2 Dimenstions(void) { return { width, height }; }
-  
+  void addLine(glm::vec2 start, glm::vec2 end) { linesSegments.push_back({start, end}); }
+
   void CheckCollision(Collider* other);
   constexpr std::string GetName(void) { return __CLASS_NAME__; };
 
@@ -29,7 +25,6 @@ private:
   constexpr bool set() { SetType(Rectangle); setType(__CLASS_NAME__); return true; };
   const bool s = set();
   // -------------------------
-  float width;
-  float height;
+  std::vector<std::array<glm::vec2, 2>> linesSegments;
 };
 

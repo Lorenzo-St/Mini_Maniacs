@@ -12,10 +12,6 @@ typedef struct line
 
 void RectangleCollision(Collider* rect1, Collider* rect2) 
 {
-  RectCollider* rec1 = static_cast<RectCollider*>(rect1);
-  RectCollider* rec2 = static_cast<RectCollider*>(rect2);
-  glm::vec2 rect1Pos = rec1->GetParent()->GetComponent<Transform>()->GetPosition();
-  glm::vec2 rect2Pos = rec2->GetParent()->GetComponent<Transform>()->GetPosition();
 
 }
 

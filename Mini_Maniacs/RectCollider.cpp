@@ -5,20 +5,22 @@
 void RectCollider::Read(Stream* s)
 { 
   // <RectCollider>
-  //  <Width>
-  //   10.0
-  //  <Height>
-  //   20.0
-  // </RectCollider>
+  //  <line>
+  //   1.0
+  //   2.0
+  //   2.0
+  //   3.0
+  //  <point>
   // 
+  // </RectCollider>
+  
+  
   while (true) 
   {
     std::string token = s->ReadString();
   
-    if (token == "<Width>")
-      width = s->ReadFloat();
-    else if (token == "<Height>")
-      height = s->ReadFloat();
+    if (token == "<Line>")
+      addLine(s->ReadVector(), s->ReadVector());
     else if (token == "</RectCollider>")
       break;
   }

@@ -14,6 +14,7 @@ public:
   
 
   glm::vec2 const& GetPosition(void) { return pos; };
+  glm::vec2 const& GetOldPosition(void) { return OldPosition; };
   glm::vec2 const& GetVelocity(void) { return velocity; };
   glm::vec2 const& GetAcceleration(void) { return acceleration; };
   glm::vec2 const& GetScale(void) { return scale; };
@@ -39,6 +40,7 @@ private:
   // -------------------------
 
   glm::vec2 pos = {};
+  glm::vec2 OldPosition = {};
   glm::vec2 velocity = {};
   glm::vec2 acceleration = {};
   glm::vec2 scale = {};
