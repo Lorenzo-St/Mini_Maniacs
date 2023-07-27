@@ -27,7 +27,7 @@ public:
   void SetScale(glm::vec2 const& scal) { scale = scal; }
   void SetRotation(float rotation) { rot = rotation; }
 
-  constexpr std::string const& GetName(void) { return __CLASS_NAME__; };
+  constexpr std::string GetName(void) { return __CLASS_NAME__; };
 
 
 private:

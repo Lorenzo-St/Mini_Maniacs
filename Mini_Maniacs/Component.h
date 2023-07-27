@@ -39,9 +39,12 @@ public:
 
     return prettyFunction.substr(begin, end);
   }
+
+
+
 #define __CLASS_NAME__ className(__PRETTY_FUNCTION__)
   
-  virtual constexpr std::string const& GetName(void) = 0;
+  virtual constexpr std::string GetName(void) = 0;
 
   friend bool operator< (Component const& lhs, Component const& rhs);
 private:

@@ -20,7 +20,7 @@ public:
   glm::vec2 Dimenstions(void) { return { width, height }; }
   
   void CheckCollision(Collider* other);
-  constexpr std::string const& GetName(void) { return __CLASS_NAME__; };
+  constexpr std::string GetName(void) { return __CLASS_NAME__; };
 
 private:
   // -------------------------
