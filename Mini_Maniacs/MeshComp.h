@@ -12,6 +12,8 @@ public:
   void SetMesh(mesh* me) { m = me; };
   void CreateMesh(void) { m = new mesh(); }
   void AddVertex(SDL_FPoint* pos, SDL_Color* color, SDL_FPoint* UV);
+  constexpr std::string const& GetName(void) { return __CLASS_NAME__; };
+
 private:
   // -------------------------
   // Required Component things

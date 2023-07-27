@@ -9,6 +9,7 @@ public:
   }
   Physics* Clone() { return nullptr; };
   void Read(Stream* s) { };
+  constexpr std::string const& GetName(void) { return __CLASS_NAME__; };
 private:
   // -------------------------
   // Required Component things

@@ -27,9 +27,9 @@ public:
 
   virtual void OnCollision(void) { return; };
 
-  constexpr bool setType(std::string s) { type = ComponentTypeEnum::toEnum(s); return true; }
+  constexpr bool setType(std::string s) {  type = ComponentTypeEnum::toEnum(s); return true; }
   
-  inline constexpr std::string className(const std::string& prettyFunction)
+  static inline constexpr std::string className(const std::string& prettyFunction)
   {
     size_t colons = prettyFunction.find("::");
     if (colons == std::string::npos)
@@ -40,6 +40,8 @@ public:
     return prettyFunction.substr(begin, end);
   }
 #define __CLASS_NAME__ className(__PRETTY_FUNCTION__)
+  
+  virtual constexpr std::string const& GetName(void) = 0;
 
   friend bool operator< (Component const& lhs, Component const& rhs);
 private:

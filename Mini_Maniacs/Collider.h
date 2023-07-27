@@ -14,6 +14,10 @@ public:
   Collider* Clone() = 0;
   void Read(Stream* s) = 0;
   constexpr void SetType(type t) { ColliderType = t; }
+  virtual void CheckCollision(Collider* other) = 0;
+  type isType(void) { return ColliderType; }
+  constexpr std::string const& GetName(void) { return __CLASS_NAME__; };
+
 private:
   // -------------------------
   // Required Component things

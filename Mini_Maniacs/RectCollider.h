@@ -3,6 +3,7 @@
 #include "Component.h"
 #include "GLM.hpp"
 #include "Collider.h"
+
 class RectCollider : public Collider
 {
 public:
@@ -14,7 +15,13 @@ public:
   RectCollider(RectCollider const* r) : width(r->width), height(r->height) {};
   RectCollider* Clone() { return new RectCollider(this); };
   void Read(Stream* s);
+
   void SetDimensions(float w, float h) { width = w; height = h; };
+  glm::vec2 Dimenstions(void) { return { width, height }; }
+  
+  void CheckCollision(Collider* other);
+  constexpr std::string const& GetName(void) { return __CLASS_NAME__; };
+
 private:
   // -------------------------
   // Required Component things

@@ -41,7 +41,7 @@ public:
   template<typename g>
   g* GetComponent() 
   {
-    ComponentTypeEnum::ComponentType t = ComponentTypeEnum::typeToEnum<g>();
+    ComponentTypeEnum::ComponentType t = ComponentTypeEnum::toEnum(const_cast<std::string&>(g().GetName()));
     size_t start = 0;
     size_t end = components.size();
     while(end > start)

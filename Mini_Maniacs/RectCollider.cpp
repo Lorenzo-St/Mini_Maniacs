@@ -1,5 +1,6 @@
 #include "RectCollider.h"
 #include "Stream.h"
+#include "CollisionFunctions.h"
 
 void RectCollider::Read(Stream* s)
 { 
@@ -24,3 +25,14 @@ void RectCollider::Read(Stream* s)
   
 
 };
+
+
+
+void RectCollider::CheckCollision(Collider* other)
+{
+  if (other->isType() == Circle) 
+  {
+    RectEllipCollision(this, other);
+  }
+}
+

@@ -126,6 +126,9 @@
     <ClCompile Include="RectCollider.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Rectangle</Filter>
     </ClCompile>
+    <ClCompile Include="CollissionFunctions.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">
@@ -205,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="RectCollider.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Rectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionFunctions.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
