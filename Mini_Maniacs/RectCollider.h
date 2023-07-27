@@ -11,7 +11,8 @@ public:
     width = 1;
     height = 1;
   }
-  RectCollider* Clone() { return nullptr; };
+  RectCollider(RectCollider const* r) : width(r->width), height(r->height) {};
+  RectCollider* Clone() { return new RectCollider(this); };
   void Read(Stream* s);
   void SetDimensions(float w, float h) { width = w; height = h; };
 private:
