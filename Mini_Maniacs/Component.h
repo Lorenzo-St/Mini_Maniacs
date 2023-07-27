@@ -3,7 +3,7 @@
 #include "EnumMacros.h"
 #include <typeinfo>
 #include <string>
-CREATE_ENUM(ComponentType, Transform, Mesh);
+CREATE_ENUM(ComponentType, Transform, Mesh, RectCollider);
 
 class Entity;
 
