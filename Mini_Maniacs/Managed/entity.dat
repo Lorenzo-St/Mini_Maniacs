@@ -12,10 +12,10 @@
 	  0.0
 	  0.0
 	<Scale>
-	  300
-	  400
+	  30
+	  40
 	<Rotation>
-	  0
+	  30
 	<Drag>
 	  1.0
   </Transform>
@@ -49,6 +49,11 @@
 		 0	 
 		 
   </Mesh>		 
-		 
+  <RectCollider>
+   <Width>
+    10.0
+   <Height>
+    20.0
+  </RectCollider>
 		 
 		 

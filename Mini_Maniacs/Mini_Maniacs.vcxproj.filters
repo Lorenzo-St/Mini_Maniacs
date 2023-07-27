@@ -64,6 +64,12 @@
     <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Sprite">
       <UniqueIdentifier>{524731e3-74c9-4230-ae86-256677765fe1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders">
+      <UniqueIdentifier>{48f16b6c-9184-40d4-beba-46dd3c61ea2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Rectangle">
+      <UniqueIdentifier>{9c7faef3-1c1a-47cc-865c-cf6cf0e4607f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -113,6 +119,12 @@
     </ClCompile>
     <ClCompile Include="Physics.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="RectCollider.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Rectangle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="Physics.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="RectCollider.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Rectangle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
