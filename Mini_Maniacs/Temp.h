@@ -23,17 +23,13 @@ public:
     EntitySystem::GetActive().AddEntity(floor);
     updates = 0;
     Random<float> r;
-    api.SetMatrixData({ r.Next(-200.f, 200.f), r.Next(-200.f, 200.f) }, {100, 100}, 0);
   }
   void Update()
   {
-    ++updates;
-    if (updates >= 400)
-      getSceneSystem()->SetNextScene(this);
+
   }
   void Exit() 
   {
-    ++restarts;
     EntitySystem::GetActive().DestroyAll();
   }
 private:
