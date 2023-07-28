@@ -17,7 +17,7 @@
 	<Rotation>
 	  00
 	<Drag>
-	  0.0
+	  1.0
   </Transform>
   <Mesh>
 	<Count>
