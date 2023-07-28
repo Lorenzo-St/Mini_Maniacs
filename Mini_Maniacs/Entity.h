@@ -50,9 +50,9 @@ public:
       size_t midPoint = (start + end) / 2;
       ComponentTypeEnum::ComponentType c = components[midPoint]->getType();
       if (c < t)
-        start = midPoint;
+        start = midPoint + 1;
       else if (c > t)
-        end = midPoint;
+        end = midPoint - 1;
       else if (c == t)
         return static_cast<g*>(components[midPoint]);
         
