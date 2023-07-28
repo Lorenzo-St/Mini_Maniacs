@@ -22,7 +22,7 @@ private:
   // -------------------------
   // Required Component things
   // -------------------------
-  constexpr bool set() { SetType(Rectangle); setType(__CLASS_NAME__); return true; };
+  constexpr bool set() { SetType(Rectangle); return true; };
   const bool s = set();
   // -------------------------
   std::vector<std::array<glm::vec2, 2>> linesSegments;
