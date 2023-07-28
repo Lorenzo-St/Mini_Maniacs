@@ -13,11 +13,11 @@
 	  0.0
 	<Scale>
 	  30
-	  40
-	<Rotation>
 	  30
+	<Rotation>
+	  00
 	<Drag>
-	  1.0
+	  0.0
   </Transform>
   <Mesh>
 	<Count>
@@ -51,25 +51,25 @@
   </Mesh>		 
   <RectCollider>
    <Line>
-	 0.5
-	-0.5
-	 0.5
-	 0.5
+	 15
+    -15
+	 15
+	 15
    <Line>
-	 0.5
-	 0.5
-	-0.5
-	 0.5
+	 15
+	 15
+	-15
+	 15
    <Line>
-    -0.5
-	 0.5
-	-0.5
-	-0.5
+    -15
+	 15
+	-15
+	-15
    <Line>
-    -0.5
-	-0.5
-	 0.5
-	-0.5
+    -15
+	-15
+	 15
+	-15
   </RectCollider>
   <Physics>
    <DoesGravity>
