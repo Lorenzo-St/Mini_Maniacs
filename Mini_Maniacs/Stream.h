@@ -11,7 +11,8 @@ public:
 
   int ReadInt(void);
   float ReadFloat(void);
-  
+  bool ReadBool(void);
+
   SDL_FPoint ReadFPoint(void);
   glm::vec2 ReadVector(void);
   SDL_Color ReadColor(void);

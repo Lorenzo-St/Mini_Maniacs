@@ -43,6 +43,7 @@ void Transform::Read(Stream* s)
 
 void Transform::Update(void)
 {
+  OldPosition = pos;
   velocity += acceleration * Time.deltaTime() * drag;
   pos += velocity * Time.deltaTime();
 #if _DEBUG && 0

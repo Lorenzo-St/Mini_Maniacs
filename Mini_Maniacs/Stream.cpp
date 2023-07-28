@@ -25,6 +25,14 @@ float Stream::ReadFloat(void)
   return f;
 }
 
+bool Stream::ReadBool(void) 
+{
+  std::string s;
+  fileStream >> s;
+  if (s == "1" || s == "True" || s == "true" || s == "TRUE") return true;
+  else return false;
+}
+
 SDL_FPoint Stream::ReadFPoint(void) 
 {
   SDL_FPoint fp = {};

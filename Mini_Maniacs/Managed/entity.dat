@@ -71,5 +71,15 @@
 	 0.5
 	-0.5
   </RectCollider>
-		 
+  <Physics>
+   <DoesGravity>
+    true
+   <Weight>
+    1
+   <Body>
+    0
+   <Gravity>
+    0
+   -9.8
+  </Physics>
 		 

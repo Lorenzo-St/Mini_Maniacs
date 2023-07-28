@@ -3,6 +3,7 @@
 #include "Stream.h"
 #include "Transform.h"
 #include "MeshComp.h"
+#include "Physics.h"
 #include "RectCollider.h"
 #include "EntitySystem.h"
 
@@ -89,7 +90,8 @@ void Entity::Read(Stream* s)
       c = new Mesh();
     else if (token == "<RectCollider>")
       c = new RectCollider();
-
+    else if (token == "<Physics>")
+      c = new Physics();
 
     if (c) 
     {

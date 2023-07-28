@@ -1,14 +1,27 @@
 #include "Component.h"
+#include <glm.hpp>
 
 class Physics : public Component
 {
 public:
-  Physics()
+  enum bodyType 
   {
+    Rigid,
+    Soft // Not now
+  };
 
-  }
-  Physics* Clone() { return nullptr; };
-  void Read(Stream* s) { };
+  Physics() = default;
+  Physics(Physics const* p) : doGravity(p->doGravity), body(p->body), weight(p->weight), Gravity(p->Gravity) {};
+  Physics* Clone() { return new Physics(this); };
+  void Read(Stream* s);
+
+  void setGravity(float g) { Gravity = { 0, g }; }
+  void setGravity(glm::vec2 g) { Gravity = g; }
+
+  bool DoesGravity(void) { return doGravity; }
+  float GetWeight(void) { return weight; }
+  bodyType GetBodyType(void) { return body; }
+
 private:
   // -------------------------
   // Required Component things
@@ -17,6 +30,8 @@ private:
   const bool s = set();
   // -------------------------
   bool doGravity;
-
+  bodyType body;
+  float weight;
+  glm::vec2 Gravity;
 
 };
