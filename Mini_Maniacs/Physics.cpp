@@ -22,7 +22,7 @@ void Physics::Read(Stream* s)
   while (true) 
   {
     token = s->ReadString();
-    if (token == "<DoesGravity")
+    if (token == "<DoesGravity>")
       doGravity = s->ReadBool();
     else if (token == "<Weight>")
       weight = s->ReadFloat();
