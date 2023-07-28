@@ -53,12 +53,16 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         earliestTime = ti;
     }    
   }
-  std::cout << "Collision occured now" << std::endl;
-  glm::vec2 moveVec = NewPosition - OldPosition;
-  glm::vec2 intersection = OldPosition + (moveVec * earliestTime);
+  if (earliestTime < 1) 
+  {
+    std::cout << "Collision occured now" << std::endl;
+    glm::vec2 moveVec = NewPosition - OldPosition;
+    glm::vec2 intersection = OldPosition + (moveVec * earliestTime);
+    rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
 
+  }
   
-  rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
+  
 
 }
 
