@@ -17,7 +17,6 @@ public:
   constexpr void SetType(type t) { ColliderType = t; }
   virtual void CheckCollision(Collider* other) {};
   type isType(void) { return ColliderType; }
-  constexpr std::string GetName(void) { return __CLASS_NAME__; };
 
 private:
   // -------------------------

@@ -16,7 +16,7 @@ public:
   void addLine(glm::vec2 start, glm::vec2 end) { linesSegments.push_back({start, end}); }
 
   void CheckCollision(Collider* other);
-  constexpr std::string GetName(void) { return __CLASS_NAME__; };
+
   std::vector<std::array<glm::vec2, 2>> const& getSegments(void) { return linesSegments; }
 private:
   // -------------------------

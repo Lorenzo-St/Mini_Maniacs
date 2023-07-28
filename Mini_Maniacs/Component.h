@@ -27,11 +27,11 @@ public:
 
   virtual void OnCollision(void) { return; };
 
-  constexpr bool setType(std::string s) {  type = ComponentTypeEnum::toEnum(s); return true; }
+  constexpr bool setType(std::string s) { name = s; type = ComponentTypeEnum::toEnum(s); return true; }
   
   static inline constexpr std::string className(const std::string& prettyFunction)
   {
-    size_t colons = prettyFunction.find_last_of("::");
+    size_t colons = prettyFunction.find("::");
     if (colons == std::string::npos)
       return "::";
     size_t begin = prettyFunction.substr(0, colons).rfind(" ") + 1;
@@ -44,12 +44,13 @@ public:
 
 #define __CLASS_NAME__ className(__PRETTY_FUNCTION__)
   
-  virtual constexpr std::string GetName(void) = 0;
+  std::string const& GetName() { return name; }
 
   friend bool operator< (Component const& lhs, Component const& rhs);
 private:
   Entity* Parent = nullptr;
   ComponentTypeEnum::ComponentType type = ComponentTypeEnum::reserved;
+  std::string name;
 };
 
 typedef struct sorter
