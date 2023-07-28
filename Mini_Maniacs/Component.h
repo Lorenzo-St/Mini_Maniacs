@@ -31,7 +31,7 @@ public:
   
   static inline constexpr std::string className(const std::string& prettyFunction)
   {
-    size_t colons = prettyFunction.find("::");
+    size_t colons = prettyFunction.find_last_of("::");
     if (colons == std::string::npos)
       return "::";
     size_t begin = prettyFunction.substr(0, colons).rfind(" ") + 1;
