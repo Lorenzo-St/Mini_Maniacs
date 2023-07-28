@@ -53,8 +53,12 @@ void Transform::Update(void)
 #endif
 
 #if _DEBUG && 1
-  if (pos.y < -200)
+  if (pos.y < -200) 
+  {
+    OldPosition.y = 1000;
     pos.y = 1000;
+  
+  }
 #endif
 }
 
