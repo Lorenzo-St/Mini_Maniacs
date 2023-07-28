@@ -53,7 +53,7 @@ void Transform::Update(void)
 #endif
 
 #if _DEBUG && 1
-  if (pos.y < 200)
+  if (pos.y < -200)
     pos.y = 300;
 #endif
 }
