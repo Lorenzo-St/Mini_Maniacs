@@ -1,9 +1,9 @@
+#include <iostream>
 #include "RectCollider.h"
 #include "Collider.h"
 #include "CollisionFunctions.h"
 #include "Entity.h"
 #include "Transform.h"
-
 typedef struct line 
 {
   glm::vec2 point1;
@@ -53,6 +53,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         earliestTime = ti;
     }    
   }
+  std::cout << "Collision occured now" << std::endl;
   glm::vec2 moveVec = NewPosition - OldPosition;
   glm::vec2 intersection = OldPosition + (moveVec * earliestTime);
 
