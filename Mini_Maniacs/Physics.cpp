@@ -26,6 +26,8 @@ void Physics::Read(Stream* s)
       doGravity = s->ReadBool();
     else if (token == "<Weight>")
       weight = s->ReadFloat();
+    else if (token == "<Body>")
+      body = static_cast<bodyType>(s->ReadInt());
     else if (token == "<Gravity>")
       Gravity = s->ReadVector();
     else if (token == "</Physics>")
