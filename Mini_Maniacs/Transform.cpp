@@ -50,7 +50,11 @@ void Transform::Update(void)
   std::cout << "Pos: " << pos.x << "," << pos.y << std::endl;
   std::cout << "Scale: " << scale.x << "," << scale.y << std::endl;
   std::cout << "Rot: " << rot << std::endl;
+#endif
 
+#if _DEBUG && 1
+  if (pos.y < 200)
+    pos.y == 300;
 #endif
 }
 
