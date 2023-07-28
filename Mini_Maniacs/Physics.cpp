@@ -1,7 +1,16 @@
+#include <string>
+#include <glm.hpp>
 #include "Physics.h"
 #include "Stream.h"
-#include <glm.hpp>
-#include <string>
+#include "Entity.h"
+#include "Transform.h"
+void Physics::Update(void) 
+{
+  if (doGravity) 
+  {
+    GetParent()->GetComponent<Transform>()->SetAcceleration(Gravity);
+  }
+}
 
 void Physics::Read(Stream* s) 
 {
