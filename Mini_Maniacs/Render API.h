@@ -19,6 +19,7 @@ public:
 
   // Drawing function
   void Draw(std::vector<SDL_Vertex> const& mesh) const;
+  void DrawRect(glm::vec2 pos, glm::vec2 scale) const;
   void SetMatrix(glm::mat4x4 const& matrix);
   void SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
   void SetTexture(Texture texture);

@@ -4,6 +4,10 @@
 #include "CollisionFunctions.h"
 #include "Entity.h"
 #include "Transform.h"
+#define DRAW_DEBUG_LINES 1
+#if _DEBUG && DRAW_DEBUG_LINES
+#include "Render API.h"
+#endif 
 typedef struct line 
 {
   glm::vec2 point1;
@@ -53,6 +57,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         earliestTime = ti;
     }    
   }
+#if _DEBUG && DRAW_DEBUG_LINES
+  
+#endif 
   if (earliestTime < 1) 
   {
     glm::vec2 moveVec = NewPosition - OldPosition;

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <array>
 #include "SDL.h"
 #include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
@@ -127,6 +128,28 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
     std::cout << v.position.x << "," << v.position.y << std::endl;
   //activeTexture = nullptr;
 }
+
+void RenderFront::DrawRect(glm::vec2 pos, glm::vec2 scale) const
+{
+  std::array<SDL_Vertex, 6> rect = {};
+  const glm::mat4x4 proj = glm::ortho<float>(-Width * 1.0f, Width * 1.0f, -Height * 1.0f, Height * 1.0f);
+
+  rect[0].position = { pos.x - scale.x / 2.0f, pos.y - scale.y / 2.0f };
+  rect[1].position = { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f };
+  rect[2].position = { pos.x + scale.x / 2.0f, pos.y + scale.y / 2.0f };
+  rect[3].position = { pos.x + scale.x / 2.0f, pos.y + scale.y / 2.0f };
+  rect[4].position = { pos.x + scale.x / 2.0f, pos.y - scale.y / 2.0f };
+  rect[5].position = { pos.x - scale.x / 2.0f, pos.y - scale.y / 2.0f };
+  for (auto& vert : rect) 
+  {
+    glm::vec2 t = glm::vec2(glm::vec4(convert(vert.position), 0, 1) * proj) * zoom;
+    glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y);
+    vert.position = convert(m);
+  }
+  SDL_RenderGeometry(renderer, activeTexture, rect.data(), static_cast<int>(rect.size()), nullptr, 0);
+
+}
+
 
 void RenderFront::SetMatrix(glm::mat4x4 const& matrix) 
 {
