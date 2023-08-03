@@ -32,7 +32,7 @@ public:
   }
   void Update()
   {
-
+    api.DrawRect({ 0,0 }, { 1000, 10 });
   }
   void Exit() 
   {
