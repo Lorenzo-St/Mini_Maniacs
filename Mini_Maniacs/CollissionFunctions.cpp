@@ -22,7 +22,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   RectCollider* mover = static_cast<RectCollider*>(rect1);
   RectCollider* wall = static_cast<RectCollider*>(rect2);
   float earliestTime = 2;
-
+  glm::vec2 earliestMove = { 0,0 };
   // Check line collision along the movement for each point, if there is any collision then the rects collided
   for (auto& l : mover->getSegments()) 
   {
@@ -54,7 +54,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       if (glm::dot(wallVec, testVector) < 0)
         continue;
       if (ti < earliestTime)
+      {
         earliestTime = ti;
+        earliestMove = moveVec;
+      }
     }    
   }
 #if _DEBUG && DRAW_DEBUG_LINES
