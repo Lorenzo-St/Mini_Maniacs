@@ -60,7 +60,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     std::cout << "Collision occured now" << std::endl;
     std::cout << "Moving to " << intersection.x << ", " << intersection.y << std::endl;
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-    rect1->GetParent()->GetComponent<Transform>()->SetVelocity({0,0});
+    rect1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
 
   }
   
