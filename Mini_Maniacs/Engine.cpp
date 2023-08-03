@@ -22,20 +22,29 @@ void Engine::Init(void)
 void Engine::Update(void)
 {
   SDL_Event event;
+  bool contin = true;
   while (running)
   {
-    while (SDL_PollEvent(&event))
-    {
-      if (event.type == SDL_QUIT || event.type == SDL_APP_TERMINATING)
+#if _DEBUG && 1
+    while (contin == false){
+#endif
+      while (SDL_PollEvent(&event))
       {
-        running = false;
+        if (event.type == SDL_QUIT || event.type == SDL_APP_TERMINATING)
+        {
+          running = false;
+        }
+        else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_p)
+          contin = true;
+        else
+        {
+          ProcessEvent(event);
+        }
       }
-      else
-      {
-        ProcessEvent(event);
-      }
+#if _DEBUG && 1
+  }
+#endif
 
-    }
     api.Update();
     for (auto& system : Systems)
       system->Update();
@@ -43,7 +52,7 @@ void Engine::Update(void)
     for (auto& system : Systems)
       system->Render();
   
-  
+    contin = false;
 #if 0
     std::cout << "FR: " << 1.0 / Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
 #endif
