@@ -23,6 +23,8 @@ public:
   void SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
   void SetTexture(Texture texture);
   
+  void setZoom(float z) { zoom = z; };
+
   // Create mesh for drawing
   mesh* CreateMesh(void);
   
@@ -46,6 +48,7 @@ private:
   int Height = 720;
   int TargetFrameRate = 60;
   float frameRateMillis = 0;
+  float zoom = 1.0f;
   Camera c = { {0,0} };
   SDL_Window* window = nullptr;
   SDL_Renderer* renderer = nullptr;
