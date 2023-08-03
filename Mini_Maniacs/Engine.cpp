@@ -1,5 +1,5 @@
 #include "Engine.h"
-
+#define STEPTHROUGH 0
 static errState error;
 
 void Engine::Init(void)
@@ -25,7 +25,7 @@ void Engine::Update(void)
   bool contin = true;
   while (running)
   {
-#if _DEBUG && 1
+#if _DEBUG && STEPTHROUGH
     while (contin == false){
 #endif
       while (SDL_PollEvent(&event))
@@ -41,7 +41,7 @@ void Engine::Update(void)
           ProcessEvent(event);
         }
       }
-#if _DEBUG && 1
+#if _DEBUG && STEPTHROUGH
   }
 #endif
 
