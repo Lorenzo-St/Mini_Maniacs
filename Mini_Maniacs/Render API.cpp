@@ -124,8 +124,8 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
     vert.position = convert(m);
   }
   SDL_RenderGeometry(renderer, activeTexture, temp.data(), static_cast<int>(temp.size()), nullptr, 0);
-  for (auto& v : temp)
-    std::cout << v.position.x << "," << v.position.y << std::endl;
+  //for (auto& v : temp)
+  //  std::cout << v.position.x << "," << v.position.y << std::endl;
   //activeTexture = nullptr;
 }
 
