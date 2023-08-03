@@ -75,6 +75,11 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 #endif 
   if (earliestTime < 1) 
   {
+    glm::vec2 moveVec = NewPosition - OldPosition;
+#if _DEBUG && 1
+    std::cout << "moveVec: " << moveVec.x << ", " << moveVec.y << std::endl;
+    std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
+#endif
     glm::vec2 intersection = OldPosition + (earliestMove * earliestTime);
     std::cout << "Collision occured now" << std::endl;
     std::cout << "Moving to " << intersection.x << ", " << intersection.y << std::endl;
