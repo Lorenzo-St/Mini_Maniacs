@@ -58,7 +58,15 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     }    
   }
 #if _DEBUG && DRAW_DEBUG_LINES
+  glm::vec2 scale = {5, 5};
+  glm::vec2 posi = (OldPosition + NewPosition) / 2.0f;
+  glm::vec2 moveVec = OldPosition - NewPosition;
+  if (moveVec.x > moveVec.y)
+    scale.x = moveVec.x;
+  else
+    scale.y = moveVec.y;
   
+  api.DrawRect(posi, scale);
 #endif 
   if (earliestTime < 1) 
   {
