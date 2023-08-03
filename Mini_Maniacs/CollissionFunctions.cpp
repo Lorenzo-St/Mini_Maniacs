@@ -63,9 +63,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   scale = glm::abs(scale);
   if (earliestTime < 1)
     scale *= earliestTime;
-  if (scale.x = 0)
+  if (scale.x == 0)
     scale.x = 10;
-  if (scale.y = 0)
+  if (scale.y == 0)
     scale.y = 10;
   
   api.DrawRect(posi, scale);
