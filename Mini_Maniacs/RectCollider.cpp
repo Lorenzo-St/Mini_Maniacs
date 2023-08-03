@@ -19,8 +19,12 @@ void RectCollider::Read(Stream* s)
   {
     std::string token = s->ReadString();
   
-    if (token == "<Line>")
-      addLine(s->ReadVector(), s->ReadVector());
+    if (token == "<Line>") 
+    {
+      auto start = s->ReadVector();
+      auto end = s->ReadVector();
+      addLine(start, end);
+    }
     else if (token == "</RectCollider>")
       break;
   }
