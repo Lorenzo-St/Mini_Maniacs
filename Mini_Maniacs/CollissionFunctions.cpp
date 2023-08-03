@@ -58,7 +58,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     }    
   }
 #if _DEBUG && DRAW_DEBUG_LINES
-  glm::vec2 scale = {5, 5};
+  glm::vec2 scale = {.2, .2};
   glm::vec2 posi = (OldPosition + NewPosition) / 2.0f;
   glm::vec2 moveVec = OldPosition - NewPosition;
   if (moveVec.x > moveVec.y)
