@@ -59,7 +59,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   }
 #if _DEBUG && DRAW_DEBUG_LINES
   glm::vec2 scale = rect1->GetParent()->GetComponent<Transform>()->GetVelocity();
-  if (earliestTime != 1)
+  if (earliestTime < 1)
     scale *= earliestTime;
   if (scale.x = 0)
     scale.x = 4;
