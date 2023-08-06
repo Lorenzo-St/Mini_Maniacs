@@ -81,10 +81,11 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
 #endif
     glm::vec2 intersection = OldPosition + (earliestMove * earliestTime);
+    glm::vec2 interupted = earliestMove * (1 - earliestTime);
+    intersection = NewPosition - (2.0f * interupted);
     std::cout << "Collision occured now" << std::endl;
     std::cout << "Moving to " << intersection.x << ", " << intersection.y << std::endl;
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-    rect1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
 
   }
   
