@@ -73,7 +73,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   
   api.DrawRect(posi, scale);
 #endif 
-  if (earliestTime < 1) 
+  if (earliestTime < 1)
   {
     glm::vec2 moveVec = NewPosition - OldPosition;
 #if _DEBUG && 1
@@ -86,11 +86,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     std::cout << "Collision occured now" << std::endl;
     std::cout << "Moving to " << intersection.x << ", " << intersection.y << std::endl;
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-
+    rect1->GetParent()->GetComponent<Transform>()->SetVelocity({ 0,0 });
+    rect1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
   }
-  
-  
-
 }
 
 void CircleCollision(Collider* Ellip1, Collider* Ellip2) 
