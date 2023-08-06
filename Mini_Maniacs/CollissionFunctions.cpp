@@ -5,6 +5,7 @@
 #include "Entity.h"
 #include "Transform.h"
 #define DRAW_DEBUG_LINES 1
+#define DEBUG_WRITING 0
 #if _DEBUG && DRAW_DEBUG_LINES
 #include "Render API.h"
 #endif 
@@ -76,14 +77,14 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   if (earliestTime < 1)
   {
     glm::vec2 moveVec = NewPosition - OldPosition;
-#if _DEBUG && 1
+#if _DEBUG && DEBUG_WRITING
     std::cout << "moveVec: " << moveVec.x << ", " << moveVec.y << std::endl;
     std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
 #endif
     glm::vec2 intersection = OldPosition + (earliestMove * earliestTime);
     glm::vec2 interupted = earliestMove * (1 - earliestTime);
     intersection = NewPosition - (2.0f * interupted);
-#if _DEBUG && 1
+#if _DEBUG && DEBUG_WRITING
     std::cout << "Collision occured now" << std::endl;
     std::cout << "Moving to " << intersection.x << ", " << intersection.y << std::endl;
 #endif
