@@ -94,8 +94,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 #endif
 
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-    rect1->GetParent()->GetComponent<Transform>()->SetVelocity({ 0,0 });
-    rect1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
+    //rect1->GetParent()->GetComponent<Transform>()->SetVelocity({ 0,0 });
+    //rect1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
   }
 }
 
