@@ -22,7 +22,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 NewPosition = rect1->GetParent()->GetComponent<Transform>()->GetPosition();
 
   RectCollider* mover = static_cast<RectCollider*>(rect1);
-  RectCollider* wall = static_cast<RectCollider*>(rect2);
+  RectCollider* wall  = static_cast<RectCollider*>(rect2);
+  
   float earliestTime = 2;
   glm::vec2 earliestMove = { 0,0 };
   // Check line collision along the movement for each point, if there is any collision then the rects collided
@@ -94,8 +95,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 #endif
 
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-    //rect1->GetParent()->GetComponent<Transform>()->SetVelocity({ 0,0 });
-    //rect1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
+    rect1->GetParent()->GetComponent<Transform>()->SetVelocity({ 0,0 });
+    rect1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
   }
 }
 

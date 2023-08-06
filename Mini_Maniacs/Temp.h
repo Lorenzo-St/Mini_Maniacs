@@ -16,16 +16,6 @@ public:
   void Init() 
   {
     e = EntitySystem::GetActive().CreateEntity("Entity");
-    e = EntitySystem::GetActive().CreateEntity("Entity");
-    e->GetComponent<Transform>()->SetPosition({ 200, 400 });
-    e = EntitySystem::GetActive().CreateEntity("Entity");
-    e->GetComponent<Transform>()->SetPosition({ 400, 400 });
-    e = EntitySystem::GetActive().CreateEntity("Entity");
-    e->GetComponent<Transform>()->SetPosition({ 100, 400 });
-    e = EntitySystem::GetActive().CreateEntity("Entity");
-    e->GetComponent<Transform>()->SetPosition({ -200, 400 });
-    e = EntitySystem::GetActive().CreateEntity("Entity");
-    e->GetComponent<Transform>()->SetPosition({ -100, 400 });
     floor = new Entity();
     floor->AddComponent(new RectCollider());
     floor->AddComponent(new Transform());
