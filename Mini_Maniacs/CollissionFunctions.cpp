@@ -4,7 +4,8 @@
 #include "CollisionFunctions.h"
 #include "Entity.h"
 #include "Transform.h"
-#define DRAW_DEBUG_LINES 1
+#include "Physics.h"
+#define DRAW_DEBUG_LINES 0
 #define DEBUG_WRITING 0
 #if _DEBUG && DRAW_DEBUG_LINES
 #include "Render API.h"
@@ -74,6 +75,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   
   api.DrawRect(posi, scale);
 #endif 
+
+
+
   if (earliestTime < 1)
   {
     glm::vec2 moveVec = NewPosition - OldPosition;
