@@ -138,7 +138,7 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
     // Select which rotation will move the closest point closer to the starting point, 
     // in no circum stance should an object moving on 
     // a straight line end up futher from it starting position if it collided with something
-    glm::vec2 workingRot = (glm::distance(closestPoint + CCRot, ellip2Pos) < glm::distance(closestPoint + CRot, ellip2Pos)) ? CRot : CCRot;
+    glm::vec2 workingRot = (glm::dot(CCRot, moveVec) < glm::dot(CRot, moveVec)) ? CRot : CCRot;
     workingRot = glm::normalize(workingRot);
     glm::vec2 offSetVector = workingRot * len;
     Ellip1->GetParent()->GetComponent<Transform>()->SetPosition(closestPoint + offSetVector);  
