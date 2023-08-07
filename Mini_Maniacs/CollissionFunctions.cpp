@@ -115,7 +115,7 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
 
   glm::vec2 toEllip2 = ellip2Pos - startPos;
 
-  glm::vec2 projection = (glm::dot(toEllip2, moveVec) / glm::length(moveVec)) * moveVec;
+  glm::vec2 projection = (glm::dot(toEllip2, moveVec) / glm::dot(moveVec, moveVec)) * moveVec;
 
   if (glm::length(projection) > glm::length(moveVec))
     return;
