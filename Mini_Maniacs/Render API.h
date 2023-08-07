@@ -25,6 +25,8 @@ public:
   void SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
   void SetTexture(Texture texture);
   
+  void SetColor(SDL_Color c) {  ActiveColor = c; }
+
   void setZoom(float z) { zoom = z; };
 
   // Create mesh for drawing
@@ -56,6 +58,7 @@ private:
   SDL_Renderer* renderer = nullptr;
   SDL_Rect ViewPort = {0};
   Texture activeTexture = nullptr;
+  SDL_Color ActiveColor;
   glm::mat4x4 renderMatrix = glm::mat4x4(1.0f);
 };
 

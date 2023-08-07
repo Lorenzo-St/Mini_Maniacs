@@ -146,6 +146,10 @@ void RenderFront::DrawRect(glm::vec2 pos, glm::vec2 scale) const
     glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y);
     vert.position = convert(m);
   }
+  for (auto& a : rect)
+  {
+    a.color = ActiveColor;
+  }
   SDL_RenderGeometry(renderer, activeTexture, rect.data(), static_cast<int>(rect.size()), nullptr, 0);
 
 }
@@ -173,7 +177,10 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
     ellip[i+2].position = convert(glm::vec2(glm::vec4(convert(ellip[i+2].position), 0, 1) * proj * zoom));
     ellip[i+2].position = convert(convert(ellip[i+2].position) * glm::vec2(Width, -Height) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y));
   }
-
+  for (auto& a : ellip) 
+  {
+    a.color = ActiveColor;
+  }
   SDL_RenderGeometry(renderer, activeTexture, ellip.data(), static_cast<int>(ellip.size()), nullptr, 0);
 
 }
