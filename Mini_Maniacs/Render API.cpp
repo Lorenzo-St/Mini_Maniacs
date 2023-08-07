@@ -154,6 +154,7 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
 {
   const glm::mat4x4 proj = glm::ortho<float>(-Width * 1.0f, Width * 1.0f, -Height * 1.0f, Height * 1.0f);
   std::vector<SDL_Vertex> ellip = {};
+  rad *= rad;
   SDL_FPoint cen = convert(pos);
   for (float angle = 0, i = 0; angle < 360; angle += 15, i+=3) 
   {
