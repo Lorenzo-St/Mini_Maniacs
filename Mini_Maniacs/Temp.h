@@ -35,7 +35,7 @@ public:
     c1->AddComponent(new EllipCollider());
     c1->AddComponent(new Transform());
     c1->AddComponent(new Physics());
-    c1->GetComponent<Transform>()->SetPosition({ -150, 200 });
+    c1->GetComponent<Transform>()->SetPosition({ -115, 200 });
     c1->GetComponent<Transform>()->SetScale({ 10, 10});
     c1->GetComponent<EllipCollider>()->SetRadius(20);
 
