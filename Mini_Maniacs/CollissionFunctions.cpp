@@ -132,7 +132,7 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
   }
   else if (distance < minDist) 
   {
-    std::cout << "hi interacted" << std::endl;
+    //std::cout << "hi interacted" << std::endl;
     glm::vec2 staticToClosest = closestPoint - ellip2Pos;
     glm::vec2 CCRot = { -staticToClosest.y, staticToClosest.x };
     glm::vec2 CRot = {   staticToClosest.y, -staticToClosest.x };
