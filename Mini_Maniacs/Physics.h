@@ -33,8 +33,8 @@ private:
   const bool s = set();
   // -------------------------
   bool doGravity = true;
-  bodyType body;
+  bodyType body = Rigid;
   float weight = 1;
-  glm::vec2 Gravity;
+  glm::vec2 Gravity = {0, -9.8};
 
 };
