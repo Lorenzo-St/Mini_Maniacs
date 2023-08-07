@@ -35,6 +35,6 @@ private:
   bool doGravity = true;
   bodyType body = Rigid;
   float weight = 1;
-  glm::vec2 Gravity = {0, -9.8};
+  glm::vec2 Gravity = {0, -9.8f};
 
 };
