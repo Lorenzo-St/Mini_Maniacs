@@ -112,7 +112,6 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
   glm::vec2 ellip2Pos = Ellip2->GetParent()->GetComponent<Transform>()->GetPosition();
 
   glm::vec2 moveVec = endPos - startPos;
-  startPos = startPos + (glm::normalize(moveVec) * Ellip1->GetParent()->GetComponent<EllipCollider>()->GetRadius());
   glm::vec2 toEllip2 = ellip2Pos - startPos;
   if (glm::dot(toEllip2, moveVec) < 0)
     return;
