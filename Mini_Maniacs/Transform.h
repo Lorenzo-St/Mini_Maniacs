@@ -23,6 +23,7 @@ public:
 
   void SetPosition(glm::vec2 const& position) { pos = position; }
   void SetVelocity(glm::vec2 const& velo) { velocity = velo; }
+  void AddVelocity(glm::vec2 const& add) { velocity += add; }
   void SetAcceleration(glm::vec2 const& accel) { acceleration = accel; }
   void SetAcceleration(glm::vec2 const& accel, float dragPerc) { acceleration = accel; drag = 1 - dragPerc; }
   void SetScale(glm::vec2 const& scal) { scale = scal; }
