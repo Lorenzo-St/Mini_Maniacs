@@ -173,12 +173,6 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
     ellip[i+2].position = convert(glm::vec2(glm::vec4(convert(ellip[i+2].position), 0, 1) * proj * zoom));
     ellip[i+2].position = convert(convert(ellip[i+2].position) * glm::vec2(Width, -Height) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y));
   }
-  ellip.push_back({});
-  ellip[ellip.size() - 1].position.x = (pos.x);
-  ellip[ellip.size() - 1].position.y = (pos.y);
-  ellip[ellip.size() - 1].position = convert(glm::vec2(glm::vec4(convert(ellip[ellip.size() - 1].position), 0, 1) * proj * zoom));
-  ellip[ellip.size() - 1].position = convert(convert(ellip[ellip.size() - 1].position) * glm::vec2(Width, -Height) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y));
-
   SDL_RenderGeometry(renderer, activeTexture, ellip.data(), static_cast<int>(ellip.size()), nullptr, 0);
 
 }
