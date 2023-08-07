@@ -70,6 +70,9 @@
     <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Rectangle">
       <UniqueIdentifier>{9c7faef3-1c1a-47cc-865c-cf6cf0e4607f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Circle">
+      <UniqueIdentifier>{9f92da6b-eeb6-47ba-9825-5e9ca2521f72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -131,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="Container.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\EntityContainer</Filter>
+    </ClCompile>
+    <ClCompile Include="EllipCollider.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Circle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="CollisionFunctions.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="EllipCollider.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Circle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

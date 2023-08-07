@@ -1,5 +1,6 @@
 #include <iostream>
 #include "RectCollider.h"
+#include "EllipCollider.h"
 #include "Collider.h"
 #include "CollisionFunctions.h"
 #include "Entity.h"
@@ -102,7 +103,44 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
 void CircleCollision(Collider* Ellip1, Collider* Ellip2) 
 {
+  EllipCollider* ellip1 = static_cast<EllipCollider*>(Ellip1);
+  EllipCollider* ellip2 = static_cast<EllipCollider*>(Ellip2);
 
+  glm::vec2 startPos = Ellip1->GetParent()->GetComponent<Transform>()->GetOldPosition();
+  glm::vec2 endPos = Ellip1->GetParent()->GetComponent<Transform>()->GetPosition();
+
+  glm::vec2 ellip2Pos = Ellip2->GetParent()->GetComponent<Transform>()->GetPosition();
+
+  glm::vec2 moveVec = endPos - startPos;
+
+  glm::vec2 toEllip2 = ellip2Pos - startPos;
+
+  glm::vec2 projection = (glm::dot(toEllip2, moveVec) / glm::dot(moveVec, moveVec)) * moveVec;
+
+  glm::vec2 closestPoint = startPos + projection;
+
+  float distance = glm::distance(closestPoint, ellip2Pos);
+
+  float minDist = ellip1->GetRadius() + ellip2->GetRadius();
+
+  if (distance == minDist) 
+  {
+    Ellip1->GetParent()->GetComponent<Transform>()->SetPosition(closestPoint);
+  }
+  else if (distance < minDist) 
+  {
+    glm::vec2 staticToClosest = closestPoint - ellip2Pos;
+    glm::vec2 CCRot = { -staticToClosest.y, staticToClosest.x };
+    glm::vec2 CRot = {   staticToClosest.y, -staticToClosest.x };
+    float len = std::sqrtf((minDist * minDist) - (distance * distance));
+    // Select which rotation will move the closest point closer to the starting point, 
+    // in no circum stance should an object moving on 
+    // a straight line end up futher from it starting position if it collided with something
+    glm::vec2 workingRot = (glm::distance(ellip2Pos + CCRot, startPos) > glm::distance(ellip2Pos + CRot, startPos)) ? CRot : CCRot;
+    workingRot = glm::normalize(workingRot);
+    glm::vec2 offSetVector = workingRot * len;
+    Ellip1->GetParent()->GetComponent<Transform>()->SetPosition(closestPoint + offSetVector);  
+  }
 }
 
 void RectEllipCollision(Collider* rect1, Collider* Ellips2) 
