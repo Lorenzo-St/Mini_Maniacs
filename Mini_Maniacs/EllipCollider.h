@@ -21,7 +21,7 @@ private:
   // -------------------------
   // Required Component things
   // -------------------------
-  constexpr bool set() { SetType(Rectangle); return true; };
+  constexpr bool set() { SetType(Circle); return true; };
   const bool s = set();
   // -------------------------
 
