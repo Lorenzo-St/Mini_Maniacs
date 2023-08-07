@@ -96,8 +96,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 #endif
 
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-    rect1->GetParent()->GetComponent<Transform>()->SetVelocity({ 0,0 });
-    rect1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
   }
 }
 
@@ -146,8 +144,6 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
     workingRot = glm::normalize(workingRot);
     glm::vec2 offSetVector = workingRot * len;
     Ellip1->GetParent()->GetComponent<Transform>()->SetPosition(closestPoint + offSetVector);  
-    Ellip1->GetParent()->GetComponent<Transform>()->SetVelocity({0,0});
-    Ellip1->GetParent()->GetComponent<Transform>()->SetAcceleration({0,0});
 
     std::cout << "Moved To: " << closestPoint.x + offSetVector.x << "," << closestPoint.y + offSetVector.y << std::endl;
   }
