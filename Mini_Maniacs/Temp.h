@@ -53,12 +53,13 @@ public:
   }
   void Update()
   {
+    api.SetColor({ 0,0,0,255 });
     api.DrawRect({ 0,-5 }, { 1000, 10 });
     api.SetColor({ 50,50,50,255 });
-    api.DrawEllipse(c1->GetComponent<Transform>()->GetPosition(), 20);
-    api.SetColor({ 100,0,250,255 });
-
     api.DrawEllipse(c2->GetComponent<Transform>()->GetPosition(), 20);
+    api.SetColor({ 100,0,250,255 });
+    api.DrawEllipse(c1->GetComponent<Transform>()->GetPosition(), 20);
+
 
   }
   void Exit() 
