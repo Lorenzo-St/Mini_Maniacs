@@ -5,7 +5,7 @@
 class Transform : public Component
 {
 public:
-  Transform() = default;
+  Transform() : pos(0), OldPosition(0), velocity(0), acceleration(0), scale(0), rot(0), drag(1) {};
   Transform(Transform const* t) { pos = t->pos; velocity = t->velocity; acceleration = t->acceleration; drag = t->drag; scale = t->scale; rot = t->rot; };
   Transform* Clone() { return new Transform(this); };
 
