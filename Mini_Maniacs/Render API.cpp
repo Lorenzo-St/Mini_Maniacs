@@ -164,8 +164,8 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
     ellip[i  ].position.y = (pos.y + rad * std::cosf((M_PI * angle) / 180));
     ellip[i+1].position.x = (pos.x);
     ellip[i+1].position.y = (pos.y);
-    ellip[i+2].position.x = (pos.x + rad * std::sinf((M_PI * (angle + 15)) / 180));
-    ellip[i+2].position.y = (pos.y + rad * std::cosf((M_PI * (angle + 15)) / 180));
+    ellip[i+2].position.x = (pos.x + rad * std::sinf((M_PI * (angle + 30)) / 180));
+    ellip[i+2].position.y = (pos.y + rad * std::cosf((M_PI * (angle + 30)) / 180));
     ellip[i  ].position = convert(glm::vec2(glm::vec4(convert(ellip[i  ].position), 0,1) * proj * zoom));
     ellip[i  ].position = convert(convert(ellip[i  ].position) * glm::vec2(Width, -Height) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y));
     ellip[i+1].position = convert(glm::vec2(glm::vec4(convert(ellip[i+1].position), 0, 1) * proj * zoom));
@@ -173,6 +173,7 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
     ellip[i+2].position = convert(glm::vec2(glm::vec4(convert(ellip[i+2].position), 0, 1) * proj * zoom));
     ellip[i+2].position = convert(convert(ellip[i+2].position) * glm::vec2(Width, -Height) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y));
   }
+
   SDL_RenderGeometry(renderer, activeTexture, ellip.data(), static_cast<int>(ellip.size()), nullptr, 0);
 
 }
