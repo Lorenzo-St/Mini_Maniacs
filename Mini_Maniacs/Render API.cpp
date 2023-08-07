@@ -160,12 +160,12 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
     ellip.push_back({});
     ellip.push_back({});
     ellip.push_back({});
-    ellip[i  ].position.x = (pos.x + rad * std::sinf((M_PI * angle) / 180));
-    ellip[i  ].position.y = (pos.y + rad * std::cosf((M_PI * angle) / 180));
+    ellip[i  ].position.x = (pos.x + rad * std::sinf(angle));
+    ellip[i  ].position.y = (pos.y + rad * std::cosf(angle));
     ellip[i+1].position.x = (pos.x);
     ellip[i+1].position.y = (pos.y);
-    ellip[i+2].position.x = (pos.x + rad * std::sinf((M_PI * (angle + 30)) / 180));
-    ellip[i+2].position.y = (pos.y + rad * std::cosf((M_PI * (angle + 30)) / 180));
+    ellip[i+2].position.x = (pos.x + rad * std::sinf(angle + 30));
+    ellip[i+2].position.y = (pos.y + rad * std::cosf(angle + 30));
     ellip[i  ].position = convert(glm::vec2(glm::vec4(convert(ellip[i  ].position), 0,1) * proj * zoom));
     ellip[i  ].position = convert(convert(ellip[i  ].position) * glm::vec2(Width, -Height) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y));
     ellip[i+1].position = convert(glm::vec2(glm::vec4(convert(ellip[i+1].position), 0, 1) * proj * zoom));
