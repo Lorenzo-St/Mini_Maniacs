@@ -111,7 +111,7 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
 
   glm::vec2 ellip2Pos = Ellip2->GetParent()->GetComponent<Transform>()->GetPosition();
 
-  glm::vec2 moveVec = endPos - startPos;
+  glm::vec2 moveVec = Ellip1->GetParent()->GetComponent<Transform>()->GetVelocity();
   glm::vec2 toEllip2 = ellip2Pos - startPos;
   if (glm::dot(toEllip2, moveVec) < 0)
     return;
@@ -120,8 +120,8 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
 
   glm::vec2 closestPoint = startPos + projection;
 
-  //if (glm::distance(closestPoint, startPos) > glm::length(moveVec))
-  //  return;
+  if (glm::distance(closestPoint, startPos) > glm::length(moveVec))
+    return;
 
   float minDist = ellip1->GetRadius() + ellip2->GetRadius();
   float distance = glm::distance(closestPoint, ellip2Pos);
