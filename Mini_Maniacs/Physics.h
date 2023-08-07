@@ -20,8 +20,6 @@ public:
   void setGravity(float g) { Gravity = { 0, g }; }
   void setGravity(glm::vec2 g) { Gravity = g; }
 
-  void SetCollision(bool c) { inCollision = c; }
-  bool GetCollision(void) { return inCollision; }
 
   bool DoesGravity(void) { return doGravity; }
   float GetWeight(void) { return weight; }
@@ -34,10 +32,9 @@ private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
   const bool s = set();
   // -------------------------
-  bool doGravity;
-  bool inCollision;
+  bool doGravity = true;
   bodyType body;
-  float weight;
+  float weight = 1;
   glm::vec2 Gravity;
 
 };
