@@ -153,10 +153,13 @@ void RenderFront::DrawRect(glm::vec2 pos, glm::vec2 scale) const
 void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
 {
   const glm::mat4x4 proj = glm::ortho<float>(-Width * 1.0f, Width * 1.0f, -Height * 1.0f, Height * 1.0f);
-  std::array<SDL_Vertex, 30> ellip = {};
+  std::vector<SDL_Vertex> ellip = {};
   SDL_FPoint cen = convert(pos);
   for (float angle = 0, i = 0; angle < 360; angle += 15, i+=2) 
   {
+    ellip.push_back({});
+    ellip.push_back({});
+    ellip.push_back({});
     ellip[i  ].position.x = (pos.x + rad * std::sinf((M_PI * angle) / 180));
     ellip[i  ].position.y = (pos.y + rad * std::cosf((M_PI * angle) / 180));
     ellip[i+1].position.x = (pos.x);
