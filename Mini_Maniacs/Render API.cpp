@@ -162,10 +162,10 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
     ellip[i].position = convert(glm::vec2(glm::vec4(convert(ellip[i].position), 0,1) * proj * zoom));
     ellip[i+1].position.x = (pos.x);
     ellip[i+1].position.y = (pos.y);
-    ellip[i+1].position = convert(glm::vec2(glm::vec4(convert(ellip[i].position), 0, 1) * proj * zoom));
+    ellip[i+1].position = convert(glm::vec2(glm::vec4(convert(ellip[i+1].position), 0, 1) * proj * zoom));
     ellip[i+2].position.x = (pos.x + rad * std::sinf((M_PI * (angle + 30)) / 180));
     ellip[i+2].position.y = (pos.y + rad * std::cosf((M_PI * (angle + 30)) / 180));
-    ellip[i+2].position = convert(glm::vec2(glm::vec4(convert(ellip[i].position), 0, 1) * proj * zoom));
+    ellip[i+2].position = convert(glm::vec2(glm::vec4(convert(ellip[i+2].position), 0, 1) * proj * zoom));
   }
 
   SDL_RenderGeometry(renderer, activeTexture, ellip.data(), static_cast<int>(ellip.size()), nullptr, 0);
