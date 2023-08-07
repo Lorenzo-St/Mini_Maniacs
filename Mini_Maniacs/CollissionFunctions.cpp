@@ -141,8 +141,8 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
     // in no circum stance should an object moving on 
     // a straight line end up futher from it starting position if it collided with something
     glm::vec2 workingRot = (glm::length(CCRot) > glm::length(CRot)) ? CRot : CCRot;
-    if (glm::length(CCRot) == glm::length(CRot))
-      workingRot = -moveVec;
+    //if (glm::length(CCRot) == glm::length(CRot))
+    //  workingRot = -moveVec;
     workingRot = glm::normalize(workingRot);
     glm::vec2 offSetVector = workingRot * len;
     Ellip1->GetParent()->GetComponent<Transform>()->SetPosition(closestPoint + offSetVector);  
