@@ -18,19 +18,19 @@ public:
   {
     n = s;
   }
-  float Width() 
+  int Width()
   {
     return w;
   }
-  float Height() 
+  int Height()
   {
     return h;
   }
 private:
   std::string n;
   SDL_Texture* t;
-  float w, h;
-};
+  int w, h;
+}Texture;
 
 class TextureManager
 {
