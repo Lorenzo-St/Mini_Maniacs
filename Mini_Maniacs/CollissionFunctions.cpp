@@ -143,7 +143,7 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
     glm::vec2 offSetVector = workingRot * len;
     Ellip1->GetParent()->GetComponent<Transform>()->SetPosition(closestPoint + offSetVector);
     len = glm::length(Ellip1->GetParent()->GetComponent<Transform>()->GetVelocity());
-    Ellip1->GetParent()->GetComponent<Transform>()->SetVelocity({0,0});
+    Ellip1->GetParent()->GetComponent<Transform>()->AddVelocity(workingRot * len);
 
 
     std::cout << "Moved To: " << closestPoint.x + offSetVector.x << "," << closestPoint.y + offSetVector.y << std::endl;
