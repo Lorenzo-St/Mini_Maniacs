@@ -124,7 +124,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
     vert.position = convert(m);
   }
   if(activeTexture)
-    SDL_RenderGeometry(renderer, activeTexture->texture(), temp.data(), static_cast<int>(temp.size()), nullptr, 0);
+    SDL_RenderGeometry(renderer, const_cast<Texture*>(activeTexture)->texture(), temp.data(), static_cast<int>(temp.size()), nullptr, 0);
   else
     SDL_RenderGeometry(renderer, nullptr, temp.data(), static_cast<int>(temp.size()), nullptr, 0);
 
@@ -206,7 +206,7 @@ void RenderFront::SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation)
   renderMatrix = mat;
 }
 
-void RenderFront::SetTexture(Texture* texture)
+void RenderFront::SetTexture(Texture const* texture) 
 {
   activeTexture = texture;
 }

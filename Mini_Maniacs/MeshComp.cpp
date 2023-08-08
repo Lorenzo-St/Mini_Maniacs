@@ -3,6 +3,7 @@
 #include "Stream.h"
 #include "MeshComp.h"
 #include "Entity.h"
+#include "Sprite.h"
 void Mesh::AddVertex(SDL_FPoint* pos, SDL_Color* color, SDL_FPoint* UV) 
 {
   if(m)
@@ -13,6 +14,12 @@ void Mesh::Render(void)
 { 
   if (m) 
   {
+    Sprite* s = GetParent()->GetComponent<Sprite>();
+    if (s)
+      api.SetTexture(s->texture());
+    else 
+      api.SetTexture(nullptr);
+
     Transform* t = GetParent()->GetComponent<Transform>();
     api.SetMatrixData(t->GetPosition(), t->GetScale(), t->GetRotation());
     m->Draw();

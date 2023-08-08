@@ -8,9 +8,8 @@ public:
   Sprite(Sprite const* ml) : t(ml->t) {  }
   Sprite* Clone() { return new Sprite(this); };
   void Read(Stream* s);
-  void Render(void);
   void LoadSprite(std::string s) { t = Textures.LoadTexture(s); }
-
+  Texture const* texture() { return t; };
 private:
   // -------------------------
   // Required Component things

@@ -13,6 +13,11 @@ void TextureManager::SetRenderer(SDL_Renderer* r)
 
 Texture* TextureManager::LoadTexture(std::string const& filename)
 {
+  for (auto& t : textures) 
+  {
+    if (t->name() == filename)
+      return t;
+  }
   int w, h, channels;
 
   unsigned char* file = stbi_load(filename.c_str(), &w, &h, &channels, 0);

@@ -5,6 +5,8 @@
 #include "MeshComp.h"
 #include "Physics.h"
 #include "RectCollider.h"
+#include "EllipCollider.h"
+#include "Sprite.h"
 #include "EntitySystem.h"
 
 Entity::Entity(void) 
@@ -90,8 +92,12 @@ void Entity::Read(Stream* s)
       c = new Mesh();
     else if (token == "<RectCollider>")
       c = new RectCollider();
+    else if (token == "<EllipCollider>")
+      c = new EllipCollider();
     else if (token == "<Physics>")
       c = new Physics();
+    else if (token == "<Sprite>")
+      c = new Sprite();
 
     if (c) 
     {

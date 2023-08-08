@@ -62,4 +62,9 @@
    <Gravity>
     0 -9.8
   </Physics>
-		 
+  <Sprite>
+   <Texture>
+    test.png
+  </Sprite>
+
+  
