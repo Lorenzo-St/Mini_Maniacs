@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
   Engine engine;
   engine.addSystem(new SceneSystem());
   engine.addSystem(new EntitySystem());
-  api.setZoom(1.f);
+  api.setZoom(2.5f);
   engine.Init();
   Input.addBinding(Enter, { SDLK_g });
   
