@@ -45,6 +45,5 @@ private:
   glm::vec2 acceleration = {};
   glm::vec2 scale = {};
   float rot = 0;
-
   float drag = 1;
 };

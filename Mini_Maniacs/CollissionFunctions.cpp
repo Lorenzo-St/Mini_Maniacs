@@ -132,8 +132,8 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
   {
     //std::cout << "hi interacted" << std::endl;
     glm::vec2 staticToClosest = closestPoint - ellip2Pos;
-    glm::vec2 CCRot = { -staticToClosest.y, staticToClosest.x };
-    glm::vec2 CRot = {   staticToClosest.y, -staticToClosest.x };
+    glm::vec2 CCRot = { -staticToClosest.y,  staticToClosest.x };
+    glm::vec2 CRot  = {  staticToClosest.y, -staticToClosest.x };
     float len = std::sqrtf((minDist * minDist) - (distance * distance));
     // Select which rotation will move the closest point closer to the starting point, 
     // in no circum stance should an object moving on 
@@ -151,5 +151,6 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
 
 void RectEllipCollision(Collider* rect1, Collider* Ellips2) 
 {
-
+  // TODO much later, This is really fucking hard to do without cheesing it
+  // and I don't want to cheese it
 }

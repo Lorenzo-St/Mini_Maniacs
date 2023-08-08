@@ -4,6 +4,7 @@
 #include "Stream.h"
 #include "Entity.h"
 #include "Transform.h"
+#include "EllipCollider.h"
 void Physics::Update(void) 
 {
   if (doGravity) 

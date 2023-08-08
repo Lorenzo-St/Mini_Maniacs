@@ -123,7 +123,11 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
     glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y);
     vert.position = convert(m);
   }
-  SDL_RenderGeometry(renderer, activeTexture, temp.data(), static_cast<int>(temp.size()), nullptr, 0);
+  if(activeTexture)
+    SDL_RenderGeometry(renderer, activeTexture->texture(), temp.data(), static_cast<int>(temp.size()), nullptr, 0);
+  else
+    SDL_RenderGeometry(renderer, nullptr, temp.data(), static_cast<int>(temp.size()), nullptr, 0);
+
   //for (auto& v : temp)
   //  std::cout << v.position.x << "," << v.position.y << std::endl;
   //activeTexture = nullptr;
@@ -150,7 +154,7 @@ void RenderFront::DrawRect(glm::vec2 pos, glm::vec2 scale) const
   {
     a.color = ActiveColor;
   }
-  SDL_RenderGeometry(renderer, activeTexture, rect.data(), static_cast<int>(rect.size()), nullptr, 0);
+  SDL_RenderGeometry(renderer, nullptr, rect.data(), static_cast<int>(rect.size()), nullptr, 0);
 
 }
 
@@ -181,7 +185,7 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
   {
     a.color = ActiveColor;
   }
-  SDL_RenderGeometry(renderer, activeTexture, ellip.data(), static_cast<int>(ellip.size()), nullptr, 0);
+  SDL_RenderGeometry(renderer, nullptr, ellip.data(), static_cast<int>(ellip.size()), nullptr, 0);
 
 }
 
@@ -202,7 +206,7 @@ void RenderFront::SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation)
   renderMatrix = mat;
 }
 
-void RenderFront::SetTexture(Texture texture)
+void RenderFront::SetTexture(Texture* texture)
 {
   activeTexture = texture;
 }

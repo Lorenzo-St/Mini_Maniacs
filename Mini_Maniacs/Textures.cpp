@@ -11,7 +11,7 @@ void TextureManager::SetRenderer(SDL_Renderer* r)
 }
 
 
-Texture TextureManager::LoadTexture(std::string const& filename)
+Texture* TextureManager::LoadTexture(std::string const& filename)
 {
   int w, h, channels;
 
@@ -31,21 +31,32 @@ Texture TextureManager::LoadTexture(std::string const& filename)
   SDL_UpdateTexture(texture, &tex, file, w * channels);
 
   SDL_SetTextureScaleMode(texture, textureScalingForLoad);
-
-  textures.push_back(texture);
+  Texture* t = new Texture(texture, w, h);
+  t->name(filename);
+  textures.push_back(t);
   stbi_image_free(file);
-  return texture;
+  return t;
 
 }
 
-Texture TextureManager::LoadTexture(const char* filename)
+Texture* TextureManager::LoadTexture(const char* filename)
 {
-  return nullptr;
+  std::string s = std::string(filename);
+  return LoadTexture(s);
 }
 
-void TextureManager::DropTexture(Texture t)
+void TextureManager::DropTexture(Texture* ti)
 {
-
+  int i = 0;
+  for (auto& t : textures) 
+  {
+    if (t->name() == ti->name())
+    {
+      delete t;
+      textures.erase(textures.begin() + i);
+    }
+    ++i;
+  }
 }
 
 void TextureManager::SetScalingMode(SDL_ScaleMode s) 
@@ -57,8 +68,10 @@ void TextureManager::DropAll(void)
 {
   for (auto& texture : textures) 
   {
-    SDL_DestroyTexture(texture);
+    SDL_DestroyTexture(texture->texture());
+    delete texture;
   }
+  textures.clear();
 }
 
 

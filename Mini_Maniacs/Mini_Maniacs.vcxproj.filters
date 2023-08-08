@@ -138,6 +138,9 @@
     <ClCompile Include="EllipCollider.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Circle</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="EllipCollider.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Physics\Colliders\Circle</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Sprite</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
