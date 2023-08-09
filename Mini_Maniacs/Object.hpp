@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 class Stream;
 
 class Object 
@@ -17,6 +18,8 @@ public:
   virtual void OnAwake(void) { return; };
   virtual void Read(Stream* s) {};
   virtual Object* Clone() = 0;
+
+  virtual void CheckClass() { std::cout << typeid(*this).name() << std::endl; }
 
   void SetActive(bool b) { Active = b; }
   bool isActive(void) { return Active; }
