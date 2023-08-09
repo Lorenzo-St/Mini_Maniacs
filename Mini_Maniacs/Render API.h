@@ -24,7 +24,7 @@ public:
   void SetMatrix(glm::mat4x4 const& matrix);
   void SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
   void SetTexture(Texture const* texture);
-
+  void SetUVMatrix(glm::mat4x4 const& matrix) { UVmatrix = matrix; }
   void SetColor(SDL_Color c) {  ActiveColor = c; }
 
   void setZoom(float z) { zoom = z; };
@@ -60,6 +60,7 @@ private:
   Texture const* activeTexture = nullptr;
   SDL_Color ActiveColor;
   glm::mat4x4 renderMatrix = glm::mat4x4(1.0f);
+  glm::mat4x4 UVmatrix = glm::mat4x4(1.0f);
 };
 
 

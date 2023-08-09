@@ -23,7 +23,7 @@ void Mesh::Render(void)
     Transform* t = GetParent()->GetComponent<Transform>();
     api.SetMatrixData(t->GetPosition(), t->GetScale(), t->GetRotation());
     m->Draw();
-
+    api.SetUVMatrix(glm::mat3x3(1.0f));
   }
 }
 

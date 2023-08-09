@@ -122,6 +122,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
     glm::vec2 t = glm::vec2(glm::vec4(convert(vert.position), 0, 1) * projection * proj) * zoom;
     glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y);
     vert.position = convert(m);
+    vert.tex_coord = convert(glm::vec4(convert(vert.tex_coord), 0, 1) * UVmatrix);
   }
   if(activeTexture)
     SDL_RenderGeometry(renderer, const_cast<Texture*>(activeTexture)->texture(), temp.data(), static_cast<int>(temp.size()), nullptr, 0);
@@ -131,6 +132,8 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   //for (auto& v : temp)
   //  std::cout << v.position.x << "," << v.position.y << std::endl;
   //activeTexture = nullptr;
+
+  
 }
 
 void RenderFront::DrawRect(glm::vec2 pos, glm::vec2 scale) const

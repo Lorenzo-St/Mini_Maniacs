@@ -33,7 +33,7 @@
 	   1 0	
 	   0.5 -0.5
 	   000 255 255 255
-	   0 0
+	   1 1
 	  -0.5 -0.5
 	   255 000 255 255
 	   0 1 
@@ -66,5 +66,20 @@
    <Texture>
     test.png
   </Sprite>
+  <Animation>
+   <frameLength>
+    .25
+   <maxFrames>
+    9
+   <Columns>
+    3
+   <Rows>
+    3
+   <looping>
+    true
+   <offset>
+    0 0 
+  </Animation>
+   
 
   

@@ -199,6 +199,7 @@ git push</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollissionFunctions.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -223,6 +224,7 @@ git push</Command>
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Backend.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionFunctions.h" />
