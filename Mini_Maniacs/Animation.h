@@ -40,6 +40,7 @@ private:
   bool looping = true;
 
   void UpdateMesh();
+  glm::mat4x4 matrix = glm::mat4x4(1.0f);
 
 };
 

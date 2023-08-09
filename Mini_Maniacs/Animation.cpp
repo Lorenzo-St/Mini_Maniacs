@@ -62,7 +62,7 @@ void Animation::Update(void)
 			UpdateMesh();
 		}
 	}
-
+	api.SetUVMatrix(matrix);
 }
 
 void GetUVCoords(int frame, int frameX, int frameY, int* u, int *v) 
@@ -81,7 +81,6 @@ void Animation::UpdateMesh()
 
 	int u, v;
 	GetUVCoords(frame, Columns, Rows, &u, &v);
-	glm::mat4x4 matrix = glm::mat4x4(1.0f);
 	matrix = glm::translate(matrix, glm::vec3(u + (u * frameOffset.x), v + (v * frameOffset.y), 0));
 	matrix = glm::scale(matrix, glm::vec3(uSize, vSize, 0));
 	api.SetUVMatrix(matrix);
