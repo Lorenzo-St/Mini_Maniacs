@@ -1,3 +1,6 @@
+#if _DEBUG
+#include <iostream>
+#endif
 #include "Animation.h"
 #include "GLM.hpp"
 #include "Backend.h"
@@ -86,5 +89,8 @@ void Animation::UpdateMesh()
 	matrix = glm::scale(matrix, glm::vec3(uSize, vSize, 0));
 	matrix = glm::transpose(matrix);
 	api.SetUVMatrix(matrix);
+#if _DEBUG
+	std::cout << frame << std::endl;
+#endif
 }
 
