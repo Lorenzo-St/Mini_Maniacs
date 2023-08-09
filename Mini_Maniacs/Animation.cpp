@@ -59,8 +59,8 @@ void Animation::Update(void)
 				frame = 0;
 			else
 				frame = maxFrame - 1;
-			UpdateMesh();
 		}
+		UpdateMesh();
 	}
 	api.SetUVMatrix(matrix);
 }
