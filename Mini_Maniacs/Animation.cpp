@@ -1,4 +1,5 @@
-#if _DEBUG
+#define DEBUG_WRITE 0
+#if _DEBUG && DEBUG_WRITE
 #include <iostream>
 #endif
 #include "Animation.h"
@@ -89,7 +90,7 @@ void Animation::UpdateMesh()
 	matrix = glm::scale(matrix, glm::vec3(uSize, vSize, 0));
 	matrix = glm::transpose(matrix);
 	api.SetUVMatrix(matrix);
-#if _DEBUG
+#if _DEBUG && DEBUG_WRITE
 	std::cout << frame << std::endl;
 #endif
 }
