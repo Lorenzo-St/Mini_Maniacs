@@ -36,7 +36,7 @@ void Animation::Read(Stream* s)
 			looping = s->ReadBool();
 		else if (token == "<offset>")
 			frameOffset = s->ReadVector();
-		else if (token == "<Colums>")
+		else if (token == "<Columns>")
 			Columns = s->ReadInt();
 		else if (token == "<Rows>")
 			Rows = s->ReadInt();
