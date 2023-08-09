@@ -74,7 +74,7 @@ void GetUVCoords(int frame, int frameX, int frameY, float* u, float*v)
 	float vSize = 1.0f / frameY;
 
 	*u = uSize * (frame % frameX);
-	*v = vSize * (static_cast<float>(frame) / frameX);
+	*v = vSize * (frame / frameX);
 }
 
 void Animation::UpdateMesh() 
