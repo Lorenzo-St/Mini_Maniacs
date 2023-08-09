@@ -28,7 +28,7 @@ void Animation::Read(Stream* s)
 	while (true) 
 	{
 		std::string token = s->ReadString();
-		if (token == "<frameLength")
+		if (token == "<frameLength>")
 			frameLength = s->ReadFloat();
 		else if (token == "<maxFrames>")
 			maxFrame = s->ReadInt();
