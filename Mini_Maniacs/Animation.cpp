@@ -81,6 +81,7 @@ void Animation::UpdateMesh()
 
 	int u, v;
 	GetUVCoords(frame, Columns, Rows, &u, &v);
+	matrix = glm::mat4x4(1.0f);
 	matrix = glm::translate(matrix, glm::vec3(u + (u * frameOffset.x), v + (v * frameOffset.y), 0));
 	matrix = glm::scale(matrix, glm::vec3(uSize, vSize, 0));
 	api.SetUVMatrix(matrix);
