@@ -73,7 +73,7 @@ void GetUVCoords(int frame, int frameX, int frameY, float* u, float*v)
 	float uSize = 1.0f / frameX;
 	float vSize = 1.0f / frameY;
 
-	*u = uSize * (frame % frameX);
+	*u = 1 - uSize * (frame % frameX);
 	*v = vSize * (static_cast<float>(frame) / frameX);
 }
 
