@@ -6,6 +6,7 @@
 #include "Physics.h"
 #include "RectCollider.h"
 #include "EllipCollider.h"
+#include "Animation.h"
 #include "Sprite.h"
 #include "EntitySystem.h"
 
@@ -98,6 +99,8 @@ void Entity::Read(Stream* s)
       c = new Physics();
     else if (token == "<Sprite>")
       c = new Sprite();
+    else if (token == "<Animation>")
+      c = new Animation();
 
     if (c) 
     {
