@@ -9,7 +9,7 @@ public:
   Animation* Clone() { return new Animation(this); };
   void Read(Stream* s);
   void Update(void);
-  void Start(void) { UpdateMesh(); frameTime = frameLength; }
+  void Init(void) { UpdateMesh(); frameTime = frameLength; }
 
   int MaxFrames() { return maxFrame; }
   void MaxFrames(int i) { maxFrame = i; }

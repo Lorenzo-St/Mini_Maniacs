@@ -68,7 +68,7 @@
   </Sprite>
   <Animation>
    <frameLength>
-    1
+    .15
    <maxFrames>
     9
    <Columns>
