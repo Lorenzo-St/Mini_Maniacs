@@ -62,6 +62,8 @@ Entity* EntitySystem::CreateEntity(const char* archetypeName)
 
   Entity* e = archi->Clone();
   activeScene.add(e);
+  e->Awake();
+  e->Init();
   return e;
 }
 
