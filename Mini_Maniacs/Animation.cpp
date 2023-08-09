@@ -56,7 +56,7 @@ void Animation::Update(void)
 	{
 		frameTime += frameLength;
 		++frame;
-		if (frame >= maxFrame)
+		if (frame >= maxFrame - 1)
 		{
 			if (looping)
 				frame = 0;
