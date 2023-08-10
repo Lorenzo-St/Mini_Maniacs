@@ -88,7 +88,7 @@
    <JumpSpeed>
     50
    <MoveSpeed>
-    30
+    100
   </PlayerController>
 
   
