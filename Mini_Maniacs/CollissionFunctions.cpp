@@ -29,6 +29,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   
   float earliestTime = 2;
   glm::vec2 earliestMove = { 0,0 };
+  bool dir = 1;
   // Check line collision along the movement for each point, if there is any collision then the rects collided
   for (auto& l : mover->getSegments()) 
   {
@@ -44,7 +45,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         continue;
       if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
         continue;
-      if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) >= glm::dot(wallNorm, segment[1]))
+      if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
         continue;
 
       float ti = glm::dot(wallNorm, segment[0]) - glm::dot(wallNorm, startpos);
@@ -61,6 +62,14 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         continue;
       if (ti < earliestTime)
       {
+        glm::vec2 testPos = startpos;
+        glm::vec2 xMove(moveVec.x, 0);
+        glm::vec2 yMove(0, moveVec.y);
+        if (glm::dot(wallNorm, testPos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, testPos + yMove) >= glm::dot(wallNorm, segment[1]))
+          dir = 1;
+        else if (glm::dot(wallNorm, testPos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, testPos + yMove) >= glm::dot(wallNorm, segment[1]))
+          dir = 0;
+
         earliestTime = ti;
         earliestMove = moveVec;
       }
@@ -84,12 +93,18 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   if (earliestTime < 1)
   {
+    
     glm::vec2 moveVec = NewPosition - OldPosition;
 #if _DEBUG && DEBUG_WRITING
     std::cout << "moveVec: " << moveVec.x << ", " << moveVec.y << std::endl;
     std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
 #endif
     glm::vec2 intersection = OldPosition + (earliestMove * earliestTime);
+    if (dir)
+      intersection.x = NewPosition.x;
+    else 
+      intersection.y = NewPosition.y;
+
     //glm::vec2 interupted = earliestMove * (1 - earliestTime);
     //intersection = NewPosition - (2.0f * interupted);
 #if _DEBUG && DEBUG_WRITING
