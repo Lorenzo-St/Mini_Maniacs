@@ -84,7 +84,7 @@
   </Animation>
   <PlayerController>
    <JumpSpeed>
-    10
+    100
   </PlayerController>
 
   

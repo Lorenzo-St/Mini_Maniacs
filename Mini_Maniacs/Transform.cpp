@@ -50,6 +50,8 @@ void Transform::Update(void)
 
 #if _DEBUG && 1
   std::cout << "Pos: " << pos.x << "," << pos.y << std::endl;
+  std::cout << "Velo: " << velocity.x << "," << velocity.y << std::endl;
+
   //std::cout << "Scale: " << scale.x << "," << scale.y << std::endl;
   //std::cout << "Rot: " << rot << std::endl;
 #endif
