@@ -13,6 +13,7 @@ void CollisionLedger::Update()
     i.e1->OnCollison(i.e2);
     i.e2->OnCollison(i.e1);
   }
+  collisions.clear();
 }
 
 void CollisionLedger::Exit() 

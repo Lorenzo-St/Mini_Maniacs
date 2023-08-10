@@ -22,7 +22,7 @@ public:
   void Update();
   void Exit();
 
-  static void AddInteraction(Interaction i) { static CollisionLedger* cl = instance;  cl->collisions.push_back(i); };
+  static void AddInteraction(Interaction i) { instance->collisions.push_back(i); };
 
 private:
   CollisionLedger() = default;
