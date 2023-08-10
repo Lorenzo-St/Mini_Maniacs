@@ -1,5 +1,5 @@
 #include "Engine.h"
-#define STEPTHROUGH 1
+#define STEPTHROUGH 0
 static errState error;
 
 void Engine::Init(void)
@@ -53,7 +53,7 @@ void Engine::Update(void)
       const_cast<System*>(system)->Render();
   
     contin = false;
-#if 1
+#if STEPTHROUGH
     std::cout << "FR: " << 1.0 / Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
     std::cout << "--------------------------------------------------" << std::endl;
 #endif
