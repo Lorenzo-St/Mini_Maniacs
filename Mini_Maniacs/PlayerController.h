@@ -2,7 +2,7 @@
 #include "Behavior.h"
 #include "Stream.h"
 
-class PlayerController : Behavior
+class PlayerController : public Behavior
 {
   enum States
   {
@@ -21,7 +21,7 @@ public:
   void OnExit();
 
   void Read(Stream* s);
-
+  void OnCollision(Entity* other);
 private:
   bool isGrounded = false;
 

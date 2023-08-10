@@ -9,7 +9,7 @@ void ProcessEvent(SDL_Event& event)
   case SDL_KEYUP:
   case SDL_CONTROLLERBUTTONDOWN:
   case SDL_CONTROLLERBUTTONUP:
-    Input.inputEvent(event);
+    InputSystem::inputEvent(event);
     break;
   
   }

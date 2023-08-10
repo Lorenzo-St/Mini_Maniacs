@@ -98,7 +98,7 @@ void RenderFront::Update(void)
 #if _DEBUG && 0
   std::cout << "Time: " << (delta + sleep_time).count() << std::endl;
 #endif
-  Input.Update();
+  InputSystem::Update();
 }
 
 

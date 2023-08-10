@@ -3,11 +3,17 @@
 #include <iostream>
 #include <string>
 #endif
-InputSystem Input;
+
+InputSystem* InputSystem::GetInstance()
+{
+  if (instance == nullptr)
+    instance = new InputSystem();
+  return instance;
+}
 
 void InputSystem::Update(void)
 {
-  for (auto& binding : bindings)
+  for (auto& binding : instance->bindings)
   {
 #if _DEBUG && 0
     std::cout << "Key : " 
@@ -24,7 +30,7 @@ void InputSystem::Update(void)
 
 bool InputSystem::isPressed(Action a) 
 {
-  for (auto& binding : bindings) 
+  for (auto& binding : instance->bindings)
   {
     if (binding.action == a && binding.pressed) 
     {
@@ -36,7 +42,7 @@ bool InputSystem::isPressed(Action a)
 
 bool InputSystem::isTriggered(Action a) 
 {
-  for (auto& binding : bindings)
+  for (auto& binding : instance->bindings)
   {
     if (binding.action == a && binding.triggered)
     {
@@ -48,11 +54,11 @@ bool InputSystem::isTriggered(Action a)
 
 void InputSystem::addBinding(Action a, char type, input b)
 {
-  bindings.push_back(Binding(a, b, type));
+  instance->bindings.push_back(Binding(a, b, type));
 }
 void InputSystem::addBinding(Action a, input b)
 {
-  bindings.push_back(Binding(a, b));
+  instance->bindings.push_back(Binding(a, b));
 }
 
 void InputSystem::inputEvent(SDL_Event event) 
@@ -60,7 +66,7 @@ void InputSystem::inputEvent(SDL_Event event)
   switch (event.type)
   {
   case SDL_KEYDOWN:
-    for (auto& binding : bindings)
+    for (auto& binding : instance->bindings)
     {
       if (binding.binding.key == event.key.keysym.sym)
       {
@@ -73,7 +79,7 @@ void InputSystem::inputEvent(SDL_Event event)
     }
     break;
   case SDL_KEYUP:
-    for (auto& binding : bindings)
+    for (auto& binding : instance->bindings)
     {
       if (binding.binding.key == event.key.keysym.sym)
       {  

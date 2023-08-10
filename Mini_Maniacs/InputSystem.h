@@ -35,17 +35,18 @@ class InputSystem
 {
 public:
   
-  void Update(void);
+  static void Update(void);
 
-  bool isPressed(Action a);
-  bool isTriggered(Action a);
+  static bool isPressed(Action a);
+  static bool isTriggered(Action a);
 
-  void addBinding(Action a, char type,input b);
-  void addBinding(Action a, input b);
-  void inputEvent(SDL_Event event);
+  static void addBinding(Action a, char type,input b);
+  static void addBinding(Action a, input b);
+  static void inputEvent(SDL_Event event);
+  static InputSystem* GetInstance();
 
 private:
+  InputSystem() = default;
   std::vector<Binding> bindings;
+  static inline InputSystem* instance;
 };
-
-extern InputSystem Input;
