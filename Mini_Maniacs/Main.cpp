@@ -15,6 +15,8 @@ int main(int argc, char* argv[])
   api.setZoom(2.5f);
   engine.Init();
   InputSystem::addBinding(Jump, { SDLK_SPACE });
+  InputSystem::addBinding(PosX, { SDLK_d });
+  InputSystem::addBinding(NegX, { SDLK_a });
 
 
   engine.Update();

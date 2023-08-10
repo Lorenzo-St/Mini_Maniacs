@@ -14,6 +14,7 @@ public:
   PlayerController(PlayerController const* b)
     : Behavior(b)
     , jumpSpeed(b->jumpSpeed)
+    , moveSpeed(b->moveSpeed)
   {}
   PlayerController* Clone() { return new PlayerController(this); }
 
@@ -28,4 +29,5 @@ public:
 private:
   bool isGrounded = false;
   float jumpSpeed = 0;
+  float moveSpeed = 0;
 };

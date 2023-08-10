@@ -62,7 +62,7 @@
    <Body>
     0
    <Gravity>
-    0 -9.8
+    0 -37.2
   </Physics>
   <Sprite>
    <Texture>
@@ -84,7 +84,9 @@
   </Animation>
   <PlayerController>
    <JumpSpeed>
-    100
+    50
+   <MoveSpeed>
+    30
   </PlayerController>
 
   

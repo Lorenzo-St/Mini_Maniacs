@@ -19,12 +19,22 @@ void PlayerController::OnInit()
 
 void PlayerController::OnUpdate() 
 {
+  glm::vec2 velo = this->GetParent()->GetComponent<Transform>()->GetVelocity();
   if (InputSystem::isPressed(Jump) && isGrounded)
   {
     isGrounded = false;
-    this->GetParent()->GetComponent<Transform>()->SetVelocity({ this->GetParent()->GetComponent<Transform>()->GetVelocity().x, jumpSpeed});
-    //this->GetParent()->GetComponent<Transform>()->Update();
+    velo.y = jumpSpeed;
   }
+  if (InputSystem::isPressed(PosX)) 
+  {
+    velo.x = moveSpeed;
+  }
+  else if (InputSystem::isPressed(NegX)) 
+  {
+    velo.x = -moveSpeed;
+  }
+  this->GetParent()->GetComponent<Transform>()->SetVelocity(velo);
+
 }
 
 void PlayerController::OnExit() 
@@ -39,6 +49,8 @@ void PlayerController::Read(Stream* s)
     std::string token = s->ReadString();
     if (token == "<JumpSpeed>")
       jumpSpeed = s->ReadFloat();
+    else if (token == "<MoveSpeed>")
+      moveSpeed = s->ReadFloat();
     else if (token == "</PlayerController>")
       break;
   }
