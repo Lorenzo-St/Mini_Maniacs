@@ -36,6 +36,7 @@ void PlayerController::OnUpdate()
   else
     velo.x = 0;
   this->GetParent()->GetComponent<Transform>()->SetVelocity(velo);
+  this->GetParent()->GetComponent<Transform>()->Update();
 
 }
 
