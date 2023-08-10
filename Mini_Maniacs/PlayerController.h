@@ -4,10 +4,12 @@
 
 class PlayerController : public Behavior
 {
+private:
   enum States
   {
 
   };
+public:
   PlayerController() = default;
   PlayerController(PlayerController const* b)
     : Behavior(b)
@@ -24,5 +26,5 @@ public:
   void OnCollision(Entity* other);
 private:
   bool isGrounded = false;
-
+  float jumpSpeed = 0;
 };

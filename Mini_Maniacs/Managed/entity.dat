@@ -82,6 +82,9 @@
    <offset>
     0 0 
   </Animation>
-   
+  <PlayerController>
+   <JumpSpeed>
+    10
+  </PlayerController>
 
   

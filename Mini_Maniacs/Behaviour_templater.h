@@ -8,6 +8,7 @@ class Behavior_Template : Behavior
   {
     
   };
+public:
   Behavior_Template() = default;
   Behavior_Template(Behavior_Template const* b)
     : Behavior(b)

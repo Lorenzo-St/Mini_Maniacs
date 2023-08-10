@@ -9,6 +9,7 @@
 #include "Animation.h"
 #include "Sprite.h"
 #include "EntitySystem.h"
+#include "PlayerController.h"
 
 Entity::Entity(void) : tag(Standard)
 { 
@@ -103,6 +104,8 @@ void Entity::Read(Stream* s)
       c = new Sprite();
     else if (token == "<Animation>")
       c = new Animation();
+    else if (token == "<PlayerController>")
+      c = new PlayerController();
 
     if (c) 
     {
