@@ -25,7 +25,7 @@ void PlayerController::OnUpdate()
     this->GetParent()->GetComponent<Transform>()->AddVelocity({ 0, jumpSpeed });
     this->GetParent()->GetComponent<Transform>()->Update();
   }
-  std::cout << this->GetParent()->GetComponent<Transform>()->GetPosition() << std::endl;
+  std::cout << this->GetParent()->GetComponent<Transform>()->GetVelocity() << std::endl;
 }
 
 void PlayerController::OnExit() 
