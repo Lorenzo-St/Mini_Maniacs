@@ -82,7 +82,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
 
 
-  if (earliestTime < 1)
+  if (earliestTime < 1 && earliestTime > 0)
   {
     glm::vec2 moveVec = NewPosition - OldPosition;
 #if _DEBUG && DEBUG_WRITING
