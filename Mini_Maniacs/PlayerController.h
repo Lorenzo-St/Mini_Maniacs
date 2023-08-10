@@ -13,6 +13,7 @@ public:
   PlayerController() = default;
   PlayerController(PlayerController const* b)
     : Behavior(b)
+    , jumpSpeed(b->jumpSpeed)
   {}
   PlayerController* Clone() { return new PlayerController(this); }
 
