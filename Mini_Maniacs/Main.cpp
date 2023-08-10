@@ -14,8 +14,8 @@ int main(int argc, char* argv[])
   engine.addSystem(CollisionLedger::GetInstance());
   api.setZoom(2.5f);
   engine.Init();
-  InputSystem::addBinding(Enter, { SDLK_g });
-  
+  InputSystem::addBinding(Jump, { SDLK_SPACE });
+
 
   engine.Update();
   

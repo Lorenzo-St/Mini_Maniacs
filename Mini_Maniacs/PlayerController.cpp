@@ -8,7 +8,6 @@
 
 void PlayerController::OnInit() 
 {
-  InputSystem::addBinding(Jump, { SDLK_SPACE });
 }
 
 void PlayerController::OnUpdate() 
