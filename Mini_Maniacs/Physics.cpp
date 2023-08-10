@@ -5,12 +5,38 @@
 #include "Entity.h"
 #include "Transform.h"
 #include "EllipCollider.h"
+#include "Time.h"
 void Physics::Update(void) 
 {
+  Transform& t = *GetParent()->GetComponent<Transform>();
+
   if (doGravity) 
   {
-    GetParent()->GetComponent<Transform>()->SetAcceleration(Gravity);
+    t.SetAcceleration(Gravity);
   }
+
+  t.AddVelocity(t.GetAcceleration() * Time.deltaTime() * t.GetDrag());
+  t.SetPosition(t.GetVelocity() * Time.deltaTime());
+
+
+#if _DEBUG && 0
+  std::cout << "Pos: " << pos.x << "," << pos.y << std::endl;
+  std::cout << "Velo: " << velocity.x << "," << velocity.y << std::endl;
+
+  //std::cout << "Scale: " << scale.x << "," << scale.y << std::endl;
+  //std::cout << "Rot: " << rot << std::endl;
+#endif
+
+#if _DEBUG && 0
+  if (pos.y < -200)
+  {
+    OldPosition.y = 500;
+    pos.y = 500;
+
+  }
+#endif
+
+
 }
 
 void Physics::Read(Stream* s) 

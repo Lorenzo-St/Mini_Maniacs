@@ -44,26 +44,7 @@ void Transform::Read(Stream* s)
 void Transform::Update(void)
 {
   OldPosition = pos;
-  velocity += acceleration * Time.deltaTime() * drag;
-  pos += velocity * Time.deltaTime();
 
-
-#if _DEBUG && 0
-  std::cout << "Pos: " << pos.x << "," << pos.y << std::endl;
-  std::cout << "Velo: " << velocity.x << "," << velocity.y << std::endl;
-
-  //std::cout << "Scale: " << scale.x << "," << scale.y << std::endl;
-  //std::cout << "Rot: " << rot << std::endl;
-#endif
-
-#if _DEBUG && 0
-  if (pos.y < -200) 
-  {
-    OldPosition.y = 500;
-    pos.y = 500;
-  
-  }
-#endif
 }
 
 
