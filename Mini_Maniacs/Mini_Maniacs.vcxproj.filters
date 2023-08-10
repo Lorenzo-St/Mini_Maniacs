@@ -76,6 +76,9 @@
     <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Animation">
       <UniqueIdentifier>{5f4844a0-e535-4c9e-8d9d-03aa1874e9e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Behavior">
+      <UniqueIdentifier>{a2e03650-a50c-47c3-8e8c-958eb4f8ffe5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -146,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Behavior.cpp">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Behavior</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Behavior.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Behavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
