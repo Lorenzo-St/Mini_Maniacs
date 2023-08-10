@@ -35,7 +35,7 @@ public:
   void Render(void);
   void Exit(void);
 
-  void OnCollison(Entity* other) { for (auto c : components) { c->OnCollision(); } }
+  void OnCollison(Entity* other) { for (auto c : components) { c->OnCollision(other); } }
 
   void SetName(std::string s) { name = std::string(s); }
   bool isNamed(std::string s) { return name == s; }

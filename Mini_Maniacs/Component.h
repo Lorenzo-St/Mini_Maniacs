@@ -25,7 +25,7 @@ public:
   
   virtual constexpr bool set() = 0;
 
-  virtual void OnCollision(void) { return; };
+  virtual void OnCollision(Entity* other) { return; };
 
   constexpr bool setType(std::string s) { name = s; type = ComponentTypeEnum::toEnum(s); return true; }
   
