@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.h"
-
+#include <utility>
 class Behavior : public Component
 {
 public:
@@ -8,12 +8,21 @@ public:
   {
 
   }
+  Behavior* Clone() { return new Behavior(this); };
+  Behavior(Behavior const* b) 
+    : currentState(b->currentState)
+    , nextState(b->nextState)
+    , stateTimer(b->stateTimer)
+  {};
+
   void Init();
   void Update();
   void Exit();  
-  Behavior(Behavior const* b);
-  Behavior* Clone() { return new Behavior(this); };
-  void Read(Stream* s) { };
+
+  virtual void OnInit() {};
+  virtual void OnUpdate() {};
+  virtual void OnExit() {};
+  virtual void Read(Stream* s) {};
 private:
   // -------------------------
   // Required Component things
@@ -23,5 +32,8 @@ private:
   // -------------------------
   int currentState;
   int nextState;
+
+  float stateTimer;
+  float stateLength;
 
 };

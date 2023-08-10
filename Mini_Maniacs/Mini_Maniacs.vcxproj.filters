@@ -79,6 +79,9 @@
     <Filter Include="Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Behavior">
       <UniqueIdentifier>{a2e03650-a50c-47c3-8e8c-958eb4f8ffe5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game Code\Behaviors">
+      <UniqueIdentifier>{a77c67d4-9429-4bb3-bbe5-56c67c1d7e47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -107,9 +110,6 @@
     </ClCompile>
     <ClCompile Include="SceneSystem.cpp">
       <Filter>Source Files\Engine Code\System\SceneSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Stream.cpp">
-      <Filter>Source Files\Engine Code\NonSystems</Filter>
     </ClCompile>
     <ClCompile Include="EntitySystem.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem</Filter>
@@ -153,6 +153,9 @@
     <ClCompile Include="Behavior.cpp">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Behavior</Filter>
     </ClCompile>
+    <ClCompile Include="Stream.cpp">
+      <Filter>Source Files\Engine Code\NonSystems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">
@@ -188,17 +191,11 @@
     <ClInclude Include="Temp.h">
       <Filter>Source Files\Game Code\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="RNG.h">
-      <Filter>Source Files\Engine Code\NonSystems</Filter>
-    </ClInclude>
     <ClInclude Include="Textures.h">
       <Filter>Source Files\Render Backend</Filter>
     </ClInclude>
     <ClInclude Include="SceneSystem.h">
       <Filter>Source Files\Engine Code\System\SceneSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Stream.h">
-      <Filter>Source Files\Engine Code\NonSystems</Filter>
     </ClInclude>
     <ClInclude Include="EntitySystem.h">
       <Filter>Source Files\Engine Code\System\EntitySystem</Filter>
@@ -247,6 +244,12 @@
     </ClInclude>
     <ClInclude Include="Behavior.h">
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="RNG.h">
+      <Filter>Source Files\Engine Code\NonSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="Stream.h">
+      <Filter>Source Files\Engine Code\NonSystems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
