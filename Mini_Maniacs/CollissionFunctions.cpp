@@ -98,10 +98,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 #endif
 
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-    glm::vec2 toOther = glm::normalize(moveVec);
-    toOther = (toOther.x > toOther.y) ? glm::vec2(0, 1) : glm::vec2(1, 0);
-    toOther = toOther * rect1->GetParent()->GetComponent<Transform>()->GetVelocity();
-    rect1->GetParent()->GetComponent<Transform>()->SetVelocity(toOther);
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
   }
 }
