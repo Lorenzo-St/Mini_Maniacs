@@ -19,9 +19,9 @@ void Physics::Update(void)
   t.SetPosition(t.GetVelocity() * Time.deltaTime());
 
 
-#if _DEBUG && 0
-  std::cout << "Pos: " << pos.x << "," << pos.y << std::endl;
-  std::cout << "Velo: " << velocity.x << "," << velocity.y << std::endl;
+#if _DEBUG && 1
+  std::cout << "Pos: " << t.GetPosition() << std::endl;
+  std::cout << "Velo: " << t.GetVelocity() << std::endl;
 
   //std::cout << "Scale: " << scale.x << "," << scale.y << std::endl;
   //std::cout << "Rot: " << rot << std::endl;

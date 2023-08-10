@@ -4,12 +4,6 @@
 #include "InputSystem.h"
 #include "Transform.h"
 
-std::ostream& operator<<(std::ostream& o, glm::vec2 vec) 
-{
-  o << "( " << vec.x << " ," << vec.y << " )";
-  return o;
-}
-
 
 
 

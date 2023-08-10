@@ -1,6 +1,12 @@
 #pragma once
 #include "Component.h"
 #include <glm.hpp>
+static std::ostream& operator<<(std::ostream& o, glm::vec2 vec)
+{
+  o << "( " << vec.x << " ," << vec.y << " )";
+  return o;
+}
+
 
 class Transform : public Component
 {
