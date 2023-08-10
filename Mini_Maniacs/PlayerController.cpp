@@ -12,7 +12,7 @@ void PlayerController::OnInit()
 
 void PlayerController::OnUpdate() 
 {
-  if (InputSystem::isTriggered(Jump) && isGrounded)
+  if (InputSystem::isPressed(Jump) && isGrounded)
   {
     isGrounded = false;
     this->GetParent()->GetComponent<Transform>()->AddVelocity({ 0, jumpSpeed });
