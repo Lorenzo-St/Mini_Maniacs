@@ -1,6 +1,8 @@
 <Entity>
   <Name>
     Steve
+  <Tag>
+    Player
   <Transform>
     <Position>
 	  50.0 200.0

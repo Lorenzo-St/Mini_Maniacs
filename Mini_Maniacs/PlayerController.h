@@ -23,5 +23,6 @@ public:
   void Read(Stream* s);
 
 private:
+  bool isGrounded = false;
 
 };

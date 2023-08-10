@@ -11,13 +11,13 @@ public:
   void Update(void);
   void Exit(void);
 
-  constexpr void addSystem(System* s) { Systems.push_back(s); }
+  constexpr void addSystem(const System* s) { Systems.push_back(s); }
 
   errState GetErr(void);
 
 private:
   Engine* Clone() { return nullptr; };
-  std::vector<System*> Systems;
+  std::vector<System const*> Systems;
   bool running = true;
 
 };

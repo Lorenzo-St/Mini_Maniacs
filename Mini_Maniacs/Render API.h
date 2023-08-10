@@ -58,7 +58,7 @@ private:
   SDL_Renderer* renderer = nullptr;
   SDL_Rect ViewPort = {0};
   Texture const* activeTexture = nullptr;
-  SDL_Color ActiveColor;
+  SDL_Color ActiveColor{255,255,255,255};
   glm::mat4x4 renderMatrix = glm::mat4x4(1.0f);
   glm::mat4x4 UVmatrix = glm::mat4x4(1.0f);
 };

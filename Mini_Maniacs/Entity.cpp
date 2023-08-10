@@ -10,12 +10,12 @@
 #include "Sprite.h"
 #include "EntitySystem.h"
 
-Entity::Entity(void) 
+Entity::Entity(void) : tag(Standard)
 { 
   es = &EntitySystem::GetActive(); 
 };
 
-Entity::Entity(Object* p) 
+Entity::Entity(Object* p) : tag(Standard)
 { 
   SetParent(p); 
   SetRoot(false); 
@@ -87,6 +87,8 @@ void Entity::Read(Stream* s)
       break;
     else if (token == "<Name>")
       name = s->ReadString();
+    else if (token == "<Tag>")
+      tag = static_cast<Tags>(s->ReadInt());
     else if (token == "<Transform>")
       c = new Transform();
     else if (token == "<Mesh>")

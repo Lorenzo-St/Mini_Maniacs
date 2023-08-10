@@ -6,6 +6,8 @@
 #include "Entity.h"
 #include "Transform.h"
 #include "Physics.h"
+#include "CollisionLedger.h"
+
 #define DRAW_DEBUG_LINES 0
 #define DEBUG_WRITING 0
 #if _DEBUG && DRAW_DEBUG_LINES
@@ -100,6 +102,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     toOther = (toOther.x > toOther.y) ? glm::vec2(toOther.x, 0) : glm::vec2(0, toOther.y);
     toOther = toOther * glm::length(rect1->GetParent()->GetComponent<Transform>()->GetVelocity());
     rect1->GetParent()->GetComponent<Transform>()->AddVelocity(toOther);
+    CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
   }
 }
 
@@ -147,6 +150,7 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
     glm::vec2 offSetVector = workingRot * len;
     Ellip1->GetParent()->GetComponent<Transform>()->SetPosition(closestPoint + offSetVector);
 
+    CollisionLedger::AddInteraction({ ellip1->GetParent(), ellip1->GetParent() });
 
     std::cout << "Moved To: " << closestPoint.x + offSetVector.x << "," << closestPoint.y + offSetVector.y << std::endl;
   }

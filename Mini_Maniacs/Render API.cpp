@@ -166,17 +166,18 @@ void RenderFront::DrawEllipse(glm::vec2 pos, float rad) const
   const glm::mat4x4 proj = glm::ortho<float>(-Width * 1.0f, Width * 1.0f, -Height * 1.0f, Height * 1.0f);
   std::vector<SDL_Vertex> ellip = {};
   SDL_FPoint cen = convert(pos);
-  for (float angle = 0, i = 0; angle < 360; angle += 15, i+=3) 
+  for (float angle = 0, p = 0; angle < 360; angle += 15, p+=3) 
   {
+    int i = static_cast<int>(p);
     ellip.push_back({});
     ellip.push_back({});
     ellip.push_back({});
-    ellip[i  ].position.x = (pos.x + rad * std::sinf((M_PI * angle) / 180));
-    ellip[i  ].position.y = (pos.y + rad * std::cosf((M_PI * angle) / 180));
+    ellip[i  ].position.x = (pos.x + rad * std::sinf((3.14159f * angle) / 180.0f));
+    ellip[i  ].position.y = (pos.y + rad * std::cosf((3.14159f * angle) / 180.0f));
     ellip[i+1].position.x = (pos.x);
     ellip[i+1].position.y = (pos.y);
-    ellip[i+2].position.x = (pos.x + rad * std::sinf((M_PI * (angle + 15)) / 180));
-    ellip[i+2].position.y = (pos.y + rad * std::cosf((M_PI * (angle + 15)) / 180));
+    ellip[i+2].position.x = (pos.x + rad * std::sinf((3.14159f * (angle + 15.0f)) / 180.0f));
+    ellip[i+2].position.y = (pos.y + rad * std::cosf((3.14159f * (angle + 15.0f)) / 180.0f));
     ellip[i  ].position = convert(glm::vec2(glm::vec4(convert(ellip[i  ].position), 0,1) * proj * zoom));
     ellip[i  ].position = convert(convert(ellip[i  ].position) * glm::vec2(Width, -Height) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y));
     ellip[i+1].position = convert(glm::vec2(glm::vec4(convert(ellip[i+1].position), 0, 1) * proj * zoom));

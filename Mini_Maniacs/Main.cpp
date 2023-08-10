@@ -4,12 +4,14 @@
 #include "Backend.h"
 #include "Engine.h"
 #include "SceneSystem.h"
+#include "CollisionLedger.h"
 #include "EntitySystem.h"
 int main(int argc, char* argv[])
 {
   Engine engine;
   engine.addSystem(new SceneSystem());
   engine.addSystem(new EntitySystem());
+  engine.addSystem(CollisionLedger::GetInstance());
   api.setZoom(2.5f);
   engine.Init();
   Input.addBinding(Enter, { SDLK_g });

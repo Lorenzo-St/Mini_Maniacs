@@ -14,7 +14,7 @@ void Engine::Init(void)
 
   for (auto& system : Systems) 
   {
-    system->Init();
+    const_cast<System*>(system)->Init();
   }
 
 }
@@ -47,10 +47,10 @@ void Engine::Update(void)
 
     api.Update();
     for (auto& system : Systems)
-      system->Update();
+      const_cast<System*>(system)->Update();
   
     for (auto& system : Systems)
-      system->Render();
+      const_cast<System*>(system)->Render();
   
     contin = false;
 #if 0
@@ -65,7 +65,7 @@ void Engine::Exit(void)
 
   for (auto& system : Systems)
   {
-    system->Exit();
+    const_cast<System*>(system)->Exit();
   }
   api.Shutdown();
 }

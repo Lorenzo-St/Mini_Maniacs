@@ -85,6 +85,9 @@
     <Filter Include="Source Files\Game Code\Behaviors\Player Behaviors">
       <UniqueIdentifier>{e38140d8-910e-48cb-af71-4aee68a6e9ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Code\System\Collision Ledger">
+      <UniqueIdentifier>{e6fbcf7c-6801-45a0-94ed-ee0504df3bed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -164,6 +167,9 @@
     </ClCompile>
     <ClCompile Include="PlayerMotor.cpp">
       <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionLedger.cpp">
+      <Filter>Source Files\Engine Code\System\Collision Ledger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -268,6 +274,9 @@
     </ClInclude>
     <ClInclude Include="PlayerMotor.h">
       <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionLedger.h">
+      <Filter>Source Files\Engine Code\System\Collision Ledger</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

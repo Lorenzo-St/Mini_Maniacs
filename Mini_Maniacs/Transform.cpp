@@ -48,13 +48,13 @@ void Transform::Update(void)
   pos += velocity * Time.deltaTime();
 
 
-#if _DEBUG && 1
+#if _DEBUG && 0
   std::cout << "Pos: " << pos.x << "," << pos.y << std::endl;
   std::cout << "Scale: " << scale.x << "," << scale.y << std::endl;
   std::cout << "Rot: " << rot << std::endl;
 #endif
 
-#if _DEBUG && 1
+#if _DEBUG && 0
   if (pos.y < -200) 
   {
     OldPosition.y = 500;

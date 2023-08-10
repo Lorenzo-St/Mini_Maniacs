@@ -19,6 +19,7 @@ public:
   {
     e = EntitySystem::GetActive().CreateEntity("Entity");
     floor = new Entity();
+    floor->Tag(Ground);
     floor->AddComponent(new RectCollider());
     floor->AddComponent(new Transform());
     floor->GetComponent<Transform>()->SetPosition({ 0, -100 });

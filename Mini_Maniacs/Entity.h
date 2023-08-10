@@ -6,10 +6,21 @@
 #include "Component.h"
 typedef struct sorter sorter;
 class EntitySystem;
+enum Tags
+{
+  Standard,
+  Ground,
+  Player,
+  Enemy,
+
+};
+
 
 class Entity : public Object 
 {
 public:
+
+
   // Ctors and Dtors
   Entity(Object* p);
   Entity(Entity const* e);
@@ -24,6 +35,8 @@ public:
   void Render(void);
   void Exit(void);
 
+  void OnCollison(Entity* other) { for (auto c : components) { c->OnCollision(); } }
+
   void SetName(std::string s) { name = std::string(s); }
   bool isNamed(std::string s) { return name == s; }
 
@@ -31,6 +44,10 @@ public:
   bool isProto(std::string s) { return protoType == s; }
 
   void SetActive(bool b);
+
+  void Tag(Tags t) { tag = t; }
+  Tags Tag() { return tag; }
+
 
   void AddComponent(Component* c) 
   {
@@ -67,4 +84,5 @@ private:
   std::string protoType;
   std::vector<Component*> components;
   static const inline EntitySystem* es;
+  Tags tag;
 };

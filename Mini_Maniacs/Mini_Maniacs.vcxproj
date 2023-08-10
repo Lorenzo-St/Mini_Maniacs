@@ -202,6 +202,7 @@ git push</Command>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="CollisionLedger.cpp" />
     <ClCompile Include="CollissionFunctions.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Container.cpp" />
@@ -233,6 +234,7 @@ git push</Command>
     <ClInclude Include="Behaviour_templater.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionFunctions.h" />
+    <ClInclude Include="CollisionLedger.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Component_Stim.h" />
     <ClInclude Include="EllipCollider.h" />
