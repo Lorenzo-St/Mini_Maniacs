@@ -23,7 +23,7 @@ void PlayerController::OnUpdate()
   {
     isGrounded = false;
     this->GetParent()->GetComponent<Transform>()->SetVelocity({ this->GetParent()->GetComponent<Transform>()->GetVelocity().x, jumpSpeed});
-    this->GetParent()->GetComponent<Transform>()->Update();
+    //this->GetParent()->GetComponent<Transform>()->Update();
   }
 }
 
