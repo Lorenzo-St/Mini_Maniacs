@@ -24,7 +24,6 @@ void PlayerController::OnUpdate()
     isGrounded = false;
     this->GetParent()->GetComponent<Transform>()->AddVelocity({ 0, jumpSpeed });
   }
-  std::cout << this->GetParent()->GetComponent<Transform>()->GetVelocity() << std::endl;
 }
 
 void PlayerController::OnExit() 
