@@ -69,6 +69,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
           dir = 1;
         else if (glm::dot(wallNorm, testPos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, testPos + yMove) >= glm::dot(wallNorm, segment[1]))
           dir = 0;
+        else
+          dir = 2;
 
         earliestTime = ti;
         earliestMove = moveVec;
@@ -100,9 +102,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
 #endif
     glm::vec2 intersection = OldPosition + (earliestMove * earliestTime);
-    if (dir)
+    if (dir == 1)
       intersection.x = NewPosition.x;
-    else 
+    else if(dir == 0)
       intersection.y = NewPosition.y;
 
     //glm::vec2 interupted = earliestMove * (1 - earliestTime);
