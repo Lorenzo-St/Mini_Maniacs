@@ -13,6 +13,8 @@ InputSystem* InputSystem::GetInstance()
 
 void InputSystem::Update(void)
 {
+  if (instance == nullptr)
+    instance = new InputSystem();
   for (auto& binding : instance->bindings)
   {
 #if _DEBUG && 0
@@ -30,6 +32,8 @@ void InputSystem::Update(void)
 
 bool InputSystem::isPressed(Action a) 
 {
+  if (instance == nullptr)
+    instance = new InputSystem();
   for (auto& binding : instance->bindings)
   {
     if (binding.action == a && binding.pressed) 
@@ -42,6 +46,8 @@ bool InputSystem::isPressed(Action a)
 
 bool InputSystem::isTriggered(Action a) 
 {
+  if (instance == nullptr)
+    instance = new InputSystem();
   for (auto& binding : instance->bindings)
   {
     if (binding.action == a && binding.triggered)
@@ -54,15 +60,21 @@ bool InputSystem::isTriggered(Action a)
 
 void InputSystem::addBinding(Action a, char type, input b)
 {
+  if (instance == nullptr)
+    instance = new InputSystem();
   instance->bindings.push_back(Binding(a, b, type));
 }
 void InputSystem::addBinding(Action a, input b)
 {
+  if (instance == nullptr)
+    instance = new InputSystem();
   instance->bindings.push_back(Binding(a, b));
 }
 
 void InputSystem::inputEvent(SDL_Event event) 
 {
+  if (instance == nullptr)
+    instance = new InputSystem();
   switch (event.type)
   {
   case SDL_KEYDOWN:
