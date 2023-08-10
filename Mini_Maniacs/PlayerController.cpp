@@ -4,6 +4,13 @@
 #include "InputSystem.h"
 #include "Transform.h"
 
+std::ostream& operator<<(std::ostream& o, glm::vec2 vec) 
+{
+  o << "( " << vec.x << " ," << vec.y << " )";
+  return o;
+}
+
+
 
 
 void PlayerController::OnInit() 
@@ -17,6 +24,7 @@ void PlayerController::OnUpdate()
     isGrounded = false;
     this->GetParent()->GetComponent<Transform>()->AddVelocity({ 0, jumpSpeed });
   }
+  std::cout << this->GetParent()->GetComponent<Transform>()->GetPosition() << std::endl;
 }
 
 void PlayerController::OnExit() 
