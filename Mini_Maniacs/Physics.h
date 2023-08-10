@@ -25,6 +25,16 @@ public:
   float GetWeight(void) { return weight; }
   bodyType GetBodyType(void) { return body; }
 
+  glm::vec2 const& GetOldPosition(void) { return oldPos; };
+  glm::vec2 const& GetVelocity(void) { return velocity; };
+  glm::vec2 const& GetAcceleration(void) { return acceleration; };
+  float GetDrag(void) { return drag; }
+
+  void SetVelocity(glm::vec2 const& velo) { velocity = velo; }
+  void AddVelocity(glm::vec2 const& add) { velocity += add; }
+  void SetAcceleration(glm::vec2 const& accel) { acceleration = accel; }
+  void SetAcceleration(glm::vec2 const& accel, float dragPerc) { acceleration = accel; drag = 1 - dragPerc; }
+
 private:
   // -------------------------
   // Required Component things
@@ -32,6 +42,12 @@ private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
   const bool s = set();
   // -------------------------
+
+  glm::vec2 oldPos = {};
+  glm::vec2 velocity = {};
+  glm::vec2 acceleration = {};
+  float drag = 1;
+
   bool doGravity = true;
   bodyType body = Rigid;
   float weight = 1;

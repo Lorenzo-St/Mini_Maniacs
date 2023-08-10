@@ -2,7 +2,7 @@
 #include "Backend.h"
 #include "Entity.h"
 #include "InputSystem.h"
-#include "Transform.h"
+#include "Physics.h"
 
 
 
@@ -13,7 +13,7 @@ void PlayerController::OnInit()
 
 void PlayerController::OnUpdate() 
 {
-  glm::vec2 velo = this->GetParent()->GetComponent<Transform>()->GetVelocity();
+  glm::vec2 velo = this->GetParent()->GetComponent<Physics>()->GetVelocity();
   if (InputSystem::isPressed(Jump) && isGrounded)
   {
     isGrounded = false;
@@ -29,7 +29,7 @@ void PlayerController::OnUpdate()
   }
   else
     velo.x = 0;
-  this->GetParent()->GetComponent<Transform>()->SetVelocity(velo);
+  this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
 
 }
 

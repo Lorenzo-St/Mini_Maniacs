@@ -8,20 +8,18 @@
 #include "Time.h"
 void Physics::Update(void) 
 {
-  Transform& t = *GetParent()->GetComponent<Transform>();
-
   if (doGravity) 
   {
-    t.SetAcceleration(Gravity);
+    acceleration = Gravity;
   }
-
-  t.AddVelocity(t.GetAcceleration() * Time.deltaTime() * t.GetDrag());
-  t.SetPosition(t.GetVelocity() * Time.deltaTime());
+  oldPos = this->GetParent()->GetComponent<Transform>()->GetPosition();
+  velocity += acceleration * Time.deltaTime() * drag;
+  this->GetParent()->GetComponent<Transform>()->SetPosition(oldPos + velocity * Time.deltaTime());
 
 
 #if _DEBUG && 1
-  std::cout << "Pos: " << t.GetPosition() << std::endl;
-  std::cout << "Velo: " << t.GetVelocity() << std::endl;
+  std::cout << "Pos: " << oldPos << std::endl;
+  std::cout << "Velo: " << velocity << std::endl;
 
   //std::cout << "Scale: " << scale.x << "," << scale.y << std::endl;
   //std::cout << "Rot: " << rot << std::endl;
@@ -35,7 +33,6 @@ void Physics::Update(void)
 
   }
 #endif
-
 
 }
 
@@ -62,6 +59,12 @@ void Physics::Read(Stream* s)
       doGravity = s->ReadBool();
     else if (token == "<Weight>")
       weight = s->ReadFloat();
+    else if (token == "<Velocity>")
+      velocity = s->ReadVector();
+    else if (token == "<Acceleration>")
+      acceleration = s->ReadVector();
+    else if (token == "<Drag>")
+      drag = s->ReadFloat();
     else if (token == "<Body>")
       body = static_cast<bodyType>(s->ReadInt());
     else if (token == "<Gravity>")

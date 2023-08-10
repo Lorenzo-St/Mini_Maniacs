@@ -21,7 +21,7 @@ typedef struct line
 
 void RectangleCollision(Collider* rect1, Collider* rect2) 
 {
-  glm::vec2 OldPosition = rect1->GetParent()->GetComponent<Transform>()->GetOldPosition();
+  glm::vec2 OldPosition = rect1->GetParent()->GetComponent<Physics>()->GetOldPosition();
   glm::vec2 NewPosition = rect1->GetParent()->GetComponent<Transform>()->GetPosition();
 
   RectCollider* mover = static_cast<RectCollider*>(rect1);
@@ -107,7 +107,7 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
   EllipCollider* ellip1 = static_cast<EllipCollider*>(Ellip1);
   EllipCollider* ellip2 = static_cast<EllipCollider*>(Ellip2);
 
-  glm::vec2 startPos = Ellip1->GetParent()->GetComponent<Transform>()->GetOldPosition();
+  glm::vec2 startPos = Ellip1->GetParent()->GetComponent<Physics>()->GetOldPosition();
   glm::vec2 endPos = Ellip1->GetParent()->GetComponent<Transform>()->GetPosition();
 
   glm::vec2 ellip2Pos = Ellip2->GetParent()->GetComponent<Transform>()->GetPosition();
