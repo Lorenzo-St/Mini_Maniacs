@@ -8,12 +8,12 @@ void CollisionLedger::Init()
 
 void CollisionLedger::Update() 
 {
-  for (auto& i : collisions) 
+  for (auto& i : instance->collisions)
   {
     i.e1->OnCollison(i.e2);
     i.e2->OnCollison(i.e1);
   }
-  collisions.clear();
+  instance->collisions.clear();
 }
 
 void CollisionLedger::Exit() 
