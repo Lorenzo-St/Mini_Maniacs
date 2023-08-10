@@ -7,7 +7,7 @@
 #include "Transform.h"
 #include "Physics.h"
 #define DRAW_DEBUG_LINES 0
-#define DEBUG_WRITING 0
+#define DEBUG_WRITING 1
 #if _DEBUG && DRAW_DEBUG_LINES
 #include "Render API.h"
 #endif 
