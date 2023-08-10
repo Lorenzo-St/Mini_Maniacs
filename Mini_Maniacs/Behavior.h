@@ -13,6 +13,7 @@ public:
     : currentState(b->currentState)
     , nextState(b->nextState)
     , stateTimer(b->stateTimer)
+    , stateLength(b->stateLength)
   {};
 
   void Init();
@@ -21,6 +22,7 @@ public:
 
   virtual void OnInit() {};
   virtual void OnUpdate() {};
+  virtual void OnStateChange() {};
   virtual void OnExit() {};
   virtual void Read(Stream* s) {};
 private:

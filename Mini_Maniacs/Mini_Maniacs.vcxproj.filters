@@ -82,6 +82,9 @@
     <Filter Include="Source Files\Game Code\Behaviors">
       <UniqueIdentifier>{a77c67d4-9429-4bb3-bbe5-56c67c1d7e47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game Code\Behaviors\Player Behaviors">
+      <UniqueIdentifier>{e38140d8-910e-48cb-af71-4aee68a6e9ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -155,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="Stream.cpp">
       <Filter>Source Files\Engine Code\NonSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMotor.cpp">
+      <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +259,15 @@
     </ClInclude>
     <ClInclude Include="Stream.h">
       <Filter>Source Files\Engine Code\NonSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour_templater.h">
+      <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.h">
+      <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMotor.h">
+      <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

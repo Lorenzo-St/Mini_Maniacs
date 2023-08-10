@@ -96,6 +96,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 #endif
 
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
+    glm::vec2 toOther = wall->GetParent()->GetComponent<Transform>()->GetPosition() - intersection;
+    toOther = glm::normalize(toOther) * glm::length(rect1->GetParent()->GetComponent<Transform>()->GetVelocity());
+    rect1->GetParent()->GetComponent<Transform>()->AddVelocity(toOther);
   }
 }
 

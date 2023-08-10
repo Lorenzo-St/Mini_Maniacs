@@ -13,7 +13,7 @@ void Behavior::Update()
     OnExit();
 
     currentState = nextState;
-
+    OnStateChange();
     OnInit();
   }
 

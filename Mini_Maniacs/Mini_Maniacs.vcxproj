@@ -211,6 +211,8 @@ git push</Command>
     <ClCompile Include="EntitySystem.cpp" />
     <ClCompile Include="MeshComp.cpp" />
     <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
+    <ClCompile Include="PlayerMotor.cpp" />
     <ClCompile Include="RectCollider.cpp" />
     <ClCompile Include="SceneSystem.cpp" />
     <ClCompile Include="EventProcessing.cpp" />
@@ -228,6 +230,7 @@ git push</Command>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Backend.h" />
     <ClInclude Include="Behavior.h" />
+    <ClInclude Include="Behaviour_templater.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionFunctions.h" />
     <ClInclude Include="Component.h" />
@@ -244,6 +247,8 @@ git push</Command>
     <ClInclude Include="MeshComp.h" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Physics.h" />
+    <ClInclude Include="PlayerController.h" />
+    <ClInclude Include="PlayerMotor.h" />
     <ClInclude Include="RectCollider.h" />
     <ClInclude Include="Render API.h" />
     <ClInclude Include="RNG.h" />

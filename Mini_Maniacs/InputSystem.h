@@ -5,6 +5,9 @@ typedef enum InputActions
 {
   Enter, 
   Back,
+  PosX,
+  NegX,
+  Jump,
 
 }Action;
 
