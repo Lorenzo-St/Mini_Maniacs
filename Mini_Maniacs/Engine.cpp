@@ -53,8 +53,9 @@ void Engine::Update(void)
       const_cast<System*>(system)->Render();
   
     contin = false;
-#if 0
+#if 1
     std::cout << "FR: " << 1.0 / Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
+    std::cout << "--------------------------------------------------" << std::endl;
 #endif
   }
 }
