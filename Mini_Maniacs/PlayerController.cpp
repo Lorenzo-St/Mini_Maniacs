@@ -20,7 +20,7 @@ void PlayerController::OnUpdate()
     isGrounded = false;
     velo.y = jumpSpeed;
   }
-  else if (!isGrounded)
+  else if (!InputSystem::isPressed(Jump) && !isGrounded)
   {
     glm::vec2 grav = this->GetParent()->GetComponent<Physics>()->getGravity();
     grav *= (1.0f + std::abs((fallSpeed * Time.deltaTime())));
