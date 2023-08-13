@@ -14,10 +14,10 @@ void Physics::Update(void)
   }
   oldPos = this->GetParent()->GetComponent<Transform>()->GetPosition();
   velocity += acceleration * Time.deltaTime() * drag;
-  this->GetParent()->GetComponent<Transform>()->SetPosition(oldPos + velocity * Time.deltaTime());
+  this->GetParent()->GetComponent<Transform>()->SetPosition(oldPos + (velocity * Time.deltaTime()));
 
 
-#if _DEBUG && 0
+#if _DEBUG && 1
   std::cout << "Pos: " << oldPos << std::endl;
   std::cout << "Velo: " << velocity << std::endl;
 
