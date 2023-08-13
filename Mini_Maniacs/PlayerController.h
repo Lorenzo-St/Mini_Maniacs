@@ -15,6 +15,8 @@ public:
     : Behavior(b)
     , jumpSpeed(b->jumpSpeed)
     , moveSpeed(b->moveSpeed)
+    , fallSpeed(b->fallSpeed)
+    , gravity(b->gravity)
   {}
   PlayerController* Clone() { return new PlayerController(this); }
 
