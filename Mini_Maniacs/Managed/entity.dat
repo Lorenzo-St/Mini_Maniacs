@@ -90,7 +90,7 @@
    <MoveSpeed>
     50
    <fallSpeed>
-    5
+    3
    <gravity>
     0 -49.05
   </PlayerController>

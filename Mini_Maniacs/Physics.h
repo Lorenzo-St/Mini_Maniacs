@@ -9,7 +9,6 @@ public:
     Rigid,
     Soft // Not now
   };
-
   Physics() = default;
   Physics(Physics const* p) : doGravity(p->doGravity), body(p->body), weight(p->weight), Gravity(p->Gravity) {};
   Physics* Clone() { return new Physics(this); };

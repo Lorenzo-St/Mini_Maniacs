@@ -43,6 +43,9 @@ public:
   void setProto(std::string s) { protoType = std::string(s); }
   bool isProto(std::string s) { return protoType == s; }
 
+
+
+
   void SetActive(bool b);
 
   void Tag(Tags t) { tag = t; }

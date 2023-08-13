@@ -59,4 +59,5 @@ typedef struct sorter
   {
     return *lhs < *rhs;
   }
+
 }sorter;
