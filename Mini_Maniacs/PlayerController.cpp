@@ -24,7 +24,7 @@ void PlayerController::OnUpdate()
   else if (!isGrounded)
   {
     glm::vec2 grav = this->GetParent()->GetComponent<Physics>()->getGravity();
-    grav += fallSpeed * Time.deltaTime();
+    grav *= (1 + fallSpeed * Time.deltaTime());
     this->GetParent()->GetComponent<Physics>()->setGravity(grav);
   }
   if (InputSystem::isPressed(PosX)) 
