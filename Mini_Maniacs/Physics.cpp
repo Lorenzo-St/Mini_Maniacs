@@ -20,6 +20,7 @@ void Physics::Update(void)
 #if _DEBUG && 1
   std::cout << "Pos: " << oldPos << std::endl;
   std::cout << "Velo: " << velocity << std::endl;
+  std::cout << "Accel: " << acceleration << std::endl;
 
   //std::cout << "Scale: " << scale.x << "," << scale.y << std::endl;
   //std::cout << "Rot: " << rot << std::endl;
