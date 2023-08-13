@@ -165,9 +165,6 @@
     <ClCompile Include="PlayerController.cpp">
       <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerMotor.cpp">
-      <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionLedger.cpp">
       <Filter>Source Files\Engine Code\System\Collision Ledger</Filter>
     </ClCompile>
@@ -270,9 +267,6 @@
       <Filter>Source Files\Engine Code\System\EntitySystem\Component\Build-In Components\Behavior</Filter>
     </ClInclude>
     <ClInclude Include="PlayerController.h">
-      <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerMotor.h">
       <Filter>Source Files\Game Code\Behaviors\Player Behaviors</Filter>
     </ClInclude>
     <ClInclude Include="CollisionLedger.h">
