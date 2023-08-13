@@ -34,6 +34,11 @@ public:
     EntitySystem::GetActive().AddEntity(floor);
 
     e2 = EntitySystem::GetActive().CreateEntity("Entity");
+    e2 = EntitySystem::GetActive().CreateEntity("Entity");
+    e2 = EntitySystem::GetActive().CreateEntity("Entity");
+
+    e2 = EntitySystem::GetActive().CreateEntity("Entity");
+
 
 
 
