@@ -7,7 +7,6 @@
 
 
 
-
 void PlayerController::OnInit() 
 {
 }
@@ -24,7 +23,7 @@ void PlayerController::OnUpdate()
   else if (!isGrounded)
   {
     glm::vec2 grav = this->GetParent()->GetComponent<Physics>()->getGravity();
-    grav *= (1.0f + (fallSpeed * Time.deltaTime()));
+    grav *= (1.0f + std::abs((fallSpeed * Time.deltaTime())));
     this->GetParent()->GetComponent<Physics>()->setGravity(grav);
   }
   if (InputSystem::isPressed(PosX)) 
