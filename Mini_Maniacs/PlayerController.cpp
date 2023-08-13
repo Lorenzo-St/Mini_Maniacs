@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "InputSystem.h"
 #include "Physics.h"
+#include "Transform.h"
 
 
 
@@ -37,7 +38,7 @@ void PlayerController::OnUpdate()
   else
     velo.x = 0;
   this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
-
+  std::cout << this->GetParent()->GetComponent<Physics>()->GetVelocity() << std::endl;
 }
 
 void PlayerController::OnExit() 
