@@ -6,12 +6,7 @@ typedef struct ESorter
 {
   bool operator()(Entity const* lhs, Entity const* rhs) 
   {
-    bool l = lhs->GetComponent<Physics>() != nullptr;
-    bool r = rhs->GetComponent<Physics>() != nullptr;
-    if (l && r) return false;
-    if (l && !r) return true;
-    if (!l && r) return false;
-    if (!l && !r)return false;
+    return lhs->GetComponent<Physics>() != nullptr && rhs->GetComponent<Physics>()== nullptr;
   }
 
 }ESorter;
