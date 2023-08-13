@@ -14,6 +14,8 @@ class TempScene : public Scene
 {
 public:
   Entity* e;
+  Entity* e2;
+
   Entity* floor;
   void Init() 
   {
@@ -30,6 +32,9 @@ public:
     //floor->GetComponent<RectCollider>()->addLine({  500, -5 },  { -500,  0 });
 
     EntitySystem::GetActive().AddEntity(floor);
+
+    e2 = EntitySystem::GetActive().CreateEntity("Entity");
+
 
 
     updates = 0;

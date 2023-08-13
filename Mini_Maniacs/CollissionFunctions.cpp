@@ -121,6 +121,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
 void CircleCollision(Collider* Ellip1, Collider* Ellip2) 
 {
+
+
   EllipCollider* ellip1 = static_cast<EllipCollider*>(Ellip1);
   EllipCollider* ellip2 = static_cast<EllipCollider*>(Ellip2);
 
