@@ -4,9 +4,9 @@
 #include "Physics.h"
 typedef struct ESorter
 {
-  bool operator()(Entity* lhs, Entity* rhs) 
+  bool operator()(Entity const* lhs, Entity const* rhs) 
   {
-    return lhs->GetComponent<Physics>() != nullptr;
+    return lhs->GetComponent<Physics>() != nullptr && rhs->GetComponent<Physics>() == nullptr;
   }
 
 }ESorter;

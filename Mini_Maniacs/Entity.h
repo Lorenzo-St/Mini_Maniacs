@@ -81,7 +81,29 @@ public:
       return static_cast<g*>(components[end]);
     return nullptr;
   };
+  template<typename g>
+  g* GetComponent() const
+  {
+    std::string name = g().GetName();
+    ComponentTypeEnum::ComponentType t = ComponentTypeEnum::toEnum(name);
+    size_t start = 0;
+    size_t end = components.size();
+    while (end > start)
+    {
+      size_t midPoint = (start + end) / 2;
+      ComponentTypeEnum::ComponentType c = components[midPoint]->getType();
+      if (c < t)
+        start = midPoint + 1;
+      else if (c > t)
+        end = midPoint - 1;
+      else if (c == t)
+        return static_cast<g*>(components[midPoint]);
 
+    }
+    if (components[end]->getType() == t)
+      return static_cast<g*>(components[end]);
+    return nullptr;
+  };
 private:
   std::string name;
   std::string protoType;
