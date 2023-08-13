@@ -38,8 +38,6 @@ void PlayerController::OnUpdate()
   else
     velo.x = 0;
   this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
-  std::cout << this->GetParent()->GetComponent<Physics>()->GetVelocity() << std::endl;
-  std::cout << this->GetParent()->GetComponent<Transform>()->GetPosition() << std::endl;
 
 }
 
