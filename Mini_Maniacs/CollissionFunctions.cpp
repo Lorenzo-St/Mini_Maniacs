@@ -21,6 +21,7 @@ typedef struct line
 
 void RectangleCollision(Collider* rect1, Collider* rect2) 
 {
+
   glm::vec2 OldPosition = rect1->GetParent()->GetComponent<Physics>()->GetOldPosition();
   glm::vec2 NewPosition = rect1->GetParent()->GetComponent<Transform>()->GetPosition();
 

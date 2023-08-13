@@ -1,7 +1,15 @@
 #include "EntitySystem.h"
 #include "Entity.h"
 #include "Stream.h"
+#include "Physics.h"
+typedef struct ESorter
+{
+  bool operator()(Entity* lhs, Entity* rhs) 
+  {
+    return lhs->GetComponent<Physics>() != nullptr;
+  }
 
+}ESorter;
 void EntitySystem::Init(void) 
 {
   prototypes.add(new Entity());
@@ -28,6 +36,7 @@ void EntitySystem::Exit(void)
 void EntitySystem::AddEntity(Entity* e)
 {
   activeScene.add(e);
+  std::sort(activeScene.GetCollection().begin(), activeScene.GetCollection().end(), ESorter());
 }
 //void EntitySystem::AddEntity(Entity* e) const
 //{
@@ -61,7 +70,7 @@ Entity* EntitySystem::CreateEntity(const char* archetypeName)
   }
 
   Entity* e = archi->Clone();
-  activeScene.add(e);
+  AddEntity(e);
   e->Awake();
   e->Init();
   return e;

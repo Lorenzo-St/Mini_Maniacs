@@ -90,6 +90,8 @@ public:
     }
   }
 
+  std::vector<t*>& GetCollection() { return entities; }
+
   void Render()
   {
     for (auto& e : entities)
