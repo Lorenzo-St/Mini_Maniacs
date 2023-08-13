@@ -16,8 +16,15 @@ void PlayerController::OnUpdate()
   glm::vec2 velo = this->GetParent()->GetComponent<Physics>()->GetVelocity();
   if (InputSystem::isPressed(Jump) && isGrounded)
   {
+    this->GetParent()->GetComponent<Physics>()->setGravity(gravity);
     isGrounded = false;
     velo.y = jumpSpeed;
+  }
+  else if (!isGrounded)
+  {
+    glm::vec2 grav = this->GetParent()->GetComponent<Physics>()->getGravity();
+    grav += fallSpeed * Time.deltaTime();
+    this->GetParent()->GetComponent<Physics>()->setGravity(grav);
   }
   if (InputSystem::isPressed(PosX)) 
   {
@@ -47,6 +54,10 @@ void PlayerController::Read(Stream* s)
       jumpSpeed = s->ReadFloat();
     else if (token == "<MoveSpeed>")
       moveSpeed = s->ReadFloat();
+    else if (token == "<fallSpeed>")
+      fallSpeed = s->ReadFloat();
+    else if (token == "<gravity>")
+      gravity = s->ReadVector();
     else if (token == "</PlayerController>")
       break;
   }

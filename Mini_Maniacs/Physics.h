@@ -19,7 +19,8 @@ public:
 
   void setGravity(float g) { Gravity = { 0, g }; }
   void setGravity(glm::vec2 g) { Gravity = g; }
-
+  
+  glm::vec2 const& getGravity(void) { return Gravity;};
 
   bool DoesGravity(void) { return doGravity; }
   float GetWeight(void) { return weight; }

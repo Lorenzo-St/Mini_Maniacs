@@ -30,4 +30,6 @@ private:
   bool isGrounded = false;
   float jumpSpeed = 0;
   float moveSpeed = 0;
+  float fallSpeed = 0;
+  glm::vec2 gravity = {0,0};
 };
