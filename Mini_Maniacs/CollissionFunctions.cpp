@@ -68,7 +68,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         glm::vec2 testPos = startpos;
         glm::vec2 xMove(moveVec.x, 0);
         glm::vec2 yMove(0, moveVec.y);
-        if (std::abs(glm::dot(wallNorm, testPos)) >= std::abs(glm::dot(wallNorm, segment[0])) && std::abs(glm::dot(wallNorm, testPos + xMove)) >= std::abs(glm::dot(wallNorm, segment[1])))
+        if (glm::dot(wallNorm, testPos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, testPos + xMove) < glm::dot(wallNorm, segment[1]))
         {
           testVector = (testPos + xMove) - segment[0];
           wallVec = segment[0] - segment[1];
@@ -82,7 +82,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
               dir = 1;
           }
         }
-        if (std::abs(glm::dot(wallNorm, testPos)) >= std::abs(glm::dot(wallNorm, segment[0])) && std::abs(glm::dot(wallNorm, testPos + yMove)) >= std::abs(glm::dot(wallNorm, segment[1])))
+        else if (glm::dot(wallNorm, testPos) <= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, testPos + yMove) < glm::dot(wallNorm, segment[1]))
         {
           testVector = (testPos + yMove) - segment[0];
           wallVec = segment[0] - segment[1];
