@@ -1,0 +1,43 @@
+<Entity>
+  <Name>
+    Floor
+  <Tag>
+    0
+  <Transform>
+    <Position>
+	  0.0 -100.0
+	<Scale>
+	  1000 .1
+	<Rotation>
+	  00
+  </Transform>
+  <Mesh>
+	<Count>
+	  6
+	<Points>
+	  -0.5 -0.5
+	   0 0 0 255
+	   0 1
+	  -0.5  0.5
+	   0 0 0 255
+	   0 0
+	   0.5  0.5
+	   0 0 0 255
+	   1 0	
+	   0.5  0.5
+	   0 0 0 255
+	   1 0	
+	   0.5 -0.5
+	   0 0 0 255
+	   1 1
+	  -0.5 -0.5
+	   0 0 0 255
+	   0 1 
+  </Mesh>		 
+  <RectCollider>
+   <Line>
+	 500 0
+	-500 0
+  </RectCollider>
+
+  

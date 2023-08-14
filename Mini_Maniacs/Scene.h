@@ -27,6 +27,8 @@ public:
   SceneSystem* getSceneSystem(void) { return sceneSystem; };
   void name(std::string nl) { n = nl; }
   std::string const& name(void) { return n; }
+
+  void ReadFile(const char* c);
 private:
   void Render(void) {};
   void Awake(void) {};

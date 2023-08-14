@@ -171,6 +171,9 @@
     <ClCompile Include="CollisionLedger.cpp">
       <Filter>Source Files\Engine Code\System\Collision Ledger</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Engine Code\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">

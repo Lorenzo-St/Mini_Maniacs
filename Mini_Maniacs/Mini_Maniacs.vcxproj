@@ -214,6 +214,7 @@ git push</Command>
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="RectCollider.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneSystem.cpp" />
     <ClCompile Include="EventProcessing.cpp" />
     <ClCompile Include="InputSystem.cpp" />
