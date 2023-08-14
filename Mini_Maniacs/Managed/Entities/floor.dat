@@ -5,9 +5,9 @@
     1
   <Transform>
     <Position>
-	  0.0 -100.0
+	  0.0 -5.0
 	<Scale>
-	  1000 .1
+	  1000 10
 	<Rotation>
 	  00
   </Transform>

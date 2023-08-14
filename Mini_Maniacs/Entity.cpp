@@ -69,6 +69,7 @@ Entity::Entity(Entity const* e)
 { 
   name = e->name;
   protoType = e->protoType;
+  tag = e->tag;
   for (auto& c : e->components) 
   {
     Component* c2 = c->Clone();
