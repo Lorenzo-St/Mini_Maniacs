@@ -1,0 +1,25 @@
+<Entity>
+  <Name>
+    room
+  <Tag>
+    Room
+  <Transform>
+    <Position>
+	  0.0  0.0
+	<Scale>
+	  0 0
+	<Rotation>
+	  00
+  </Transform>
+</Entity>
+<Entities>
+ <name>
+  tile
+ <localPosition>
+  -16 -16
+ <name>
+ tile
+ <localPosition>
+  -5 -5 
+ 
+ 

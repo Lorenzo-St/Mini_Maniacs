@@ -1,9 +1,8 @@
 #include "Transform.h"
 #include "Time.h"
 #include "Stream.h"
-#if _DEBUG
-#include <iostream>
-#endif
+#include "Entity.h"
+#include <vector>
 void Transform::Read(Stream* s)
 {
   // In file order, 
@@ -40,6 +39,16 @@ void Transform::Read(Stream* s)
 void Transform::Update(void)
 {
 
+}
+
+void Transform::SetPosition(glm::vec2 const& position) {
+  pos = position + localPos;
+
+  std::vector<Entity*>& chilen = GetParent()->GetChildren();
+  for (auto& e : chilen) 
+  {
+    e->GetComponent<Transform>()->SetPosition(pos);
+  }
 }
 
 

@@ -24,11 +24,13 @@ public:
   glm::vec2 const& GetScale(void) { return scale; };
   float GetRotation(void) { return rot; }
 
-  void SetPosition(glm::vec2 const& position) { pos = position; }
+  void SetPosition(glm::vec2 const& position);
 
   void SetScale(glm::vec2 const& scal) { scale = scal; }
   void SetRotation(float rotation) { rot = rotation; }
 
+  void SetLocalPosition(glm::vec2 const& posi) { localPos = posi; }
+  glm::vec2 const& GetLocalPosition() { return localPos; }
 
 
 private:
@@ -40,7 +42,7 @@ private:
   // -------------------------
 
   glm::vec2 pos = {};
-
+  glm::vec2 localPos = {0,0};
   glm::vec2 scale = {};
   float rot = 0;
 };

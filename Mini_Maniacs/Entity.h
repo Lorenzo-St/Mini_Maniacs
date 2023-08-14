@@ -6,7 +6,7 @@
 #include "Component.h"
 typedef struct sorter sorter;
 class EntitySystem;
-CREATE_ENUM_NOTYPE(Tags, Standard, Ground, Player, Enemy, Tile);
+CREATE_ENUM_NOTYPE(Tags, Standard, Ground, Player, Enemy, Tile, Room);
 
 
 class Entity : public Object 
@@ -37,7 +37,7 @@ public:
   bool isProto(std::string s) { return protoType == s; }
 
 
-
+  std::vector<Entity*>& GetChildren() { return Children; }
 
   void SetActive(bool b);
 

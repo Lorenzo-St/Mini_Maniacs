@@ -2,6 +2,8 @@
 #include "Entity.h"
 #include "Stream.h"
 #include "Physics.h"
+#include "Transform.h"
+
 typedef struct ESorter
 {
   bool operator()(Entity const* lhs, Entity const* rhs) 
@@ -53,16 +55,31 @@ Entity* EntitySystem::CloneEntity(Entity* e)
 
 Entity* EntitySystem::CreatePrefab(const char* file)
 {
-  Entity* prefab = new Entity();
   std::string path = "./Managed/Prefabs/" + std::string(file) + ".dat";
+  Entity* prefab = new Entity();
   Stream s = Stream(path.c_str());
+  prefab->Read(&s);
+  std::string token;
   while (true)
   {
-    
-  
+    token = s.ReadString();
+    if (token != "<Entities>")
+    {
+      Entity* active = nullptr;
+      while (token != "" || token != "</Entities>")
+      {
+        token = s.ReadString();
+        if(token == "<name>")
+          active = CreateEntity(token.c_str());
+        else if (token == "<localPosition>")
+        {
+          Transform* t = active->GetComponent<Transform>();
+          t->SetLocalPosition(s.ReadVector());
+        }
+        active->SetParent(prefab);
+      }
+    }
   }
-
-
   return prefab;
 }
 

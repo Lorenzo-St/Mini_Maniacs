@@ -16,6 +16,8 @@ void Scene::ReadFile(const char* c)
           name(s.ReadString());
         else if (token == "<Entities>")
           rs = Entities;
+        else if (token == "<Prefabs>")
+          rs = Prefabs;
         else if (token == "")
           break;
       }
@@ -27,6 +29,15 @@ void Scene::ReadFile(const char* c)
         }
         else
           EntitySystem::GetActive().CreateEntity(token.c_str());
+      }
+      else if (rs == Prefabs) 
+      {
+        if (token == "</Prefabs>")
+        {
+          rs = Default;
+        }
+        else
+          EntitySystem::GetActive().CreatePrefab(token.c_str());
       }
     }
   }
