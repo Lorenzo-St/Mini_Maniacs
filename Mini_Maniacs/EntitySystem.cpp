@@ -69,14 +69,19 @@ Entity* EntitySystem::CreatePrefab(const char* file)
       while (token != "" || token != "</Entities>")
       {
         token = s.ReadString();
-        if(token == "<name>")
+        
+        if (token == "<name>")
+        {
           active = CreateEntity(s.ReadString().c_str());
+          active->SetParent(prefab);
+        }
         else if (token == "<localPosition>")
         {
           Transform* t = active->GetComponent<Transform>();
           t->SetLocalPosition(s.ReadVector());
         }
-        active->SetParent(prefab);
+        else if (token == "")
+          break;
       }
     }
     else if (token == "")
