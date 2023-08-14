@@ -74,10 +74,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
           wallVec = segment[0] - segment[1];
           if (glm::dot(wallVec, testVector) < 0)
             continue;
-          testVector = (testPos + xMove) - segment[1];
-          wallVec = segment[1] - segment[0];
-          if (glm::dot(wallVec, testVector) < 0)
-            continue;
+          //testVector = (testPos + xMove) - segment[1];
+          //wallVec = segment[1] - segment[0];
+          //if (glm::dot(wallVec, testVector) < 0)
+          //  continue;
           dir = 1;
 
         }
