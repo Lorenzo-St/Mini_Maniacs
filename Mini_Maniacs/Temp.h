@@ -49,11 +49,13 @@ public:
           name(s.ReadString());
         else if (token == "<Entities>")
           rs = Entities;
-        else if (token == "</Entities>")
-          rs = Default;
+        else if (token == "")
+          break;
       }
       else if (rs == Entities) 
       {
+        if (token == "</Entities>")
+          rs = Default;
         EntitySystem::GetActive().CreateEntity(token.c_str());
       }
     }
