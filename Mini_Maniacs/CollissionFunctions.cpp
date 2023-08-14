@@ -72,8 +72,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
           dir = 1;
         else if (glm::dot(wallNorm, testPos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, testPos + yMove) >= glm::dot(wallNorm, segment[1]))
           dir = 0;
-        else
-          dir = 2;
 
         earliestTime = ti;
         earliestMove = moveVec;
