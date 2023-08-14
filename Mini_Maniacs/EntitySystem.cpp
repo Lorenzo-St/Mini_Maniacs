@@ -57,7 +57,7 @@ Entity* EntitySystem::CreateEntity(const char* archetypeName)
   Entity* archi = prototypes.FindProto(archetypeName);
   if (archi == nullptr)
   {
-    std::string path = "./Managed/" + std::string(archetypeName) + ".dat";
+    std::string path = "./Managed/Entities/" + std::string(archetypeName) + ".dat";
     Stream s = Stream(path.c_str());
     std::string token = s.ReadString();
     if (token != "<Entity>")
