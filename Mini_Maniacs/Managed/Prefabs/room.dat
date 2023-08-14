@@ -33,3 +33,7 @@
  tile
  <localPosition>
   -32 -16  
+  <name>
+ tile
+ <localPosition>
+  -32 0  
