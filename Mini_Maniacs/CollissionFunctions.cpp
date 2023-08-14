@@ -103,11 +103,17 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
 #endif
     glm::vec2 intersection = OldPosition + (earliestMove * earliestTime);
-    if (dir == 1)
+    if (dir == 1) 
+    {
       intersection.x = NewPosition.x;
-    else if(dir == 0)
+      rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ rect1->GetParent()->GetComponent<Physics>()->GetVelocity().x, 0 });
+    }
+    else if (dir == 0) 
+    {
       intersection.y = NewPosition.y;
-    //glm::vec2 interupted = earliestMove * (1 - earliestTime);
+      rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ 0,rect1->GetParent()->GetComponent<Physics>()->GetVelocity().y });
+
+    }//glm::vec2 interupted = earliestMove * (1 - earliestTime);
     //intersection = NewPosition - (2.0f * interupted);
 #if _DEBUG && DEBUG_WRITING
     std::cout << "Collision occured now" << std::endl;
