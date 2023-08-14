@@ -63,7 +63,7 @@ Entity* EntitySystem::CreatePrefab(const char* file)
   while (true)
   {
     token = s.ReadString();
-    if (token != "<Entities>")
+    if (token == "<Entities>")
     {
       Entity* active = nullptr;
       while (token != "" || token != "</Entities>")
