@@ -30,8 +30,11 @@ void SceneSystem::Update(void)
     Active = nextScene;
     nextScene = nullptr;
     
-    if(Active)
+    if (Active) 
+    {
+      Active->Read();
       Active->Init();
+    }
     
     changing = false;
     restarting = false;
