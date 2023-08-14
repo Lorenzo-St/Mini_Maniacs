@@ -73,6 +73,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
           dir = 1;
         else if (glm::abs(glm::dot(yMove, wallVec)) == glm::dot(wallVec, wallVec))
           dir = 0;
+
         earliestTime = ti;
         earliestMove = moveVec;
       }
