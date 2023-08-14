@@ -67,6 +67,12 @@ void PlayerController::OnCollision(Entity* other)
 {
   if (other->Tag() == Ground)
     isGrounded = true;
+  if (other->Tag() == Tile) 
+  {
+    glm::vec2 dir = other->GetComponent<Transform>()->GetPosition() - this->GetParent()->GetComponent<Transform>()->GetPosition();
+    if (dir.y < 0 && std::abs(dir.y) > std::abs(dir.x))
+      isGrounded = true;
+  }
 }
 
 
