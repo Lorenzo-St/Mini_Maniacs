@@ -29,6 +29,13 @@ public:
   void Read(Stream* s);
   void OnCollision(Entity* other);
 private:
+  // -------------------------
+  // Required Component things
+  // -------------------------
+  constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
+  // -------------------------
+
   bool isGrounded = false;
   float jumpSpeed = 0;
   float moveSpeed = 0;
