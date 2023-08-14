@@ -88,6 +88,7 @@ Entity* EntitySystem::CreatePrefab(const char* file)
     else if (token == "")
       break;
   }
+  prefab->GetComponent<Transform>()->SetPosition(prefab->GetComponent<Transform>()->GetPosition());
   return prefab;
 }
 
