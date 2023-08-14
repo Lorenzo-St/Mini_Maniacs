@@ -70,7 +70,7 @@ Entity* EntitySystem::CreatePrefab(const char* file)
       {
         token = s.ReadString();
         if(token == "<name>")
-          active = CreateEntity(token.c_str());
+          active = CreateEntity(s.ReadString().c_str());
         else if (token == "<localPosition>")
         {
           Transform* t = active->GetComponent<Transform>();
