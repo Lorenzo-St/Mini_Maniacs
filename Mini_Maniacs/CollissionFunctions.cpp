@@ -65,12 +65,11 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         continue;
       if (ti < earliestTime)
       {
+        moveVec = NewPosition - OldPosition;
         glm::vec2 testPos = startpos;
         glm::vec2 xMove(moveVec.x, 0);
         glm::vec2 yMove(0, moveVec.y);
 
-        if (moveVec.x > 0)
-          moveVec = moveVec;
 
         if (glm::abs(glm::dot(xMove, wallVec)) == glm::dot(wallVec, wallVec))
           dir = 1;
