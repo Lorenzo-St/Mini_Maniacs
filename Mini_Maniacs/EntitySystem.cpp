@@ -51,6 +51,22 @@ Entity* EntitySystem::CloneEntity(Entity* e)
   return el;
 }
 
+Entity* EntitySystem::CreatePrefab(const char* file)
+{
+  Entity* prefab = new Entity();
+  std::string path = "./Managed/Prefabs/" + std::string(file) + ".dat";
+  Stream s = Stream(path.c_str());
+  while (true)
+  {
+    
+  
+  }
+
+
+  return prefab;
+}
+
+
 
 Entity* EntitySystem::CreateEntity(const char* archetypeName) 
 {
@@ -80,3 +96,21 @@ void EntitySystem::DestroyAll(void)
 {
   activeScene.destroyAll();
 }
+
+Entity* EntitySystem::FindWithName(const char* name) 
+{
+  return activeScene.FindName(name);
+}
+
+
+Entity* EntitySystem::FindWithTag(Tags tag) 
+{
+  std::vector<Entity*>& col = activeScene.GetCollection();
+  for (auto& e : col) 
+  {
+    if (e->Tag() == tag)
+      return e;
+  }
+  return nullptr;
+}
+

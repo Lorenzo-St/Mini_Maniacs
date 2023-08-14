@@ -210,6 +210,7 @@ git push</Command>
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntitySystem.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="MeshComp.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerController.cpp" />
@@ -244,6 +245,8 @@ git push</Command>
     <ClInclude Include="EntitySystem.h" />
     <ClInclude Include="EnumMacros.h" />
     <ClInclude Include="EventProcessing.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GamePlayScene.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="MeshComp.h" />

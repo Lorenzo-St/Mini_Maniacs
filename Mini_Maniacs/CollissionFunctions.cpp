@@ -30,7 +30,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   
   float earliestTime = 2;
   glm::vec2 earliestMove = { 0,0 };
-  bool dir = 1;
+  int dir = 1;
   // Check line collision along the movement for each point, if there is any collision then the rects collided
   for (auto& l : mover->getSegments()) 
   {

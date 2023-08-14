@@ -23,6 +23,8 @@ public:
   void DrawEllipse(glm::vec2 pos, float rad) const;
   void SetMatrix(glm::mat4x4 const& matrix);
   void SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
+  void MoveMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
+
   void SetTexture(Texture const* texture);
   void SetUVMatrix(glm::mat4x4 const& matrix) { UVmatrix = matrix; }
   void SetColor(SDL_Color c) {  ActiveColor = c; }

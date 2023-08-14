@@ -21,7 +21,7 @@ public:
   Container* Clone() { return new Container(this); }
   Container(Container const* other) { entities = other->entities; }
 
-  t* FindFind(const char* name)
+  t* FindName(const char* name)
   {
     for (auto& e : entities)
     {

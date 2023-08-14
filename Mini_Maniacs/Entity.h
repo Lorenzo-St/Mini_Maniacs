@@ -6,14 +6,7 @@
 #include "Component.h"
 typedef struct sorter sorter;
 class EntitySystem;
-enum Tags
-{
-  Standard,
-  Ground,
-  Player,
-  Enemy,
-
-};
+CREATE_ENUM_NOTYPE(Tags, Standard, Ground, Player, Enemy, Tile);
 
 
 class Entity : public Object 
@@ -110,6 +103,7 @@ private:
   std::string name;
   std::string protoType;
   std::vector<Component*> components;
+  std::vector<Entity*> Children;
   static const inline EntitySystem* es;
   Tags tag;
 };

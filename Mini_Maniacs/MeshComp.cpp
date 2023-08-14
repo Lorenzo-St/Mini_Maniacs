@@ -20,10 +20,11 @@ void Mesh::Render(void)
     else 
       api.SetTexture(nullptr);
 
+
     Transform* t = GetParent()->GetComponent<Transform>();
     api.SetMatrixData(t->GetPosition(), t->GetScale(), t->GetRotation());
     m->Draw();
-    api.SetUVMatrix(glm::mat3x3(1.0f));
+    api.SetUVMatrix(glm::mat4x4(1.0f));
   }
 }
 

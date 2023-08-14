@@ -25,7 +25,13 @@ public:
   //void AddEntity(Entity* e) const;
 
   Entity* CreateEntity(const char* file);
+  Entity* CreatePrefab(const char* file);
   Entity* CloneEntity(Entity* e);
+
+  Entity* FindWithName(const char* name);
+  Entity* FindWithTag( Tags tag);
+
+
   void DestroyAll(void);
   static constexpr EntitySystem& GetActive(void) { return *active; }
 

@@ -10,6 +10,7 @@
 #include "Sprite.h"
 #include "EntitySystem.h"
 #include "PlayerController.h"
+#include "GameManager.h"
 
 Entity::Entity(void) : tag(Standard)
 { 
@@ -89,8 +90,11 @@ void Entity::Read(Stream* s)
       break;
     else if (token == "<Name>")
       name = s->ReadString();
-    else if (token == "<Tag>")
-      tag = static_cast<Tags>(s->ReadInt());
+    else if (token == "<Tag>") 
+    {
+      token = s->ReadString();
+      tag = toEnum(token);
+    }
     else if (token == "<Transform>")
       c = new Transform();
     else if (token == "<Mesh>")
@@ -107,6 +111,9 @@ void Entity::Read(Stream* s)
       c = new Animation();
     else if (token == "<PlayerController>")
       c = new PlayerController();
+    else if (token == "<GameManager>")
+      c = new GameManager();
+
 
     if (c) 
     {

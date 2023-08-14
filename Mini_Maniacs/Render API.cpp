@@ -210,6 +210,17 @@ void RenderFront::SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation)
   renderMatrix = mat;
 }
 
+void RenderFront::MoveMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation)
+{
+  glm::mat4x4 mat = glm::identity<glm::mat4x4>();
+  mat = glm::translate(mat, glm::vec3(pos, 1));
+  mat = glm::scale(mat, glm::vec3(scale, 0));
+  mat = glm::rotate(mat, rotation, { 0,0,1 });
+  mat = glm::transpose(mat);
+  renderMatrix *= mat;
+}
+
+
 void RenderFront::SetTexture(Texture const* texture) 
 {
   activeTexture = texture;

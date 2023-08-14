@@ -1,8 +1,8 @@
 <Entity>
   <Name>
-    Floor
+    tile
   <Tag>
-    Ground
+    Tile
   <Transform>
     <Position>
 	  0.0 -5.0
@@ -39,5 +39,3 @@
 	 500 0
 	-500 0
   </RectCollider>
-
-  

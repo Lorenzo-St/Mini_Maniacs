@@ -51,5 +51,21 @@ throw std::logic_error("Non-Existant Enum Type");\
 }                                          \
 }
 
+#define CREATE_ENUM_NOTYPE(name,...)       \
+enum name {reserved = 0,  __VA_ARGS__};    \
+constexpr const char* toString(name _t) {  \
+using enum name;                           \
+switch (_t) {                              \
+     case reserved:throw std::logic_error("Non-Existant Enum Type"); \
+    FOR_EACH(CASE_NAME, __VA_ARGS__)       \
+default:                                   \
+    throw std::logic_error("Non-Existant Enum Type");\
+  }                                        \
+}                                          \
+constexpr name toEnum(std::string& string){\
+FOR_EACH(IF_NAME, __VA_ARGS__ )            \
+throw std::logic_error("Non-Existant Enum Type");\
+}                                          
+
 
 
