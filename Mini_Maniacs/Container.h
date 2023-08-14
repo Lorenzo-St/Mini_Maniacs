@@ -3,6 +3,8 @@
 #include <string>
 #include "Object.hpp"
 #include "Collider.h"
+#include "Transform.h"
+
 class Entity;
 template<typename t = Entity>
 class Container : public Object
@@ -77,6 +79,8 @@ public:
     {
       loc++;
       Collider* c = entity->GetComponent<Collider>();
+      if (entity->GetComponent<Transform>() == nullptr)
+        continue;
       if (!c)
         continue;
       for (int i = loc; i < entities.size(); i++)
