@@ -79,7 +79,7 @@ public:
       loc++;
       Collider* c = entity->GetComponent<Collider>();
       if (entity->isStatic())
-        continue;
+        break;
       if (!c)
         continue;
       for (int i = loc; i < entities.size(); i++)
