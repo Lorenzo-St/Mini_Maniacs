@@ -5,7 +5,7 @@
     Player
   <Transform>
     <Position>
-	  50.0 200.0
+	  0.0 200.0
 
 	<Scale>
 	  16 16

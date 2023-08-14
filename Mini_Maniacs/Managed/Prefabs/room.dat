@@ -21,5 +21,15 @@
  tile
  <localPosition>
   0 -16  
- 
- 
+  <name>
+ tile
+ <localPosition>
+  16 -16  
+ <name>
+ tile
+ <localPosition>
+  32 -16  
+ <name>
+ tile
+ <localPosition>
+  -32 -16  

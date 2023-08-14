@@ -24,7 +24,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   glm::vec2 OldPosition = rect1->GetParent()->GetComponent<Physics>()->GetOldPosition();
   glm::vec2 NewPosition = rect1->GetParent()->GetComponent<Transform>()->GetPosition();
-
+  glm::vec2 WallPos = rect2->GetParent()->GetComponent<Transform>()->GetPosition();
   RectCollider* mover = static_cast<RectCollider*>(rect1);
   RectCollider* wall  = static_cast<RectCollider*>(rect2);
   
@@ -37,8 +37,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     glm::vec2 startpos = OldPosition + l[0];
     glm::vec2 endpos = NewPosition + l[0];
     glm::vec2 moveVec = endpos - startpos;
-    for (auto& segment : wall->getSegments()) 
+    for (auto segment : wall->getSegments()) 
     {
+      segment[0] += WallPos;
+      segment[1] += WallPos;
       glm::vec2 wallVec = segment[1] - segment[0];
       glm::vec2 wallNorm = { wallVec.y, -wallVec.x };
       wallNorm = glm::normalize(wallNorm);
