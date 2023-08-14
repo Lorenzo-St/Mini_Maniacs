@@ -26,7 +26,7 @@ Entity::Entity(Object* p) : tag(Standard)
 
 bool Entity::isStatic(void) 
 { 
-  return GetComponent<Physics>() != nullptr; 
+  return GetComponent<Physics>() == nullptr; 
 }
 
 void Entity::Awake(void) 
