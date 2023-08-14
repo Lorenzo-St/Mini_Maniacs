@@ -79,6 +79,8 @@ Entity* EntitySystem::CreatePrefab(const char* file)
         active->SetParent(prefab);
       }
     }
+    else if (token == "")
+      break;
   }
   return prefab;
 }
