@@ -68,7 +68,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         moveVec = NewPosition - OldPosition;
         moveVec = glm::normalize(moveVec);
         if (moveVec.x != 0)
-          (moveVec);
+          moveVec.x = moveVec.x;
         glm::vec2 xMove(moveVec.x, 0);
         glm::vec2 yMove(0, moveVec.y);
         wallVec = glm::normalize(wallVec);
