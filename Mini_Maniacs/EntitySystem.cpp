@@ -74,6 +74,7 @@ Entity* EntitySystem::CreatePrefab(const char* file)
         {
           active = CreateEntity(s.ReadString().c_str());
           active->SetParent(prefab);
+          prefab->AddChild(active);
         }
         else if (token == "<localPosition>")
         {

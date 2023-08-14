@@ -37,6 +37,7 @@ public:
   bool isProto(std::string s) { return protoType == s; }
 
 
+  void AddChild(Entity* e) { Children.push_back(e); }
   std::vector<Entity*>& GetChildren() { return Children; }
 
   void SetActive(bool b);
