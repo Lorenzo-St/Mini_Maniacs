@@ -36,6 +36,7 @@ public:
   void setProto(std::string s) { protoType = std::string(s); }
   bool isProto(std::string s) { return protoType == s; }
 
+  bool isStatic(void);
 
   void AddChild(Entity* e) { Children.push_back(e); }
   std::vector<Entity*>& GetChildren() { return Children; }

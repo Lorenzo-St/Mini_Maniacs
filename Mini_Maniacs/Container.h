@@ -3,7 +3,6 @@
 #include <string>
 #include "Object.hpp"
 #include "Collider.h"
-#include "Transform.h"
 
 class Entity;
 template<typename t = Entity>
@@ -79,7 +78,7 @@ public:
     {
       loc++;
       Collider* c = entity->GetComponent<Collider>();
-      if (entity->GetComponent<Transform>() == nullptr)
+      if (entity->isStatic())
         continue;
       if (!c)
         continue;

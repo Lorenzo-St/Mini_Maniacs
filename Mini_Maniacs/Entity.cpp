@@ -1,5 +1,5 @@
-#include "Entity.h"
 #include "Component.h"
+#include "Entity.h"
 #include "Stream.h"
 #include "Transform.h"
 #include "MeshComp.h"
@@ -23,6 +23,11 @@ Entity::Entity(Object* p) : tag(Standard)
   SetRoot(false); 
   const_cast<EntitySystem*>(es)->AddEntity(this); 
 };
+
+bool Entity::isStatic(void) 
+{ 
+  return GetComponent<Physics>() != nullptr; 
+}
 
 void Entity::Awake(void) 
 {
