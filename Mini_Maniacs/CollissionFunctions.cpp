@@ -40,18 +40,20 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 WbotCorner = WallPos - WOffset;
   float xMove = 0;
   float yMove = 0;
-  if (MtopCorner.x > WbotCorner.x && MtopCorner.y > WbotCorner.y)
+  if (MtopCorner.x > WbotCorner.x 
+   && MtopCorner.y > WbotCorner.y 
+   && MtopCorner.x < WtopCorner.x 
+   && MtopCorner.y < WtopCorner.y)
   {
-    if(MtopCorner.x < WtopCorner.x)
       xMove = MtopCorner.x - WbotCorner.x;
-    if(MtopCorner.y < WtopCorner.y)
       yMove = MtopCorner.y - WbotCorner.y;
   }
-  if (MbotCorner.x < WtopCorner.x && MbotCorner.y < WtopCorner.y)
+  if (MbotCorner.x < WtopCorner.x 
+   && MbotCorner.y < WtopCorner.y 
+   && MbotCorner.x > WbotCorner.x 
+   && MbotCorner.y > WbotCorner.y)
   {
-    if (MbotCorner.x > WbotCorner.x)
       xMove = WtopCorner.x - MbotCorner.x;
-    if(MbotCorner.y > WbotCorner.y)
       yMove = WtopCorner.y - MbotCorner.y;
   }
     
