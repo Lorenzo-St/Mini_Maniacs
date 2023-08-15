@@ -21,15 +21,41 @@ typedef struct line
 
 void RectangleCollision(Collider* rect1, Collider* rect2)
 {
-
+  
   glm::vec2 OldPosition = rect1->GetParent()->GetComponent<Physics>()->GetOldPosition();
   glm::vec2 NewPosition = rect1->GetParent()->GetComponent<Transform>()->GetPosition();
   glm::vec2 WallPos = rect2->GetParent()->GetComponent<Transform>()->GetPosition();
   RectCollider* mover = static_cast<RectCollider*>(rect1);
   RectCollider* wall = static_cast<RectCollider*>(rect2);
 
-  glm::vec2 moveVec = NewPosition - OldPosition;
+  bool xCol = false;
+  bool yCol = false;
 
+  glm::vec2 dir = glm::normalize(OldPosition - WallPos);
+
+  float xDis = NewPosition.x - WallPos.x;
+  if (xDis < mover->Width() + wall->Width())
+  {
+    glm::vec2 xMove(dir.x , 0);
+    xMove = glm::normalize(xMove) * xDis;
+    NewPosition = WallPos + xMove;
+    xCol = true;
+  }
+  float yDis = NewPosition.y - WallPos.y;
+  if (xDis < mover->Height() + wall->Height())
+  {
+    glm::vec2 yMove(0,dir.y);
+    yMove = glm::normalize(yMove) * yDis;
+    NewPosition = WallPos + yMove;
+    yCol = true;
+  }
+ 
+  if (xCol || yCol) 
+  {
+    rect1->GetParent()->GetComponent<Transform>()->SetPosition(NewPosition);
+    CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
+
+  }
 
 
 }

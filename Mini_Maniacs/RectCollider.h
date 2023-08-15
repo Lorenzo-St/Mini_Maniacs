@@ -13,7 +13,8 @@ public:
   RectCollider* Clone() { return new RectCollider(this); };
   void Read(Stream* s);
 
-
+  float Width() { return w; }
+  float Height() { return h; }
   void CheckCollision(Collider* other);
 
 private:
