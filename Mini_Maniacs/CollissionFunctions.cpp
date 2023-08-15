@@ -48,7 +48,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         continue;
       if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
         continue;
-      if (glm::dot(wallNorm, startpos) > glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
+      if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
         continue;
 
       float ti = glm::dot(wallNorm, segment[0]) - glm::dot(wallNorm, startpos);
