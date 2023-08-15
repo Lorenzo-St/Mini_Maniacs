@@ -68,7 +68,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     glm::vec2 intersect = NewPosition + offset;
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
 
-    std::cout << "Collision" << std::endl;
+    std::cout << "Collision: " << intersect << std::endl;
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
   }
