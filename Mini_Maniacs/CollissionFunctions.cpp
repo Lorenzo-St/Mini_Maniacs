@@ -66,30 +66,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       if (ti < earliestTime)
       {
         moveVec = NewPosition - OldPosition;
-        if (moveVec.x != 0)
-          moveVec.x = moveVec.x;
-        glm::vec2 xMove(moveVec.x, 0);
-        glm::vec2 yMove(0, moveVec.y);
-        xMove = glm::normalize(xMove);
-        yMove = glm::normalize(yMove);
-        wallVec = glm::normalize(wallVec);
-        if (glm::dot(xMove, wallVec) == 0) 
-        {
         
-          if (glm::dot(wallVec, (startpos + xMove) - segment[0]) > 0)
-            dir = 0;
-          else if (glm::dot(-wallVec, (startpos + xMove) - segment[1]) > 0)
-            dir = 0;
-        }
-        else if (glm::dot(yMove, wallVec) == 0) 
-        {
-          if (glm::dot(wallVec, (startpos + yMove) - segment[0]) > 0)
-            dir = 1;
-          else if (glm::dot(-wallVec, (startpos + yMove) - segment[1]) > 0)
-            dir = 1;
-        }
-        else
-          dir = 2;
+        glm::vec2 toOther = intersection - WallPos;
+        toOther = glm::normalize(toOther);
 
         earliestTime = ti;
         earliestMove = moveVec;
