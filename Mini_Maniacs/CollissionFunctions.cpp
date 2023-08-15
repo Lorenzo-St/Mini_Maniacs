@@ -67,7 +67,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       {
         moveVec = NewPosition - OldPosition;
         
-        glm::vec2 toOther = intersection - WallPos;
+        glm::vec2 toOther = (OldPosition + (moveVec * ti)) - WallPos;
         toOther = glm::normalize(toOther);
 
         earliestTime = ti;
