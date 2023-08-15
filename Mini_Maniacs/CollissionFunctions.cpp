@@ -46,14 +46,14 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   if (MtopCorner.x > WbotCorner.x && NewPosition.x < WallPos.x)
     xMove = MtopCorner.x - WbotCorner.x;
   else if (MbotCorner.x < WtopCorner.x && NewPosition.x > WallPos.x)
-    xMove = MbotCorner.x - WtopCorner.x;
+    xMove = WtopCorner.x - MbotCorner.x;
   else
     xMove = 0;
     
   if (MtopCorner.y > WbotCorner.y && NewPosition.y < WallPos.y)
     yMove = MtopCorner.y - WbotCorner.y;
   else if (MbotCorner.y < WtopCorner.y && NewPosition.y > WallPos.y)
-    yMove = MbotCorner.y - WtopCorner.y;
+    yMove = WtopCorner.y - MbotCorner.y;
   else
     yMove = 0;
 
