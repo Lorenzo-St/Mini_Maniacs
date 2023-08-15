@@ -53,7 +53,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
  
   if (xCol || yCol) 
   {
-    std::cout << "inter" << std::endl;
+    std::cout << "inter" << "\n";
+    std::cout << NewPosition << "\n";
+    std::cout << WallPos << "\n";
+    std::cout << "---------------------" << std::endl;
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(NewPosition);
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
