@@ -42,13 +42,17 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float yMove = 0;
   if (MtopCorner.x > WbotCorner.x && MtopCorner.y > WbotCorner.y)
   {
-    xMove = MtopCorner.x - WbotCorner.x;
-    yMove = MtopCorner.y - WbotCorner.y;
+    if(MtopCorner.x < WtopCorner.x)
+      xMove = MtopCorner.x - WbotCorner.x;
+    if(MtopCorner.y < WtopCorner.y)
+      yMove = MtopCorner.y - WbotCorner.y;
   }
   if (MbotCorner.x < WtopCorner.x && MbotCorner.y < WtopCorner.y)
   {
-    xMove = WtopCorner.x - MbotCorner.x;
-    yMove = WtopCorner.y - MbotCorner.y;
+    if (MbotCorner.x > WbotCorner.x)
+      xMove = WtopCorner.x - MbotCorner.x;
+    if(MbotCorner.y > WbotCorner.y)
+      yMove = WtopCorner.y - MbotCorner.y;
   }
     
 
