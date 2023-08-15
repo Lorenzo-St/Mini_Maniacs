@@ -70,7 +70,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         glm::vec2 toOther = (OldPosition + (moveVec * ti)) - WallPos;
         toOther = glm::normalize(toOther);
         if (toOther.x == toOther.y)
-          dir = 0;
+          dir = 1;
         else if (toOther.y > toOther.x)
           dir = 1;
         else if (toOther.x > toOther.y)
