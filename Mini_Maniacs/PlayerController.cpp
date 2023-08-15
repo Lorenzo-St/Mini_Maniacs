@@ -9,13 +9,14 @@
 
 void PlayerController::OnInit() 
 {
-  isGrounded = true;
+  isGrounded = false;
 }
 
 void PlayerController::OnUpdate() 
 {
   glm::vec2 velo = this->GetParent()->GetComponent<Physics>()->GetVelocity();
-
+  if (isGrounded)
+    velo.y = 0;
   if (InputSystem::isPressed(Jump) && isGrounded)
   {
     this->GetParent()->GetComponent<Physics>()->setGravity(gravity);
@@ -72,7 +73,7 @@ void PlayerController::OnCollision(Entity* other)
   if (other->Tag() == Tile) 
   {
     glm::vec2 dir = other->GetComponent<Transform>()->GetPosition() - this->GetParent()->GetComponent<Transform>()->GetPosition();
-    if (dir.y < 0 && std::abs(dir.y) > std::abs(dir.x))
+    if (dir.y <= 0 && std::abs(dir.y) >= std::abs(dir.x))
       isGrounded = true;
   }
 }
