@@ -17,7 +17,7 @@ void Physics::Update(void)
   this->GetParent()->GetComponent<Transform>()->SetPosition(oldPos + (velocity * Time.deltaTime()));
 
 
-#if _DEBUG && 0
+#if _DEBUG && 1
   std::cout << "Pos: " << oldPos << std::endl;
   std::cout << "Velo: " << velocity << std::endl;
   std::cout << "Accel: " << acceleration << std::endl;
