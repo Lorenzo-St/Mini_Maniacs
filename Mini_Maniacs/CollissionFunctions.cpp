@@ -34,8 +34,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   // Check line collision along the movement for each point, if there is any collision then the rects collided
   for (auto& l : mover->getSegments()) 
   {
-    glm::vec2 startpos = l[0];
-    glm::vec2 endpos = l[1];
+    glm::vec2 startpos = OldPosition + l[0];
+    glm::vec2 endpos = OldPosition + l[1];
     glm::vec2 moveVec = endpos - startpos;
     for (auto segment : wall->getSegments()) 
     {
