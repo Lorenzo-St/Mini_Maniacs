@@ -58,6 +58,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     std::cout << WallPos << "\n";
     std::cout << "---------------------" << std::endl;
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(NewPosition);
+    rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ rect1->GetParent()->GetComponent<Physics>()->GetVelocity().x * xCol,rect1->GetParent()->GetComponent<Physics>()->GetVelocity().y * yCol });
+
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
   }
