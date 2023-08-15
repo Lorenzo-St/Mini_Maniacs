@@ -37,6 +37,10 @@
   tile
  <localPosition>
   -32 0  
+  <name>
+  tile
+  <localPosition>
+  -64 16 
  <name>
   tile
  <localPosition>
