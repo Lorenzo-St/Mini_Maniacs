@@ -69,7 +69,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     glm::vec2 preserved = { 1 * yCol == true, 1 * xCol == true };
     rect1->GetParent()->GetComponent<Physics>()->SetVelocity(rect1->GetParent()->GetComponent<Physics>()->GetVelocity() * preserved);
 
-    std::cout << "Collision: " << xMove << ", " << yMove << std::endl;
+    std::cout << "Collision: " << MtopCorner << ", " << MbotCorner << "\n";
+    std::cout << "Collision: " << WtopCorner << ", " << WbotCorner << "\n";
+
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
   }
