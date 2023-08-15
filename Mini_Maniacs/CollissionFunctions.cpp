@@ -73,9 +73,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         xMove = glm::normalize(xMove);
         yMove = glm::normalize(yMove);
         wallVec = glm::normalize(wallVec);
-        if (glm::abs(glm::dot(xMove, wallVec)) == glm::dot(wallVec, wallVec))
+        if (glm::dot(xMove, wallVec) == 0)
           dir = 0;
-        else if (glm::abs(glm::dot(yMove, wallVec)) == glm::dot(wallVec, wallVec))
+        else if (glm::dot(yMove, wallVec) == 0)
           dir = 1;
         else
           dir = 2;
