@@ -30,9 +30,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   bool xCol = false;
   bool yCol = false;
-  if (glm::distance(NewPosition, WallPos) > glm::distance(WallPos, {WallPos.x + wall->Width()/2.0f, WallPos.y + wall->Height()/2.0f}))
-    return;
-  glm::vec2 dir = glm::normalize(OldPosition - WallPos);
   glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
 
