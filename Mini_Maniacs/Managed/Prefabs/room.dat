@@ -18,22 +18,34 @@
  <localPosition>
   -16 -16
  <name>
- tile
+  tile
  <localPosition>
   0 -16  
-  <name>
- tile
+ <name>
+  tile
  <localPosition>
   16 -16  
  <name>
- tile
+  tile
  <localPosition>
   32 -16  
  <name>
- tile
+  tile
  <localPosition>
   -32 -16  
-  <name>
- tile
+ <name>
+  tile
  <localPosition>
   -32 0  
+ <name>
+  tile
+ <localPosition>
+  -48 -16 
+ <name>
+  tile
+ <localPosition>
+  -64 -16 
+ <name>
+   tile
+ <localPosition>
+  -80 -16

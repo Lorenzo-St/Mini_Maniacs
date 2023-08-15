@@ -63,7 +63,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       testVector = intersection - segment[1];
       if (glm::dot(wallVec, testVector) < 0)
         continue;
-      if (ti < earliestTime)
+      if (ti <= earliestTime)
       {
         moveVec = NewPosition - OldPosition;
         
