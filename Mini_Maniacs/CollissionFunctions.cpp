@@ -35,7 +35,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   for (auto& l : mover->getSegments()) 
   {
     glm::vec2 startpos = OldPosition + l[0];
-    glm::vec2 endpos = OldPosition + l[1];
+    glm::vec2 endpos = NewPosition + l[1];
     glm::vec2 moveVec = endpos - startpos;
     for (auto segment : wall->getSegments()) 
     {
