@@ -35,7 +35,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   for (auto& l : mover->getSegments()) 
   {
     glm::vec2 startpos = l[0];
-    glm::vec2 endpos = l[1] ;
+    glm::vec2 endpos = l[1];
     glm::vec2 moveVec = endpos - startpos;
     for (auto segment : wall->getSegments()) 
     {
@@ -46,7 +46,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       wallNorm = glm::normalize(wallNorm);
       if (glm::dot(moveVec, wallNorm) == 0)
         continue;
-      if (glm::dot(wallNorm, startpos) <= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
+      if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
         continue;
       if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
         continue;
