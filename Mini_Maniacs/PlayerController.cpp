@@ -9,7 +9,7 @@
 
 void PlayerController::OnInit() 
 {
-  isGrounded = false;
+  isGrounded = true;
 }
 
 void PlayerController::OnUpdate() 
