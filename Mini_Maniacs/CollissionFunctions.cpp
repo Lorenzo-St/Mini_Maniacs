@@ -54,12 +54,19 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   else if(MbotCorner.y < WtopCorner.y)
     yMove = MbotCorner.y - WtopCorner.y;
 
+  if (yMove > xMove)
+    xMove = 0;
+  else if (xMove > yMove)
+    yMove = 0;
+
   xCol = xMove != 0;
   yCol = yMove != 0;
 
   if (xCol || yCol) 
   {
-    
+    glm::vec2 offset = { xMove, yMove };
+    glm::vec2 intersect = NewPosition + offset;
+    rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
 
     std::cout << "Collision" << std::endl;
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
