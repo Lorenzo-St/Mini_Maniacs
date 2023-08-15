@@ -33,33 +33,23 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   if (glm::distance(NewPosition, WallPos) > glm::distance(WallPos, {WallPos.x + wall->Width()/2.0f, WallPos.y + wall->Height()/2.0f}))
     return;
   glm::vec2 dir = glm::normalize(OldPosition - WallPos);
+  glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
+  glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
 
-  float xDis = NewPosition.x - WallPos.x;
-  float yDis = NewPosition.y - WallPos.y;
-  if (xDis > 0 && xDis < mover->Width()/2.0f + wall->Width()/2.0f)
-  {
-    glm::vec2 xMove(dir.x , 0);
-    xMove = glm::normalize(xMove) * (mover->Width()/2.0f + wall->Width()/2.0f);
-    NewPosition = WallPos + xMove;
+
+  glm::vec2 MtopCorner = NewPosition + MOffset;
+  glm::vec2 MbotCorner = NewPosition - MOffset;
+  glm::vec2 WtopCorner = WallPos + WOffset;
+  glm::vec2 WbotCorner = WallPos - WOffset;
+
+  if (MtopCorner.x > WbotCorner.x || MbotCorner.x < WtopCorner.x)
     xCol = true;
-  }
-  if (yDis > 0 && yDis < mover->Height()/2.0f + wall->Height()/2.0f)
-  {
-    glm::vec2 yMove(0,dir.y);
-    yMove = glm::normalize(yMove) * (mover->Height()/2.0f + wall->Height()/2.0f);
-    NewPosition = WallPos + yMove;
+  if (MtopCorner.y > WbotCorner.y || MbotCorner.y < WtopCorner.y)
     yCol = true;
-  }
- 
+
   if (xCol || yCol) 
   {
-    std::cout << "inter" << "\n";
-    std::cout << NewPosition << "\n";
-    std::cout << WallPos << "\n";
-    std::cout << "---------------------" << std::endl;
-    rect1->GetParent()->GetComponent<Transform>()->SetPosition(NewPosition);
-    rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ rect1->GetParent()->GetComponent<Physics>()->GetVelocity().x * xCol,rect1->GetParent()->GetComponent<Physics>()->GetVelocity().y * yCol });
-
+    std::cout << "Collision" << std::endl;
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
   }
