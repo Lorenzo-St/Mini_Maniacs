@@ -96,7 +96,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
 #endif
     glm::vec2 intersection = OldPosition + (moveVec * earliestTime);
-    if (wallN != glm::normalize(moveVec))
+    if (glm::abs(wallN) != glm::abs(glm::normalize(moveVec)))
     {
       if (dir == 1)
       {
