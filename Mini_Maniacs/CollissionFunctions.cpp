@@ -41,14 +41,26 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 MbotCorner = NewPosition - MOffset;
   glm::vec2 WtopCorner = WallPos + WOffset;
   glm::vec2 WbotCorner = WallPos - WOffset;
+  float xMove = 0;
+  float yMove = 0;
+  if (MtopCorner.x > WbotCorner.x)
+    xMove = MtopCorner.x - WbotCorner.x;
+  else if (MbotCorner.x < WtopCorner.x)
+    xMove = MbotCorner.x - WtopCorner.x;
 
-  if (MtopCorner.x > WbotCorner.x || MbotCorner.x < WtopCorner.x)
-    xCol = true;
-  if (MtopCorner.y > WbotCorner.y || MbotCorner.y < WtopCorner.y)
-    yCol = true;
+    
+  if (MtopCorner.y > WbotCorner.y)
+    yMove = MtopCorner.y - WbotCorner.y;
+  else if(MbotCorner.y < WtopCorner.y)
+    yMove = MbotCorner.y - WtopCorner.y;
+
+  xCol = xMove != 0;
+  yCol = yMove != 0;
 
   if (xCol || yCol) 
   {
+    
+
     std::cout << "Collision" << std::endl;
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
