@@ -36,17 +36,17 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   float xDis = NewPosition.x - WallPos.x;
   float yDis = NewPosition.y - WallPos.y;
-  if (xDis > yDis && xDis < mover->Width() + wall->Width())
+  if (xDis > yDis && xDis < mover->Width()/2.0f + wall->Width()/2.0f)
   {
     glm::vec2 xMove(dir.x , 0);
-    xMove = glm::normalize(xMove) * (mover->Width() + wall->Width());
+    xMove = glm::normalize(xMove) * (mover->Width()/2.0f + wall->Width()/2.0f);
     NewPosition = WallPos + xMove;
     xCol = true;
   }
-  if (yDis > xDis && yDis < mover->Height() + wall->Height())
+  if (yDis > xDis && yDis < mover->Height()/2.0f + wall->Height()/2.0f)
   {
     glm::vec2 yMove(0,dir.y);
-    yMove = glm::normalize(yMove) * (mover->Height() + wall->Height());
+    yMove = glm::normalize(yMove) * (mover->Height()/2.0f + wall->Height()/2.0f);
     NewPosition = WallPos + yMove;
     yCol = true;
   }
