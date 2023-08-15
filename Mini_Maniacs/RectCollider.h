@@ -9,15 +9,13 @@ class RectCollider : public Collider
 {
 public:
   RectCollider() { }
-  RectCollider(RectCollider const* r) { linesSegments = r->linesSegments; };
+  RectCollider(RectCollider const* r): w(r->w), h(r->h) {  };
   RectCollider* Clone() { return new RectCollider(this); };
   void Read(Stream* s);
 
-  void addLine(glm::vec2 start, glm::vec2 end) { linesSegments.push_back({start, end}); }
 
   void CheckCollision(Collider* other);
 
-  std::vector<std::array<glm::vec2, 2>> const& getSegments(void) { return linesSegments; }
 private:
   // -------------------------
   // Required Component things
@@ -25,6 +23,7 @@ private:
   constexpr bool set() { SetType(Rectangle); return true; };
   const bool s = set();
   // -------------------------
-  std::vector<std::array<glm::vec2, 2>> linesSegments;
+  float w, h;
+  
 };
 

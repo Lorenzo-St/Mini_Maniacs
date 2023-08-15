@@ -35,16 +35,8 @@
 	   0 1 
   </Mesh>		 
   <RectCollider>
-   <Line>
-	 8 -8
-	 8  8
-   <Line>
-	 8  8
-	-8  8
-   <Line>
-    -8  8
-	-8 -8
-   <Line>
-    -8 -8
-	 8 -8
+   <Width>
+    16
+   <Height>
+    16
   </RectCollider>
