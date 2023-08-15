@@ -9,14 +9,12 @@
 
 void PlayerController::OnInit() 
 {
-  isGrounded = false;
+  isGrounded = true;
 }
 
 void PlayerController::OnUpdate() 
 {
   glm::vec2 velo = this->GetParent()->GetComponent<Physics>()->GetVelocity();
-  if (isGrounded)
-    velo.y = 0;
   if (InputSystem::isPressed(Jump) && isGrounded)
   {
     this->GetParent()->GetComponent<Physics>()->setGravity(gravity);
