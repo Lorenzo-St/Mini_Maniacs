@@ -28,6 +28,13 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   RectCollider* mover = static_cast<RectCollider*>(rect1);
   RectCollider* wall  = static_cast<RectCollider*>(rect2);
   
+  glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
+  glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
+
+  if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
+  if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
+
+
   float earliestTime = 2;
   glm::vec2 wallN;
   int dir = 1;
