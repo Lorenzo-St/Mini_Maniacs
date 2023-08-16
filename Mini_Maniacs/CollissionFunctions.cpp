@@ -19,78 +19,106 @@ typedef struct line
   glm::vec2 point2;
 }line;
 
-void RectangleCollision(Collider* rect1, Collider* rect2)
+void RectangleCollision(Collider* rect1, Collider* rect2) 
 {
 
   glm::vec2 OldPosition = rect1->GetParent()->GetComponent<Physics>()->GetOldPosition();
   glm::vec2 NewPosition = rect1->GetParent()->GetComponent<Transform>()->GetPosition();
   glm::vec2 WallPos = rect2->GetParent()->GetComponent<Transform>()->GetPosition();
   RectCollider* mover = static_cast<RectCollider*>(rect1);
-  RectCollider* wall = static_cast<RectCollider*>(rect2);
-
-  glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
-  glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
-
+  RectCollider* wall  = static_cast<RectCollider*>(rect2);
   
-
-  if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
-  if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
-
-  float d = (NewPosition.x - WallPos.x > NewPosition.y - WallPos.y) ? NewPosition.x - WallPos.x : NewPosition.y - WallPos.y;
-
-  glm::vec2 moveVec = NewPosition - OldPosition;
-  bool noXMove = false;
-  if (moveVec.x == 0)
+  float earliestTime = 2;
+  glm::vec2 wallN;
+  int dir = 1;
+  // Check line collision along the movement for each point, if there is any collision then the rects collided
+  for (auto& l : mover->getSegments()) 
   {
-    moveVec.x = 0.0000000000000001f;
-    noXMove = true;
+    glm::vec2 startpos = OldPosition + l[0];
+    glm::vec2 endpos = NewPosition + l[0];
+    glm::vec2 moveVec = endpos - startpos;
+    for (auto segment : wall->getSegments()) 
+    {
+      segment[0] += WallPos;
+      segment[1] += WallPos;
+      glm::vec2 wallVec = segment[1] - segment[0];
+      glm::vec2 wallNorm = { wallVec.y, -wallVec.x };
+      wallNorm = glm::normalize(wallNorm);
+      if (glm::dot(moveVec, wallNorm) == 0)
+        continue;
+      if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
+        continue;
+      if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
+        continue;
+
+      float ti = glm::dot(wallNorm, segment[0]) - glm::dot(wallNorm, startpos);
+      ti /= glm::dot(wallNorm, moveVec);
+
+      glm::vec2 intersection = startpos + (moveVec * ti);
+
+      glm::vec2 testVector = intersection - segment[0];
+      if (glm::dot(wallVec, testVector) < 0)
+        continue;
+      wallVec = segment[0] - segment[1];
+      testVector = intersection - segment[1];
+      if (glm::dot(wallVec, testVector) < 0)
+        continue;
+      if (ti <= earliestTime)
+      {
+        moveVec = NewPosition - OldPosition;
+        earliestTime = ti;
+        wallN = glm::normalize(wallNorm);
+      }
+    }    
   }
-
-
-  float ti = -(OldPosition.x / moveVec.x); // Y Intersept Time
-
-
-  float b = OldPosition.y + (ti * moveVec.y); // Y intersept
-  float m = moveVec.y / moveVec.x;
-
-  float rootInside = -(b * b)
-    - (2 * b * OldPosition.x * m)
-    + (2 * b * OldPosition.y)
-    - ((OldPosition.x * OldPosition.x) * (m * m))
-    + (2 * OldPosition.x * OldPosition.y * m)
-    - OldPosition.y * OldPosition.y
-    + (m * m) * (d * d)
-    + d * d;
-
-  float rootOutside = -b * m + OldPosition.x + OldPosition.y * m;
-  float denom = m * m + 1;
-
-  float x1 = -(std::sqrtf(rootInside) + rootOutside) / denom;
-  float x2 = (std::sqrtf(rootInside) + rootOutside) / denom;
-
-  float t1 = (x1 - OldPosition.x) / moveVec.x;
-  float t2 = (x2 - OldPosition.x) / moveVec.x;
-
-  float y1 = OldPosition.y + t1 * moveVec.y;
-  float y2 = OldPosition.y + t2 * moveVec.y;
-
-  glm::vec2 intersect;
-  if (y1 - OldPosition.y < y2 - OldPosition.y)
-    intersect = { x1, y1 };
-  else
-    intersect = { x2, y2 };
-  if (noXMove)
-    intersect.x = OldPosition.x;
-  rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
-  //glm::vec2 preserved = { 1 * yCol == true, 1 * xCol == true };
-  //rect1->GetParent()->GetComponent<Physics>()->SetVelocity(rect1->GetParent()->GetComponent<Physics>()->GetVelocity() * preserved);
-
-  std::cout << "Collision: " << intersect <<"\n";
-  //std::cout << std::endl;
-  CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
+#if _DEBUG && DRAW_DEBUG_LINES
+  glm::vec2 scale = rect1->GetParent()->GetComponent<Transform>()->GetVelocity();
+  if (earliestTime < 1)
+    scale *= earliestTime;
+  glm::vec2 posi = (OldPosition + (scale/2.0f));
+  scale = glm::abs(scale);
+  if (scale.x == 0)
+    scale.x = 1;
+  if (scale.y == 0)
+    scale.y = 1;
+  
+  api.DrawRect(posi, scale);
+#endif 
 
 
 
+  if (earliestTime < 1)
+  {
+
+    glm::vec2 moveVec = NewPosition - OldPosition;
+#if _DEBUG && DEBUG_WRITING
+    std::cout << "moveVec: " << moveVec.x << ", " << moveVec.y << std::endl;
+    std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
+#endif
+    glm::vec2 intersection = OldPosition + (moveVec * earliestTime);
+    if (glm::abs(wallN) != glm::abs(glm::normalize(moveVec)))
+    {
+      if (dir == 1)
+      {
+        intersection.x = NewPosition.x;
+        rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ rect1->GetParent()->GetComponent<Physics>()->GetVelocity().x, 0 });
+      }
+      else if (dir == 0)
+      {
+        intersection.y = NewPosition.y;
+        rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ 0,rect1->GetParent()->GetComponent<Physics>()->GetVelocity().y });
+
+      }//glm::vec2 interupted = earliestMove * (1 - earliestTime);
+      //intersection = NewPosition - (2.0f * interupted);
+#if _DEBUG && DEBUG_WRITING
+      std::cout << "Collision occured now" << std::endl;
+      std::cout << "Moving to " << intersection.x << ", " << intersection.y << std::endl;
+#endif
+
+      rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
+      CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
+    }
+  }
 }
 
 void CircleCollision(Collider* Ellip1, Collider* Ellip2) 
