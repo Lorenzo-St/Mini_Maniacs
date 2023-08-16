@@ -21,7 +21,7 @@ typedef struct line
 
 void RectangleCollision(Collider* rect1, Collider* rect2)
 {
-  
+
   glm::vec2 OldPosition = rect1->GetParent()->GetComponent<Physics>()->GetOldPosition();
   glm::vec2 NewPosition = rect1->GetParent()->GetComponent<Transform>()->GetPosition();
   glm::vec2 WallPos = rect2->GetParent()->GetComponent<Transform>()->GetPosition();
@@ -40,23 +40,11 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 WbotCorner = WallPos - WOffset;
   float xMove = 0;
   float yMove = 0;
-  if (MtopCorner.x > WbotCorner.x 
-   && MtopCorner.y > WbotCorner.y 
-   && MtopCorner.x < WtopCorner.x 
-   && MtopCorner.y < WtopCorner.y)
-  {
-      xMove = MtopCorner.x - WbotCorner.x;
-      yMove = MtopCorner.y - WbotCorner.y;
-  }
-  if (MbotCorner.x < WtopCorner.x 
-   && MbotCorner.y < WtopCorner.y 
-   && MbotCorner.x > WbotCorner.x 
-   && MbotCorner.y > WbotCorner.y)
-  {
-      xMove = WtopCorner.x - MbotCorner.x;
-      yMove = WtopCorner.y - MbotCorner.y;
-  }
-    
+
+  if (std::abs(NewPosition.x - WallPos.x) > std::abs(MOffset.x + WOffset.y)) return;
+  if (std::abs(NewPosition.x - WallPos.x) > std::abs(MOffset.y + WOffset.y)) return;
+
+
 
   if (yMove > xMove)
     xMove = 0;
@@ -66,20 +54,16 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   xCol = xMove != 0;
   yCol = yMove != 0;
 
-  if (xCol || yCol) 
-  {
-    glm::vec2 offset = { xMove, yMove };
-    glm::vec2 intersect = NewPosition + offset;
-    rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
-    glm::vec2 preserved = { 1 * yCol == true, 1 * xCol == true };
-    rect1->GetParent()->GetComponent<Physics>()->SetVelocity(rect1->GetParent()->GetComponent<Physics>()->GetVelocity() * preserved);
 
-    std::cout << "Collision: " << MtopCorner << ", " << MbotCorner << "\n";
-    std::cout << "Collision: " << WtopCorner << ", " << WbotCorner << "\n";
+  //rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
+  //glm::vec2 preserved = { 1 * yCol == true, 1 * xCol == true };
+  //rect1->GetParent()->GetComponent<Physics>()->SetVelocity(rect1->GetParent()->GetComponent<Physics>()->GetVelocity() * preserved);
 
-    CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
+  //std::cout << "Collision: " << MtopCorner << ", " << MbotCorner << "\n";
+  std::cout << "Collision: " << WtopCorner << ", " << WbotCorner << "\n";
 
-  }
+  CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
+
 
 
 }
