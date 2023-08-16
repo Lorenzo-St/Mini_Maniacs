@@ -28,13 +28,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   RectCollider* mover = static_cast<RectCollider*>(rect1);
   RectCollider* wall = static_cast<RectCollider*>(rect2);
 
-  bool xCol = false;
-  bool yCol = false;
   glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
 
-  float xMove = 0;
-  float yMove = 0;
+  
 
   if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
@@ -42,8 +39,12 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float d = (NewPosition.x - WallPos.x > NewPosition.y - WallPos.y) ? NewPosition.x - WallPos.x : NewPosition.y - WallPos.y;
 
   glm::vec2 moveVec = NewPosition - OldPosition;
+  bool noXMove = false;
   if (moveVec.x == 0)
+  {
     moveVec.x = 0.0000000000000001f;
+    noXMove = true;
+  }
 
 
   float ti = -(OldPosition.x / moveVec.x); // Y Intersept Time
@@ -73,13 +74,18 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float y1 = OldPosition.y + t1 * moveVec.y;
   float y2 = OldPosition.y + t2 * moveVec.y;
 
-
-
-  //rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
+  glm::vec2 intersect;
+  if (y1 - OldPosition.y < y2 - OldPosition.y)
+    intersect = { x1, y1 };
+  else
+    intersect = { x2, y2 };
+  if (noXMove)
+    intersect.x = OldPosition.x;
+  rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
   //glm::vec2 preserved = { 1 * yCol == true, 1 * xCol == true };
   //rect1->GetParent()->GetComponent<Physics>()->SetVelocity(rect1->GetParent()->GetComponent<Physics>()->GetVelocity() * preserved);
 
-  //std::cout << "Collision: " << intersect <<"\n";
+  std::cout << "Collision: " << intersect <<"\n";
   //std::cout << std::endl;
   CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
