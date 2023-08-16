@@ -64,6 +64,14 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
 
 
+  glm::vec distance = intersect - WallPos;
+    
+  if (std::abs(distance.x) < NewPosition.x - WallPos.x)
+    intersect.x += (std::abs(distance.x) - (NewPosition.x - WallPos.x)) * (distance.x / std::abs(distance.x));
+
+  if (std::abs(distance.y) < NewPosition.y - WallPos.y)
+    intersect.y += (std::abs(distance.y) - (NewPosition.y - WallPos.y)) * (distance.y / std::abs(distance.y));
+
   glm::vec2 velocity = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
   velocity *= glm::vec2(1 *( i == 2), 1 * (i == 1));
   if (i == 1)
