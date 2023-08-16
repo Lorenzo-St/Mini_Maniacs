@@ -39,4 +39,16 @@
     16
    <Height>
     16
+   <Line>
+	 8 -8
+	 8  8
+   <Line>
+	 8  8
+	-8  8
+   <Line>
+    -8  8
+	-8 -8
+   <Line>
+    -8 -8
+	 8 -8
   </RectCollider>

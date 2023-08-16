@@ -23,6 +23,12 @@ void RectCollider::Read(Stream* s)
       w = s->ReadFloat();
     else if (token == "<Height>")
       h = s->ReadFloat();
+    else if (token == "<Line>")
+    {
+      auto start = s->ReadVector();
+      auto end = s->ReadVector();
+      addLine(start, end);
+    }
     else if (token == "</RectCollider>")
       break;
   }
