@@ -72,7 +72,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       {
         moveVec = NewPosition - OldPosition;
         
-        glm::vec2 toOther = moveVec;
+        glm::vec2 toOther = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
         toOther = glm::normalize(toOther);
         if (toOther.x == toOther.y)
           dir = 2;
