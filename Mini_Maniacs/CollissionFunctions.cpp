@@ -52,7 +52,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   dir.x *= xMove;
   dir.y *= yMove;
 
-  glm::vec2 intersect = WallPos + dir;
+  glm::vec2 intersect = NewPosition + dir;
 
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
   //glm::vec2 preserved = { 1 * yCol == true, 1 * xCol == true };
