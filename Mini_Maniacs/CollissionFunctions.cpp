@@ -32,59 +32,36 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
-
   float earliestTime = 2;
-  glm::vec2 earliestMove = { 0,0 };
-  int dir = 1;
-  // Check line collision along the movement for each point, if there is any collision then the rects collided
-  for (auto& l : mover->getSegments()) 
-  {
-    glm::vec2 startpos = OldPosition + l[0];
-    glm::vec2 endpos = NewPosition + l[0];
-    glm::vec2 moveVec = endpos - startpos;
-    for (auto segment : wall->getSegments()) 
-    {
-      segment[0] += WallPos;
-      segment[1] += WallPos;
-      glm::vec2 wallVec = segment[1] - segment[0];
-      glm::vec2 wallNorm = { wallVec.y, -wallVec.x };
-      wallNorm = glm::normalize(wallNorm);
-      if (glm::dot(moveVec, wallNorm) == 0)
-        continue;
-      //if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
-      //  continue;
-      //if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
-      //  continue;
 
-      float ti = glm::dot(wallNorm, segment[0]) - glm::dot(wallNorm, startpos);
-      ti /= glm::dot(wallNorm, moveVec);
+  glm::vec2 dir = NewPosition - WallPos;
+  float moveX = ((MOffset.x + WOffset.x) - std::abs(dir.x));
+  float moveY = ((MOffset.x + WOffset.x) - std::abs(dir.x));
 
-      glm::vec2 intersection = startpos + (moveVec * ti);
+  glm::vec2 rVecX = { dir.x / std::abs(dir.x), 0 };
+  glm::vec2 rVecY = {0, dir.y / std::abs(dir.y) };
 
-      glm::vec2 testVector = intersection - segment[0];
-      if (glm::dot(wallVec, testVector) < 0)
-        continue;
-      wallVec = segment[0] - segment[1];
-      testVector = intersection - segment[1];
-      if (glm::dot(wallVec, testVector) < 0)
-        continue;
-      if (ti < earliestTime && ti > 0)
-      {
-        moveVec = NewPosition - OldPosition;
-        
-        glm::vec2 toOther = (OldPosition + (moveVec * ti)) - WallPos;
-        toOther = glm::normalize(toOther);
-        if (toOther.x == toOther.y)
-          dir = 1;
-        else if (toOther.y > toOther.x)
-          dir = 1;
-        else if (toOther.x > toOther.y)
-          dir = 0;
-        earliestTime = ti;
-        earliestMove = moveVec;
-      }
-    }    
-  }
+  glm::vec2 ClosestX = NewPosition + (rVecX * moveX);
+  glm::vec2 ClosestY = NewPosition + (rVecX * moveX);
+
+  glm::vec2 moveVec = NewPosition - OldPosition;
+  float tx = (ClosestX.x - OldPosition.x) / moveVec.x;
+  float ty = (ClosestX.y - OldPosition.y) / moveVec.y;
+  float t = 1;
+  if (tx > 0 && tx < 1)
+    if (tx > ty)
+      t = tx;
+  if (ty > 0 && ty < 1)
+    if (ty > tx)
+      t = ty;
+ 
+
+  glm::vec2 intersect = OldPosition + moveVec * t;
+
+  rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
+  CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
+
+
 #if _DEBUG && DRAW_DEBUG_LINES
   glm::vec2 scale = rect1->GetParent()->GetComponent<Transform>()->GetVelocity();
   if (earliestTime < 1)
@@ -99,33 +76,11 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   api.DrawRect(posi, scale);
 #endif 
 
-
-
-  if (earliestTime < 1)
-  {
-    
-    glm::vec2 moveVec = NewPosition - OldPosition;
-    glm::vec2 intersection = OldPosition + (earliestMove * earliestTime);
-    if (dir == 1) 
-    {
-      intersection.x = NewPosition.x;
-      rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ rect1->GetParent()->GetComponent<Physics>()->GetVelocity().x, 0 });
-    }
-    else if (dir == 0) 
-    {
-      intersection.y = NewPosition.y;
-      rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ 0,rect1->GetParent()->GetComponent<Physics>()->GetVelocity().y });
-
-    }//glm::vec2 interupted = earliestMove * (1 - earliestTime);
-    //intersection = NewPosition - (2.0f * interupted);
 #if _DEBUG && DEBUG_WRITING
     std::cout << "Collision occured now\n";
     std::cout << "Between Player at " << NewPosition << " and rect at " << WallPos << std::endl;
 #endif
 
-    rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-    CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
-  }
 }
 
 void CircleCollision(Collider* Ellip1, Collider* Ellip2) 
