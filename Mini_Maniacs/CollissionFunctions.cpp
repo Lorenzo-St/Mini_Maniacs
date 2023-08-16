@@ -45,7 +45,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   float ti = -(OldPosition.x / moveVec.x); // Y Intersept Time
   if (isinf(ti) || isnan(ti))
-    ti = 1000000000.0f * (moveVec.y / std::abs(moveVec.y));
+    ti = 1000000000.0f * -(moveVec.y / std::abs(moveVec.y));
 
   float b = OldPosition.y + (ti * moveVec.y); // Y intersept
   float m = moveVec.y / moveVec.x;
