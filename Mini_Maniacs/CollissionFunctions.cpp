@@ -49,6 +49,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float tx = (ClosestX.x - OldPosition.x) / moveVec.x;
   float ty = (ClosestX.y - OldPosition.y) / moveVec.y;
   float t = 0;
+  tx = isnan(tx) ? 0 : tx;
+  ty = isnan(ty) ? 0 : ty;
+
   if (/*tx > 0 &&*/ tx <= 1)
     if (tx < ty)
       t = tx;
