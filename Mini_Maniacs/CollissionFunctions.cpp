@@ -51,10 +51,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       wallNorm = glm::normalize(wallNorm);
       if (glm::dot(moveVec, wallNorm) == 0)
         continue;
-      if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
-        continue;
-      if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
-        continue;
+      //if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
+      //  continue;
+      //if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
+      //  continue;
 
       float ti = glm::dot(wallNorm, segment[0]) - glm::dot(wallNorm, startpos);
       ti /= glm::dot(wallNorm, moveVec);
@@ -72,14 +72,14 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       {
         moveVec = NewPosition - OldPosition;
         
-        glm::vec2 toOther = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
+        glm::vec2 toOther = (OldPosition + (moveVec * ti)) - WallPos;
         toOther = glm::normalize(toOther);
         if (toOther.x == toOther.y)
-          dir = 2;
-        else if (toOther.y > toOther.x)
-          dir = 0;
-        else if (toOther.x > toOther.y)
           dir = 1;
+        else if (toOther.y > toOther.x)
+          dir = 1;
+        else if (toOther.x > toOther.y)
+          dir = 0;
         earliestTime = ti;
         earliestMove = moveVec;
       }
