@@ -77,9 +77,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
         if (toOther.x == toOther.y)
           dir = 2;
         else if (toOther.y > toOther.x)
-          dir = 1;
-        else if (toOther.x > toOther.y)
           dir = 0;
+        else if (toOther.x > toOther.y)
+          dir = 1;
         earliestTime = ti;
         earliestMove = moveVec;
       }
