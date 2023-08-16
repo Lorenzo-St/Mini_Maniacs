@@ -41,9 +41,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   glm::vec2 dir = glm::normalize(WallPos - NewPosition);
 
-  if (dir.x > dir.y)
+  if (std::abs(dir.x) > std::abs(dir.y))
     dir.y = 0;
-  else if (dir.y > dir.x)
+  else if (std::abs(dir.y) > std::abs(dir.x))
     dir.x = 0;
 
   xMove = (MOffset.x + WOffset.x) - (NewPosition.x - WallPos.x);
