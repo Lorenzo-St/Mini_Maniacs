@@ -1,5 +1,5 @@
 #include "Engine.h"
-#define STEPTHROUGH 1
+#define STEPTHROUGH 0
 static errState error;
 
 void Engine::Init(void)
