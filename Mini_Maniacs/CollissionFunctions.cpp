@@ -44,8 +44,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 moveVec = NewPosition - OldPosition;
 
   float ti = -(OldPosition.x / moveVec.x); // Y Intersept Time
-  if (isinf(ti))
-    ti = 10000000000000.0f * (moveVec.y / std::abs(moveVec.y));
+  if (isinf(ti) || isnan(ti))
+    ti = 1000000000.0f * (moveVec.y / std::abs(moveVec.y));
 
   float b = OldPosition.y + (ti * moveVec.y); // Y intersept
   float m = moveVec.y / moveVec.x;
