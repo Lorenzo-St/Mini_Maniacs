@@ -92,7 +92,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 #if _DEBUG && DEBUG_WRITING
     std::cout << "Collision occured now\n";
     std::cout << "Between Player at " << NewPosition << " and rect at " << WallPos << "\n";
-    std::cout << "Time : " << t << "\n";
+    std::cout << "Time : " << t  << "\n";
+    std::cout << "Dir : " << ((i == 1) ? "XAxis" : "YAxis") << "\n";
+
     std::cout << "---------------------------------------------------" << std::endl;
 
 #endif
