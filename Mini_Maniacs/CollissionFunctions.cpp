@@ -36,30 +36,42 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float xMove = 0;
   float yMove = 0;
 
-  if (std::abs(NewPosition.x - WallPos.x) >= MOffset.x + WOffset.x) return;
-  if (std::abs(NewPosition.y - WallPos.y) >= MOffset.y + WOffset.y) return;
+  if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
+  if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
 
-  glm::vec2 dir = glm::normalize(WallPos - NewPosition);
+  float d = (NewPosition.x - WallPos.x > NewPosition.y - WallPos.y) ? NewPosition.x - WallPos.x : NewPosition.y - WallPos.y;
 
-  if (std::abs(dir.x) > std::abs(dir.y))
-    dir.y = 0;
-  else if (std::abs(dir.y) > std::abs(dir.x))
-    dir.x = 0;
+  glm::vec2 moveVec = NewPosition - OldPosition;
+  float ti = -(OldPosition.x / moveVec.x); // Y Intersept Time
+  float b = OldPosition.y + (ti * moveVec.y); // Y intersept
+  float m = moveVec.y / moveVec.x;
 
-  xMove = (MOffset.x + WOffset.x) - (NewPosition.x - WallPos.x);
-  yMove = (MOffset.y + WOffset.y) - (NewPosition.y - WallPos.y);
+  float rootInside = -(b * b)
+    - (2 * b * OldPosition.x * m)
+    + (2 * b * OldPosition.y)
+    - ((OldPosition.x * OldPosition.x) * (m * m))
+    + (2 * OldPosition.x * OldPosition.y * m)
+    - OldPosition.y * OldPosition.y
+    + (m * m) * (d * d)
+    + d * d;
 
-  dir.x *= xMove;
-  dir.y *= yMove;
+  float rootOutside = -b * m + OldPosition.x + OldPosition.y * m;
+  float denom = m * m + 1;
 
-  glm::vec2 intersect = NewPosition + dir;
+  float x1 = -(std::sqrtf(rootInside) + rootOutside) / denom;
+  float x2 = (std::sqrtf(rootInside) + rootOutside) / denom;
 
-  rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
+  float t1 = (x1 - OldPosition.x) / moveVec.x;
+  float t2 = (x2 - OldPosition.x) / moveVec.x;
+
+
+
+  //rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
   //glm::vec2 preserved = { 1 * yCol == true, 1 * xCol == true };
   //rect1->GetParent()->GetComponent<Physics>()->SetVelocity(rect1->GetParent()->GetComponent<Physics>()->GetVelocity() * preserved);
 
-  std::cout << "Collision: " << intersect <<"\n";
-  std::cout << std::endl;
+  //std::cout << "Collision: " << intersect <<"\n";
+  //std::cout << std::endl;
   CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
 
