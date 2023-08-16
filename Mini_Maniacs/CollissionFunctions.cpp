@@ -49,6 +49,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   float b = OldPosition.y + (ti * moveVec.y); // Y intersept
   float m = moveVec.y / moveVec.x;
+  if (isinf(m) || isnan(m))
+    m = 1000000000.0f * (moveVec.y / std::abs(moveVec.y));
 
   float rootInside = -(b * b)
     - (2 * b * OldPosition.x * m)
