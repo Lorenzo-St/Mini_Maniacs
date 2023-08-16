@@ -35,8 +35,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float earliestTime = 2;
 
   glm::vec2 dir = NewPosition - WallPos;
+  int i = std::abs(dir.y) > std::abs(dir.x) ? 2 : 1;
   float moveX = ((MOffset.x + WOffset.x) - std::abs(dir.x));
-  float moveY = ((MOffset.x + WOffset.x) - std::abs(dir.x));
+  float moveY = ((MOffset.y + WOffset.y) - std::abs(dir.y));
 
   glm::vec2 rVecX = { dir.x / std::abs(dir.x), 0 };
   glm::vec2 rVecY = {0, dir.y / std::abs(dir.y) };
@@ -58,7 +59,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   glm::vec2 intersect = OldPosition + moveVec * t;
 
+  glm::vec2 velocity = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
+  velocity *= glm::vec2(1 *( i == 2), 1 * (i == 1));
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
+  rect1->GetParent()->GetComponent<Physics>()->SetVelocity(velocity);
   CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
 
