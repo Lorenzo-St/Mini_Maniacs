@@ -51,8 +51,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       wallNorm = glm::normalize(wallNorm);
       if (glm::dot(moveVec, wallNorm) == 0)
         continue;
-      //if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
-      //  continue;
+      if (glm::dot(wallNorm, startpos) < glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) < glm::dot(wallNorm, segment[1]))
+        continue;
       //if (glm::dot(wallNorm, startpos) >= glm::dot(wallNorm, segment[0]) && glm::dot(wallNorm, endpos) > glm::dot(wallNorm, segment[1]))
       //  continue;
 
