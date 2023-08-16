@@ -47,7 +47,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 moveVec = NewPosition - OldPosition;
   float tx = (ClosestX.x - OldPosition.x) / moveVec.x;
   float ty = (ClosestX.y - OldPosition.y) / moveVec.y;
-  float t = 1;
+  float t = 0;
   if (tx > 0 && tx < 1)
     if (tx > ty)
       t = tx;
