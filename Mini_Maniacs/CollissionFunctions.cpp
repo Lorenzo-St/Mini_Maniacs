@@ -41,8 +41,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float xMove = 0;
   float yMove = 0;
 
-  if (std::abs(NewPosition.x - WallPos.x) > std::abs(MOffset.x + WOffset.y)) return;
-  if (std::abs(NewPosition.x - WallPos.x) > std::abs(MOffset.y + WOffset.y)) return;
+  if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
+  if (std::abs(NewPosition.x - WallPos.x) > MOffset.y + WOffset.y) return;
 
 
 
