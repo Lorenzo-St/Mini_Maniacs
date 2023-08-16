@@ -30,13 +30,11 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   
   glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
-
   if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
 
-
   float earliestTime = 2;
-  glm::vec2 wallN;
+  glm::vec2 earliestMove = { 0,0 };
   int dir = 1;
   // Check line collision along the movement for each point, if there is any collision then the rects collided
   for (auto& l : mover->getSegments()) 
@@ -70,11 +68,20 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       testVector = intersection - segment[1];
       if (glm::dot(wallVec, testVector) < 0)
         continue;
-      if (ti <= earliestTime)
+      if (ti < earliestTime)
       {
         moveVec = NewPosition - OldPosition;
+        
+        glm::vec2 toOther = (OldPosition + (moveVec * ti)) - WallPos;
+        toOther = glm::normalize(toOther);
+        if (toOther.x == toOther.y)
+          dir = 1;
+        else if (toOther.y > toOther.x)
+          dir = 1;
+        else if (toOther.x > toOther.y)
+          dir = 0;
         earliestTime = ti;
-        wallN = glm::normalize(wallNorm);
+        earliestMove = moveVec;
       }
     }    
   }
@@ -96,35 +103,32 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   if (earliestTime < 1)
   {
-
+    
     glm::vec2 moveVec = NewPosition - OldPosition;
 #if _DEBUG && DEBUG_WRITING
     std::cout << "moveVec: " << moveVec.x << ", " << moveVec.y << std::endl;
     std::cout << "earliestMove: " << earliestMove.x << ", " << earliestMove.y << std::endl;
 #endif
-    glm::vec2 intersection = OldPosition + (moveVec * earliestTime);
-    if (glm::abs(wallN) != glm::abs(glm::normalize(moveVec)))
+    glm::vec2 intersection = OldPosition + (earliestMove * earliestTime);
+    if (dir == 1) 
     {
-      if (dir == 1)
-      {
-        intersection.x = NewPosition.x;
-        rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ rect1->GetParent()->GetComponent<Physics>()->GetVelocity().x, 0 });
-      }
-      else if (dir == 0)
-      {
-        intersection.y = NewPosition.y;
-        rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ 0,rect1->GetParent()->GetComponent<Physics>()->GetVelocity().y });
+      intersection.x = NewPosition.x;
+      rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ rect1->GetParent()->GetComponent<Physics>()->GetVelocity().x, 0 });
+    }
+    else if (dir == 0) 
+    {
+      intersection.y = NewPosition.y;
+      rect1->GetParent()->GetComponent<Physics>()->SetVelocity({ 0,rect1->GetParent()->GetComponent<Physics>()->GetVelocity().y });
 
-      }//glm::vec2 interupted = earliestMove * (1 - earliestTime);
-      //intersection = NewPosition - (2.0f * interupted);
+    }//glm::vec2 interupted = earliestMove * (1 - earliestTime);
+    //intersection = NewPosition - (2.0f * interupted);
 #if _DEBUG && DEBUG_WRITING
-      std::cout << "Collision occured now" << std::endl;
-      std::cout << "Moving to " << intersection.x << ", " << intersection.y << std::endl;
+    std::cout << "Collision occured now" << std::endl;
+    std::cout << "Moving to " << intersection.x << ", " << intersection.y << std::endl;
 #endif
 
-      rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
-      CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
-    }
+    rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersection);
+    CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
   }
 }
 
