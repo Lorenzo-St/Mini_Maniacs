@@ -42,15 +42,15 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float d = (NewPosition.x - WallPos.x > NewPosition.y - WallPos.y) ? NewPosition.x - WallPos.x : NewPosition.y - WallPos.y;
 
   glm::vec2 moveVec = NewPosition - OldPosition;
+  if (moveVec.x == 0)
+    moveVec.x = 0.0000000000000001f;
+
 
   float ti = -(OldPosition.x / moveVec.x); // Y Intersept Time
-  if (isinf(ti) || isnan(ti))
-    ti = 1000000000.0f * -(moveVec.y / std::abs(moveVec.y));
+
 
   float b = OldPosition.y + (ti * moveVec.y); // Y intersept
   float m = moveVec.y / moveVec.x;
-  if (isinf(m) || isnan(m))
-    m = 1000000000.0f * (moveVec.y / std::abs(moveVec.y));
 
   float rootInside = -(b * b)
     - (2 * b * OldPosition.x * m)
