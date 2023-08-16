@@ -61,7 +61,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
  
 
   glm::vec2 intersect = OldPosition + moveVec * t;
-  float f = glm::distance(intersect, WallPos);
 
 
 
