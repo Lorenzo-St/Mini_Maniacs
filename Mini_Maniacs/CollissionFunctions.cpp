@@ -36,8 +36,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float xMove = 0;
   float yMove = 0;
 
-  if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
-  if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
+  if (std::abs(NewPosition.x - WallPos.x) >= MOffset.x + WOffset.x) return;
+  if (std::abs(NewPosition.y - WallPos.y) >= MOffset.y + WOffset.y) return;
 
   glm::vec2 dir = glm::normalize(WallPos - NewPosition);
 
