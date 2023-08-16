@@ -70,6 +70,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   float t1 = (x1 - OldPosition.x) / moveVec.x;
   float t2 = (x2 - OldPosition.x) / moveVec.x;
 
+  float y1 = OldPosition.y + t1 * moveVec.y;
+  float y2 = OldPosition.y + t2 * moveVec.y;
+
 
 
   //rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
