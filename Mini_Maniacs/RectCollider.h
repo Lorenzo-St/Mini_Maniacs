@@ -9,10 +9,9 @@ class RectCollider : public Collider
 {
 public:
   RectCollider() { }
-  RectCollider(RectCollider const* r): w(r->w), h(r->h), Static(r->Static) { linesSegments = r->linesSegments; };
+  RectCollider(RectCollider const* r): w(r->w), h(r->h) { linesSegments = r->linesSegments; };
   RectCollider* Clone() { return new RectCollider(this); };
   void Read(Stream* s);
-  void Init(void);
   void addLine(glm::vec2 start, glm::vec2 end) { linesSegments.push_back({ start, end }); }
 
   float Width() { return w; }
@@ -30,9 +29,6 @@ private:
   const bool s = set();
   // -------------------------
   float w, h;
-  bool tileBased = true;
-  bool Static = false;
-  int tileSize = 16;
   std::vector<std::array<glm::vec2, 2>> linesSegments;
   
 };

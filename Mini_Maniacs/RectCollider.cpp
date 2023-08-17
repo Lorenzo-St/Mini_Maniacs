@@ -5,7 +5,6 @@
 #include "Transform.h"
 #include "Physics.h"
 
-void RectCollider::Init() { Static = this->GetParent()->GetComponent<Physics>() == nullptr; }
 
 void RectCollider::Read(Stream* s)
 { 
@@ -34,10 +33,6 @@ void RectCollider::Read(Stream* s)
       auto end = s->ReadVector();
       addLine(start, end);
     }
-    else if (token == "<tileBased>")
-      tileBased = s->ReadBool();
-    else if (token == "<tileSize>")
-      tileSize = s->ReadInt();
     else if (token == "</RectCollider>")
       break;
   }
@@ -60,35 +55,6 @@ void RectCollider::CheckCollision(Collider* other)
 
 void RectCollider::OnCollision(Entity* other) 
 {
-  if (tileBased && !Static) 
-  {
-    /*glm::vec2 otherPos = other->GetComponent<Transform>()->GetPosition();
-    glm::vec2 thisPos = this->GetParent()->GetComponent<Transform>()->GetPosition();
-    glm::vec2 preserved = thisPos;
-    thisPos = { static_cast<float>(glm::round(thisPos.x/tileSize) * tileSize), static_cast<float>(glm::round(thisPos.y/tileSize) * tileSize)  };
-    RectCollider* otherR = other->GetComponent<RectCollider>();
-    glm::vec2 dir = thisPos - otherPos;
-    glm::vec2 velo = this->GetParent()->GetComponent<Physics>()->GetVelocity();
-
-    dir.x = (std::abs(velo.y) > std::abs(velo.x) && std::abs(dir.y) > std::abs(dir.x)) ? 0: dir.x / std::abs(dir.x != 0 ? dir.x : 1);
-    dir.y = (std::abs(velo.x) > std::abs(velo.y) && std::abs(dir.x) > std::abs(dir.y)) ? 0: dir.y / std::abs(dir.y != 0 ? dir.y : 1);
-
-    if (dir == glm::vec2(0, 0))
-    {
-      dir = thisPos - otherPos;
-      dir.x = (std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
-      dir.y = (std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
-    }
-    if (dir.x * dir.x == 1 && dir.y * dir.y == 1)
-      return;
-    dir *= otherR->tileSize;
-    glm::vec2 nearestTile = otherPos + dir;
-    preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
-
-    this->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
-*/
-
-  }
 
 
 }

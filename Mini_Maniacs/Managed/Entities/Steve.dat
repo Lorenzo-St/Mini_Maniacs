@@ -53,8 +53,6 @@
    <Line>
     -8 -8
 	 8 -8
-   <tileBased>
-	 true
   </RectCollider>
   <Physics>
    <DoesGravity>
