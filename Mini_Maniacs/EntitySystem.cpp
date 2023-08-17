@@ -81,6 +81,12 @@ Entity* EntitySystem::CreatePrefab(const char* file)
           Transform* t = active->GetComponent<Transform>();
           t->SetLocalPosition(s.ReadVector());
         }
+        else if (token == "<scale>") 
+        {
+          Transform* t = active->GetComponent<Transform>();
+          t->SetScale(s.ReadVector());
+
+        }
         else if (token == "")
           break;
       }
