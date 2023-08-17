@@ -83,7 +83,7 @@ void RectCollider::OnCollision(Entity* other)
     glm::vec2 nearestTile = otherPos + dir;
     preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
 
-    if (glm::distance(preserved, otherPos) > otherR->tileSize)
+    if (std::abs(preserved.x - otherPos.x) > otherR->tileSize || std::abs(preserved.y - otherPos.y) > otherR->tileSize)
     {
       return;
     }
