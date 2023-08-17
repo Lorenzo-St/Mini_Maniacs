@@ -88,7 +88,10 @@ void RectCollider::OnCollision(Entity* other)
 
     this->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
     this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
-    std::cout << preserved << std::endl;
+    std::cout << preserved << "\n";
+    std::cout << velo << "\n";
+    std::cout << "---------------" << std::endl;
+
 
 
   }
