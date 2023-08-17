@@ -52,6 +52,10 @@
  <name>
   tile
  <localPosition>
+  48 -16 
+ <name>
+  tile
+ <localPosition>
   -64 -16 
  <name>
    tile
@@ -85,5 +89,13 @@
   tile
  <localPosition>
   96 0
+ <name>
+  tile
+ <localPosition>
+  -80 16
+ <name>
+  tile
+ <localPosition>
+  -64 16
   
   

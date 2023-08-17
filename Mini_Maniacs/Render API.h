@@ -34,6 +34,10 @@ public:
   // Create mesh for drawing
   mesh* CreateMesh(void);
   
+  // Camera Stuff
+  void MoveCamera(glm::vec2 const& p) { c.pos = { p.x, p.y }; }
+  void MoveCamera(SDL_FPoint const& p) { c.pos = p; }
+
 
   // Window Stuff
   int GetWindowWidth(void) { return Width; }

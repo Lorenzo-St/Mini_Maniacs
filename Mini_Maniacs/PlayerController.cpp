@@ -44,6 +44,7 @@ void PlayerController::OnUpdate()
     velo.x = 100 * velo.x / std::abs(velo.x);
 
   this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
+  api.MoveCamera(glm::vec2( 0,this->GetParent()->GetComponent<Transform>()->GetPosition().y ));
 
 }
 
