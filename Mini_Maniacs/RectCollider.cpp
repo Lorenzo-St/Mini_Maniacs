@@ -74,9 +74,9 @@ void RectCollider::OnCollision(Entity* other)
     dir.y = (std::abs(velo.x) > std::abs(velo.y)) ? 0: dir.y / std::abs(dir.y != 0 ? dir.y : 1);
 
     if (dir.x == 0)
-      velo.x = 0;
-    else
       velo.y = 0;
+    if(dir.y == 0)
+      velo.x = 0;
     if (dir == glm::vec2(0, 0))
     {
       dir = thisPos - otherPos;
