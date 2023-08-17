@@ -1,12 +1,14 @@
 #include "Scene.h"
 #include "Stream.h"
 #include "EntitySystem.h"
+#include "Transform.h"
 
 void Scene::ReadFile(const char* c)
   {
     Stream s(c);
     std::string token;
     ReadSection rs = Default;
+    Entity* active = nullptr;
     while (true)
     {
       token = s.ReadString();
@@ -27,8 +29,10 @@ void Scene::ReadFile(const char* c)
         {
           rs = Default;
         }
+        else if (token == "<Position>")
+          active->GetComponent<Transform>()->SetPosition(s.ReadVector());
         else
-          EntitySystem::GetActive().CreateEntity(token.c_str());
+          active = EntitySystem::GetActive().CreateEntity(token.c_str());
       }
       else if (rs == Prefabs) 
       {

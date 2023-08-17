@@ -3,6 +3,8 @@
   Temp
  <Entities>
   Steve
+  <Position>
+   0 0
  </Entities>
  <Prefabs>
  room
