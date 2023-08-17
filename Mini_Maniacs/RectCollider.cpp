@@ -76,12 +76,14 @@ void RectCollider::OnCollision(Entity* other)
     dir.x = (std::abs(velo.y) > std::abs(velo.x) && std::abs(dir.y) > std::abs(dir.x)) ? 0: dir.x / std::abs(dir.x != 0 ? dir.x : 1);
     dir.y = (std::abs(velo.x) > std::abs(velo.y) && std::abs(dir.x) > std::abs(dir.y)) ? 0: dir.y / std::abs(dir.y != 0 ? dir.y : 1);
 
-    if (dir == glm::vec2(0, 0) || dir == glm::vec2(1,1))
+    if (dir == glm::vec2(0, 0))
     {
       dir = thisPos - otherPos;
       dir.x = (std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
       dir.y = (std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
     }
+    else if (dir == glm::vec2(1, 1))
+      return;
     dir *= otherR->tileSize;
     glm::vec2 nearestTile = otherPos + dir;
     preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
