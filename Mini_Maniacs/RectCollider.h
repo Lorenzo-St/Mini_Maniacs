@@ -9,7 +9,7 @@ class RectCollider : public Collider
 {
 public:
   RectCollider() { }
-  RectCollider(RectCollider const* r): w(r->w), h(r->h) { linesSegments = r->linesSegments; };
+  RectCollider(RectCollider const* r): w(r->w), h(r->h), Static(r->Static) { linesSegments = r->linesSegments; };
   RectCollider* Clone() { return new RectCollider(this); };
   void Read(Stream* s);
   void Init(void);
