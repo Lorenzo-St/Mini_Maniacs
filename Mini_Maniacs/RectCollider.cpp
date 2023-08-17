@@ -72,6 +72,8 @@ void RectCollider::OnCollision(Entity* other)
     dir.x = (std::abs(velo.y) > std::abs(velo.x)) ? 0: dir.x / std::abs(dir.x);
     dir.y = (std::abs(velo.x) > std::abs(velo.y)) ? 0: dir.y / std::abs(dir.y);
 
+    if (std::isnan(dir.y) || std::isnan(dir.x))
+      dir.x = dir.x;
 
     dir *= 16;
     glm::vec2 nearestTile = otherPos + dir;
