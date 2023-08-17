@@ -120,7 +120,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   for (auto& vert : temp) 
   {
     glm::vec2 t = glm::vec2(glm::vec4(convert(vert.position), 0, 1) * projection * proj) * zoom;
-    glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y);
+    glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f , Height / 2.0f + c.pos.y);
     vert.position = convert(m);
     vert.tex_coord = convert(glm::vec4(convert(vert.tex_coord), 0, 1) * UVmatrix);
   }
@@ -203,7 +203,7 @@ void RenderFront::SetMatrix(glm::mat4x4 const& matrix)
 void RenderFront::SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation) 
 {
   glm::mat4x4 mat = glm::identity<glm::mat4x4>();
-  mat = glm::translate(mat, glm::vec3(pos, 1));
+  mat = glm::translate(mat, glm::vec3(pos + glm::vec2(c.pos.x, c.pos.y), 1));
   mat = glm::scale(mat, glm::vec3( scale, 0 ));
   mat = glm::rotate(mat, rotation, { 0,0,1 });
   mat = glm::transpose(mat);
