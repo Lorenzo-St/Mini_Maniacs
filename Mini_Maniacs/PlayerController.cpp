@@ -37,6 +37,12 @@ void PlayerController::OnUpdate()
   }
   else
     velo.x = 0;
+
+  if (std::abs(velo.y) > 100)
+    velo.y = 100 * velo.y / std::abs(velo.y);
+  if (std::abs(velo.x) > 100)
+    velo.x = 100 * velo.x / std::abs(velo.x);
+
   this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
 
 }
