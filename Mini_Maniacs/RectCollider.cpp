@@ -64,7 +64,7 @@ void RectCollider::OnCollision(Entity* other)
   {
     glm::vec2 otherPos = other->GetComponent<Transform>()->GetPosition();
     glm::vec2 thisPos = this->GetParent()->GetComponent<Transform>()->GetPosition();
-
+    thisPos = { static_cast<int>(thisPos.x), static_cast<float>(thisPos.y) };
     RectCollider* otherR = other->GetComponent<RectCollider>();
     glm::vec2 dir = thisPos - otherPos;
     glm::vec2 velo = this->GetParent()->GetComponent<Physics>()->GetVelocity();
