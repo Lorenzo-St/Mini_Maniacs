@@ -19,6 +19,8 @@ public:
   float Height() { return h; }
   void CheckCollision(Collider* other);
 
+  void OnCollision(Entity* other);
+
   std::vector<std::array<glm::vec2, 2>> const& getSegments(void) { return linesSegments; }
 private:
   // -------------------------
@@ -28,6 +30,8 @@ private:
   const bool s = set();
   // -------------------------
   float w, h;
+  bool tileBased = true;
+  int tileSize = 16;
   std::vector<std::array<glm::vec2, 2>> linesSegments;
   
 };

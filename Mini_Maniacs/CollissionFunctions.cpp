@@ -32,37 +32,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
-  float earliestTime = 2;
 
-  glm::vec2 dir = NewPosition - WallPos;
-  int i = std::abs(dir.y) > std::abs(dir.x) ? 2 : 1;
-  float moveX = ((MOffset.x + WOffset.x) - std::abs(dir.x));
-  float moveY = ((MOffset.y + WOffset.y) - std::abs(dir.y));
-
-  glm::vec2 rVecX = { dir.x / std::abs(dir.x), 0 };
-  glm::vec2 rVecY = {0, dir.y / std::abs(dir.y) };
-
-  glm::vec2 ClosestX = NewPosition + (rVecX * moveX);
-  glm::vec2 ClosestY = NewPosition + (rVecX * moveX);
-
-  glm::vec2 moveVec = NewPosition - OldPosition;
-  float tx = (ClosestX.x - OldPosition.x) / moveVec.x;
-  float ty = (ClosestX.y - OldPosition.y) / moveVec.y;
-  float t = 0;
-  tx = isnan(tx) ? 0 : isinf(tx) ? 0 : 1;
-  ty = isnan(ty) ? 0 : isinf(ty) ? 0 : 1;
-
-  if (/*tx > 0 &&*/ tx <= 1)
-    if (tx <= ty)
-      t = tx;
-  if (/*ty > 0 &&*/ ty <= 1)
-    if (ty <= tx)
-      t = ty;
- 
-
-  glm::vec2 intersect = OldPosition + moveVec * t;
-
-  rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
   CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
 
@@ -79,16 +49,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   
   api.DrawRect(posi, scale);
 #endif 
-
-#if _DEBUG && DEBUG_WRITING
-    std::cout << "Collision occured now\n";
-    std::cout << "Between Player at " << NewPosition << " and rect at " << WallPos << "\n";
-    std::cout << "Time : " << t  << "\n";
-    std::cout << "Dir : " << ((i == 2) ? "XAxis" : "YAxis") << "\n";
-
-    std::cout << "---------------------------------------------------" << std::endl;
-
-#endif
 
 }
 
