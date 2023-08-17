@@ -40,11 +40,7 @@
   <name>
   tile
   <localPosition>
-  -80 32
-  <scale>
-   32 32  
-  <RectCollider>
-   32 32
+  -80 16
  <name>
   tile
   <localPosition>

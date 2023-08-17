@@ -39,7 +39,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2& thisPos = NewPosition;
   glm::vec2 preserved = thisPos;
 
-  int tileSize = std::gcd(static_cast<int>(mover->Width()), static_cast<int>(wall->Width()));
+  int tileSize = wall->Width(); // Try getting this to work with multiple tile sizes
 
   thisPos = { static_cast<float>(glm::round(thisPos.x / tileSize) * tileSize), static_cast<float>(glm::round(thisPos.y / tileSize) * tileSize)};
   RectCollider*& otherR = wall;
@@ -48,8 +48,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   dir.x = (std::abs(velo.y) > std::abs(velo.x) && std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
   dir.y = (std::abs(velo.x) > std::abs(velo.y) && std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
-  glm::vec2 nearestWallTile = (WallPos + (dir * static_cast<float>(tileSize)));
-  glm::vec2 nearestPlayerTile = (NewPosition + (-dir * static_cast<float>(tileSize)));
   
   if (dir == glm::vec2(0, 0))
   {
