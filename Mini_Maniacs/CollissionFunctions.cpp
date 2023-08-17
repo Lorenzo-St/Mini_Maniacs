@@ -33,6 +33,35 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
 
+  glm::vec2& otherPos = WallPos;
+  glm::vec2& thisPos = NewPosition;
+  glm::vec2 preserved = thisPos;
+
+  int tileSize = 16;
+
+  thisPos = { static_cast<float>(static_cast<int>(thisPos.x / tileSize) * tileSize), static_cast<float>(static_cast<int>(thisPos.y / tileSize) * tileSize) };
+  RectCollider*& otherR = wall;
+  glm::vec2 dir = thisPos - otherPos;
+  glm::vec2 velo = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
+
+  dir.x = (std::abs(velo.y) > std::abs(velo.x) && std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
+  dir.y = (std::abs(velo.x) > std::abs(velo.y) && std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
+
+  if (dir == glm::vec2(0, 0))
+  {
+    dir = thisPos - otherPos;
+    dir.x = (std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
+    dir.y = (std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
+}
+  if (dir.x * dir.x == 1 && dir.y * dir.y == 1)
+    return;
+  dir *= tileSize;
+  glm::vec2 nearestTile = otherPos + dir;
+  preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
+
+  rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
+
+
   CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
 
