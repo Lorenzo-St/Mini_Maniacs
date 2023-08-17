@@ -85,10 +85,6 @@ void RectCollider::OnCollision(Entity* other)
 
     if (preserved.y <= -16)
       std::cout << "AAAAAAAAAAAAAAAAAAAA";
-    if (dir.x == 0)
-      velo.y = 0;
-    if(dir.y == 0)
-      velo.x = 0;
 
     this->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
     this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
