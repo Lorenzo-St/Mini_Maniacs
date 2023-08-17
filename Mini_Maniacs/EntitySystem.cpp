@@ -3,6 +3,7 @@
 #include "Stream.h"
 #include "Physics.h"
 #include "Transform.h"
+#include "RectCollider.h"
 
 typedef struct ESorter
 {
@@ -85,6 +86,14 @@ Entity* EntitySystem::CreatePrefab(const char* file)
         {
           Transform* t = active->GetComponent<Transform>();
           t->SetScale(s.ReadVector());
+
+        }
+        else if (token == "<RectCollider>")
+        {
+          glm::vec2 scale = s.ReadVector();
+          RectCollider* r = active->GetComponent<RectCollider>();
+          r->Height(scale.y);
+          r->Width(scale.x);
 
         }
         else if (token == "")

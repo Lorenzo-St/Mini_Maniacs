@@ -43,6 +43,8 @@
   -80 32
   <scale>
    32 32  
+  <RectCollider>
+   32 32
  <name>
   tile
   <localPosition>

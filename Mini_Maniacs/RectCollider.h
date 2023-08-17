@@ -15,6 +15,9 @@ public:
 
   float Width() { return w; }
   float Height() { return h; }
+  void Width(float f) { w = f; }
+  void Height(float f) { h = f; }
+
   void CheckCollision(Collider* other);
 
   void OnCollision(Entity* other);
