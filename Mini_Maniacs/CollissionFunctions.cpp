@@ -52,29 +52,17 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   tx = isnan(tx) ? 0 : isinf(tx) ? 0 : 1;
   ty = isnan(ty) ? 0 : isinf(ty) ? 0 : 1;
 
-  if (/*tx > 0 &&*/ tx <= 1)
+  if (tx > 0 && tx <= 1)
     if (tx <= ty)
       t = tx;
-  if (/*ty > 0 &&*/ ty <= 1)
+  if (ty > 0 && ty <= 1)
     if (ty <= tx)
       t = ty;
  
 
   glm::vec2 intersect = OldPosition + moveVec * t;
 
-
-
-  glm::vec distance = intersect - WallPos;
-    
-
-  glm::vec2 velocity = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
-  velocity *= glm::vec2(1 *( i == 2), 1 * (i == 1));
-  //if (i == 1)
-  //  intersect.x = NewPosition.x;
-  //else if (i == 2)
-  //  intersect.y = NewPosition.y;
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(intersect);
-  rect1->GetParent()->GetComponent<Physics>()->SetVelocity(velocity);
   CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
 
