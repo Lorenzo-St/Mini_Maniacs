@@ -64,6 +64,7 @@ void RectCollider::OnCollision(Entity* other)
   {
     glm::vec2 otherPos = other->GetComponent<Transform>()->GetPosition();
     glm::vec2 thisPos = this->GetParent()->GetComponent<Transform>()->GetPosition();
+    glm::vec2 preserved = thisPos;
     thisPos = { static_cast<int>(thisPos.x), static_cast<float>(thisPos.y) };
     RectCollider* otherR = other->GetComponent<RectCollider>();
     glm::vec2 dir = thisPos - otherPos;
@@ -80,7 +81,7 @@ void RectCollider::OnCollision(Entity* other)
     }
     dir *= 16;
     glm::vec2 nearestTile = otherPos + dir;
-    glm::vec2 preserved = (dir.x == 0) ? glm::vec2(thisPos.x, nearestTile.y) : glm::vec2(nearestTile.x, thisPos.y);
+    preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
     if (preserved.y < otherPos.y)
       dir.x = dir.x;
     this->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
