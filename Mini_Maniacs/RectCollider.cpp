@@ -70,9 +70,6 @@ void RectCollider::OnCollision(Entity* other)
     glm::vec2 dir = thisPos - otherPos;
     glm::vec2 velo = this->GetParent()->GetComponent<Physics>()->GetVelocity();
 
-    if (velo.x != 0)
-      dir = dir;
-
     dir.x = (std::abs(velo.y) > std::abs(velo.x) && std::abs(dir.y) > std::abs(dir.x)) ? 0: dir.x / std::abs(dir.x != 0 ? dir.x : 1);
     dir.y = (std::abs(velo.x) > std::abs(velo.y) && std::abs(dir.x) > std::abs(dir.y)) ? 0: dir.y / std::abs(dir.y != 0 ? dir.y : 1);
 
@@ -87,9 +84,6 @@ void RectCollider::OnCollision(Entity* other)
     dir *= otherR->tileSize;
     glm::vec2 nearestTile = otherPos + dir;
     preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
-
-    if (preserved.y <= -16)
-      std::cout << "AAAAAAAAAAAAAAAAAAAA";
 
     this->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
     //this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
