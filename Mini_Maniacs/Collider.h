@@ -15,6 +15,7 @@ public:
   Collider(Collider const* c) { ColliderType = c->ColliderType; }
   void Read(Stream* s) {};
   constexpr void SetType(type t) { ColliderType = t; }
+  virtual void Init(void) { return; }
   virtual void CheckCollision(Collider* other) {};
   type isType(void) { return ColliderType; }
 
