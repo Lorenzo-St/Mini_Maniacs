@@ -70,7 +70,7 @@ void RectCollider::OnCollision(Entity* other)
     glm::vec2 dir = thisPos - otherPos;
     glm::vec2 velo = this->GetParent()->GetComponent<Physics>()->GetVelocity();
 
-    if (dir.x != 0)
+    if (velo.x != 0)
       dir = dir;
 
     dir.x = (std::abs(velo.y) > std::abs(velo.x) && std::abs(dir.y) > std::abs(dir.x)) ? 0: dir.x / std::abs(dir.x != 0 ? dir.x : 1);
