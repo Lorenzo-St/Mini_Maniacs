@@ -1,4 +1,6 @@
 #include <iostream>
+#include <numeric>
+
 #include "RectCollider.h"
 #include "EllipCollider.h"
 #include "Collider.h"
@@ -37,7 +39,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2& thisPos = NewPosition;
   glm::vec2 preserved = thisPos;
 
-  int tileSize = mover->Width() > wall->Width() ? mover->Width() : wall->Width();
+  int tileSize = std::gcd(static_cast<int>(mover->Width()), static_cast<int>(wall->Width()));
 
   thisPos = { static_cast<float>(glm::round(thisPos.x / tileSize) * tileSize), static_cast<float>(glm::round(thisPos.y / tileSize) * tileSize)};
   RectCollider*& otherR = wall;
