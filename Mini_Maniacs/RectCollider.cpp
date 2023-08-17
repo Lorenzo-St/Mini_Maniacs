@@ -62,7 +62,7 @@ void RectCollider::OnCollision(Entity* other)
 {
   if (tileBased && !Static) 
   {
-    glm::vec2 otherPos = other->GetComponent<Transform>()->GetPosition();
+    /*glm::vec2 otherPos = other->GetComponent<Transform>()->GetPosition();
     glm::vec2 thisPos = this->GetParent()->GetComponent<Transform>()->GetPosition();
     glm::vec2 preserved = thisPos;
     thisPos = { static_cast<float>(glm::round(thisPos.x/tileSize) * tileSize), static_cast<float>(glm::round(thisPos.y/tileSize) * tileSize)  };
@@ -86,7 +86,7 @@ void RectCollider::OnCollision(Entity* other)
     preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
 
     this->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
-
+*/
 
   }
 
