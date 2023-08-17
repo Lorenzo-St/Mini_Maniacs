@@ -55,7 +55,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     dir.x = (std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
     dir.y = (std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
 }
-  if (dir.x * dir.x == 1 && dir.y * dir.y == 1)
+  if (dir.x * dir.x == 1 && dir.y * dir.y == 1) 
     return;
   dir *= tileSize;
   glm::vec2 nearestTile = otherPos + dir;
