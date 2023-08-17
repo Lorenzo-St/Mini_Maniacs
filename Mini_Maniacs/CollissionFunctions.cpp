@@ -41,7 +41,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   int tileSize = wall->Width(); // Try getting this to work with multiple tile sizes
 
-  thisPos = { static_cast<float>(glm::round(thisPos.x / tileSize) * tileSize), static_cast<float>(glm::round(thisPos.y / tileSize) * tileSize)};
+  thisPos = { static_cast<float>(glm::round(thisPos.x) / tileSize * tileSize), static_cast<float>(glm::round(thisPos.y) / tileSize * tileSize)};
   RectCollider*& otherR = wall;
   glm::vec2 dir = thisPos - otherPos;
   glm::vec2 velo = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
