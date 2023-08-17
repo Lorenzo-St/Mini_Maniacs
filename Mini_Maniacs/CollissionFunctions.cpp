@@ -52,10 +52,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   tx = isnan(tx) ? 0 : isinf(tx) ? 0 : 1;
   ty = isnan(ty) ? 0 : isinf(ty) ? 0 : 1;
 
-  if (tx > 0 && tx <= 1)
+  //if (/*tx > 0 &&*/ tx <= 1)
     if (tx <= ty)
       t = tx;
-  if (ty > 0 && ty <= 1)
+  //if (/*ty > 0 &&*/ ty <= 1)
     if (ty <= tx)
       t = ty;
  
