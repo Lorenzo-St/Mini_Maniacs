@@ -5,6 +5,8 @@
 #include "Transform.h"
 #include "Physics.h"
 
+void RectCollider::Init() { Static = this->GetParent()->GetComponent<Physics>() != nullptr; }
+
 void RectCollider::Read(Stream* s)
 { 
   // <RectCollider>
@@ -58,7 +60,7 @@ void RectCollider::CheckCollision(Collider* other)
 
 void RectCollider::OnCollision(Entity* other) 
 {
-  if (tileBased) 
+  if (tileBased && !Static) 
   {
     glm::vec2 otherPos = other->GetComponent<Transform>()->GetPosition();
     glm::vec2 thisPos = this->GetParent()->GetComponent<Transform>()->GetPosition();
