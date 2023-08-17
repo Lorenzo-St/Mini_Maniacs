@@ -5,7 +5,7 @@
 #include "Transform.h"
 #include "Physics.h"
 
-void RectCollider::Init() { Static = this->GetParent()->GetComponent<Physics>() != nullptr; }
+void RectCollider::Init() { Static = this->GetParent()->GetComponent<Physics>() == nullptr; }
 
 void RectCollider::Read(Stream* s)
 { 
