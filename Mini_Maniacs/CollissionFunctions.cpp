@@ -48,7 +48,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   dir.x = (std::abs(velo.y) > std::abs(velo.x) && std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
   dir.y = (std::abs(velo.x) > std::abs(velo.y) && std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
-
+  glm::vec2 nearestWallTile = (WallPos + (dir * static_cast<float>(tileSize)));
+  glm::vec2 nearestPlayerTile = (NewPosition + (-dir * static_cast<float>(tileSize)));
+  
   if (dir == glm::vec2(0, 0))
   {
     dir = thisPos - otherPos;
