@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
   engine.addSystem(new SceneSystem());
   engine.addSystem(new EntitySystem());
   engine.addSystem(CollisionLedger::GetInstance());
-  api.setZoom(2.5f);
+  api.setZoom(3.f);
   engine.Init();
   InputSystem::addBinding(Jump, { SDLK_SPACE });
   InputSystem::addBinding(PosX, { SDLK_d });
