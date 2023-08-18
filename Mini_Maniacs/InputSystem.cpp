@@ -107,7 +107,7 @@ void InputSystem::inputEvent(SDL_Event event)
   case SDL_MOUSEBUTTONDOWN:
     if (event.button.button == 1)
       instance->LMouseDown = true;
-    else if (event.button.button == 2)
+    else if (event.button.button == 3)
       instance->RMouseDown = true;
 
 #if _DEBUG && 1
@@ -117,7 +117,7 @@ void InputSystem::inputEvent(SDL_Event event)
   case SDL_MOUSEBUTTONUP:
     if (event.button.button == 1)
       instance->LMouseDown = false;
-    else if (event.button.button == 2)
+    else if (event.button.button == 3)
       instance->RMouseDown = false;
 #if _DEBUG && 1
     std::cout << "Released: " << static_cast<int>(event.button.button) << std::endl;
@@ -128,4 +128,16 @@ void InputSystem::inputEvent(SDL_Event event)
 }
 
 
+void InputSystem::MouseEvent(SDL_Event event) 
+{
+  if (instance == nullptr)
+    instance = new InputSystem();
+
+  switch (event.type) 
+  {
+    case SDL_MOUSEMOTION:
+     
+      break;
+  }
+}
 

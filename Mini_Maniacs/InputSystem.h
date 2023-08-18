@@ -48,6 +48,8 @@ public:
   static void inputEvent(SDL_Event event);
   static InputSystem* GetInstance();
 
+  static void MouseEvent(SDL_Event event);
+
 private:
   InputSystem() = default;
   std::vector<Binding> bindings;

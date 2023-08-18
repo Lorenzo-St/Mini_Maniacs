@@ -13,6 +13,8 @@ void ProcessEvent(SDL_Event& event)
   case SDL_MOUSEBUTTONUP:
     InputSystem::inputEvent(event);
     break;
+  case SDL_MOUSEMOTION:
+    InputSystem::MouseEvent(event);
   
   }
 }
