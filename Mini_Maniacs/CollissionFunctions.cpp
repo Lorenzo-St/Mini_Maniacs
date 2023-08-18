@@ -56,7 +56,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     dir.y = (std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
 }
   if (dir.x * dir.x == 1 && dir.y * dir.y == 1) 
+  {
+    
     return;
+  }
   dir *= tileSize;
   glm::vec2 nearestTile = otherPos + dir;
   preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
