@@ -39,6 +39,9 @@ public:
 
   static bool isPressed(Action a);
   static bool isTriggered(Action a);
+  static bool MouseDown(bool left) { if (left)return instance->LMouseDown; else return instance->RMouseDown; }
+  static float GetMouseX(void) { return instance->mouseX; }
+  static float GetMouseY(void) { return instance->mouseX; }
 
   static void addBinding(Action a, char type,input b);
   static void addBinding(Action a, input b);
@@ -48,5 +51,10 @@ public:
 private:
   InputSystem() = default;
   std::vector<Binding> bindings;
+  bool LMouseDown;
+  bool RMouseDown;
+  float mouseX;
+  float mouseY;
+
   static inline InputSystem* instance;
 };

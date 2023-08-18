@@ -91,6 +91,9 @@
     <Filter Include="Source Files\Game Code\Behaviors\WorldBehaviors">
       <UniqueIdentifier>{ab17459b-d81a-4301-b666-dc0855f7e09a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Editor Code">
+      <UniqueIdentifier>{ffc07136-ccb6-443d-af46-9e27dee2c72b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -176,6 +179,9 @@
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files\Game Code\Behaviors\WorldBehaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorSystem.cpp">
+      <Filter>Source Files\Editor Code</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +292,9 @@
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>Source Files\Game Code\Behaviors\WorldBehaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorSystem.h">
+      <Filter>Source Files\Editor Code</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

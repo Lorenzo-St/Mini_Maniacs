@@ -4,6 +4,7 @@
 #include <string>
 #endif
 
+
 InputSystem* InputSystem::GetInstance()
 {
   if (instance == nullptr)
@@ -100,9 +101,28 @@ void InputSystem::inputEvent(SDL_Event event)
         std::cout << "Released: " << static_cast<char>(event.key.keysym.sym) << std::endl;
 #endif
       }
+
     }
     break;
-  
+  case SDL_MOUSEBUTTONDOWN:
+    if (event.button.button == 1)
+      instance->LMouseDown = true;
+    else if (event.button.button == 2)
+      instance->RMouseDown = true;
+
+#if _DEBUG && 1
+    std::cout << "Pressed: " << static_cast<char>(event.button.button) << std::endl;
+#endif
+    break;
+  case SDL_MOUSEBUTTONUP:
+    if (event.button.button == 1)
+      instance->LMouseDown = false;
+    else if (event.button.button == 2)
+      instance->RMouseDown = false;
+#if _DEBUG && 1
+    std::cout << "Released: " << static_cast<char>(event.button.button) << std::endl;
+#endif
+    break;
   }
 
 }
