@@ -34,7 +34,13 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
-
+  if (rect1->IsTrigger() || rect2->IsTrigger()) 
+  {
+    CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
+    std::cout << "Trigger Collision" << std::endl;
+    return;
+  }
+  
   glm::vec2& otherPos = WallPos;
   glm::vec2& thisPos = NewPosition;
   glm::vec2 preserved = thisPos;
@@ -115,10 +121,20 @@ void CircleCollision(Collider* Ellip1, Collider* Ellip2)
 
   if (distance == minDist) 
   {
+    if (Ellip1->IsTrigger() || Ellip2->IsTrigger())
+    {
+      CollisionLedger::AddInteraction({ Ellip1->GetParent(), Ellip2->GetParent() });
+      return;
+    }
     Ellip1->GetParent()->GetComponent<Transform>()->SetPosition(closestPoint);
   }
   else if (distance < minDist) 
   {
+    if (Ellip1->IsTrigger() || Ellip2->IsTrigger())
+    {
+      CollisionLedger::AddInteraction({ Ellip1->GetParent(), Ellip2->GetParent() });
+      return;
+    }
     //std::cout << "hi interacted" << std::endl;
     glm::vec2 staticToClosest = closestPoint - ellip2Pos;
     glm::vec2 CCRot = { -staticToClosest.y,  staticToClosest.x };

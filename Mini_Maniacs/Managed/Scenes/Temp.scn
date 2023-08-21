@@ -5,6 +5,9 @@
   Steve
   <Position>
    0 0
+  trigger
+  <Position>
+   16 16
  </Entities>
  <Prefabs>
  room
