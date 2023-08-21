@@ -49,7 +49,7 @@ void PlayerController::OnUpdate()
 
   this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
   api.MoveCamera(glm::vec2( 0,this->GetParent()->GetComponent<Transform>()->GetPosition().y ));
-  //isGrounded = false;
+  isGrounded = false;
 
 }
 
