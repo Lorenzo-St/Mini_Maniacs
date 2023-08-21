@@ -87,7 +87,7 @@ void Animation::UpdateMesh()
 	float u, v;
 	GetUVCoords(frame, Columns, Rows, &u, &v);
 	matrix = glm::mat4x4(1.0f);
-	matrix = glm::translate(matrix, glm::vec3(u + (u * frameOffset.x), v + (v * frameOffset.y), 0));
+	matrix = glm::translate(matrix, glm::vec3(u + (uSize * frameOffset.x), v + (vSize * frameOffset.y), 0));
 	matrix = glm::scale(matrix, glm::vec3(uSize, vSize, 0));
 	matrix = glm::transpose(matrix);
 	this->GetParent()->GetComponent<Mesh>()->SetMatrix(matrix);
