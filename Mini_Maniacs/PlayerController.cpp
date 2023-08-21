@@ -31,6 +31,10 @@ void PlayerController::OnUpdate()
     grav *= (1.0f + std::abs((fallSpeed * Time.deltaTime())));
     this->GetParent()->GetComponent<Physics>()->setGravity(grav);
   }
+  else if (!InputSystem::isPressed(Jump))
+    isGrounded = false;
+  
+  
   if (InputSystem::isPressed(PosX)) 
   {
     velo.x = moveSpeed;
@@ -49,8 +53,6 @@ void PlayerController::OnUpdate()
 
   this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
   api.MoveCamera(glm::vec2( 0,this->GetParent()->GetComponent<Transform>()->GetPosition().y ));
-  isGrounded = false;
-
 }
 
 void PlayerController::OnExit() 
