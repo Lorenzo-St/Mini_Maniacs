@@ -24,6 +24,8 @@ void PlayerController::OnUpdate()
   {
     this->GetParent()->GetComponent<Physics>()->setGravity(gravity);
     velo.y = jumpSpeed;
+    isGrounded = false;
+
   }
   else if (!InputSystem::isPressed(Jump) && !isGrounded)
   {
@@ -33,7 +35,7 @@ void PlayerController::OnUpdate()
   }
   else if (!InputSystem::isPressed(Jump))
     isGrounded = false;
-  
+
   
   if (InputSystem::isPressed(PosX)) 
   {
