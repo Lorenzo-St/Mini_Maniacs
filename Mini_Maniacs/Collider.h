@@ -12,7 +12,7 @@ public:
   };
   Collider() = default;
   Collider* Clone() { return new Collider(this); };
-  Collider(Collider const* c) { ColliderType = c->ColliderType; }
+  Collider(Collider const* c) { ColliderType = c->ColliderType; isTrigger = c->isTrigger; }
   void Read(Stream* s);
   constexpr void SetType(type t) { ColliderType = t; }
   bool IsTrigger() { return isTrigger; }

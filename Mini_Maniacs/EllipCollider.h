@@ -5,7 +5,7 @@ class EllipCollider : public Collider
 {
 public:
   EllipCollider() { }
-  EllipCollider(EllipCollider const* r) {  };
+  EllipCollider(EllipCollider const* r) : Collider(r), radius(r->radius), offset(r->offset) {  };
   EllipCollider* Clone() { return new EllipCollider(this); };
   void Read(Stream* s);
 
