@@ -32,12 +32,12 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   
   glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
-  if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
-  if (std::abs(NewPosition.y - WallPos.y) > MOffset.y + WOffset.y) return;
+  if (std::abs(NewPosition.x - WallPos.x) >= MOffset.x + WOffset.x) return;
+  if (std::abs(NewPosition.y - WallPos.y) >= MOffset.y + WOffset.y) return;
   if (rect1->IsTrigger() || rect2->IsTrigger()) 
   {
     CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
-    std::cout << "Trigger Collision" << std::endl;
+    //std::cout << "Trigger Collision" << std::endl;
     return;
   }
   
