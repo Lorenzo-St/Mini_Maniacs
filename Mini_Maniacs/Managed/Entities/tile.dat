@@ -40,3 +40,21 @@
    <Height>
     16
   </RectCollider>
+  <Sprite>
+   <Texture>
+    tilemap.png
+  </Sprite>
+  <Animation>
+   <frameLength>
+    1
+   <maxFrames>
+    1
+   <Columns>
+    2
+   <Rows>
+    4
+   <looping>
+    true
+   <offset>
+    1 0 
+  </Animation>

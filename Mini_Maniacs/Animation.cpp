@@ -4,9 +4,10 @@
 #endif
 #include "Animation.h"
 #include "GLM.hpp"
-#include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
 #include "Stream.h"
+#include "MeshComp.h"
+#include "Entity.h"
 
 Animation::Animation(Animation const* ml) 
 {
@@ -66,7 +67,7 @@ void Animation::Update(void)
 		}
 		UpdateMesh();
 	}
-	api.SetUVMatrix(matrix);
+	this->GetParent()->GetComponent<Mesh>()->SetMatrix(matrix);
 }
 
 void GetUVCoords(int frame, int frameX, int frameY, float* u, float*v)
@@ -89,7 +90,7 @@ void Animation::UpdateMesh()
 	matrix = glm::translate(matrix, glm::vec3(u + (u * frameOffset.x), v + (v * frameOffset.y), 0));
 	matrix = glm::scale(matrix, glm::vec3(uSize, vSize, 0));
 	matrix = glm::transpose(matrix);
-	api.SetUVMatrix(matrix);
+	this->GetParent()->GetComponent<Mesh>()->SetMatrix(matrix);
 #if _DEBUG && DEBUG_WRITE
 	std::cout << frame << std::endl;
 #endif

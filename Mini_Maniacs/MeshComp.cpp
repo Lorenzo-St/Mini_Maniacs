@@ -20,7 +20,7 @@ void Mesh::Render(void)
     else 
       api.SetTexture(nullptr);
 
-
+    api.SetUVMatrix(matrix);
     Transform* t = GetParent()->GetComponent<Transform>();
     api.SetMatrixData(t->GetPosition(), t->GetScale(), t->GetRotation());
     m->Draw();

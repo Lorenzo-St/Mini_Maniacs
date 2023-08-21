@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "mesh.h"
+#include "glm.hpp"
 class Mesh : public Component
 {
 public:
@@ -9,9 +10,12 @@ public:
   Mesh* Clone() { return new Mesh(this); };
   void Read(Stream* s);
   void Render(void);
+  
   void SetMesh(mesh* me) { m = me; };
   void CreateMesh(void) { m = new mesh(); }
   void AddVertex(SDL_FPoint* pos, SDL_Color* color, SDL_FPoint* UV);
+
+  void SetMatrix(glm::mat4x4 const& a) { matrix = a; }
 
 private:
   // -------------------------
@@ -22,6 +26,7 @@ private:
   // -------------------------
 
   const mesh* m = nullptr;
+  glm::mat4x4 matrix = glm::mat4x4(1.0f);
 
 };
 
