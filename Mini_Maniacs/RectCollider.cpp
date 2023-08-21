@@ -22,8 +22,9 @@ void RectCollider::Read(Stream* s)
   while (true) 
   {
     std::string token = s->ReadString();
-  
-    if (token == "<Width>")
+    if (token == "<Collider>")
+      this->Collider::Read(s);
+    else if (token == "<Width>")
       w = s->ReadFloat();
     else if (token == "<Height>")
       h = s->ReadFloat();

@@ -37,6 +37,10 @@
 	   0 1 
   </Mesh>		 
   <RectCollider>
+   <Collider>
+	<isTrigger>
+	 false
+   </Collider>
    <Width>
     16
    <Height>

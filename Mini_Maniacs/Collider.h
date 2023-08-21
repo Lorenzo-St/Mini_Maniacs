@@ -13,7 +13,7 @@ public:
   Collider() = default;
   Collider* Clone() { return new Collider(this); };
   Collider(Collider const* c) { ColliderType = c->ColliderType; }
-  void Read(Stream* s) {};
+  void Read(Stream* s);
   constexpr void SetType(type t) { ColliderType = t; }
   virtual void Init(void) { return; }
   virtual void CheckCollision(Collider* other) {};
@@ -27,6 +27,7 @@ private:
   const bool s = set();
   // -------------------------
   type ColliderType;
+  bool isTrigger = false;
   // void AddColliderVertex(glm::vec2 localPos) {};
   // std::vector<glm::vec2> RectPoints;
 

@@ -14,15 +14,12 @@ void EllipCollider::Read(Stream* s)
   while (true)
   {
     std::string token = s->ReadString();
-
-    if (token == "<Radius>")
-    {
+    if (token == "<Collider>") 
+      this->Collider::Read(s);
+    else if (token == "<Radius>")
       radius = s->ReadFloat();
-    }
     else if (token == "<Offset>")
-    {
       offset = s->ReadVector();
-    }
     else if (token == "</RectCollider>")
       break;
   }

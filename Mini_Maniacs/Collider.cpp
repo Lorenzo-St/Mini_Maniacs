@@ -1,0 +1,16 @@
+#include "Collider.h"
+#include "Stream.h"
+
+void Collider::Read(Stream* s)
+{
+  std::string token;
+  while (true) 
+  {
+    token = s->ReadString();
+    if (token == "<isTrigger>")
+      isTrigger = s->ReadBool();
+    else if (token == "</Collider>")
+      return;
+  }
+
+};
