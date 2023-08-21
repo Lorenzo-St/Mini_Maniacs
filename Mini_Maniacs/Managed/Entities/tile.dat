@@ -46,7 +46,7 @@
   </Sprite>
   <Animation>
    <frameLength>
-    1
+    .1
    <maxFrames>
     1
    <Columns>
@@ -54,7 +54,7 @@
    <Rows>
     4
    <looping>
-    true
+    false
    <offset>
     0 0 
   </Animation>

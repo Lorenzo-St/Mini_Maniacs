@@ -6,7 +6,7 @@ class Mesh : public Component
 {
 public:
   Mesh() = default;
-  Mesh(Mesh const* ml) : m(ml->m) {  }
+  Mesh(Mesh const* ml) : m(ml->m), matrix(ml->matrix) {  }
   Mesh* Clone() { return new Mesh(this); };
   void Read(Stream* s);
   void Render(void);
