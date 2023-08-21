@@ -1,4 +1,4 @@
-#define DEBUG_WRITE 1
+#define DEBUG_WRITE 0
 #if _DEBUG && DEBUG_WRITE
 #include <iostream>
 #endif
