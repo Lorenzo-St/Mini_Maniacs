@@ -23,7 +23,6 @@ void PlayerController::OnUpdate()
   if (InputSystem::isPressed(Jump) && isGrounded)
   {
     this->GetParent()->GetComponent<Physics>()->setGravity(gravity);
-    isGrounded = false;
     velo.y = jumpSpeed;
   }
   else if (!InputSystem::isPressed(Jump) && !isGrounded)
@@ -50,6 +49,7 @@ void PlayerController::OnUpdate()
 
   this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
   api.MoveCamera(glm::vec2( 0,this->GetParent()->GetComponent<Transform>()->GetPosition().y ));
+  isGrounded = false;
 
 }
 
