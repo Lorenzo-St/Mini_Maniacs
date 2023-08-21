@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#define Editor 1 
+#define Editor 0 
 #include "SDL.h"
 #include "Backend.h"
 #include "Engine.h"

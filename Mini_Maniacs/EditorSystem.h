@@ -2,6 +2,7 @@
 #include "system.h"
 
 class Entity;
+class Scene;
 
 typedef union Select 
 {
@@ -24,10 +25,16 @@ class EditorSystem : public System
 {
 
 public:
-
+  
+  void Update();
+  
 
 private:
   EditorSystem* Clone() { return nullptr; };
+  
+  Scene* activeScene;
   bool Selected;
+  
   SelectOBJ SelectedOBJ;
 };
+
