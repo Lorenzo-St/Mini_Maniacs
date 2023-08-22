@@ -42,5 +42,5 @@ public:
 
   void Read(Stream* s);
 private:
-  std::vector<PalletInfo> pallets;
+  std::vector<PalletInfo> pallets = {};
 };
