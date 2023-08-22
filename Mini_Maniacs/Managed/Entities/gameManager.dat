@@ -1,0 +1,21 @@
+<Entity>
+  <Name>
+    gameManager
+  <Tag>
+   Game_Manager
+  <Transform>
+    <Position>
+	  0.0 200.0
+
+	<Scale>
+	  16 16
+	<Rotation>
+	  00
+  </Transform>
+  <GameManager>
+  </GameManager>
+  <StagePallet>
+   <PalletInfo>
+    0 0 
+	8
+  </StagePallet>

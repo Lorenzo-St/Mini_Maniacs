@@ -8,7 +8,7 @@
   trigger
   <Position>
    16 16
+  gameManager
  </Entities>
  <Prefabs>
- room
  </Prefabs>

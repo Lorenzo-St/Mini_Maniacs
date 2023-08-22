@@ -10,6 +10,7 @@
 #include "Sprite.h"
 #include "EntitySystem.h"
 #include "PlayerController.h"
+#include "StagePallet.h"
 #include "GameManager.h"
 
 Entity::Entity(void) : tag(Standard)
@@ -97,7 +98,7 @@ void Entity::Read(Stream* s)
       break;
     else if (token == "<Name>")
       name = s->ReadString();
-    else if (token == "<Tag>") 
+    else if (token == "<Tag>")
     {
       token = s->ReadString();
       tag = toEnum(token);
@@ -120,7 +121,8 @@ void Entity::Read(Stream* s)
       c = new PlayerController();
     else if (token == "<GameManager>")
       c = new GameManager();
-
+    else if (token == "<StagePallet>")
+      c = new StagePallet();
 
     if (c) 
     {
@@ -131,5 +133,16 @@ void Entity::Read(Stream* s)
 
 }
 
+Container<Entity>& Entity::FindChildrenWithTag(Tags tag)
+{
+  static Container<Entity> result;
+  result.GetCollection().clear();
+  for (auto const& e : Children)
+  {
+    if (e->tag == tag)
+      result.add(e);
+  }
+  return result;
+}
 
 

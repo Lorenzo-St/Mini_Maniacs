@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "glm.hpp"
+
 class Animation : public Component
 {
 public:
@@ -21,6 +22,13 @@ public:
 
   float FrameLength(void) { return frameLength; }
   void FrameLength(float f) { frameLength = f; }
+
+  glm::vec2 const& Offset() { return frameOffset; }
+  void Offset(glm::vec2 const& a) { frameOffset = a; }
+
+  int rows() { return Rows; }
+  int columns() { return Columns; }
+
 
 private:
   // -------------------------

@@ -1,3 +1,5 @@
+#include <vector>
+
 #include "EntitySystem.h"
 #include "Entity.h"
 #include "Stream.h"
@@ -23,6 +25,19 @@ void EntitySystem::Update(void)
 {
   activeScene.Update();
   activeScene.DoCollisions();
+}
+
+Container<Entity>& EntitySystem::FindAllWithTag(Tags tag)
+{
+  searchResult.GetCollection().clear();
+  std::vector<Entity*> const& ative = activeScene.GetCollection();
+
+  for (auto const& e : ative) 
+  { 
+    if (e->Tag() == tag)
+      searchResult.add(e);
+  }
+  return searchResult;
 }
 
 void EntitySystem::Render(void) 

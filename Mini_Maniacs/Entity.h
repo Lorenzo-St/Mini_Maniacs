@@ -4,9 +4,12 @@
 #include <stdexcept>
 #include "Object.hpp"
 #include "Component.h"
+template<typename t>
+class Container;
+
 typedef struct sorter sorter;
 class EntitySystem;
-CREATE_ENUM_NOTYPE(Tags, Standard, Ground, Player, Enemy, Tile, Room);
+CREATE_ENUM_NOTYPE(Tags, Standard, Ground, Player, Enemy, Tile, Room, Game_Manager);
 
 
 class Entity : public Object 
@@ -40,6 +43,8 @@ public:
 
   void AddChild(Entity* e) { Children.push_back(e); }
   std::vector<Entity*>& GetChildren() { return Children; }
+
+  Container<Entity>& FindChildrenWithTag(Tags tag);
 
   void SetActive(bool b);
 

@@ -28,6 +28,8 @@ public:
   Entity* CreatePrefab(const char* file);
   Entity* CloneEntity(Entity* e);
 
+  Container<Entity>& FindAllWithTag(Tags tag);
+
   Entity* FindWithName(const char* name);
   Entity* FindWithTag( Tags tag);
 
@@ -39,6 +41,7 @@ private:
   EntitySystem* Clone() { throw std::runtime_error("no"); }
   Container<Entity> activeScene;
   Container<Entity> prototypes;
+  Container<Entity> searchResult;
   static inline EntitySystem* active;
 
 };

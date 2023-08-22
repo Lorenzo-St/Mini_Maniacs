@@ -183,6 +183,9 @@
     <ClCompile Include="EditorSystem.cpp">
       <Filter>Source Files\Editor Code</Filter>
     </ClCompile>
+    <ClCompile Include="StagePallet.cpp">
+      <Filter>Source Files\Game Code\Behaviors\WorldBehaviors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">
@@ -295,6 +298,9 @@
     </ClInclude>
     <ClInclude Include="EditorSystem.h">
       <Filter>Source Files\Editor Code</Filter>
+    </ClInclude>
+    <ClInclude Include="StagePallet.h">
+      <Filter>Source Files\Game Code\Behaviors\WorldBehaviors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
