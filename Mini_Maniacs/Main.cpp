@@ -29,10 +29,6 @@ int main(int argc, char* argv[])
 
 
   engine.Update();
-  
-
-
-  
-
+  engine.Exit();
   return 0;
 }
