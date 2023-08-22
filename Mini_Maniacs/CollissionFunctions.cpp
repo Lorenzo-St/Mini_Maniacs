@@ -44,9 +44,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 moveVec = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
   if (std::abs(moveVec.y) > 20)
     moveVec.y = 20 * moveVec.y / std::abs(moveVec.y);
-  if (std::abs(moveVec.x) > 32)
-    moveVec.x = 32 * moveVec.x / std::abs(moveVec.x);
-  glm::vec2 testPoint = glm::roundEven(OldPosition);
+  glm::vec2 testPoint = OldPosition;
 
   //testPoint.x += moveVec.x;
   //if (std::abs(testPoint.x - WallPos.x) > MOffset.x + WOffset.x == false)
