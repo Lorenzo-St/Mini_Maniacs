@@ -50,11 +50,11 @@
    <maxFrames>
     1
    <Columns>
-    2
+    4
    <Rows>
     4
    <looping>
     false
    <offset>
-    1 1 
+    0 0
   </Animation>

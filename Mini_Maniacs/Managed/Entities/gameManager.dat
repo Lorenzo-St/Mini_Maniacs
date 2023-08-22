@@ -13,6 +13,8 @@
 	  00
   </Transform>
   <GameManager>
+   <ActivePallet>
+    1
   </GameManager>
   <StagePallet>
    <PalletInfo>

@@ -25,7 +25,9 @@ void GameManager::Read(Stream* s)
   while (true) 
   {
     token = s->ReadString();
-    if (token == "</GameManager>")
+    if (token == "<ActivePallet>")
+      currentPallet = s->ReadInt();
+    else if (token == "</GameManager>")
       break;
   }
 }
