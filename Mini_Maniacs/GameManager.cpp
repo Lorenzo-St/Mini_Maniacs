@@ -25,7 +25,7 @@ void GameManager::Read(Stream* s)
   while (true) 
   {
     token = s->ReadString();
-    if (token == "</GameManger>")
+    if (token == "</GameManager>")
       break;
   }
 }
