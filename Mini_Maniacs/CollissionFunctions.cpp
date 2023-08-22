@@ -48,11 +48,11 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     moveVec.x = 32 * moveVec.x / std::abs(moveVec.x);
   glm::vec2 testPoint = glm::roundEven(OldPosition);
 
-  testPoint.x += moveVec.x;
-  if (std::abs(testPoint.x - WallPos.x) > MOffset.x + WOffset.x == false)
-  {
-    preserved.x = OldPosition.x;
-  }
+  //testPoint.x += moveVec.x;
+  //if (std::abs(testPoint.x - WallPos.x) > MOffset.x + WOffset.x == false)
+  //{
+  //  preserved.x = OldPosition.x;
+  //}
   testPoint.y += moveVec.y;
   if (std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y == false) 
   {
