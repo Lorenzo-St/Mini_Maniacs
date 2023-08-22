@@ -133,9 +133,9 @@ void Entity::Read(Stream* s)
 
 }
 
-Container<Entity>& Entity::FindChildrenWithTag(Tags tag)
+Container< Entity>& Entity::FindChildrenWithTag(Tags tag)
 {
-  static Container<Entity> result;
+  static Container< Entity> result;
   result.GetCollection().clear();
   for (auto const& e : Children)
   {
