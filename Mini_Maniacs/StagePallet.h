@@ -9,7 +9,12 @@ typedef struct PalletInfo
 {
   glm::vec2 spriteOffset;
   int totalTiles;
-  int lastTile;
+  int lastTile = 0;
+  PalletInfo(PalletInfo const& p)
+    : spriteOffset(p.spriteOffset)
+    , totalTiles(p.totalTiles)
+  {}
+  PalletInfo() = default;
 }PalletInfo;
 
 
