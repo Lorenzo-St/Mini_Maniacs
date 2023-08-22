@@ -46,12 +46,12 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   testPoint.x += moveVec.x;
   if (!std::abs(testPoint.x - WallPos.x) > MOffset.x + WOffset.x)
   {
-    preserved.x = NewPosition.x;
+    preserved.x = OldPosition.x;
   }
   testPoint.y += moveVec.y;
   if (!std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y) 
   {
-    preserved.y = NewPosition.y;
+    preserved.y = OldPosition.y;
 
   }
 
