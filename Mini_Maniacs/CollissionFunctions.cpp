@@ -40,16 +40,16 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     //std::cout << "Trigger Collision" << std::endl;
     return;
   }
-  glm::vec2 preserved = OldPosition;
+  glm::vec2 preserved = NewPosition;
   glm::vec2 moveVec = NewPosition - OldPosition;
   glm::vec2 testPoint = OldPosition;
   testPoint.x += moveVec.x;
-  if (std::abs(testPoint.x - WallPos.x) > MOffset.x + WOffset.x)
+  if (!std::abs(testPoint.x - WallPos.x) > MOffset.x + WOffset.x)
   {
     preserved.x = NewPosition.x;
   }
   testPoint.y += moveVec.y;
-  if (std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y) 
+  if (!std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y) 
   {
     preserved.y = NewPosition.y;
 
