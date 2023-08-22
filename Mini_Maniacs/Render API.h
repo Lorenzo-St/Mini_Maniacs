@@ -30,7 +30,7 @@ public:
   void SetColor(SDL_Color c) {  ActiveColor = c; }
 
   void setZoom(float z) { zoom = z; };
-
+  void setClearColor(SDL_Color c) { ClearColor = c; }
   // Create mesh for drawing
   mesh* CreateMesh(void);
   
@@ -65,6 +65,7 @@ private:
   SDL_Rect ViewPort = {0};
   Texture const* activeTexture = nullptr;
   SDL_Color ActiveColor{255,255,255,255};
+  SDL_Color ClearColor{0,255,0,255};
   glm::mat4x4 renderMatrix = glm::mat4x4(1.0f);
   glm::mat4x4 UVmatrix = glm::mat4x4(1.0f);
 };

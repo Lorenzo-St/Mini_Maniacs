@@ -68,7 +68,7 @@ void RenderFront::Shutdown(void)
 void RenderFront::Update(void) 
 {
   SDL_RenderPresent(renderer);
-  SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+  SDL_SetRenderDrawColor(renderer, ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
   SDL_RenderClear(renderer);
   Timer last = timeMarker;
   timeMarker = Timer::clock::now();
