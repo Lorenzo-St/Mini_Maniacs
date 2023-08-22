@@ -51,7 +51,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   if (std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y == false)
     preserved.y = OldPosition.y;
-  if (std::abs(testPoint.x - WallPos.x) > MOffset.x + WOffset.x == false)
+  if (std::abs(testPoint.x - WallPos.x) >= MOffset.x + WOffset.x == false || 0)
     preserved.x = OldPosition.x;
 
 
