@@ -42,6 +42,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   }
   glm::vec2 preserved = NewPosition;
   glm::vec2 moveVec = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
+  if (std::abs(moveVec.x) > 100)
+    moveVec.x = 10 * moveVec.x / std::abs(moveVec.x);
   std::cout << moveVec << std::endl;
   glm::vec2 testPoint = OldPosition;
 
