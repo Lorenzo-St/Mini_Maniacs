@@ -12,10 +12,6 @@ public:
   Container() = default;
   ~Container()
   {
-    //for (auto& e : entities)
-    //{
-    //  delete e;
-    //}
     entities.clear();
   }
 
