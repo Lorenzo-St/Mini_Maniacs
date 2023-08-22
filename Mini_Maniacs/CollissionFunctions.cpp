@@ -43,10 +43,10 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 preserved = NewPosition;
   glm::vec2 moveVec = (NewPosition - OldPosition) * 10.f;
   glm::vec2 testPoint = OldPosition;
-  if (std::abs(NewPosition.x - WallPos.x) <= MOffset.x + WOffset.x && std::abs(NewPosition.y - WallPos.y) < MOffset.y + WOffset.y) 
-  {
-    testPoint = OldPosition - moveVec;
-  }
+  //if (std::abs(NewPosition.x - WallPos.x) <= MOffset.x + WOffset.x && std::abs(NewPosition.y - WallPos.y) < MOffset.y + WOffset.y) 
+  //{
+  //  testPoint = OldPosition - moveVec;
+  //}
   testPoint += moveVec;
   if (std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y == false)
     preserved.y = OldPosition.y;
