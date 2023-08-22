@@ -64,17 +64,17 @@
   </Physics>
   <Sprite>
    <Texture>
-    test.png
+    player.png
   </Sprite>
   <Animation>
    <frameLength>
     .15
    <maxFrames>
-    9
+    4
    <Columns>
-    3
+    2
    <Rows>
-    3
+    2
    <looping>
     true
    <offset>

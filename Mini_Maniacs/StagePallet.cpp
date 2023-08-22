@@ -15,8 +15,6 @@ void StagePallet::SetPallet(int pallet, Animation* s)
 
 void StagePallet::Read(Stream* s) 
 {
-
-
   std::string token;
   while (true) 
   {
