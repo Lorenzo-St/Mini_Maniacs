@@ -9,7 +9,7 @@ void GameManager::OnInit()
 {
   CreateRoom("room", {0,0});
   currentPallet++;
-  CreateRoom("room", { 0, 48 });
+  CreateRoom("room", { 0, 80 });
 
 }
 
