@@ -50,7 +50,7 @@ public:
     for (auto& e : entities)
       delete e;
     entities.clear();
-
+    
   }
 
   void remove(t* e)

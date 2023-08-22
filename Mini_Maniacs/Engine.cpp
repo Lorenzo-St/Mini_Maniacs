@@ -62,11 +62,10 @@ void Engine::Update(void)
 
 void Engine::Exit(void) 
 {
-
-
   for (auto& system : Systems)
   {
     const_cast<System*>(system)->Exit();
+    delete system;
   }
   api.Shutdown();
 }

@@ -49,6 +49,7 @@ void EntitySystem::Render(void)
 void EntitySystem::Exit(void) 
 {
   activeScene.destroyAll();
+  prototypes.destroyAll();
 }
 
 void EntitySystem::AddEntity(Entity* e)
