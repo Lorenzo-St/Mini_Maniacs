@@ -41,14 +41,13 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     return;
   }
   glm::vec2 preserved = NewPosition;
-  glm::vec2 moveVec = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
-  if (std::abs(moveVec.y) > 32)
-    moveVec.y = 32 * moveVec.y / std::abs(moveVec.y);
-  if (std::abs(moveVec.x) > 32)
-    moveVec.x = 32 * moveVec.x / std::abs(moveVec.x);
-  glm::vec2 testPoint = OldPosition + moveVec;
-
-
+  glm::vec2 moveVec = NewPosition - OldPosition;
+  glm::vec2 testPoint = OldPosition;
+  if (std::abs(NewPosition.x - WallPos.x) <= MOffset.x + WOffset.x && std::abs(NewPosition.y - WallPos.y) < MOffset.y + WOffset.y) 
+  {
+    testPoint = OldPosition + (OldPosition - NewPosition);
+  }
+  testPoint += moveVec;
   if (std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y == false)
     preserved.y = OldPosition.y;
   if (std::abs(testPoint.x - WallPos.x) >= MOffset.x + WOffset.x == false)
