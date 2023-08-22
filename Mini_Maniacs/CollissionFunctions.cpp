@@ -52,7 +52,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   if (std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y == false)
     preserved.y = OldPosition.y;
-
   else
     dir = true;
 
