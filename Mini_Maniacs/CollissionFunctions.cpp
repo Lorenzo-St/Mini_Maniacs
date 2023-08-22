@@ -32,7 +32,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   
   glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
-  if (std::abs(NewPosition.x - WallPos.x) >= MOffset.x + WOffset.x) return;
+  if (std::abs(NewPosition.x - WallPos.x) > MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) >= MOffset.y + WOffset.y) return;
   if (rect1->IsTrigger() || rect2->IsTrigger()) 
   {
@@ -40,35 +40,20 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     //std::cout << "Trigger Collision" << std::endl;
     return;
   }
-  
-  glm::vec2& otherPos = WallPos;
-  glm::vec2& thisPos = NewPosition;
-  glm::vec2 preserved = thisPos;
-
-  int tileSize = static_cast<int>(wall->Width()); // Try getting this to work with multiple tile sizes
-
-  thisPos = { static_cast<float>(glm::round(thisPos.x) / tileSize * tileSize), static_cast<float>(glm::round(thisPos.y) / tileSize * tileSize)};
-  RectCollider*& otherR = wall;
-  glm::vec2 dir = thisPos - otherPos;
-  glm::vec2 velo = rect1->GetParent()->GetComponent<Physics>()->GetVelocity();
-
-  dir.x = (std::abs(velo.y) > std::abs(velo.x) && std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
-  dir.y = (std::abs(velo.x) > std::abs(velo.y) && std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
-  
-  if (dir == glm::vec2(0, 0))
+  glm::vec2 preserved = NewPosition;
+  glm::vec2 moveVec = NewPosition - OldPosition;
+  glm::vec2 testPoint = OldPosition;
+  testPoint.x += moveVec.x;
+  if (!std::abs(testPoint.x - WallPos.x) > MOffset.x + WOffset.x)
   {
-    dir = thisPos - otherPos;
-    dir.x = (std::abs(dir.y) > std::abs(dir.x)) ? 0 : dir.x / std::abs(dir.x != 0 ? dir.x : 1);
-    dir.y = (std::abs(dir.x) > std::abs(dir.y)) ? 0 : dir.y / std::abs(dir.y != 0 ? dir.y : 1);
-}
-  if (dir.x * dir.x == 1 && dir.y * dir.y == 1) 
-  {
-    
-    return;
+    preserved.x = OldPosition.x;
   }
-  dir *= tileSize;
-  glm::vec2 nearestTile = otherPos + dir;
-  preserved = (dir.x == 0) ? glm::vec2(preserved.x, nearestTile.y) : glm::vec2(nearestTile.x, preserved.y);
+  testPoint.y += moveVec.x;
+  if (!std::abs(testPoint.y - WallPos.y) >= MOffset.y + WOffset.y) 
+  {
+    preserved.y = OldPosition.y;
+
+  }
 
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
 
