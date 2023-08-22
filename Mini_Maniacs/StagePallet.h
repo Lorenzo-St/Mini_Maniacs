@@ -29,8 +29,10 @@ public:
   StagePallet() = default;
   StagePallet(StagePallet const* b)
     : Behavior(b)
-    , pallets(b->pallets)
-  {}
+  {
+    for (auto const& a : b->pallets)
+      pallets.push_back(a);
+  }
   StagePallet* Clone() { return new StagePallet(this); }
 
 
