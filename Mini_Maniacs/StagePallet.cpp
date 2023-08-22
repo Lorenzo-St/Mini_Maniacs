@@ -8,7 +8,7 @@ void StagePallet::SetPallet(int pallet, Animation* s)
 
   int tile = pallets[pallet].lastTile;
   
-  glm::vec2 newOffset = { tile % s->rows(), static_cast<int>(tile / s->rows()) };
+  glm::vec2 newOffset = { tile % s->columns(), static_cast<int>(tile / s->columns()) };
   newOffset += pallets[pallet].spriteOffset;
   s->Offset(newOffset);
 }
