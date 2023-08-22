@@ -59,9 +59,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     preserved.y = OldPosition.y;
 
   }
-  std::cout << NewPosition << "," << moveVec << "\n";
-  std::cout << WallPos << "," << testPoint << "\n";
-  std::cout << "----------" << std::endl;
 
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
 
