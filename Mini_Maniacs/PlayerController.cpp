@@ -48,10 +48,10 @@ void PlayerController::OnUpdate()
   else
     velo.x = 0;
 
-  if (std::abs(velo.y) > 32)
-    velo.y = 32 * velo.y / std::abs(velo.y);
-  if (std::abs(velo.x) > 32)
-    velo.x = 32 * velo.x / std::abs(velo.x);
+  if (std::abs(velo.y) > 100)
+    velo.y = 100 * velo.y / std::abs(velo.y);
+  if (std::abs(velo.x) > 100)
+    velo.x = 100 * velo.x / std::abs(velo.x);
 
   this->GetParent()->GetComponent<Physics>()->SetVelocity(velo);
   api.MoveCamera(glm::vec2( 0,this->GetParent()->GetComponent<Transform>()->GetPosition().y ));
