@@ -21,6 +21,7 @@ int main(int argc, char* argv[])
   engine.addSystem(new EntitySystem());
   engine.addSystem(CollisionLedger::GetInstance());
   api.setZoom(3.f);
+  api.setClearColor({ 0,0,0,255 });
   engine.Init();
   InputSystem::addBinding(Jump, { SDLK_SPACE });
   InputSystem::addBinding(PosX, { SDLK_d });
