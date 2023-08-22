@@ -37,7 +37,12 @@ public:
 
 
 public:
-
+  // -------------------------
+  // Required Component things
+  // -------------------------
+  constexpr bool set() { setType(__CLASS_NAME__); return true; };
+  const bool s = set();
+  // -------------------------
   void SetPallet(int pallet, Animation* s);
 
   void Read(Stream* s);
