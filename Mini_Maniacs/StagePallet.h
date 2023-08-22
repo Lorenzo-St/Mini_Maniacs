@@ -10,8 +10,6 @@ typedef struct PalletInfo
   glm::vec2 spriteOffset;
   int totalTiles;
   int lastTile;
-
-
 }PalletInfo;
 
 
@@ -38,5 +36,4 @@ public:
   void Read(Stream* s);
 private:
   std::vector<PalletInfo> pallets;
-  Texture const* tileMap;
 };

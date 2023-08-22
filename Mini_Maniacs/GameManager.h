@@ -27,7 +27,7 @@ public:
   void Read(Stream* s);
 private:
   void CreateRoom(const char* prefabName);
-
+  int currentPallet = 0;
   std::vector<std::string> roomPrefabs;
 
 };

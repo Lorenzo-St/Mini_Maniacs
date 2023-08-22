@@ -1,4 +1,8 @@
 #include "GameManager.h"
+#include "Entity.h"
+#include "EntitySystem.h"
+#include "Animation.h"
+#include "StagePallet.h"
 
 void GameManager::OnInit() 
 {
@@ -28,5 +32,13 @@ void GameManager::Read(Stream* s)
 
 void GameManager::CreateRoom(const char* prefabName) 
 {
-
+  Entity* e = EntitySystem::GetActive().CreatePrefab(prefabName);
+  StagePallet* sp = this->GetParent()->GetComponent<StagePallet>();
+  auto& children = e->FindChildrenWithTag(Tile);
+  
+  for (auto& e : children.GetCollection()) 
+  {
+    Animation* a = e->GetComponent<Animation>();
+    sp->SetPallet(currentPallet, a);
+  }
 }

@@ -21,9 +21,7 @@ void StagePallet::Read(Stream* s)
   while (true) 
   {
     token = s->ReadString();
-    if (token == "<tileMap>")
-      tileMap = Textures.LoadTexture(s->ReadString());
-    else if (token == "<PalletInfo>")
+    if (token == "<PalletInfo>")
     {
       PalletInfo pi = {};
       pi.spriteOffset = s->ReadVector();
