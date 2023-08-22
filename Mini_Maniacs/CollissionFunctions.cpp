@@ -46,7 +46,9 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     moveVec.y = 20 * moveVec.y / std::abs(moveVec.y);
   if (std::abs(moveVec.x) > 32.25)
     moveVec.x = 32.25 * moveVec.x / std::abs(moveVec.x);
-  std::cout << moveVec << std::endl;
+  std::cout << NewPosition << "," << moveVec << "\n";
+  std::cout << WallPos << "\n";
+  std::cout << "----------" << std::endl;
   glm::vec2 testPoint = OldPosition;
 
   testPoint.x += moveVec.x;
