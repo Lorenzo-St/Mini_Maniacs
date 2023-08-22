@@ -15,6 +15,7 @@ public:
   GameManager() = default;
   GameManager(GameManager const* b)
     : Behavior(b)
+    , currentPallet(b->currentPallet)
   {}
   GameManager* Clone() { return new GameManager(this); }
 
