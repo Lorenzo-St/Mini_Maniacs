@@ -34,7 +34,7 @@ private:
   const bool s = set();
   // -------------------------
 
-  void CreateRoom(const char* prefabName);
+  void CreateRoom(const char* prefabName, glm::vec2 pos);
   int currentPallet = 0;
   std::vector<std::string> roomPrefabs;
 

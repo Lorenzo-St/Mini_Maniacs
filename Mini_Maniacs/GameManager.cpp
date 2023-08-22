@@ -3,10 +3,14 @@
 #include "EntitySystem.h"
 #include "Animation.h"
 #include "StagePallet.h"
+#include "Transform.h"
 
 void GameManager::OnInit() 
 {
-  CreateRoom("room");
+  CreateRoom("room", {0,0});
+  currentPallet++;
+  CreateRoom("room", { 0, 48 });
+
 }
 
 void GameManager::OnUpdate() 
@@ -32,9 +36,10 @@ void GameManager::Read(Stream* s)
   }
 }
 
-void GameManager::CreateRoom(const char* prefabName) 
+void GameManager::CreateRoom(const char* prefabName, glm::vec2 pos) 
 {
   Entity* e = EntitySystem::GetActive().CreatePrefab(prefabName);
+  e->GetComponent<Transform>()->SetPosition(pos);
   StagePallet* sp = this->GetParent()->GetComponent<StagePallet>();
   auto& children = e->FindChildrenWithTag(Tile);
   
