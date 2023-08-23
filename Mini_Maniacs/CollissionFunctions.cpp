@@ -45,31 +45,29 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
   if (std::abs(NewPosition.x - WallPos.x) >= MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) >= MOffset.y + WOffset.y) return;
+  CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
   if (rect1->IsTrigger() || rect2->IsTrigger()) 
   {
-    CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
     //std::cout << "Trigger Collision" << std::endl;
     return;
   }
   glm::vec2 preserved = NewPosition;
-  glm::vec2 moveVec = (NewPosition - OldPosition) * mover->Width();
-  glm::vec2 testPoint1 = OldPosition + MOffset;
-  glm::vec2 testPoint2 = OldPosition - MOffset;
+  glm::vec2 moveVec = (NewPosition - OldPosition);
 
-  testPoint1.x += moveVec.x;
-  testPoint2.x += moveVec.x;
-  if (PointCollideRect(testPoint1, wall) || PointCollideRect(testPoint2, wall))
-    preserved.x = OldPosition.x;
-  testPoint1.x -= moveVec.x;
-  testPoint2.x -= moveVec.x;
-  testPoint1.y += moveVec.y;
-  testPoint2.y += moveVec.y;
-  if (PointCollideRect(testPoint1, wall) || PointCollideRect(testPoint2, wall))
-    preserved.y = OldPosition.y;
+  if (moveVec.x != 0) 
+  {
+    preserved.x = WallPos.x + ((WOffset.x + MOffset.x) * moveVec.x / std::abs(moveVec.x));
+  }
+  rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
+  if (std::abs(NewPosition.x - WallPos.x) >= MOffset.x + WOffset.x) return;
+  if (std::abs(NewPosition.y - WallPos.y) >= MOffset.y + WOffset.y) return;
+  if (moveVec.y != 0)
+  {
+    preserved.y = WallPos.y + ((WOffset.y + MOffset.y) * moveVec.y / std::abs(moveVec.y));
+  }
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
 
 
-  CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
 
 
 #if _DEBUG && DRAW_DEBUG_LINES
