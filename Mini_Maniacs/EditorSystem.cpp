@@ -45,7 +45,7 @@ void EditorSystem::Update()
     
     Entity* a = proto.GetCollection()[0];
 
-    std::ofstream s(a->getProto());
+    std::ofstream s("./Entities/" + a->getProto() + ".dat");
     a->Write(&s);
   }
 
