@@ -25,20 +25,18 @@ void EditorSystem::Update()
     switch (SelectedOBJ.type)
     {
     case entity:
-      location = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetPosition();
-      scale = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetScale();
       if(SelectedOBJ.OBJ.e->Parent() != nullptr)
         SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetLocalPosition(mousePos);
       else
         SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetPosition(mousePos);
-
+      scale = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetScale();
       break;
 
     default:
       break;
     }
         
-    api.DrawRect(location, scale * 1.1f);
+    api.DrawRect(mousePos, scale * 1.1f);
   }
 
   auto entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
