@@ -52,7 +52,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     return;
   }
   glm::vec2 preserved = NewPosition;
-  glm::vec2 moveVec = (NewPosition - OldPosition) * 10.f;
+  glm::vec2 moveVec = (NewPosition - OldPosition) * mover->Width();
   glm::vec2 testPoint1 = OldPosition + MOffset;
   glm::vec2 testPoint2 = OldPosition - MOffset;
 
