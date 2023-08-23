@@ -63,7 +63,8 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
 
   }
   float distance = glm::distance(preserved, OldPosition);
-  std::cout << distance << std::endl;
+  if (distance > 1.25)
+    return;
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
   if (std::abs(preserved.x - WallPos.x) >= MOffset.x + WOffset.x) return;
   if (std::abs(preserved.y - WallPos.y) >= MOffset.y + WOffset.y) return;
