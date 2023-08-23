@@ -42,12 +42,16 @@ void Transform::Update(void)
 }
 
 void Transform::SetPosition(glm::vec2 const& position) {
-  pos = position + localPos;
-
-  std::vector<Entity*>& chilen = GetParent()->GetChildren();
-  for (auto& e : chilen) 
+  if (GetParent()->Parent() != nullptr)
+    localPos = position;
+  else 
   {
-    e->GetComponent<Transform>()->SetPosition(pos);
+    pos = position + localPos;
+    std::vector<Entity*>& chilen = GetParent()->GetChildren();
+    for (auto& e : chilen) 
+    {
+      e->GetComponent<Transform>()->SetPosition(pos);
+    } 
   }
 }
 

@@ -19,6 +19,7 @@ void EditorSystem::Update()
 
   glm::vec2 location = {};
   glm::vec2 scale = {};
+  glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() });
   if (Selected)
   {
     switch (SelectedOBJ.type)
@@ -26,6 +27,7 @@ void EditorSystem::Update()
     case entity:
       location = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetPosition();
       scale = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetScale();
+      SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetPosition(mousePos);
       break;
 
     default:
@@ -36,7 +38,6 @@ void EditorSystem::Update()
   }
 
   auto entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
-  glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() });
   std::cout << mousePos << std::endl;
   for (auto const& e : entities) 
   {
@@ -59,7 +60,6 @@ void EditorSystem::Update()
   if (InputSystem::MouseDown() == false)
     Selected = false;
 
-  std::cout << Selected << "," << SelectedOBJ.OBJ.e << std::endl;
-     
+  //std::cout << Selected << "," << SelectedOBJ.OBJ.e << std::endl;
 }
 
