@@ -21,6 +21,17 @@ typedef struct line
   glm::vec2 point2;
 }line;
 
+bool PointCollideRect(glm::vec2 point, RectCollider* rect) 
+{
+  glm::vec2 WallPos = rect->GetParent()->GetComponent<Transform>()->GetPosition();
+
+  if (std::abs(point.x - WallPos.x) >= rect->Width() /2.0f) return false;
+  if (std::abs(point.y - WallPos.y) >= rect->Height() / 2.0f) return false;
+  return true;
+}
+
+
+
 void RectangleCollision(Collider* rect1, Collider* rect2) 
 {
 
@@ -42,14 +53,19 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   }
   glm::vec2 preserved = NewPosition;
   glm::vec2 moveVec = (NewPosition - OldPosition);
-  glm::vec2 testPoint = OldPosition;
-  testPoint += moveVec;
-  if (std::abs(testPoint.y - WallPos.y) > MOffset.y + WOffset.y == false)
-    preserved.y = OldPosition.y;
-  if (std::abs(testPoint.x - WallPos.x) >= MOffset.x + WOffset.x == false)
+  glm::vec2 testPoint1 = OldPosition + MOffset;
+  glm::vec2 testPoint2 = OldPosition - MOffset;
+
+  testPoint1.x += moveVec.x;
+  testPoint2.x += moveVec.x;
+  if (PointCollideRect(testPoint1, wall) || PointCollideRect(testPoint2, wall))
     preserved.x = OldPosition.x;
-
-
+  testPoint1.x -= moveVec.x;
+  testPoint2.x -= moveVec.x;
+  testPoint1.y += moveVec.y;
+  testPoint2.y += moveVec.y;
+  if (PointCollideRect(testPoint1, wall) || PointCollideRect(testPoint2, wall))
+    preserved.y = OldPosition.y;
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
 
 
