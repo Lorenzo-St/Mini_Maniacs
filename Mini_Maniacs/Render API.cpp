@@ -136,10 +136,19 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   
 }
 
+glm::vec2 RenderFront::ConvertToWorldSpace(glm::vec2 const& cl) 
+{
+  const glm::mat4x4 proj = glm::ortho<float>(-Width + c.pos.x , Width + c.pos.x, -Height + c.pos.y, Height + c.pos.y);
+  
+
+  return cl;
+}
+
+
 void RenderFront::DrawRect(glm::vec2 pos, glm::vec2 scale) const
 {
   std::array<SDL_Vertex, 6> rect = {};
-  const glm::mat4x4 proj = glm::ortho<float>(-Width * 1.0f, Width * 1.0f, -Height * 1.0f, Height * 1.0f);
+  const glm::mat4x4 proj = glm::ortho<float>(-Width + c.pos.x, Width + c.pos.x, -Height + c.pos.y, Height + c.pos.y);
 
   rect[0].position = { pos.x - scale.x / 2.0f, pos.y - scale.y / 2.0f };
   rect[1].position = { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f };
