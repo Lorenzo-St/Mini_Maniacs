@@ -27,7 +27,11 @@ void EditorSystem::Update()
     case entity:
       location = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetPosition();
       scale = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetScale();
-      SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetPosition(mousePos);
+      if(SelectedOBJ.OBJ.e->Parent() != nullptr)
+        SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetLocalPosition(mousePos);
+      else
+        SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetPosition(mousePos);
+
       break;
 
     default:
