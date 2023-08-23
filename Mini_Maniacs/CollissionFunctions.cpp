@@ -61,6 +61,7 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
   if (std::abs(NewPosition.x - WallPos.x) >= MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) >= MOffset.y + WOffset.y) return;
+  preserved.x = NewPosition.x;
   if (moveVec.y != 0)
   {
     preserved.y = WallPos.y + ((WOffset.y + MOffset.y) * ((moveVec.y < 0) ? 1.f : -1.f));
