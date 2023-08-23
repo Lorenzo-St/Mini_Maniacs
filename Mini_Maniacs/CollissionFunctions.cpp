@@ -54,6 +54,16 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   glm::vec2 preserved = NewPosition;
   glm::vec2 moveVec = (NewPosition - OldPosition);
 
+  if (moveVec.x != 0) 
+  {
+    if (OldPosition.x > WallPos.x && moveVec.x < 0)
+      preserved.x = WallPos.x + ((WOffset.x + MOffset.x) * 1.f);
+    else if (OldPosition.x < WallPos.x && moveVec.x > 0)
+      preserved.x = WallPos.x + ((WOffset.x + MOffset.x) * -1.f);
+  }
+  rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
+  if (std::abs(preserved.x - WallPos.x) >= MOffset.x + WOffset.x) return;
+  if (std::abs(preserved.y - WallPos.y) >= MOffset.y + WOffset.y) return;
   if (moveVec.y != 0)
   {
     if(OldPosition.y > WallPos.y && moveVec.y < 0)
@@ -61,13 +71,6 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
     else if(OldPosition.y < WallPos.y && moveVec.y > 0)
       preserved.y = WallPos.y + ((WOffset.y + MOffset.y) * -1.f);
 
-  }
-  rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
-  if (std::abs(preserved.x - WallPos.x) >= MOffset.x + WOffset.x) return;
-  if (std::abs(preserved.y - WallPos.y) >= MOffset.y + WOffset.y) return;
-  if (moveVec.x != 0) 
-  {
-    preserved.x = WallPos.x + ((WOffset.x + MOffset.x) * ((moveVec.x < 0) ? 1.f : -1.f));
   }
   rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
 
