@@ -46,6 +46,9 @@ void EditorSystem::Update()
     Entity* a = proto.GetCollection()[0];
     std::string path = "./Entities/" + a->getProto() + ".dat";
     std::ofstream s(path);
+    if (s.good() == false || s.is_open() == false)
+      throw std::runtime_error("bbaababa");
+
     a->Write(&s);
     s.flush();
     s.close();
