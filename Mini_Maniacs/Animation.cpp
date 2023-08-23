@@ -67,7 +67,7 @@ void Animation::Write(std::ofstream* s)
 	*s << frameLength << "\n";
 	*s << "<frameLength>\n";
 	*s << frameLength << "\n";
-
+	*s << "<Animation>\n";
 }
 
 
