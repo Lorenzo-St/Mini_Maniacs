@@ -32,7 +32,7 @@ void EditorSystem::Update()
       break;
     }
         
-    api.DrawRect(location, scale);
+    api.DrawRect(location, scale * 1.15f);
   }
 
   auto entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
