@@ -128,7 +128,7 @@ void InputSystem::MouseEvent(SDL_Event event)
       else if (event.button.button == 3)
         instance->RMouseDown = true;
 
-#if _DEBUG && 1
+#if _DEBUG && 0
       std::cout << "Pressed: " << static_cast<int>(event.button.button) << std::endl;
 #endif
       break;
@@ -137,7 +137,7 @@ void InputSystem::MouseEvent(SDL_Event event)
         instance->LMouseDown = false;
       else if (event.button.button == 3)
         instance->RMouseDown = false;
-#if _DEBUG && 1
+#if _DEBUG && 0
       std::cout << "Released: " << static_cast<int>(event.button.button) << std::endl;
 #endif
       break;
