@@ -39,7 +39,7 @@ void EditorSystem::Update()
   for (auto const& e : entities) 
   {
     Transform* t = e->GetComponent<Transform>();
-    glm::vec2 mousePos = { InputSystem::GetMouseX(), InputSystem::GetMouseY() };
+    glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() });
     glm::vec2 eScale = t->GetScale();
     glm::vec2 ePos = t->GetPosition();
     if (PointInRect(mousePos, ePos, eScale) )
