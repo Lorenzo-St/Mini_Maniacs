@@ -14,12 +14,30 @@ bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
   return true;
 }
 
+EditorSystem::EditorSystem() 
+{
+  InputSystem::addBinding(Save, { SDLK_s });
+  InputSystem::addBinding(GridLock, { SDLK_l });
+
+}
+
+
 void EditorSystem::Update() 
 {
 
   glm::vec2 location = {};
   glm::vec2 scale = {};
   glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() });
+  if (InputSystem::isPressed(GridLock))
+    GridLocked = true;
+  else
+    GridLocked = false;
+
+  if (GridLocked) 
+  {
+    mousePos = glm::roundEven(mousePos / 16.0f) * 16.0f;
+  }
+
   if (Selected)
   {
     switch (SelectedOBJ.type)

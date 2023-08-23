@@ -8,6 +8,10 @@ typedef enum InputActions
   PosX,
   NegX,
   Jump,
+#ifdef EDITOR
+  Save,
+  GridLock,
+#endif
 
 }Action;
 

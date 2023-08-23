@@ -25,7 +25,7 @@ class EditorSystem : public System
 {
 
 public:
-  
+  EditorSystem();
   void Update();
   
 
@@ -33,8 +33,8 @@ private:
   EditorSystem* Clone() { return nullptr; };
   
   Scene* activeScene;
-  bool Selected;
-  
+  bool Selected = false;
+  bool GridLocked = false;
   SelectOBJ SelectedOBJ;
 };
 
