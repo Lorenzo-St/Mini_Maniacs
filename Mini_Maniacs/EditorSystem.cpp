@@ -42,7 +42,6 @@ void EditorSystem::Update()
   }
 
   auto entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
-  std::cout << mousePos << std::endl;
   for (auto const& e : entities) 
   {
     Transform* t = e->GetComponent<Transform>();
