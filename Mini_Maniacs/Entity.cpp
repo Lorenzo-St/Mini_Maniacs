@@ -95,6 +95,7 @@ void Entity::Write(std::ofstream* s)
   *s << toString(tag) << "\n";
   for (auto& c : components)
     c->Write(s);
+  *s << std::endl;
 }
 
 void Entity::Read(Stream* s) 
