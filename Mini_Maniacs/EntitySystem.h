@@ -33,6 +33,10 @@ public:
   Entity* FindWithName(const char* name);
   Entity* FindWithTag( Tags tag);
 
+#ifdef EDITOR
+  Container<Entity>& EditorGetAllActiveEntities() { return activeScene; }
+  Container<Entity>& EditorGetAllPrototypeEntities() { return activeScene; };
+#endif
 
   void DestroyAll(void);
   static constexpr EntitySystem& GetActive(void) { return *active; }

@@ -1,19 +1,18 @@
 #include <iostream>
 #include <string>
-#define Editor 0 
 #include "SDL.h"
 #include "Backend.h"
 #include "Engine.h"
 #include "SceneSystem.h"
 #include "CollisionLedger.h"
 #include "EntitySystem.h"
-#if Editor
+#ifdef EDITOR
 #include "EditorSystem.h"
 #endif
 int main(int argc, char* argv[])
 {
   Engine engine;
-#if Editor
+#ifdef EDITOR
   engine.addSystem(new  EditorSystem());
 
 #endif
