@@ -28,7 +28,7 @@ void EditorSystem::Update()
       location = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetPosition();
       scale = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetScale();
       if(SelectedOBJ.OBJ.e->Parent() != nullptr)
-        SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetPosition(mousePos);
+        SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetLocalPosition(mousePos);
       else
         SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetPosition(mousePos);
 

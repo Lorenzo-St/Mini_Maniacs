@@ -29,7 +29,8 @@ public:
   void SetScale(glm::vec2 const& scal) { scale = scal; }
   void SetRotation(float rotation) { rot = rotation; }
 
-  void SetLocalPosition(glm::vec2 const& posi) { localPos = posi; }
+  void SetLocalPosition(glm::vec2 const& posi) { localPos = posi; UpdatePos(); }
+
   glm::vec2 const& GetLocalPosition() { return localPos; }
 
 
@@ -40,6 +41,8 @@ private:
   constexpr bool set() { setType(__CLASS_NAME__); return true; };
   const bool s = set();
   // -------------------------
+
+  void UpdatePos();
 
   glm::vec2 pos = {};
   glm::vec2 localPos = {0,0};
