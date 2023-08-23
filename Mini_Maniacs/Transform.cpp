@@ -43,7 +43,7 @@ void Transform::Update(void)
 
 void Transform::UpdatePos()
 {
-  pos = GetParent()->GetComponent<Transform>()->GetPosition() + localPos;
+  pos = dynamic_cast<Entity*>(GetParent()->Parent())->GetComponent<Transform>()->GetPosition() + localPos;
 }
 
 void Transform::SetPosition(glm::vec2 const& position) {
