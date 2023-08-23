@@ -47,6 +47,8 @@ void EditorSystem::Update()
 
     std::ofstream s("./Entities/" + a->getProto() + ".dat");
     a->Write(&s);
+    s.flush();
+    s.close();
   }
 
   if (Selected)
