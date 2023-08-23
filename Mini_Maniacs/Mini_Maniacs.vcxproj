@@ -222,8 +222,8 @@ git push</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
-xcopy"$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
-xcopy"$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
+xcopy "$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
+xcopy "$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
 git add -A
 git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
 git push</Command>
@@ -249,8 +249,8 @@ git push</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
-xcopy"$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
-xcopy"$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
+xcopy "$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
+xcopy "$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
 git add -A
 git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
 git push</Command>
@@ -280,8 +280,8 @@ git push</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
-xcopy"$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
-xcopy"$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
+xcopy "$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
+xcopy "$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
 git add -A
 git commit -am "Succesful $(ConfigurationName) build on $(Platform)"
 git push</Command>
