@@ -1,5 +1,6 @@
 #include "Sprite.h"
 #include "Stream.h"
+#include "Textures.h"
 void Sprite::Read(Stream* s) 
 {
   // <Sprite>
@@ -18,4 +19,13 @@ void Sprite::Read(Stream* s)
       break;
   }
 }
+
+void Sprite::Write(std::ostream* s) 
+{
+  *s << "<Sprite>\n";
+  *s << "<Texture>\n";
+  *s << t->name() << "\n";
+  *s << "</Sprite>\n";
+}
+
 

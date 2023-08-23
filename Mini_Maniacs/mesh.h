@@ -22,6 +22,8 @@ public:
   void Draw(void) const;
   void Draw(void);
 
+  void Write(std::ofstream* s) const;
+
   void Destroy(void) { delete this; }
   mesh() {  };
   mesh(mesh const& m) { verticies = std::vector<SDL_Vertex>(m.verticies); }

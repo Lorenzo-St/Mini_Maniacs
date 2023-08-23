@@ -13,6 +13,19 @@ void StagePallet::SetPallet(int pallet, Animation* s)
   s->Offset(newOffset);
 }
 
+void StagePallet::Write(std::ofstream* s) 
+{
+  *s << "<StagePallet>\n";
+  for (auto& p : pallets) 
+  {
+    *s << "<PalletInfo>\n";
+    *s << p.spriteOffset.x << " " << p.spriteOffset.y << "\n";
+    *s << p.totalTiles << "\n";
+  }
+  *s << "</StagePallet>\n";
+}
+
+
 void StagePallet::Read(Stream* s) 
 {
   std::string token;

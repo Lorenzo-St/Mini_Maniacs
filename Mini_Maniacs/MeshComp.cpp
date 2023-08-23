@@ -28,6 +28,13 @@ void Mesh::Render(void)
   }
 }
 
+void Mesh::Write(std::ofstream* s)
+{
+  *s << "<Mesh>\n";
+   m->Write(s);
+  *s << "</Mesh>\n";
+};
+
 void Mesh::Read(Stream* s) 
 {
   // In file order, 

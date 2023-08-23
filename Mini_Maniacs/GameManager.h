@@ -25,6 +25,7 @@ public:
   void OnUpdate();
   void OnExit();
 
+  void Write(std::ofstream* s);
   void Read(Stream* s);
 private:
   // -------------------------

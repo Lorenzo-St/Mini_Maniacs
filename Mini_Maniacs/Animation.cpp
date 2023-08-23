@@ -50,6 +50,27 @@ void Animation::Read(Stream* s)
 	}
 }
 
+void Animation::Write(std::ofstream* s) 
+{
+	*s << "<Animation>\n";
+	*s << "<frameLength>\n";
+	*s << frameLength << "\n";
+
+	*s << "<maxFrames>\n";
+	*s << maxFrame << "\n";
+
+	*s << "<looping>\n";
+	*s << looping << "\n";
+	*s << "<offset>\n";
+	*s << frameOffset.x << " " << frameOffset.y << "\n";
+	*s << "<frameLength>\n";
+	*s << frameLength << "\n";
+	*s << "<frameLength>\n";
+	*s << frameLength << "\n";
+
+}
+
+
 void Animation::Update(void) 
 {
 	frameTime -= Time.deltaTime();

@@ -11,7 +11,9 @@ public:
   RectCollider() { }
   RectCollider(RectCollider const* r) : Collider(r), w(r->w), h(r->h) { return; };
   RectCollider* Clone() { return new RectCollider(this); };
+  
   void Read(Stream* s);
+  void Write(std::ofstream* s);
 
   float Width() { return w; }
   float Height() { return h; }

@@ -14,6 +14,7 @@ public:
   Physics* Clone() { return new Physics(this); };
   
   void Read(Stream* s);
+  void Write(std::ofstream* s);
   void Update(void);
 
   void setGravity(float g) { Gravity = { 0, g }; }

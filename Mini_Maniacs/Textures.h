@@ -10,7 +10,7 @@ public:
   {
     return t;
   }
-  std::string const& name() 
+  std::string const& name() const 
   {
     return n;
   }
@@ -18,11 +18,11 @@ public:
   {
     n = s;
   }
-  int Width()
+  int Width() const
   {
     return w;
   }
-  int Height()
+  int Height() const
   {
     return h;
   }

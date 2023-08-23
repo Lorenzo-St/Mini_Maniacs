@@ -3,7 +3,7 @@
 #include <glm.hpp>
 static std::ostream& operator<<(std::ostream& o, glm::vec2 vec)
 {
-  o << "( " << vec.x << " ," << vec.y << " )";
+  o  << vec.x << " " << vec.y;
   return o;
 }
 
@@ -17,7 +17,8 @@ public:
 
   void Read(Stream* s);
   void Update(void);
-  
+  void Write(std::ofstream* s);
+
 
   glm::vec2 const& GetPosition(void) { return pos; };
 

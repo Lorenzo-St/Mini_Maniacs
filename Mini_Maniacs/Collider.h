@@ -14,6 +14,7 @@ public:
   Collider* Clone() { return new Collider(this); };
   Collider(Collider const* c) { ColliderType = c->ColliderType; isTrigger = c->isTrigger; }
   void Read(Stream* s);
+  void Write(std::ofstream* s);
   constexpr void SetType(type t) { ColliderType = t; }
   bool IsTrigger() { return isTrigger; }
 

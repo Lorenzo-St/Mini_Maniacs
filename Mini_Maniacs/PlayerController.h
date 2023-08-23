@@ -27,6 +27,8 @@ public:
   void OnExit();
 
   void Read(Stream* s);
+  void Write(std::ofstream* s);
+
   void OnCollision(Entity* other);
 private:
   // -------------------------

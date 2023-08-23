@@ -31,6 +31,9 @@ public:
   void Render(void);
   void Exit(void);
 
+  void Write(std::ofstream* s);
+
+
   void OnCollison(Entity* other) { for (auto c : components) { c->OnCollision(other); } }
 
   void SetName(std::string s) { name = std::string(s); }
@@ -38,6 +41,7 @@ public:
 
   void setProto(std::string s) { protoType = std::string(s); }
   bool isProto(std::string s) { return protoType == s; }
+  std::string const& getProto() { return protoType; }
 
   bool isStatic(void);
 

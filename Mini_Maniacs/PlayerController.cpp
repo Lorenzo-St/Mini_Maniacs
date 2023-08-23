@@ -80,6 +80,20 @@ void PlayerController::Read(Stream* s)
   }
 }
 
+void PlayerController::Write(std::ofstream* s) 
+{
+  *s << "<PlayerController>\n";
+  *s << "<JumpSpeed>\n";
+  *s << jumpSpeed << "\n";
+  *s << "<MoveSpeed>\n";
+  *s << moveSpeed << "\n";
+  *s << "<fallSpeed>\n";
+  *s << fallSpeed << "\n";
+  *s << "<gravity>\n";
+  *s << gravity << "\n";
+  *s << "</PlayerController>\n";
+}
+
 void PlayerController::OnCollision(Entity* other) 
 {
   if (other->Tag() == Ground)

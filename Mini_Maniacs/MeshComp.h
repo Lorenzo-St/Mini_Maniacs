@@ -9,6 +9,8 @@ public:
   Mesh(Mesh const* ml) : m(ml->m), matrix(ml->matrix) {  }
   Mesh* Clone() { return new Mesh(this); };
   void Read(Stream* s);
+  void Write(std::ofstream* s);
+
   void Render(void);
   
   void SetMesh(mesh* me) { m = me; };

@@ -35,6 +35,20 @@ void RectCollider::Read(Stream* s)
 
 };
 
+void RectCollider::Write(std::ofstream* s) 
+{
+  *s << "<RectCollider>\n";
+  *s << "<Collider>\n";
+  Collider::Write(s);
+  *s << "<Width>\n";
+  *s << w << "\n";
+  *s << "<Height>\n";
+  *s << h << "\n";
+  *s << "</RectCollider>\n";
+
+   
+}
+
 
 
 void RectCollider::CheckCollision(Collider* other)

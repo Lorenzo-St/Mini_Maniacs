@@ -17,8 +17,9 @@ public:
   virtual void OnDestroy(void) { return; };
   virtual void OnAwake(void) { return; };
   virtual void Read(Stream* s) {};
+  virtual void Write(std::ofstream* s) { return; };
+  
   virtual Object* Clone() = 0;
-
   virtual void CheckClass() { std::cout << typeid(*this).name() << std::endl; }
 
   void SetActive(bool b) { Active = b; }

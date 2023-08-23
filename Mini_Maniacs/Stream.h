@@ -18,6 +18,10 @@ public:
   SDL_Color ReadColor(void);
   
   std::string ReadString(void);
+
+
+
+
 private:
   std::ifstream fileStream;
 };

@@ -14,3 +14,11 @@ void Collider::Read(Stream* s)
   }
 
 };
+
+void Collider::Write(std::ofstream* s) 
+{
+  *s << "<Collider>\n";
+  *s << "<isTrigger>\n";
+  *s << isTrigger << "\n";
+  *s << "</Collider>\n";
+}

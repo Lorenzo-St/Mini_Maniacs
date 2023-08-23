@@ -9,6 +9,7 @@ public:
   Animation(Animation const* ml);
   Animation* Clone() { return new Animation(this); };
   void Read(Stream* s);
+  void Write(std::ofstream* s);
   void Update(void);
   void Init(void) { UpdateMesh(); frameTime = frameLength; }
 

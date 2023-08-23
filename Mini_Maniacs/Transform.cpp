@@ -36,6 +36,19 @@ void Transform::Read(Stream* s)
   }
 }
 
+void Transform::Write(std::ofstream* s) 
+{
+  *s << "<Transform>\n";
+  *s << "<Position>\n";
+  *s << pos << "\n";
+  *s << "<Rotation>\n";
+  *s << rot << "\n";
+  *s << "<Scale>\n";
+  *s << scale << "\n";
+  *s << "</Transform>\n";
+};
+
+
 void Transform::Update(void)
 {
 

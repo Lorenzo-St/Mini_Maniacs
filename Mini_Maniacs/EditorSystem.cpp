@@ -4,7 +4,8 @@
 #include "Backend.h"
 #include "EntitySystem.h"
 #include "Container.h"
-
+#include <iostream>
+#include <fstream>
 
 bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
 {
@@ -38,6 +39,16 @@ void EditorSystem::Update()
     mousePos = glm::roundEven(mousePos / 16.0f) * 16.0f;
   }
 
+  if (InputSystem::isPressed(Save)) 
+  {
+    auto& proto = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
+    
+    Entity* a = proto.GetCollection()[0];
+
+    std::ofstream s(a->getProto());
+    a->Write(&s);
+  }
+
   if (Selected)
   {
     switch (SelectedOBJ.type)
@@ -57,7 +68,7 @@ void EditorSystem::Update()
     api.DrawRect(mousePos, scale * 1.1f);
   }
 
-  auto entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
+  auto& entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
   for (auto const& e : entities) 
   {
     Transform* t = e->GetComponent<Transform>();
