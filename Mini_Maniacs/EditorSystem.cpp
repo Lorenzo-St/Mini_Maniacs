@@ -6,7 +6,7 @@
 #include "Container.h"
 #include <iostream>
 #include <fstream>
-
+#include <filesystem>
 bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
 {
 
@@ -44,7 +44,7 @@ void EditorSystem::Update()
     auto& proto = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
     
     Entity* a = proto.GetCollection()[0];
-    std::string path = "Entities\\" + a->getProto() + ".dat";
+    std::string path = std::filesystem::current_path().string() + "Entities\\" + a->getProto() + ".dat";
     std::ofstream s(path.c_str());
     if (s.good() == false || s.is_open() == false)
       throw std::runtime_error("bbaababa");
