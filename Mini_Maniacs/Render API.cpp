@@ -139,7 +139,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 glm::vec2 RenderFront::ConvertToWorldSpace(glm::vec2 const& cl) 
 {
   const glm::mat4x4 proj = glm::ortho<float>(-Width + c.pos.x , Width + c.pos.x, -Height + c.pos.y, Height + c.pos.y);
-  return (glm::vec2(glm::vec4(cl, 0,1) * proj) * glm::vec2(Width, -Height) + glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y));
+  return glm::vec4((cl - glm::vec2(Width / 2.0f + c.pos.x, Height / 2.0f + c.pos.y)) / glm::vec2(Width, -Height), 0, 1) * glm::inverse(proj);
 }
 
 
