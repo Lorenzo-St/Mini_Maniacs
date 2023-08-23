@@ -44,8 +44,8 @@ void EditorSystem::Update()
     auto& proto = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
     
     Entity* a = proto.GetCollection()[0];
-
-    std::ofstream s("./Entities/" + a->getProto() + ".dat");
+    std::string path = "./Entities/" + a->getProto() + ".dat";
+    std::ofstream s(path);
     a->Write(&s);
     s.flush();
     s.close();
