@@ -138,7 +138,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 
 glm::vec2 RenderFront::ConvertToWorldSpace(glm::vec2 const& cl) 
 {
-  auto a = glm::vec2(cl.x - Width / 2.0f, -cl.y + Height / 2.0f) / zoom;
+  auto a = glm::vec2(cl.x/zoom - Width / 2.0f, -cl.y/zoom + Height / 2.0f);
   return a;
 }
 
