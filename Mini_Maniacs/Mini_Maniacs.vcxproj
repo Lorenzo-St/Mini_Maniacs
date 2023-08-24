@@ -222,7 +222,7 @@ git push</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)SDL2_ttf\lib\SDL2_ttf.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)SDL2_TTF\lib\SDL2_ttf.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
 xcopy "$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
 git add -A
@@ -250,7 +250,7 @@ git push</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)SDL2_ttf\lib\SDL2_ttf.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)SDL2_TTF\lib\SDL2_ttf.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
 xcopy "$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
 git add -A
@@ -282,7 +282,7 @@ git push</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)SDL2\lib\$(Platform)\$(ConfigurationName)\SDL2.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)SDL2_ttf\lib\SDL2_ttf.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)SDL2_TTF\lib\SDL2_ttf.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(ProjectDir)Assets\" "$(OutDir)Assets\" /s /r /y /q
 xcopy "$(ProjectDir)Managed\" "$(OutDir)Managed\" /s /r /y /q
 git add -A
