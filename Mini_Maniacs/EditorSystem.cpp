@@ -97,7 +97,6 @@ void EditorSystem::DrawSelectedInfo(void)
   std::stringstream s;
   s << "Position : " << t->GetPosition();
   text = s.str();
-  std::cout << text << std::endl;
   api.SetColor({ 0,0,0,255 });
   api.DrawText(text.c_str(), topCorner, 20);
 
