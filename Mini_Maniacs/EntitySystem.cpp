@@ -146,10 +146,8 @@ Entity* EntitySystem::CreateEntity(const char* archetypeName)
 
   Entity* e = archi->Clone();
   AddEntity(e);
-#ifndef EDITOR
   e->Awake();
   e->Init();
-#endif
   return e;
 }
 
