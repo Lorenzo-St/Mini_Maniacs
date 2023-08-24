@@ -88,12 +88,20 @@ void EditorSystem::DeleteEntity()
   SelectedOBJ.OBJ.e = nullptr;
 }
 
-void EditorSystem::DrawSelectedInfo() 
+void EditorSystem::DrawSelectedInfo(void) 
 {
-  
+  glm::vec2 topCorner = { api.GetWindowWidth() / 2.0f * .8f, api.GetWindowHeight() * .8f };
+  Transform* t = SelectedOBJ.OBJ.e->GetComponent<Transform>();
+  std::string text;
+  std::stringstream s;
+  s << "Position : " << t->GetPosition();
+  text = s.str();
+  api.SetColor({ 0,0,0,255 });
+  api.DrawText(text.c_str(), topCorner, 20);
+
 }
 
-void EditorSystem::Update() 
+void EditorSystem::Update(void) 
 {
   activeScene = Scene::getSceneSystem()->EditorGetActive();
   glm::vec2 location = {};

@@ -1,5 +1,6 @@
 #pragma once
 #include "SDL.h"
+#include "Fonts.h"
 #include "glm.hpp"
 #include <vector>
 #include "Time.h"
@@ -21,9 +22,14 @@ public:
   void Draw(std::vector<SDL_Vertex> const& mesh) const;
   void DrawRect(glm::vec2 pos, glm::vec2 scale) const;
   void DrawEllipse(glm::vec2 pos, float rad) const;
+  
   void SetMatrix(glm::mat4x4 const& matrix);
   void SetMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
   void MoveMatrixData(glm::vec2 pos, glm::vec2 scale, float rotation);
+
+  // Text
+  void DrawText(const char* text, glm::vec2 pos, int size);
+  void LoadFont(const char* path);
 
   void SetTexture(Texture const* texture);
   void SetUVMatrix(glm::mat4x4 const& matrix) { UVmatrix = matrix; }
@@ -39,6 +45,7 @@ public:
   void MoveCamera(SDL_FPoint const& p) { c.pos = p; }
 
   glm::vec2 ConvertToWorldSpace(glm::vec2 const& c);
+  glm::vec2 ConvertToScreenSpace(glm::vec2 const& cl);
 
 
   // Window Stuff
@@ -68,7 +75,7 @@ private:
   Texture const* activeTexture = nullptr;
   SDL_Color ActiveColor{255,255,255,255};
   SDL_Color ClearColor{0,255,0,255};
-  
+  FontInfo* activeFont = nullptr;
   glm::mat4x4 renderMatrix = glm::mat4x4(1.0f);
   glm::mat4x4 UVmatrix = glm::mat4x4(1.0f);
 };

@@ -186,6 +186,9 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Source Files\Engine Code\System\SceneSystem</Filter>
     </ClCompile>
+    <ClCompile Include="Fonts.cpp">
+      <Filter>Source Files\Render Backend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render API.h">
@@ -301,6 +304,9 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Source Files\Engine Code\System\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Fonts.h">
+      <Filter>Source Files\Render Backend</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

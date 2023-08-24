@@ -55,6 +55,7 @@ void RenderFront::Init(void)
 #endif
   timeMarker = Timer::clock::now();
   Textures.SetRenderer(renderer);
+  TTF_Init();
 }
 
 void RenderFront::Shutdown(void) 
@@ -139,6 +140,11 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 glm::vec2 RenderFront::ConvertToWorldSpace(glm::vec2 const& cl) 
 {
   return  glm::vec2(cl.x - Width / 2.0f, -cl.y + Height / 2.0f) / zoom;
+}
+
+glm::vec2 RenderFront::ConvertToScreenSpace(glm::vec2 const& cl)
+{
+  return  glm::vec2(cl.x + Width / 2.0f, -cl.y + Height / 2.0f) * zoom;
 }
 
 
@@ -235,5 +241,32 @@ void RenderFront::SetTexture(Texture const* texture)
 mesh* RenderFront::CreateMesh(void) 
 { 
   return new mesh(); 
+}
+
+void RenderFront::DrawText(const char* text, glm::vec2 pos, int size) 
+{
+  TTF_SetFontSize(activeFont->font, size);
+  SDL_Rect rect = { pos.x, pos.y };
+  TTF_SizeText(activeFont->font, text, &rect.w, &rect.h);
+  rect.x -= rect.w / 2.0f;
+  rect.y += rect.h / 2.0f;
+  pos = ConvertToScreenSpace({ rect.x, rect.y });
+  rect.x = pos.x;
+  rect.y = pos.y;
+  SDL_Surface* surface = TTF_RenderText_Solid(activeFont->font, text, ActiveColor);
+
+  SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surface);
+
+  SDL_RenderCopy(renderer, message, nullptr, &rect);
+}
+
+void RenderFront::LoadFont(const char* path) 
+{
+  FontInfo* f = Fonts::FetchFont(path);
+  if (f == nullptr)
+  {
+    f = Fonts::LoadFont(path);
+  }
+  activeFont = f;
 }
 
