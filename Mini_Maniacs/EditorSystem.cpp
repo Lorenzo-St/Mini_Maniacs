@@ -41,6 +41,7 @@ void EditorSystem::Update()
 
   if (InputSystem::isTriggered(Save)) 
   {
+    // Write out each prototype 
     auto& proto = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
     for (auto& e : proto.GetCollection()) 
     {
@@ -55,6 +56,9 @@ void EditorSystem::Update()
       std::cout << "Wrote Out Prototype: " << e->getProto() << std::endl;
     }
     
+
+
+
   }
 
   if (Selected)

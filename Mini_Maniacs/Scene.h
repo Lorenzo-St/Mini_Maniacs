@@ -28,7 +28,12 @@ public:
   SceneSystem* getSceneSystem(void) { return sceneSystem; };
   void name(std::string nl) { n = nl; }
   std::string const& name(void) { return n; }
+#ifdef EDITOR
 
+  void Write(std::ofstream* s);
+#else
+  void Write(std::ofstream* s) { return; }
+#endif
   void ReadFile(const char* c);
 private:
   void Render(void) {};

@@ -34,6 +34,11 @@ void Transform::Read(Stream* s)
     else if (token == "</Transform>")
       break;
   }
+
+#ifdef EDITOR
+  startingPos = pos;
+#endif 
+
 }
 
 void Transform::Write(std::ofstream* s) 

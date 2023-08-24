@@ -34,6 +34,11 @@ public:
 
   glm::vec2 const& GetLocalPosition() { return localPos; }
 
+#ifdef EDITOR
+  glm::vec2 const& StartingPosition() { return startingPos; }
+  void StartingPosition(glm::vec2 const& s) { startingPos = s; }
+#endif
+
 
 private:
   // -------------------------
@@ -49,4 +54,7 @@ private:
   glm::vec2 localPos = {0,0};
   glm::vec2 scale = {};
   float rot = 0;
+#ifdef EDITOR
+  glm::vec2 startingPos = {};
+#endif
 };

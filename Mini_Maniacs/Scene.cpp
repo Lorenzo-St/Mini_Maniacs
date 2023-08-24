@@ -2,6 +2,28 @@
 #include "Stream.h"
 #include "EntitySystem.h"
 #include "Transform.h"
+#ifdef EDITOR
+#include "Container.h"
+#endif
+
+
+#ifdef EDITOR
+void Scene::Write(std::ofstream* s) 
+{
+  *s << "<Scene>\n" << "<Name>\n" << name() << "\n<Entities>\n";
+  
+  auto& entities = EntitySystem::GetActive().EditorGetAllActiveEntities();
+  for (auto& e : entities.GetCollection()) 
+  {
+    if (e->isPrefabRoot() || e->isPrefabChild())
+      continue;
+    *s << e->getProto() << "\n";
+    *s << "<Position>\n";
+    *s << e->GetComponent<Transform>()->GetPosition() << "\n";
+  }
+
+}
+#endif
 
 void Scene::ReadFile(const char* c)
   {

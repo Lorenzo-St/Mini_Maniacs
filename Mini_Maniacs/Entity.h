@@ -110,11 +110,21 @@ public:
       return static_cast<g*>(components[end]);
     return nullptr;
   };
+
+  void isPrefabRoot(bool f) { PrefabRoot = f; };
+  bool isPrefabRoot(void) { return PrefabRoot; }
+ 
+  void isPrefabChild(bool f) { PrefabChild = f; };
+  bool isPrefabChild(void) { return PrefabChild; }
+
+
 private:
   std::string name;
   std::string protoType;
   std::vector<Component*> components;
   std::vector<Entity*> Children;
+  bool PrefabRoot = false;
+  bool PrefabChild = false;
   static const inline EntitySystem* es;
   Tags tag;
 };

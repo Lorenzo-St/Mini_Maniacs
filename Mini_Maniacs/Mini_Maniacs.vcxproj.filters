@@ -174,9 +174,6 @@
     <ClCompile Include="CollisionLedger.cpp">
       <Filter>Source Files\Engine Code\System\Collision Ledger</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\Engine Code\System</Filter>
-    </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files\Game Code\Behaviors\WorldBehaviors</Filter>
     </ClCompile>
@@ -185,6 +182,9 @@
     </ClCompile>
     <ClCompile Include="StagePallet.cpp">
       <Filter>Source Files\Game Code\Behaviors\WorldBehaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Engine Code\System\SceneSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -214,9 +214,6 @@
     </ClInclude>
     <ClInclude Include="system.h">
       <Filter>Source Files\Engine Code\System</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Source Files\Engine Code</Filter>
     </ClInclude>
     <ClInclude Include="Temp.h">
       <Filter>Source Files\Game Code\Scenes</Filter>
@@ -301,6 +298,9 @@
     </ClInclude>
     <ClInclude Include="StagePallet.h">
       <Filter>Source Files\Game Code\Behaviors\WorldBehaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files\Engine Code\System\SceneSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -74,6 +74,7 @@ Entity* EntitySystem::CreatePrefab(const char* file)
 {
   std::string path = "./Managed/Prefabs/" + std::string(file) + ".dat";
   Entity* prefab = new Entity();
+  prefab->isPrefabRoot(true);
   Stream s = Stream(path.c_str());
   prefab->Read(&s);
   std::string token;
@@ -91,6 +92,7 @@ Entity* EntitySystem::CreatePrefab(const char* file)
         {
           active = CreateEntity(s.ReadString().c_str());
           active->SetParent(prefab);
+          active->isPrefabChild(true);
           prefab->AddChild(active);
         }
         else if (token == "<localPosition>")
@@ -144,8 +146,10 @@ Entity* EntitySystem::CreateEntity(const char* archetypeName)
 
   Entity* e = archi->Clone();
   AddEntity(e);
+#ifndef EDITOR
   e->Awake();
   e->Init();
+#endif
   return e;
 }
 
