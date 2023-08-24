@@ -2,10 +2,10 @@
 #include "Object.hpp"
 
 class SceneSystem;
-
-
-
-
+#ifdef EDITOR
+class Entity;
+#include <vector>
+#endif
 class Scene : public Object 
 {
 public:
@@ -40,6 +40,11 @@ private:
   void Awake(void) {};
   void OnDestroy(void) {};
   void OnAwake(void) {};
+#ifdef EDITOR
+  std::vector<Entity*> entities;
+  std::vector<Entity*> prefabs;
+#endif
+
   Scene* Clone() { return new Scene(); }
   std::string n;
   static inline SceneSystem* sceneSystem;

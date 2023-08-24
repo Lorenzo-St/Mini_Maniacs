@@ -12,14 +12,13 @@ void Scene::Write(std::ofstream* s)
 {
   *s << "<Scene>\n" << "<Name>\n" << name() << "\n<Entities>\n";
   
-  auto& entities = EntitySystem::GetActive().EditorGetAllActiveEntities();
-  for (auto& e : entities.GetCollection()) 
+  for (auto& e : entities) 
   {
     if (e->isPrefabRoot() || e->isPrefabChild())
       continue;
     *s << e->getProto() << "\n";
     *s << "<Position>\n";
-    *s << e->GetComponent<Transform>()->GetPosition() << "\n";
+    *s << e->GetComponent<Transform>()->StartingPosition() << "\n";
   }
 
 }
@@ -53,8 +52,13 @@ void Scene::ReadFile(const char* c)
         }
         else if (token == "<Position>")
           active->GetComponent<Transform>()->SetPosition(s.ReadVector());
-        else
+        else 
+        {
           active = EntitySystem::GetActive().CreateEntity(token.c_str());
+#ifdef EDITOR
+          entities.push_back(active);
+#endif
+        }
       }
       else if (rs == Prefabs) 
       {
@@ -62,8 +66,15 @@ void Scene::ReadFile(const char* c)
         {
           rs = Default;
         }
-        else
-          EntitySystem::GetActive().CreatePrefab(token.c_str());
-      }
+        else 
+        {
+          active = EntitySystem::GetActive().CreatePrefab(token.c_str());
+#ifdef EDITOR
+          prefabs.push_back(active);
+
+#endif
+        
+        }
+        }
     }
   }
