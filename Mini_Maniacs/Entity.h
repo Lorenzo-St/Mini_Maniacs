@@ -38,6 +38,7 @@ public:
 
   void SetName(std::string s) { name = std::string(s); }
   bool isNamed(std::string s) { return name == s; }
+  std::string const& getName() { return name; }
 
   void setProto(std::string s) { protoType = std::string(s); }
   bool isProto(std::string s) { return protoType == s; }

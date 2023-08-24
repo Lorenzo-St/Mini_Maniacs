@@ -80,6 +80,7 @@ Entity* EntitySystem::CreatePrefab(const char* file)
   prefab->isPrefabRoot(true);
   Stream s = Stream(path.c_str());
   prefab->Read(&s);
+  prefab->setProto(prefab->getName());
   std::string token;
   while (true)
   {
