@@ -120,7 +120,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   std::vector<SDL_Vertex> temp = mesh;
   for (auto& vert : temp) 
   {
-    vert.position = convert(glm::vec4(ConvertToScreenSpace(convert(vert.position)) , 0 , 1) * renderMatrix);
+    vert.position = convert((ConvertToScreenSpace(glm::vec4((convert(vert.position)) , 0 , 1) * renderMatrix)));
     vert.tex_coord = convert(glm::vec4(convert(vert.tex_coord), 0, 1) * UVmatrix);
   }
   if(activeTexture)
