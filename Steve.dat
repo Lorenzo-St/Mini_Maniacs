@@ -72,7 +72,7 @@ Player
 </RectCollider>
 <Sprite>
 <Texture>
-Assets/player.png
+/player.png
 </Sprite>
 <Animation>
 <frameLength>
