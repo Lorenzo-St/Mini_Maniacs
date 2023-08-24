@@ -25,14 +25,14 @@ void mesh::Draw(void)
 
 void mesh::Write(std::ofstream* s) const
 {
-  *s << "<Count>\n  ";
-  *s << verticies.size() << "\n ";
-  *s << "<Points>\n  ";
+  *s << "<Count>\n   ";
+  *s << verticies.size() << "\n  ";
+  *s << "<Points>\n   ";
   for (auto& a : verticies) 
   {
-    *s << a.position.x << " " << a.position.y << "\n  ";
-    *s << static_cast<int>(a.color.r) << " " << static_cast<int>(a.color.g) << " " << static_cast<int>(a.color.b) << " " << static_cast<int>(a.color.a) << "\n  ";
-    *s << a.tex_coord.x << " " << a.tex_coord.y << "\n  ";
+    *s << a.position.x << " " << a.position.y << "\n   ";
+    *s << static_cast<int>(a.color.r) << " " << static_cast<int>(a.color.g) << " " << static_cast<int>(a.color.b) << " " << static_cast<int>(a.color.a) << "\n   ";
+    *s << a.tex_coord.x << " " << a.tex_coord.y << "\n   ";
   }
 
 }

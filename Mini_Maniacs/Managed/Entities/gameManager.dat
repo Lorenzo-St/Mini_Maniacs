@@ -12,15 +12,15 @@ Game_Manager
   16 16
  </Transform>
  <GameManager>
- <ActivePallet>
-  0
- </GameManager>
+  <ActivePallet>
+   0
+  </GameManager>
  <StagePallet>
- <PalletInfo>
-  0 0
-  8
- <PalletInfo>
-  0 2
-  8
- </StagePallet>
+  <PalletInfo>
+   0 0
+   8
+  <PalletInfo>
+   0 2
+   8
+  </StagePallet>
  

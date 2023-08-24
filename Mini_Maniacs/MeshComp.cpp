@@ -30,7 +30,7 @@ void Mesh::Render(void)
 
 void Mesh::Write(std::ofstream* s)
 {
-  *s << "<Mesh>\n ";
+  *s << "<Mesh>\n  ";
    m->Write(s);
   *s << "</Mesh>\n ";
 };

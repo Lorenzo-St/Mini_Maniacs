@@ -22,9 +22,9 @@ void Sprite::Read(Stream* s)
 
 void Sprite::Write(std::ofstream* s) 
 {
-  *s << "<Sprite>\n ";
-  *s << "<Texture>\n  ";
-  *s << t->name().substr(t->name().find('/') + 1) << "\n";
+  *s << "<Sprite>\n  ";
+  *s << "<Texture>\n   ";
+  *s << t->name().substr(t->name().find('/') + 1) << "\n ";
   *s << "</Sprite>\n ";
 }
 

@@ -12,15 +12,15 @@ Player
   16 16
  </Transform>
  <PlayerController>
- <JumpSpeed>
-  50
- <MoveSpeed>
-  50
- <fallSpeed>
-  2.5
- <gravity>
-  0 -49.05
- </PlayerController>
+  <JumpSpeed>
+   50
+  <MoveSpeed>
+   50
+  <fallSpeed>
+   2.5
+  <gravity>
+   0 -49.05
+  </PlayerController>
  <Physics>
  <DoesGravity>
   1
@@ -75,21 +75,21 @@ Player
   player.png
 </Sprite>
  <Animation>
- <frameLength>
-  0.15
- <maxFrames>
-  4
- <looping>
-  1
- <offset>
-  0 0
- <frameLength>
-  0.15
- <frameLength>
-  0.15
- <Columns>
-  2
- <Rows>
-  2
- </Animation>
+  <frameLength>
+   0.15
+  <maxFrames>
+   4
+  <looping>
+   1
+  <offset>
+   0 0
+  <frameLength>
+   0.15
+  <frameLength>
+   0.15
+  <Columns>
+   2
+  <Rows>
+   2
+  </Animation>
  

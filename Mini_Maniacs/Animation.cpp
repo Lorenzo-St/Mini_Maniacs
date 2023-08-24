@@ -69,7 +69,7 @@ void Animation::Write(std::ofstream* s)
 	*s << "<Columns>\n   ";
 	*s << Columns << "\n  ";
 	*s << "<Rows>\n   ";
-	*s << Rows << "\n  ";
+	*s << Rows << "\n ";
 	*s << "</Animation>\n ";
 }
 

@@ -49,21 +49,21 @@ Tile
   tilemap.png
 </Sprite>
  <Animation>
- <frameLength>
-  0.1
- <maxFrames>
-  1
- <looping>
-  0
- <offset>
-  0 0
- <frameLength>
-  0.1
- <frameLength>
-  0.1
- <Columns>
-  4
- <Rows>
-  4
- </Animation>
+  <frameLength>
+   0.1
+  <maxFrames>
+   1
+  <looping>
+   0
+  <offset>
+   0 0
+  <frameLength>
+   0.1
+  <frameLength>
+   0.1
+  <Columns>
+   4
+  <Rows>
+   4
+  </Animation>
  
