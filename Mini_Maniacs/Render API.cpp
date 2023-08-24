@@ -56,7 +56,8 @@ void RenderFront::Init(void)
 #endif
   timeMarker = Timer::clock::now();
   Textures.SetRenderer(renderer);
-  TTF_Init();
+  if (TTF_Init() != 0) throw std::runtime_error("What?");
+
 }
 
 void RenderFront::Shutdown(void) 
