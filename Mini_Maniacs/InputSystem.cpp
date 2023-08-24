@@ -85,7 +85,7 @@ void InputSystem::inputEvent(SDL_Event event)
       {
         (binding.pressed == false) ? binding.triggered = true : 0;
         binding.pressed = true;
-#if _DEBUG && 0
+#if _DEBUG && 1
         std::cout << "Pressed: " << static_cast<char>(event.key.keysym.sym) << std::endl;
 #endif
       }
