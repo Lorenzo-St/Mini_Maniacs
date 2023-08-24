@@ -156,7 +156,7 @@ void EditorSystem::Update(void)
   if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
     DrawSelectedInfo();
 
-  glm::vec2 MouseOff = mousePos + offset;
+  glm::vec2 MouseOff = mousePos - offset;
 
   if (!Selected)
   {
