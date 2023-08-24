@@ -251,8 +251,8 @@ void RenderFront::DrawText(const char* text, glm::vec2 pos, int size)
   rect.x -= rect.w / 2.0f;
   rect.y += rect.h / 2.0f;
   pos = ConvertToScreenSpace({ rect.x, rect.y });
-  rect.x = pos.x;
-  rect.y = pos.y;
+  rect.x = static_cast<int>(pos.x);
+  rect.y = static_cast<int>(pos.y);
   SDL_Surface* surface = TTF_RenderText_Solid(activeFont->font, text, ActiveColor);
 
   SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surface);
