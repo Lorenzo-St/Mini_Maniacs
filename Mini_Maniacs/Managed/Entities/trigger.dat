@@ -12,13 +12,13 @@ Standard
 16 16
 </Transform>
 <RectCollider>
-<Collider>
+ <Collider>
 <isTrigger>
 1
 </Collider>
 <Width>
-16
-<Height>
-16
-</RectCollider>
-
+  16
+ <Height>
+  16
+ </RectCollider>
+ 
