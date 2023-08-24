@@ -104,7 +104,8 @@ void EditorSystem::Update(void)
   activeScene = Scene::getSceneSystem()->EditorGetActive();
   glm::vec2 location = {};
   glm::vec2 scale = {};
-  glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() }) + glm::vec2(api.CameraPos().x , -api.CameraPos().y);
+  glm::vec2 cameraOffset = glm::vec2(api.CameraPos().x, -api.CameraPos().y);
+  glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() }) + cameraOffset;
   
   if (InputSystem::isPressed(GridLock))
     GridLocked = true;
@@ -147,7 +148,7 @@ void EditorSystem::Update(void)
       break;
     }
         
-    api.DrawRect(mousePos, scale * 1.1f);
+    api.DrawRect(mousePos - cameraOffset, scale * 1.1f);
   }
   if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
     DrawSelectedInfo();
