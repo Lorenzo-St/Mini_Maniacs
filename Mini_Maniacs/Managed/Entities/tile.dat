@@ -61,5 +61,9 @@ tilemap.png
 0.1
 <frameLength>
 0.1
+<Columns>
+4
+<Rows>
+4
 </Animation>
 

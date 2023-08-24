@@ -58,7 +58,6 @@ void Animation::Write(std::ofstream* s)
 
 	*s << "<maxFrames>\n";
 	*s << maxFrame << "\n";
-
 	*s << "<looping>\n";
 	*s << looping << "\n";
 	*s << "<offset>\n";
@@ -67,6 +66,10 @@ void Animation::Write(std::ofstream* s)
 	*s << frameLength << "\n";
 	*s << "<frameLength>\n";
 	*s << frameLength << "\n";
+	*s << "<Columns>\n";
+	*s << Columns << "\n";
+	*s << "<Rows>\n";
+	*s << Rows << "\n";
 	*s << "</Animation>\n";
 }
 

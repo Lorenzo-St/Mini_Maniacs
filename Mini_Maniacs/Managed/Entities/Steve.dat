@@ -87,5 +87,9 @@ player.png
 0.15
 <frameLength>
 0.15
+<Columns>
+2
+<Rows>
+2
 </Animation>
 
