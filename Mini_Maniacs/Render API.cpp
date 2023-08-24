@@ -122,9 +122,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   std::vector<SDL_Vertex> temp = mesh;
   for (auto& vert : temp) 
   {
-    glm::vec2 t = glm::vec2(glm::vec4(convert(vert.position), 0, 1) * projection * proj) * zoom;
-    glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f, Height / 2.0f) + glm::vec2(c.pos.x, -c.pos.y);
-    vert.position = convert(m);
+    vert.position = convert(ConvertToScreenSpace(convert(vert.position)));
     vert.tex_coord = convert(glm::vec4(convert(vert.tex_coord), 0, 1) * UVmatrix);
   }
   if(activeTexture)
@@ -139,12 +137,12 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
   
 }
 
-glm::vec2 RenderFront::ConvertToWorldSpace(glm::vec2 const& cl) 
+glm::vec2 RenderFront::ConvertToWorldSpace(glm::vec2 const& cl) const
 {
   return  (glm::vec2((cl.x) - Width / 2.0f, -(cl.y) + Height / 2.0f) / zoom);
 }
 
-glm::vec2 RenderFront::ConvertToScreenSpace(glm::vec2 const& cl)
+glm::vec2 RenderFront::ConvertToScreenSpace(glm::vec2 const& cl) const
 {
   return  glm::vec2((cl.x + c.pos.x) + Width / 2.0f, -(cl.y + c.pos.y) + Height / 2.0f) * zoom ;
 }
@@ -163,9 +161,8 @@ void RenderFront::DrawRect(glm::vec2 pos, glm::vec2 scale) const
   rect[5].position = { pos.x - scale.x / 2.0f, pos.y - scale.y / 2.0f };
   for (auto& vert : rect) 
   {
-    glm::vec2 t = glm::vec2(glm::vec4(convert(vert.position), 0, 1) * proj) * zoom;
-    glm::vec2 m = (t * glm::vec2(Width, -Height)) + glm::vec2(Width / 2.0f, Height / 2.0f) + glm::vec2(c.pos.x, -c.pos.y);
-    vert.position = convert(m);
+
+    vert.position = convert(ConvertToScreenSpace(convert(vert.position)));
   }
   for (auto& a : rect)
   {
