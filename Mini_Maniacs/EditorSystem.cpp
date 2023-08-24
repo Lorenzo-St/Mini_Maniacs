@@ -101,7 +101,9 @@ void EditorSystem::DrawSelectedInfo(void)
   text = "Name: " + SelectedOBJ.OBJ.e->getName();
   topCorner.y -= 20;
   api.DrawText(text.c_str(), topCorner, 20);
-
+  topCorner.y += 40;
+  text = "Rotation: " + std::to_string(t->GetRotation());
+  api.DrawText(text.c_str(), topCorner, 20);
 }
 
 void EditorSystem::Update(void) 
