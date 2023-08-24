@@ -70,6 +70,10 @@ Player
 <Height>
 16
 </RectCollider>
+<Sprite>
+<Texture>
+Assets/player.png
+</Sprite>
 <Animation>
 <frameLength>
 0.15

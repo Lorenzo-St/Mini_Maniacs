@@ -24,7 +24,7 @@ void Sprite::Write(std::ofstream* s)
 {
   *s << "<Sprite>\n";
   *s << "<Texture>\n";
-  *s << t->name() << "\n";
+  *s << t->name().substr(t->name().find('/')) << "\n";
   *s << "</Sprite>\n";
 }
 
