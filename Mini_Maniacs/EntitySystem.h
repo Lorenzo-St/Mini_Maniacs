@@ -35,7 +35,7 @@ public:
 
 #ifdef EDITOR
   Container<Entity>& EditorGetAllActiveEntities() { return activeScene; }
-  Container<Entity>& EditorGetAllPrototypeEntities() { return activeScene; };
+  Container<Entity>& EditorGetAllPrototypeEntities() { return prototypes; };
 #endif
 
   void DestroyAll(void);
