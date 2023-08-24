@@ -13,6 +13,10 @@ public:
 
   void SetNextScene(Scene* s);
 
+#ifdef EDITOR
+  Scene* EditorGetActive() { return Active; }
+#endif
+
 private:
   Scene* Active = nullptr;
   Scene* nextScene = nullptr;

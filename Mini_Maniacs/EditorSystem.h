@@ -32,9 +32,9 @@ public:
 private:
   EditorSystem* Clone() { return nullptr; };
   
-  Scene* activeScene;
+  Scene* activeScene = nullptr;
   bool Selected = false;
   bool GridLocked = false;
-  SelectOBJ SelectedOBJ;
+  SelectOBJ SelectedOBJ = {};
 };
 

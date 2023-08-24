@@ -1,3 +1,7 @@
+#include <iostream>
+#include <fstream>
+#include <filesystem>
+
 #include "EditorSystem.h"
 #include "Entity.h"
 #include "Transform.h"
@@ -5,9 +9,8 @@
 #include "EntitySystem.h"
 #include "Container.h"
 #include "Scene.h"
-#include <iostream>
-#include <fstream>
-#include <filesystem>
+#include "SceneSystem.h"
+
 bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
 {
 
@@ -17,6 +20,8 @@ bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
 }
 
 EditorSystem::EditorSystem() 
+  : activeScene(nullptr)
+  , SelectedOBJ({})
 {
   InputSystem::addBinding(Save, { SDLK_s });
   InputSystem::addBinding(GridLock, { SDLK_l });
@@ -26,7 +31,7 @@ EditorSystem::EditorSystem()
 
 void EditorSystem::Update() 
 {
-
+  activeScene = Scene::getSceneSystem()->EditorGetActive();
   glm::vec2 location = {};
   glm::vec2 scale = {};
   glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() });

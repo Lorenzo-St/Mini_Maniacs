@@ -25,7 +25,7 @@ public:
   virtual void Exit(void)   { return; };
   virtual void Read(void) { return; };
   void SetSceneSystem(SceneSystem* s) { sceneSystem = s; };
-  SceneSystem* getSceneSystem(void) { return sceneSystem; };
+  static SceneSystem* getSceneSystem(void) { return sceneSystem; };
   void name(std::string nl) { n = nl; }
   std::string const& name(void) { return n; }
 #ifdef EDITOR
