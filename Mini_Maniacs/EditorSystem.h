@@ -34,6 +34,7 @@ private:
   void SaveData(void);
   void DuplicateEntity(void);
   void DeleteEntity(void);
+  void DrawSelectedInfo(void);
 
   Scene* activeScene = nullptr;
   bool Selected = false;

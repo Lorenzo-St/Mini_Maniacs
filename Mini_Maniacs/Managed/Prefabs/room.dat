@@ -165,28 +165,4 @@
   tile
  <localPosition>
   144 16
- <name>
-  tile
- <localPosition>
-  64 -96
- <name>
-  tile
- <localPosition>
-  96 -96
- <name>
-  tile
- <localPosition>
-  80 -80
- <name>
-  tile
- <localPosition>
-  80 -64
- <name>
-  tile
- <localPosition>
-  80 -48
- <name>
-  tile
- <localPosition>
-  80 -48
  </Entities>

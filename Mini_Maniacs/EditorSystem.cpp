@@ -85,6 +85,12 @@ void EditorSystem::DeleteEntity()
   EntitySystem::GetActive().EditorGetAllActiveEntities().remove(SelectedOBJ.OBJ.e);
   dynamic_cast<Entity*>(SelectedOBJ.OBJ.e->Parent())->RemoveChild(SelectedOBJ.OBJ.e);
   delete SelectedOBJ.OBJ.e;
+  SelectedOBJ.OBJ.e = nullptr;
+}
+
+void EditorSystem::DrawSelectedInfo() 
+{
+  
 }
 
 void EditorSystem::Update() 
