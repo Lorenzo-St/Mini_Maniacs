@@ -141,7 +141,7 @@ void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 
 glm::vec2 RenderFront::ConvertToWorldSpace(glm::vec2 const& cl) 
 {
-  return  (glm::vec2((cl.x - c.pos.x) - Width / 2.0f, -(cl.y + c.pos.y) + Height / 2.0f) / zoom);
+  return  (glm::vec2((cl.x - c.pos.x) - Width / 2.0f, -(cl.y - c.pos.y) + Height / 2.0f) / zoom);
 }
 
 glm::vec2 RenderFront::ConvertToScreenSpace(glm::vec2 const& cl)
