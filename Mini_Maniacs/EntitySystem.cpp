@@ -188,7 +188,7 @@ void EntitySystem::WritePrefab(Entity* e)
   s << "<Entities>\n ";
   for (auto e : e->GetChildren()) 
   {
-    s << "<Name>\n  ";
+    s << "<name>\n  ";
     s << e->getProto() << "\n ";
     s << "<localPosition>\n  ";
     s << e->GetComponent<Transform>()->GetLocalPosition() << "\n ";

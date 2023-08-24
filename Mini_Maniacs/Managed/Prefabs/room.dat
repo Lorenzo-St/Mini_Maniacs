@@ -1,17 +1,17 @@
 <Entity>
-  <Name>
-    room
-  <Tag>
-    Room
-  <Transform>
-    <Position>
-	  0.0  0.0
-	<Scale>
-	  0 0
-	<Rotation>
-	  00
-  </Transform>
-</Entity>
+ <name>
+  room
+ <Tag>
+  Room
+ <Transform>
+ <Position>
+  0 0
+ <Rotation>
+  0
+ <Scale>
+  0 0
+ </Transform>
+ </Entity>
 <Entities>
  <name>
   tile
@@ -20,69 +20,69 @@
  <name>
   tile
  <localPosition>
-  0 -16  
+  0 -16
  <name>
   tile
  <localPosition>
-  16 -16  
+  16 -16
  <name>
   tile
  <localPosition>
-  32 -16  
+  32 -16
  <name>
   tile
  <localPosition>
-  -32 -16  
+  -32 -16
  <name>
   tile
  <localPosition>
-  -32 0  
-  <name>
+  -32 0
+ <name>
   tile
-  <localPosition>
+ <localPosition>
   -96 16
  <name>
   tile
-  <localPosition>
-  -96 32 
+ <localPosition>
+  -96 32
  <name>
   tile
  <localPosition>
-  -48 -16 
+  -48 -16
  <name>
   tile
  <localPosition>
-  48 -16 
+  48 -16
  <name>
   tile
  <localPosition>
-  -64 -16 
+  -64 -16
  <name>
-   tile
+  tile
  <localPosition>
   -80 -16
-  <name>
-   tile
+ <name>
+  tile
  <localPosition>
   80 -16
  <name>
-   tile
+  tile
  <localPosition>
   64 -16
  <name>
-   tile
+  tile
  <localPosition>
   96 16
  <name>
-   tile
+  tile
  <localPosition>
   -96 -16
  <name>
-   tile
+  tile
  <localPosition>
   -96 0
  <name>
-   tile
+  tile
  <localPosition>
   96 -16
  <name>
@@ -105,7 +105,7 @@
   tile
  <localPosition>
   -80 0
-  <name>
+ <name>
   tile
  <localPosition>
   0 32
@@ -117,8 +117,8 @@
   tile
  <localPosition>
   32 32
-  <name>
+ <name>
   tile
  <localPosition>
   32 48
-  
+ </Entities>
