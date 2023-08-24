@@ -27,7 +27,7 @@ EditorSystem::EditorSystem()
   InputSystem::addBinding(GridLock, { SDLK_l });
   InputSystem::addBinding(Duplicate, { SDLK_d });
   InputSystem::addBinding(Delete, { SDLK_x });
-  api.LoadFont("./Assets/Roboto-Regular.ttf");
+  api.LoadFont((std::filesystem::current_path().string() + ".\\Assets\\Roboto-Regular.ttf").c_str());
 
 }
 
