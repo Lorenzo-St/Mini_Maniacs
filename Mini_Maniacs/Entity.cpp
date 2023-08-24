@@ -88,11 +88,11 @@ Entity::Entity(Entity const* e)
 
 void Entity::Write(std::ofstream* s)
 {
-  *s << "<Entity>\n";
-  *s << "<Name>\n";
-  *s << name << "\n";
-  *s << "<Tag>\n";
-  *s << toString(tag) << "\n";
+  *s << "<Entity>\n ";
+  *s << "<Name>\n  ";
+  *s << name << "\n ";
+  *s << "<Tag>\n  ";
+  *s << toString(tag) << "\n ";
   for (auto& c : components)
     c->Write(s);
   *s << std::endl;
