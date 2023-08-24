@@ -246,7 +246,7 @@ mesh* RenderFront::CreateMesh(void)
 void RenderFront::DrawText(const char* text, glm::vec2 pos, int size) 
 {
   TTF_SetFontSize(activeFont->font, size);
-  SDL_Rect rect = { pos.x, pos.y };
+  SDL_Rect rect = { static_cast<int>(pos.x), static_cast<int>(pos.y) };
   TTF_SizeText(activeFont->font, text, &rect.w, &rect.h);
   rect.x -= rect.w / 2.0f;
   rect.y += rect.h / 2.0f;
