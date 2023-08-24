@@ -11,6 +11,7 @@ typedef struct FontInfo
 class Fonts 
 {
 public:
+  ~Fonts() { TTF_Quit(); }
   static FontInfo* LoadFont(const char* c);
   static FontInfo* LoadFont(const char* c, int fontsize);
 
