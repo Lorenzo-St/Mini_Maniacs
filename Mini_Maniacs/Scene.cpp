@@ -10,7 +10,7 @@
 #ifdef EDITOR
 void Scene::Write(std::ofstream* s) 
 {
-  *s << "<Scene>\n" << "<Name>\n" << name() << "\n<Entities>\n ";
+  *s << "<Scene>\n " << "<Name>\n  " << name() << "\n<Entities>\n ";
   
   for (auto& e : entities) 
   {
@@ -20,12 +20,12 @@ void Scene::Write(std::ofstream* s)
     *s << "<Position>\n  ";
     *s << e->GetComponent<Transform>()->StartingPosition() << "\n ";
   }
-  *s << "</Entities>\n <Prefabs>\n";
+  *s << "</Entities>\n <Prefabs>\n ";
   for (auto& p : prefabs) 
   {
-    *s << p->getProto() << "\n";
+    *s << p->getProto() << "\n" ;
   }
-  *s << "</Prefabs>\n";
+  *s << "</Prefabs>\n ";
 
 }
 

@@ -2,15 +2,15 @@
 <Name>
 Temp
 <Entities>
-Steve
-<Position>
-0 0
-trigger
-<Position>
-0 0
-gameManager
-<Position>
-0 0
-</Entities>
+ Steve
+ <Position>
+  0 0
+ trigger
+ <Position>
+  0 0
+ gameManager
+ <Position>
+  0 0
+ </Entities>
  <Prefabs>
 </Prefabs>
