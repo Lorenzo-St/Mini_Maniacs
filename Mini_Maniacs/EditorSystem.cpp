@@ -39,7 +39,7 @@ void EditorSystem::Update()
     mousePos = glm::roundEven(mousePos / 16.0f) * 16.0f;
   }
 
-  if (InputSystem::isPressed(Save)) 
+  if (InputSystem::isTriggered(Save)) 
   {
     auto& proto = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
     for (auto& e : proto.GetCollection()) 
