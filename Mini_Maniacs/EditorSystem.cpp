@@ -170,7 +170,7 @@ void EditorSystem::Update(void)
       if (PointInRect(MouseOff, ePos, eScale))
       {
         api.SetColor({ 255, 255, 255, 255 });
-        api.DrawRect(MouseOff, eScale * 1.1f);
+        api.DrawRect(glm::roundEven(MouseOff / 16.0f) * 16.0f, eScale * 1.1f);
         if (InputSystem::MouseDown())
         {
           SelectedOBJ.OBJ.e = e;
