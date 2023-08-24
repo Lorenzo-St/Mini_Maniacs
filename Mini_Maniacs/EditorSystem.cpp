@@ -153,7 +153,7 @@ void EditorSystem::Update(void)
       break;
     }
         
-    api.DrawRect(mousePosGlobal, scale * 1.1f);
+    api.DrawRect(mousePos, scale * 1.1f);
   }
   if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
     DrawSelectedInfo();
@@ -167,7 +167,7 @@ void EditorSystem::Update(void)
       Transform* t = e->GetComponent<Transform>();
       glm::vec2 eScale = t->GetScale();
       glm::vec2 ePos = t->GetPosition();
-      if (PointInRect(mousePosGlobal, ePos, eScale))
+      if (PointInRect(mousePos, ePos, eScale))
       {
         if (InputSystem::MouseDown())
         {
