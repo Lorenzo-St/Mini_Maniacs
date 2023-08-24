@@ -169,6 +169,8 @@ void EditorSystem::Update(void)
       glm::vec2 ePos = t->GetPosition();
       if (PointInRect(mousePos, ePos, eScale))
       {
+        api.SetColor({ 255, 255, 255, 255 });
+        api.DrawRect(mousePos, scale * 1.1f);
         if (InputSystem::MouseDown())
         {
           SelectedOBJ.OBJ.e = e;
@@ -176,8 +178,6 @@ void EditorSystem::Update(void)
           Selected = true;
 
         }
-        api.SetColor({ 255, 255, 255, 255 });
-        api.DrawRect(mousePos + offset, scale * 1.1f);
 
       }
 
