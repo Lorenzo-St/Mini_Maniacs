@@ -26,6 +26,7 @@ public:
   bool isActive(void) { return Active; }
   bool isRoot(void) { return rootObject; }
   void SetRoot(bool b) { rootObject = b; }
+  Object* Parent(void) const { return parent; }
   Object* Parent(void) { return parent; }
   void SetParent(Object* p) { parent = p; }
 

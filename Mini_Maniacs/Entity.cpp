@@ -76,6 +76,9 @@ Entity::Entity(Entity const* e)
 { 
   name = e->name;
   protoType = e->protoType;
+  PrefabChild = e->PrefabChild;
+  PrefabRoot = e->PrefabRoot;
+  SetParent(e->Parent());
   tag = e->tag;
   for (auto& c : e->components) 
   {

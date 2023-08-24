@@ -25,9 +25,54 @@ EditorSystem::EditorSystem()
 {
   InputSystem::addBinding(Save, { SDLK_s });
   InputSystem::addBinding(GridLock, { SDLK_l });
+  InputSystem::addBinding(Duplicate, { SDLK_d });
+  InputSystem::addBinding(Delete, { SDLK_x });
+
 
 }
 
+
+void EditorSystem::SaveData()
+{
+  // Write out each prototype 
+  auto& proto = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
+  for (auto& e : proto.GetCollection())
+  {
+    std::string path = std::filesystem::current_path().string() + ".\\Managed\\Entities\\" + e->getProto() + ".dat";
+    std::ofstream s(path.c_str());
+    if (s.good() == false || s.is_open() == false)
+      throw std::runtime_error("bbaababa");
+
+    e->Write(&s);
+    s.flush();
+    s.close();
+    std::cout << "Wrote Out Prototype: " << e->getProto() << std::endl;
+  }
+  std::string path = std::filesystem::current_path().string() + ".\\Managed\\Scenes\\" + activeScene->name() + ".scn";
+  std::ofstream s(path);
+  if (s.good() == false || s.is_open() == false)
+    throw std::runtime_error("bbaababa");
+  activeScene->Write(&s);
+  s.flush();
+  s.close();
+  std::cout << "Wrote Out Scene: " << activeScene->name() << std::endl;
+  auto& live = EntitySystem::GetActive().EditorGetAllActiveEntities();
+  for (auto& e : live.GetCollection())
+  {
+    if (e->isPrefabRoot())
+    {
+      EntitySystem::GetActive().WritePrefab(e);
+      std::cout << "Wrote Out Prefab: " << e->getProto() << std::endl;
+    }
+  }
+}
+
+void EditorSystem::DuplicateEntity() 
+{
+  Entity* cloned = SelectedOBJ.OBJ.e->Clone();
+  cloned->SetParent(SelectedOBJ.OBJ.e->Parent());
+  SelectedOBJ.OBJ.e = cloned;
+}
 
 void EditorSystem::Update() 
 {
@@ -47,37 +92,7 @@ void EditorSystem::Update()
 
   if (InputSystem::isTriggered(Save)) 
   {
-    // Write out each prototype 
-    auto& proto = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
-    for (auto& e : proto.GetCollection()) 
-    {
-      std::string path = std::filesystem::current_path().string() + ".\\Managed\\Entities\\" + e->getProto() + ".dat";
-      std::ofstream s(path.c_str());
-      if (s.good() == false || s.is_open() == false)
-        throw std::runtime_error("bbaababa");
-
-      e->Write(&s);
-      s.flush();
-      s.close();
-      std::cout << "Wrote Out Prototype: " << e->getProto() << std::endl;
-    }
-    std::string path = std::filesystem::current_path().string() + ".\\Managed\\Scenes\\" + activeScene->name() + ".scn";
-    std::ofstream s(path);
-    if (s.good() == false || s.is_open() == false)
-      throw std::runtime_error("bbaababa");
-    activeScene->Write(&s);
-    s.flush();
-    s.close();
-    std::cout << "Wrote Out Scene: " << activeScene->name() << std::endl;
-    auto& live = EntitySystem::GetActive().EditorGetAllActiveEntities();
-    for (auto& e : live.GetCollection()) 
-    {
-      if (e->isPrefabRoot()) 
-      {
-        EntitySystem::GetActive().WritePrefab(e);
-        std::cout << "Wrote Out Prefab: " << e->getProto() << std::endl;
-      }
-    }
+    SaveData();
   }
 
   if (Selected)

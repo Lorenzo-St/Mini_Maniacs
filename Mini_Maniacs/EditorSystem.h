@@ -31,7 +31,8 @@ public:
 
 private:
   EditorSystem* Clone() { return nullptr; };
-  
+  void SaveData(void);
+  void DuplicateEntity(void);
   Scene* activeScene = nullptr;
   bool Selected = false;
   bool GridLocked = false;
