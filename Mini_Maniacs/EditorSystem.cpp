@@ -52,6 +52,7 @@ void EditorSystem::Update()
       e->Write(&s);
       s.flush();
       s.close();
+      std::cout << "Wrote Out Prototype: " << e->getProto() << std::endl;
     }
     
   }

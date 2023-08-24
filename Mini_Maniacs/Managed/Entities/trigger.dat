@@ -1,23 +1,24 @@
 <Entity>
-  <Name>
-    trigger
-  <Tag>
-    Standard
-  <Transform>
-    <Position>
-	  0.0 0.0
-	<Scale>
-	  16 16
-	<Rotation>
-	  00
-  </Transform>
-  <RectCollider>
-   <Collider>
-    <isTrigger>
-	 true
-   </Collider>
-   <Width>
-    16
-   <Height>
-    16
-  </RectCollider>
+<Name>
+trigger
+<Tag>
+Standard
+<Transform>
+<Position>
+0 0
+<Rotation>
+0
+<Scale>
+16 16
+</Transform>
+<RectCollider>
+<Collider>
+<isTrigger>
+1
+</Collider>
+<Width>
+16
+<Height>
+16
+</RectCollider>
+

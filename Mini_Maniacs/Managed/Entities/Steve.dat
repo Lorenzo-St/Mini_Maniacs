@@ -1,94 +1,91 @@
 <Entity>
-  <Name>
-    Steve
-  <Tag>
-    Player
-  <Transform>
-    <Position>
-	  0.0 200.0
+<Name>
+Steve
+<Tag>
+Player
+<Transform>
+<Position>
+0 200
+<Rotation>
+0
+<Scale>
+16 16
+</Transform>
+<PlayerController>
+<JumpSpeed>
+50
+<MoveSpeed>
+50
+<fallSpeed>
+2.5
+<gravity>
+0 -49.05
+</PlayerController>
+<Physics>
+<DoesGravity>
+1
+<Weight>
+1
+<Velocity>
+0 0
+<Acceleration>
+0 0
+<Drag>
+1
+<Body>
+0
+<Gravity>
+0 -49.05
+</Physics>
+<Mesh>
+<Count>
+6
+<Points>
+-0.5 -0.5
+255 255 255 255
+0 1
+-0.5 0.5
+255 255 255 255
+0 0
+0.5 0.5
+255 255 255 255
+1 0
+0.5 0.5
+255 255 255 255
+1 0
+0.5 -0.5
+255 255 255 255
+1 1
+-0.5 -0.5
+255 255 255 255
+0 1
+</Mesh>
+<RectCollider>
+<Collider>
+<isTrigger>
+0
+</Collider>
+<Width>
+16
+<Height>
+16
+</RectCollider>
+<Sprite>
+<Texture>
+player.png
+</Sprite>
+<Animation>
+<frameLength>
+0.15
+<maxFrames>
+4
+<looping>
+1
+<offset>
+0 0
+<frameLength>
+0.15
+<frameLength>
+0.15
+</Animation>
 
-	<Scale>
-	  16 16
-	<Rotation>
-	  00
-	
-  </Transform>
-  <Mesh>
-	<Count>
-	  6
-	<Points>
-	  -0.5 -0.5
-	   255 255 255 255
-	   0 1
-	  -0.5  0.5
-	   255 255 255 255
-	   0 0
-	   0.5  0.5
-	   255 255 255 255
-	   1 0	
-	   0.5  0.5
-	   255 255 255 255
-	   1 0	
-	   0.5 -0.5
-	   255 255 255 255
-	   1 1
-	  -0.5 -0.5
-	   255 255 255 255
-	   0 1 
-  </Mesh>		 
-  <RectCollider>
-   <Collider>
-	<isTrigger>
-	 false
-   </Collider>
-   <Width>
-    16
-   <Height>
-    16
-  </RectCollider>
-  <Physics>
-   <DoesGravity>
-    true
-   <Weight>
-    1
-   <Body>
-    0
-   <Gravity>
-    0 -49.05
-   <Velocity>
-	0.0 0.0
-   <Acceleration>
-	0.0 0.0
-   <Drag>
-	1.0
-  </Physics>
-  <Sprite>
-   <Texture>
-    player.png
-  </Sprite>
-  <Animation>
-   <frameLength>
-    .15
-   <maxFrames>
-    4
-   <Columns>
-    2
-   <Rows>
-    2
-   <looping>
-    true
-   <offset>
-    0 0 
-  </Animation>
-  <PlayerController>
-   <JumpSpeed>
-    50
-   <MoveSpeed>
-    50
-   <fallSpeed>
-    2.5
-   <gravity>
-    0 -49.05
-  </PlayerController>
-
-  

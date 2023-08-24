@@ -1,60 +1,65 @@
 <Entity>
-  <Name>
-    tile
-  <Tag>
-    Tile
-  <Transform>
-    <Position>
-	  0.0 0.0
-	<Scale>
-	  16 16
-	<Rotation>
-	  00
-  </Transform>
-  <Mesh>
-	<Count>
-	  6
-	<Points>
-	  -0.5 -0.5
-	   255 255 255 255
-	   0 1
-	  -0.5  0.5
-	   255 255 255 255
-	   0 0
-	   0.5  0.5
-	   255 255 255 255
-	   1 0	
-	   0.5  0.5
-	   255 255 255 255
-	   1 0	
-	   0.5 -0.5
-	   255 255 255 255
-	   1 1
-	  -0.5 -0.5
-	   255 255 255 255
-	   0 1 
-  </Mesh>		 
-  <RectCollider>
-   <Width>
-    16
-   <Height>
-    16
-  </RectCollider>
-  <Sprite>
-   <Texture>
-    tilemap.png
-  </Sprite>
-  <Animation>
-   <frameLength>
-    .1
-   <maxFrames>
-    1
-   <Columns>
-    4
-   <Rows>
-    4
-   <looping>
-    false
-   <offset>
-    0 0
-  </Animation>
+<Name>
+tile
+<Tag>
+Tile
+<Transform>
+<Position>
+0 0
+<Rotation>
+0
+<Scale>
+16 16
+</Transform>
+<Mesh>
+<Count>
+6
+<Points>
+-0.5 -0.5
+255 255 255 255
+0 1
+-0.5 0.5
+255 255 255 255
+0 0
+0.5 0.5
+255 255 255 255
+1 0
+0.5 0.5
+255 255 255 255
+1 0
+0.5 -0.5
+255 255 255 255
+1 1
+-0.5 -0.5
+255 255 255 255
+0 1
+</Mesh>
+<RectCollider>
+<Collider>
+<isTrigger>
+0
+</Collider>
+<Width>
+16
+<Height>
+16
+</RectCollider>
+<Sprite>
+<Texture>
+tilemap.png
+</Sprite>
+<Animation>
+<frameLength>
+0.1
+<maxFrames>
+1
+<looping>
+0
+<offset>
+0 0
+<frameLength>
+0.1
+<frameLength>
+0.1
+</Animation>
+
