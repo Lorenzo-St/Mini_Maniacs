@@ -245,6 +245,9 @@ mesh* RenderFront::CreateMesh(void)
 
 void RenderFront::DrawText(const char* text, glm::vec2 pos, int size) 
 {
+  if (activeFont == nullptr)
+    throw std::runtime_error("Hello?? There is no font");
+
   TTF_SetFontSize(activeFont->font, size);
   SDL_Rect rect = { static_cast<int>(pos.x), static_cast<int>(pos.y) };
   TTF_SizeText(activeFont->font, text, &rect.w, &rect.h);
