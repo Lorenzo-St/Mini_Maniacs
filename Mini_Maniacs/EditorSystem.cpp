@@ -91,7 +91,7 @@ void EditorSystem::DeleteEntity()
 
 void EditorSystem::DrawSelectedInfo(void) 
 {
-  glm::vec2 topCorner = { api.GetWindowWidth() * .95f, api.GetWindowHeight() * .05f };
+  glm::vec2 topCorner = { api.GetWindowWidth() * .9f, api.GetWindowHeight() * .05f };
   Transform* t = SelectedOBJ.OBJ.e->GetComponent<Transform>();
   std::string text;
   std::stringstream s;
