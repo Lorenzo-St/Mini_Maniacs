@@ -1,15 +1,16 @@
 <Scene>
- <Name>
-  Temp
- <Entities>
-  Steve
-  <Position>
-   0 0
-  trigger
-  <Position>
-   16 16
-  gameManager
- </Entities>
+<Name>
+Temp
+<Entities>
+Steve
+<Position>
+0 0
+trigger
+<Position>
+0 0
+gameManager
+<Position>
+0 0
+</Entities>
  <Prefabs>
- 
- </Prefabs>
+</Prefabs>
