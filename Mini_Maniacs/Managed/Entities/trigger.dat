@@ -4,19 +4,19 @@ trigger
 <Tag>
 Standard
 <Transform>
-<Position>
-0 0
-<Rotation>
-0
-<Scale>
-16 16
-</Transform>
-<RectCollider>
+ <Position>
+  0 0
+ <Rotation>
+  0
+ <Scale>
+  16 16
+ </Transform>
+ <RectCollider>
  <Collider>
-<isTrigger>
-1
-</Collider>
-<Width>
+ <isTrigger>
+  1
+ </Collider>
+ <Width>
   16
  <Height>
   16

@@ -4,14 +4,14 @@ gameManager
 <Tag>
 Game_Manager
 <Transform>
-<Position>
-0 200
-<Rotation>
-0
-<Scale>
-16 16
-</Transform>
-<GameManager>
+ <Position>
+  0 200
+ <Rotation>
+  0
+ <Scale>
+  16 16
+ </Transform>
+ <GameManager>
 <ActivePallet>
 0
 </GameManager>

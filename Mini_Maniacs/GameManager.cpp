@@ -36,10 +36,10 @@ void GameManager::Read(Stream* s)
 
 void GameManager::Write(std::ofstream* s) 
 {
-  *s << "<GameManager>\n";
-  *s << "<ActivePallet>\n";
-  *s << currentPallet << "\n";
-  *s << "</GameManager>\n";
+  *s << "<GameManager>\n ";
+  *s << "<ActivePallet>\n  ";
+  *s << currentPallet << "\n ";
+  *s << "</GameManager>\n ";
 }
 
 void GameManager::CreateRoom(const char* prefabName, glm::vec2 pos) 

@@ -39,22 +39,22 @@ void Physics::Update(void)
 
 void Physics::Write(std::ofstream* s)
 {
-  *s << "<Physics>\n";
-  *s << "<DoesGravity>\n";
-  *s << doGravity << "\n";
-  *s << "<Weight>\n";
-  *s << weight << "\n";
-  *s << "<Velocity>\n";
-  *s << velocity << "\n";
-  *s << "<Acceleration>\n";
-  *s << acceleration << "\n";
-  *s << "<Drag>\n";
-  *s << drag << "\n";
-  *s << "<Body>\n";
-  *s << body << "\n";
-  *s << "<Gravity>\n";
-  *s << Gravity << "\n";
-  *s << "</Physics>\n";
+  *s << "<Physics>\n ";
+  *s << "<DoesGravity>\n  ";
+  *s << doGravity << "\n ";
+  *s << "<Weight>\n  ";
+  *s << weight << "\n ";
+  *s << "<Velocity>\n  ";
+  *s << velocity << "\n ";
+  *s << "<Acceleration>\n  ";
+  *s << acceleration << "\n ";
+  *s << "<Drag>\n  ";
+  *s << drag << "\n ";
+  *s << "<Body>\n  ";
+  *s << body << "\n ";
+  *s << "<Gravity>\n  ";
+  *s << Gravity << "\n ";
+  *s << "</Physics>\n ";
 };
 
 
