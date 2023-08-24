@@ -1,8 +1,9 @@
 #pragma once
+#include <vector>
+
 #include "SDL.h"
 #include "Fonts.h"
 #include "glm.hpp"
-#include <vector>
 #include "Time.h"
 typedef long RendErr;
 typedef struct Texture Texture;

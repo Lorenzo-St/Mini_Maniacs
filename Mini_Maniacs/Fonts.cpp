@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "Fonts.h"
 
 FontInfo* Fonts::LoadFont(const char* c)
@@ -11,6 +12,8 @@ FontInfo* Fonts::LoadFont(const char* c, int size)
     instance = new Fonts();
   FontInfo* f = new FontInfo();
   f->font = TTF_OpenFont(c, size);
+  if (f->font == nullptr)
+    throw std::runtime_error("Failed to create font");
   f->name = c;
   instance->fonts.push_back(f);
   return instance->fonts[instance->fonts.size() - 1];

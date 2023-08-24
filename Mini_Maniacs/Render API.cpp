@@ -2,6 +2,7 @@
 #include <chrono>
 #include <thread>
 #include <array>
+
 #include "SDL.h"
 #include "Backend.h"
 #include "../GLM/ext/matrix_transform.hpp"
