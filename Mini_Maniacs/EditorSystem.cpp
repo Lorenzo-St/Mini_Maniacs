@@ -149,6 +149,7 @@ void EditorSystem::Update(void)
     }
         
     api.DrawRect(mousePos, scale * 1.1f);
+    DrawSelectedInfo();
   }
   if (!Selected)
   {
