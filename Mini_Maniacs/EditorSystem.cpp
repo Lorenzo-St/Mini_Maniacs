@@ -119,6 +119,7 @@ void EditorSystem::Update(void)
   if (GridLocked) 
   {
     mousePos = glm::roundEven(mousePos / 16.0f) * 16.0f;
+    mousePosGlobal = glm::roundEven(mousePosGlobal / 16.0f) * 16.0f;
   }
 
   if (InputSystem::isTriggered(Save)) 
