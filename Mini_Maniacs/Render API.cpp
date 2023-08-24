@@ -142,7 +142,7 @@ glm::vec2 RenderFront::ConvertToWorldSpace(glm::vec2 const& cl) const
 
 glm::vec2 RenderFront::ConvertToScreenSpace(glm::vec2 const& cl) const
 {
-  return  glm::vec2((cl.x) + Width / 2.0f, -(cl.y) + Height / 2.0f) * zoom;
+  return  glm::vec2((cl.x) + Width / 2.0f, -(cl.y) - Height / 2.0f) * zoom;
 }
 
 
