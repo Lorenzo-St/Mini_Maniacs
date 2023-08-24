@@ -71,6 +71,10 @@ void EditorSystem::DuplicateEntity()
 {
   Entity* cloned = SelectedOBJ.OBJ.e->Clone();
   cloned->SetParent(SelectedOBJ.OBJ.e->Parent());
+  if (SelectedOBJ.OBJ.e->Parent() != nullptr) 
+  {
+    dynamic_cast<Entity*>(SelectedOBJ.OBJ.e->Parent())->AddChild(cloned);
+  }
   EntitySystem::GetActive().AddEntity(cloned);
   SelectedOBJ.OBJ.e = cloned;
 }
