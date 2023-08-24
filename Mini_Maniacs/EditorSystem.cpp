@@ -107,7 +107,7 @@ void EditorSystem::Update(void)
   glm::vec2 location = {};
   glm::vec2 scale = {};
   glm::vec2 offset = glm::vec2(api.CameraPos().x, -api.CameraPos().y);
-  glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2( InputSystem::GetMouseX(), InputSystem::GetMouseY() )) + offset;
+  glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2( InputSystem::GetMouseX(), InputSystem::GetMouseY() )) ;
   
 
   if (InputSystem::isPressed(GridLock))
@@ -151,10 +151,12 @@ void EditorSystem::Update(void)
       break;
     }
         
-    api.DrawRect(mousePos, scale * 1.1f);
+    api.DrawRect(mousePos + offset, scale * 1.1f);
   }
   if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
     DrawSelectedInfo();
+
+  glm::vec2 MouseOff = mousePos + offset;
 
   if (!Selected)
   {
@@ -165,7 +167,7 @@ void EditorSystem::Update(void)
       Transform* t = e->GetComponent<Transform>();
       glm::vec2 eScale = t->GetScale();
       glm::vec2 ePos = t->GetPosition();
-      if (PointInRect(mousePos, ePos, eScale))
+      if (PointInRect(MouseOff, ePos, eScale))
       {
         if (InputSystem::MouseDown())
         {
