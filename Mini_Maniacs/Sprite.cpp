@@ -20,7 +20,7 @@ void Sprite::Read(Stream* s)
   }
 }
 
-void Sprite::Write(std::ostream* s) 
+void Sprite::Write(std::ofstream* s) 
 {
   *s << "<Sprite>\n";
   *s << "<Texture>\n";

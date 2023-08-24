@@ -8,7 +8,7 @@ public:
   Sprite(Sprite const* ml) : t(ml->t) {  }
   Sprite* Clone() { return new Sprite(this); };
   void Read(Stream* s);
-  void Write(std::ostream* s);
+  void Write(std::ofstream* s);
   void LoadSprite(std::string s) { t = Textures.LoadTexture(s); }
   Texture const* texture() { return t; };
 private:
