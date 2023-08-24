@@ -170,7 +170,7 @@ void EditorSystem::Update(void)
       if (PointInRect(MouseOff, ePos, eScale))
       {
         api.SetColor({ 255, 255, 255, 255 });
-        api.DrawRect(ePos - offset, eScale * 1.1f);
+        api.DrawRect(ePos + offset, eScale * 1.1f);
         if (InputSystem::MouseDown())
         {
           SelectedOBJ.OBJ.e = e;
