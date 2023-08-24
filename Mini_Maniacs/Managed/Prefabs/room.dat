@@ -52,7 +52,7 @@
  <name>
   tile
  <localPosition>
-  80 16
+  96 96
  <name>
   tile
  <localPosition>
@@ -128,19 +128,19 @@
  <name>
   tile
  <localPosition>
-  64 16
+  -96 64
  <name>
   tile
  <localPosition>
-  64 0
+  -96 80
  <name>
   tile
  <localPosition>
-  80 0
+  -96 96
  <name>
   tile
  <localPosition>
-  64 32
+  96 64
  <name>
   tile
  <localPosition>
@@ -152,17 +152,21 @@
  <name>
   tile
  <localPosition>
-  112 48
+  -96 48
  <name>
   tile
  <localPosition>
-  128 32
+  96 32
  <name>
   tile
  <localPosition>
-  144 32
+  -96 112
  <name>
   tile
  <localPosition>
-  144 16
+  96 80
+ <name>
+  tile
+ <localPosition>
+  64 48
  </Entities>

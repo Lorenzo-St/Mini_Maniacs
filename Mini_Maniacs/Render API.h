@@ -44,6 +44,7 @@ public:
   // Camera Stuff
   void MoveCamera(glm::vec2 const& p) { c.pos = { p.x, p.y }; }
   void MoveCamera(SDL_FPoint const& p) { c.pos = p; }
+  glm::vec2 CameraPos() { return { c.pos.x, c.pos.y}; };
 
   glm::vec2 ConvertToWorldSpace(glm::vec2 const& c);
   glm::vec2 ConvertToScreenSpace(glm::vec2 const& cl);

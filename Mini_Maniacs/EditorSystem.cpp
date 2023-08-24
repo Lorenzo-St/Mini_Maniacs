@@ -104,7 +104,7 @@ void EditorSystem::Update(void)
   activeScene = Scene::getSceneSystem()->EditorGetActive();
   glm::vec2 location = {};
   glm::vec2 scale = {};
-  glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() });
+  glm::vec2 mousePos = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() }) + api.CameraPos();
   if (InputSystem::isPressed(GridLock))
     GridLocked = true;
   else
