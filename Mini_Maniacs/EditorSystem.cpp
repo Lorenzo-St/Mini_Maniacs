@@ -91,13 +91,13 @@ void EditorSystem::DeleteEntity()
 
 void EditorSystem::DrawSelectedInfo(void) 
 {
-  glm::vec2 topCorner = { api.GetWindowWidth() / 2.0f * .8f, api.GetWindowHeight() * .8f };
+  glm::vec2 topCorner = { api.GetWindowWidth() * .8f, api.GetWindowHeight() * .2f };
   Transform* t = SelectedOBJ.OBJ.e->GetComponent<Transform>();
   std::string text;
   std::stringstream s;
   s << "Position : " << t->GetPosition();
   text = s.str();
-  api.SetColor({ 0,0,0,255 });
+  api.SetColor({ 255,255,255,255 });
   api.DrawText(text.c_str(), topCorner, 20);
 
 }
