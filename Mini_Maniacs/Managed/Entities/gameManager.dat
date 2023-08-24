@@ -1,9 +1,9 @@
 <Entity>
-<Name>
-gameManager
-<Tag>
-Game_Manager
-<Transform>
+ <Name>
+  gameManager
+ <Tag>
+  Game_Manager
+ <Transform>
  <Position>
   0 200
  <Rotation>

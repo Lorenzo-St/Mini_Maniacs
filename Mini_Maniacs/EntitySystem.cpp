@@ -1,4 +1,7 @@
 #include <vector>
+#ifdef EDITOR
+#include <filesystem>
+#endif
 
 #include "EntitySystem.h"
 #include "Entity.h"
@@ -173,3 +176,24 @@ Entity* EntitySystem::FindWithTag(Tags tag)
   return nullptr;
 }
 
+#ifdef EDITOR
+
+void EntitySystem::WritePrefab(Entity* e) 
+{
+  std::string path = std::filesystem::current_path().string() + ".\\Managed\\Prefabs\\" + e->getProto() + ".dat";
+  std::ofstream s(path);
+  e->Write(&s);
+  s << "<Entities>\n ";
+  for (auto e : e->GetChildren()) 
+  {
+    s << "<Name>\n  ";
+    s << e->getProto() << "\n ";
+    s << "<localPosition>\n  ";
+    s << e->GetComponent<Transform>()->GetLocalPosition() << "\n ";
+  }
+
+  s << "</Entities>";
+}
+
+
+#endif

@@ -1,9 +1,9 @@
 <Entity>
-<Name>
-trigger
-<Tag>
-Standard
-<Transform>
+ <Name>
+  trigger
+ <Tag>
+  Standard
+ <Transform>
  <Position>
   0 0
  <Rotation>

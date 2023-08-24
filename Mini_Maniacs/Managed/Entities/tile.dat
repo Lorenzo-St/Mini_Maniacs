@@ -1,9 +1,9 @@
 <Entity>
-<Name>
-tile
-<Tag>
-Tile
-<Transform>
+ <Name>
+  tile
+ <Tag>
+  Tile
+ <Transform>
  <Position>
   0 0
  <Rotation>

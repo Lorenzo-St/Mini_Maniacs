@@ -36,6 +36,7 @@ public:
 #ifdef EDITOR
   Container<Entity>& EditorGetAllActiveEntities() { return activeScene; }
   Container<Entity>& EditorGetAllPrototypeEntities() { return prototypes; };
+  void WritePrefab(Entity* e);
 #endif
 
   void DestroyAll(void);

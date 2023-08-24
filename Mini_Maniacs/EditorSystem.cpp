@@ -68,7 +68,16 @@ void EditorSystem::Update()
     activeScene->Write(&s);
     s.flush();
     s.close();
-
+    std::cout << "Wrote Out Scene: " << activeScene->name() << std::endl;
+    auto& live = EntitySystem::GetActive().EditorGetAllActiveEntities();
+    for (auto& e : live.GetCollection()) 
+    {
+      if (e->isPrefabRoot()) 
+      {
+        EntitySystem::GetActive().WritePrefab(e);
+        std::cout << "Wrote Out Prefab: " << e->getProto() << std::endl;
+      }
+    }
   }
 
   if (Selected)
