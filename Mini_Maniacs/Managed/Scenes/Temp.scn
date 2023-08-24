@@ -1,6 +1,6 @@
 <Scene>
-<Name>
-Temp
+ <Name>
+  Temp
 <Entities>
  Steve
  <Position>
@@ -13,4 +13,5 @@ Temp
   0 0
  </Entities>
  <Prefabs>
-</Prefabs>
+ </Prefabs>
+ 
