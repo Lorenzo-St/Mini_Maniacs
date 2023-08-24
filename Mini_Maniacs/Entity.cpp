@@ -30,6 +30,21 @@ bool Entity::isStatic(void)
   return GetComponent<Physics>() == nullptr; 
 }
 
+void Entity::RemoveChild(Entity* e) 
+{
+  int i = 0;
+  for (auto& c : Children) 
+  {
+    if (c == e)
+    {
+      c = nullptr;
+      Children.erase(Children.begin() + i);
+    }
+    ++i;
+
+  }
+}
+
 void Entity::Awake(void) 
 {
   for (auto& comp : components)

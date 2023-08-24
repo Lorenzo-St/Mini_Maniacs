@@ -47,6 +47,7 @@ public:
   bool isStatic(void);
 
   void AddChild(Entity* e) { Children.push_back(e); }
+  void RemoveChild(Entity* e);
   std::vector<Entity*>& GetChildren() { return Children; }
 
   Container<Entity>& FindChildrenWithTag(Tags tag);

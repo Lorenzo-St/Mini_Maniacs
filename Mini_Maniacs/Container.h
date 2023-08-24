@@ -54,8 +54,11 @@ public:
     int i = 0;
     for (auto& el : entities)
     {
-      if (e == el)
+      if (e == el) 
+      {
+        e = nullptr;
         entities.erase(entities.begin() + i);
+      }
       ++i;
     }
 

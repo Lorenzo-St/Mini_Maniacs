@@ -79,6 +79,13 @@ void EditorSystem::DuplicateEntity()
   SelectedOBJ.OBJ.e = cloned;
 }
 
+void EditorSystem::DeleteEntity() 
+{
+  Selected = false;
+  EntitySystem::GetActive().EditorGetAllActiveEntities().remove(SelectedOBJ.OBJ.e);
+
+}
+
 void EditorSystem::Update() 
 {
   activeScene = Scene::getSceneSystem()->EditorGetActive();
@@ -98,6 +105,11 @@ void EditorSystem::Update()
   if (InputSystem::isTriggered(Save)) 
   {
     SaveData();
+  }
+
+  if (InputSystem::isPressed(Delete)) 
+  {
+    DeleteEntity();
   }
 
   if (InputSystem::isTriggered(Duplicate) && Selected && SelectedOBJ.type == entity) 

@@ -52,7 +52,7 @@
  <name>
   tile
  <localPosition>
-  58.6667 6.33333
+  80 16
  <name>
   tile
  <localPosition>
@@ -121,4 +121,72 @@
   tile
  <localPosition>
   32 48
+ <name>
+  tile
+ <localPosition>
+  48 -16
+ <name>
+  tile
+ <localPosition>
+  64 16
+ <name>
+  tile
+ <localPosition>
+  64 0
+ <name>
+  tile
+ <localPosition>
+  80 0
+ <name>
+  tile
+ <localPosition>
+  64 32
+ <name>
+  tile
+ <localPosition>
+  80 48
+ <name>
+  tile
+ <localPosition>
+  96 48
+ <name>
+  tile
+ <localPosition>
+  112 48
+ <name>
+  tile
+ <localPosition>
+  128 32
+ <name>
+  tile
+ <localPosition>
+  144 32
+ <name>
+  tile
+ <localPosition>
+  144 16
+ <name>
+  tile
+ <localPosition>
+  64 -96
+ <name>
+  tile
+ <localPosition>
+  96 -96
+ <name>
+  tile
+ <localPosition>
+  80 -80
+ <name>
+  tile
+ <localPosition>
+  80 -64
+ <name>
+  tile
+ <localPosition>
+  80 -48
+ <name>
+  tile
+ <localPosition>
+  80 -48
  </Entities>
