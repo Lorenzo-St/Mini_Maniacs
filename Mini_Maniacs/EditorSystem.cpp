@@ -104,6 +104,11 @@ void EditorSystem::DrawSelectedInfo(void)
   topCorner.y += 40;
   text = "Rotation: " + std::to_string(t->GetRotation());
   api.DrawText(text.c_str(), topCorner, 20);
+  text = "Position: (" + std::to_string(t->GetScale().x) + ", " + std::to_string(t->GetScale().y) + ")";
+  topCorner.y += 20;
+  api.DrawText(text.c_str(), topCorner, 20);
+
+
 }
 
 void EditorSystem::Update(void) 
