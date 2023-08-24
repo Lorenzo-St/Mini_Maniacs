@@ -119,26 +119,29 @@ void EditorSystem::Update()
         
     api.DrawRect(mousePos, scale * 1.1f);
   }
-
-  auto& entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
-  for (auto const& e : entities) 
+  if (!Selected)
   {
-    Transform* t = e->GetComponent<Transform>();
-    glm::vec2 eScale = t->GetScale();
-    glm::vec2 ePos = t->GetPosition();
-    if (PointInRect(mousePos, ePos, eScale) )
+
+    auto& entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
+    for (auto const& e : entities)
     {
-      if (InputSystem::MouseDown()) 
+      Transform* t = e->GetComponent<Transform>();
+      glm::vec2 eScale = t->GetScale();
+      glm::vec2 ePos = t->GetPosition();
+      if (PointInRect(mousePos, ePos, eScale))
       {
-        SelectedOBJ.OBJ.e = e;
-        SelectedOBJ.type = entity;
-        Selected = true;
+        if (InputSystem::MouseDown())
+        {
+          SelectedOBJ.OBJ.e = e;
+          SelectedOBJ.type = entity;
+          Selected = true;
 
+        }
       }
-    }
-  
-  }
 
+    }
+
+  }
   if (InputSystem::MouseDown() == false)
     Selected = false;
 
