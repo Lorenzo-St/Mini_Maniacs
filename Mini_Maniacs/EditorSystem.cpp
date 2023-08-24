@@ -95,6 +95,11 @@ void EditorSystem::Update()
     SaveData();
   }
 
+  if (InputSystem::isTriggered(Duplicate) && Selected && SelectedOBJ.type == entity) 
+  {
+    DuplicateEntity();
+  }
+
   if (Selected)
   {
     switch (SelectedOBJ.type)
