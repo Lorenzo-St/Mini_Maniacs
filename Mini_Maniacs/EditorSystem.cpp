@@ -152,7 +152,7 @@ void EditorSystem::Update(void)
       break;
     }
     api.SetColor({ 255,255,255,255 });
-    api.DrawRect(MouseOff, scale * 1.1f);
+    api.DrawRect(mousePos, scale * 1.1f);
   }
   if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
     DrawSelectedInfo();
