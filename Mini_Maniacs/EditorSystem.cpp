@@ -150,7 +150,7 @@ void EditorSystem::Update(void)
     default:
       break;
     }
-        
+    api.SetColor({ 255,255,255,255 });
     api.DrawRect(mousePos + offset, scale * 1.1f);
   }
   if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
@@ -176,6 +176,9 @@ void EditorSystem::Update(void)
           Selected = true;
 
         }
+        api.SetColor({ 255, 0, 0, 255 });
+        api.DrawRect(mousePos + offset, scale * 1.1f);
+
       }
 
     }
