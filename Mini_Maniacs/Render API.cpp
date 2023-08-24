@@ -117,12 +117,10 @@ inline SDL_FPoint convert(glm::vec2 f)
 
 void RenderFront::Draw(std::vector<SDL_Vertex> const& mesh) const
 {
-  const glm::mat4x4 projection = renderMatrix/*glm::scale(renderMatrix, glm::vec3(zoom, zoom, 0))*/;
-  const glm::mat4x4 proj = glm::ortho<float>(-Width + c.pos.x, Width + c.pos.x, -Height + c.pos.y, Height + c.pos.y);
   std::vector<SDL_Vertex> temp = mesh;
   for (auto& vert : temp) 
   {
-    vert.position = convert(ConvertToScreenSpace(convert(vert.position)));
+    vert.position = convert(glm::vec4(ConvertToScreenSpace(convert(vert.position)) , 0 , 1) * renderMatrix);
     vert.tex_coord = convert(glm::vec4(convert(vert.tex_coord), 0, 1) * UVmatrix);
   }
   if(activeTexture)
@@ -151,7 +149,6 @@ glm::vec2 RenderFront::ConvertToScreenSpace(glm::vec2 const& cl) const
 void RenderFront::DrawRect(glm::vec2 pos, glm::vec2 scale) const
 {
   std::array<SDL_Vertex, 6> rect = {};
-  const glm::mat4x4 proj = glm::ortho<float>(-Width + c.pos.x, Width + c.pos.x, -Height + c.pos.y, Height + c.pos.y);
 
   rect[0].position = { pos.x - scale.x / 2.0f, pos.y - scale.y / 2.0f };
   rect[1].position = { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f };
