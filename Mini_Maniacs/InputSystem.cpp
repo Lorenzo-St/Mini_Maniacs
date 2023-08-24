@@ -18,7 +18,7 @@ void InputSystem::Update(void)
     instance = new InputSystem();
   for (auto& binding : instance->bindings)
   {
-#if _DEBUG && 1
+#if _DEBUG && 0
     std::cout << "Key : " 
       << binding.binding.key 
       << " Pressed : " 
