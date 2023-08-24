@@ -20,8 +20,15 @@ void Scene::Write(std::ofstream* s)
     *s << "<Position>\n";
     *s << e->GetComponent<Transform>()->StartingPosition() << "\n";
   }
+  *s << "</Entities>\n <Prefabs>\n";
+  for (auto& p : prefabs) 
+  {
+    *s << p->getProto() << "\n";
+  }
+  *s << "</Prefabs>\n";
 
 }
+
 #endif
 
 void Scene::ReadFile(const char* c)

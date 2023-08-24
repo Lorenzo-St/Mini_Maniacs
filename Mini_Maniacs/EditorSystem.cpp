@@ -4,6 +4,7 @@
 #include "Backend.h"
 #include "EntitySystem.h"
 #include "Container.h"
+#include "Scene.h"
 #include <iostream>
 #include <fstream>
 #include <filesystem>
@@ -55,9 +56,13 @@ void EditorSystem::Update()
       s.close();
       std::cout << "Wrote Out Prototype: " << e->getProto() << std::endl;
     }
-    
-
-
+    std::string path = std::filesystem::current_path().string() + ".\\Managed\\Scenes\\" + activeScene->name() + ".dat";
+    std::ofstream s(path);
+    if (s.good() == false || s.is_open() == false)
+      throw std::runtime_error("bbaababa");
+    activeScene->Write(&s);
+    s.flush();
+    s.close();
 
   }
 
