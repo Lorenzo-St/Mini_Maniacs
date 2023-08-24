@@ -107,7 +107,7 @@ void EditorSystem::Update(void)
   glm::vec2 location = {};
   glm::vec2 scale = {};
   glm::vec2 cameraOffset = glm::vec2(api.CameraPos().x, -api.CameraPos().y);
-  glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2( InputSystem::GetMouseX(), InputSystem::GetMouseY() ) - cameraOffset);
+  glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2( InputSystem::GetMouseX(), InputSystem::GetMouseY() ));
   
   glm::vec2 mousePosGlobal = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() });
 
