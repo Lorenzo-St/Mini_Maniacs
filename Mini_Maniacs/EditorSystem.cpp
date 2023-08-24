@@ -109,7 +109,6 @@ void EditorSystem::Update(void)
   glm::vec2 cameraOffset = glm::vec2(api.CameraPos().x, -api.CameraPos().y);
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2( InputSystem::GetMouseX(), InputSystem::GetMouseY() ));
   
-  glm::vec2 mousePosGlobal = api.ConvertToWorldSpace({ InputSystem::GetMouseX(), InputSystem::GetMouseY() });
 
   if (InputSystem::isPressed(GridLock))
     GridLocked = true;
@@ -119,7 +118,6 @@ void EditorSystem::Update(void)
   if (GridLocked) 
   {
     mousePos = glm::roundEven(mousePos / 16.0f) * 16.0f;
-    mousePosGlobal = glm::roundEven(mousePosGlobal / 16.0f) * 16.0f;
   }
 
   if (InputSystem::isTriggered(Save)) 
