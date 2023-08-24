@@ -134,6 +134,7 @@ void EditorSystem::Update(void)
   {
     DuplicateEntity();
   }
+  glm::vec2 MouseOff = mousePos - offset;
 
   if (Selected)
   {
@@ -141,9 +142,9 @@ void EditorSystem::Update(void)
     {
     case entity:
       if(SelectedOBJ.OBJ.e->Parent() != nullptr)
-        SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetLocalPosition(mousePos);
+        SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetLocalPosition(MouseOff);
       else
-        SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetPosition(mousePos);
+        SelectedOBJ.OBJ.e->GetComponent<Transform>()->SetPosition(MouseOff);
       scale = SelectedOBJ.OBJ.e->GetComponent<Transform>()->GetScale();
       break;
 
@@ -151,12 +152,11 @@ void EditorSystem::Update(void)
       break;
     }
     api.SetColor({ 255,255,255,255 });
-    api.DrawRect(mousePos + offset, scale * 1.1f);
+    api.DrawRect(MouseOff, scale * 1.1f);
   }
   if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
     DrawSelectedInfo();
 
-  glm::vec2 MouseOff = mousePos - offset;
 
   if (!Selected)
   {
