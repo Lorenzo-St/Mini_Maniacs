@@ -61,7 +61,7 @@ void EditorSystem::Update()
       s.close();
       std::cout << "Wrote Out Prototype: " << e->getProto() << std::endl;
     }
-    std::string path = std::filesystem::current_path().string() + ".\\Managed\\Scenes\\" + activeScene->name() + ".dat";
+    std::string path = std::filesystem::current_path().string() + ".\\Managed\\Scenes\\" + activeScene->name() + ".scn";
     std::ofstream s(path);
     if (s.good() == false || s.is_open() == false)
       throw std::runtime_error("bbaababa");
