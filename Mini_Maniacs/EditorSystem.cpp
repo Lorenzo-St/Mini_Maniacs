@@ -108,7 +108,7 @@ void EditorSystem::Update()
     SaveData();
   }
 
-  if (InputSystem::isPressed(Delete)) 
+  if (InputSystem::isTriggered(Delete))
   {
     DeleteEntity();
   }
