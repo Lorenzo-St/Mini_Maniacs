@@ -10,6 +10,7 @@ FontInfo* Fonts::LoadFont(const char* c)
 
 FontInfo* Fonts::LoadFont(const char* c, int size)
 {
+  
   if (instance == nullptr)
     instance = new Fonts();
   FontInfo* f = new FontInfo();

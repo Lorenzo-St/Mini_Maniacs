@@ -19,7 +19,7 @@ public:
 
 
 private:
-  Fonts() = default;
+  Fonts() { TTF_Init(); };
   std::vector<FontInfo*> fonts;
   static inline Fonts* instance;
 
