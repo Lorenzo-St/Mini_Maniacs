@@ -98,6 +98,9 @@ void EditorSystem::DrawSelectedInfo(void)
   std::string text = "Position: (" + std::to_string(t->GetPosition().x) + ", " + std::to_string(t->GetPosition().y) + ")";
   api.SetColor({ 255,255,255,255 });
   api.DrawText(text.c_str(), topCorner, 20);
+  text = "Name: " + SelectedOBJ.OBJ.e->getName();
+  topCorner.y -= 20;
+  api.DrawText(text.c_str(), topCorner, 20);
 
 }
 
