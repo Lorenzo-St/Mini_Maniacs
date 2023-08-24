@@ -42,16 +42,18 @@ void EditorSystem::Update()
   if (InputSystem::isPressed(Save)) 
   {
     auto& proto = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
-    
-    Entity* a = proto.GetCollection()[0];
-    std::string path = std::filesystem::current_path().string() + "\\..\\" + a->getProto() + ".dat";
-    std::ofstream s(path.c_str());
-    if (s.good() == false || s.is_open() == false)
-      throw std::runtime_error("bbaababa");
+    for (auto& e : proto.GetCollection()) 
+    {
+      std::string path = std::filesystem::current_path().string() + ".\\Managed\\Entities\\" + e->getProto() + ".dat";
+      std::ofstream s(path.c_str());
+      if (s.good() == false || s.is_open() == false)
+        throw std::runtime_error("bbaababa");
 
-    a->Write(&s);
-    s.flush();
-    s.close();
+      e->Write(&s);
+      s.flush();
+      s.close();
+    }
+    
   }
 
   if (Selected)
