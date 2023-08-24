@@ -125,6 +125,7 @@ Entity* EntitySystem::CreatePrefab(const char* file)
       break;
   }
   prefab->GetComponent<Transform>()->SetPosition(prefab->GetComponent<Transform>()->GetPosition());
+  activeScene.add(prefab);
   return prefab;
 }
 
