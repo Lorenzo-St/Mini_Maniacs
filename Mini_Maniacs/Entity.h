@@ -106,7 +106,9 @@ public:
       else if (c == t)
         return static_cast<g*>(components[midPoint]);
 
-    }
+    }    
+    if (end >= components.size())
+      return nullptr;
     if (components[end]->getType() == t)
       return static_cast<g*>(components[end]);
     return nullptr;
