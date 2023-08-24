@@ -167,7 +167,7 @@ void EditorSystem::Update(void)
       Transform* t = e->GetComponent<Transform>();
       glm::vec2 eScale = t->GetScale();
       glm::vec2 ePos = t->GetPosition();
-      if (PointInRect(MouseOff, ePos, eScale))
+      if (PointInRect(mousePos, ePos, eScale))
       {
         if (InputSystem::MouseDown())
         {
@@ -176,7 +176,7 @@ void EditorSystem::Update(void)
           Selected = true;
 
         }
-        api.SetColor({ 255, 0, 0, 255 });
+        api.SetColor({ 255, 255, 255, 255 });
         api.DrawRect(mousePos + offset, scale * 1.1f);
 
       }
