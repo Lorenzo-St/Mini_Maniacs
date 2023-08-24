@@ -82,6 +82,8 @@ void EditorSystem::DuplicateEntity()
 
 void EditorSystem::DeleteEntity() 
 {
+  if (SelectedOBJ.OBJ.e == nullptr)
+    return;
   Selected = false;
   EntitySystem::GetActive().EditorGetAllActiveEntities().remove(SelectedOBJ.OBJ.e);
   dynamic_cast<Entity*>(SelectedOBJ.OBJ.e->Parent())->RemoveChild(SelectedOBJ.OBJ.e);
