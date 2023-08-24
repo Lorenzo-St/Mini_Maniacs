@@ -147,8 +147,10 @@ void EditorSystem::Update(void)
     }
         
     api.DrawRect(mousePos, scale * 1.1f);
-    DrawSelectedInfo();
   }
+  if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
+    DrawSelectedInfo();
+
   if (!Selected)
   {
 
