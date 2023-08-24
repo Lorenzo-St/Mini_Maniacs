@@ -52,24 +52,24 @@ void Animation::Read(Stream* s)
 
 void Animation::Write(std::ofstream* s) 
 {
-	*s << "<Animation>\n ";
-	*s << "<frameLength>\n  ";
-	*s << frameLength << "\n ";
+	*s << "<Animation>\n  ";
+	*s << "<frameLength>\n   ";
+	*s << frameLength << "\n  ";
 
-	*s << "<maxFrames>\n  ";
-	*s << maxFrame << "\n ";
-	*s << "<looping>\n  ";
-	*s << looping << "\n ";
-	*s << "<offset>\n  ";
-	*s << frameOffset.x << " " << frameOffset.y << "\n ";
-	*s << "<frameLength>\n  ";
-	*s << frameLength << "\n ";
-	*s << "<frameLength>\n  ";
-	*s << frameLength << "\n ";
-	*s << "<Columns>\n  ";
-	*s << Columns << "\n ";
-	*s << "<Rows>\n  ";
-	*s << Rows << "\n ";
+	*s << "<maxFrames>\n   ";
+	*s << maxFrame << "\n  ";
+	*s << "<looping>\n   ";
+	*s << looping << "\n  ";
+	*s << "<offset>\n   ";
+	*s << frameOffset.x << " " << frameOffset.y << "\n  ";
+	*s << "<frameLength>\n   ";
+	*s << frameLength << "\n  ";
+	*s << "<frameLength>\n   ";
+	*s << frameLength << "\n  ";
+	*s << "<Columns>\n   ";
+	*s << Columns << "\n  ";
+	*s << "<Rows>\n   ";
+	*s << Rows << "\n  ";
 	*s << "</Animation>\n ";
 }
 

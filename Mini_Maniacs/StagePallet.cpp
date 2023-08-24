@@ -15,12 +15,12 @@ void StagePallet::SetPallet(int pallet, Animation* s)
 
 void StagePallet::Write(std::ofstream* s) 
 {
-  *s << "<StagePallet>\n ";
+  *s << "<StagePallet>\n  ";
   for (auto& p : pallets) 
   {
-    *s << "<PalletInfo>\n  ";
-    *s << p.spriteOffset.x << " " << p.spriteOffset.y << "\n  ";
-    *s << p.totalTiles << "\n ";
+    *s << "<PalletInfo>\n   ";
+    *s << p.spriteOffset.x << " " << p.spriteOffset.y << "\n   ";
+    *s << p.totalTiles << "\n  ";
   }
   *s << "</StagePallet>\n ";
 }
