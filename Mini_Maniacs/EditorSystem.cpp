@@ -117,7 +117,7 @@ void EditorSystem::DrawObjectMenu(void)
   glm::vec2 BGPos = { 0,0 };
   api.SetColor({ 100, 100, 100, 175 });
   api.DrawRect(BGPos, { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f });
-
+  api.DrawText("Create Object", { api.GetWindowWidth() * .25f, api.GetWindowHeight() * .25f }, 10);
 
 }
 
