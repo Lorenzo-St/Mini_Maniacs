@@ -131,17 +131,25 @@ void EditorSystem::UpdateButtons(std::vector<button>& but)
   {
     if (but.size() >= i)
     {
-      button b;
+      button b = {};
       b.pos = {0,0};
-      b.scale = { bgScale.x / (i + 1),bgScale.x / (i + 1) };
       b.bgColor = { 150, 150, 150, 255 };
       b.selectedColor = { 50, 50, 50, 255 };
       b.textcolor = { 255, 255, 255, 255 };
       b.text = &e->getName();
-      b.textSize = static_cast<int>(b.scale.y / 3);
       but.push_back(b);
     }
     ++i;
+  }
+  i = 0;
+  float xOffset = 1 / bgScale.x;
+  float yOffset = 1 / bgScale.y;
+  for (auto& b : but) 
+  {
+    b.scale = glm::vec2(bgScale.x / (but.size() + 1), bgScale.x / (but.size() + 1));
+    b.pos = glm::vec2(xOffset + (i * xOffset), yOffset );
+    b.textSize = static_cast<int>(b.scale.y / 10);
+
   }
 
 }
