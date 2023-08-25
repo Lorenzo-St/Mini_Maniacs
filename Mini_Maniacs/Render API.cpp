@@ -49,6 +49,8 @@ void RenderFront::Init(void)
   }
   SDL_Rect rect = { 0, 0, Width, Height };
   errorState = SDL_RenderSetViewport(renderer, &rect);
+  SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+  
 
   frameRateMillis = (1.0f / TargetFrameRate) * 1000;
 #if _DEBUG && 0
