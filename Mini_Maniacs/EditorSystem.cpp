@@ -120,7 +120,7 @@ void EditorSystem::DrawObjectMenu(void)
   api.SetColor({ 255,255,255,255 });
 
   api.DrawText("Objects",    api.ConvertToScreenSpace({-50, 65}), 50);
-  api.DrawText("Create New", api.ConvertToScreenSpace({ -50, -65 }), 20);
+  api.DrawText("Create New", api.ConvertToScreenSpace({ -20, -65 }), 20);
 
 
 
