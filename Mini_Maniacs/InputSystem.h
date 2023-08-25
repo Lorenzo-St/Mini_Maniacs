@@ -13,6 +13,8 @@ typedef enum InputActions
   GridLock,
   Duplicate,
   Delete,
+  Create,
+
 #endif
 
 }Action;

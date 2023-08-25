@@ -27,6 +27,7 @@ EditorSystem::EditorSystem()
   InputSystem::addBinding(GridLock, { SDLK_l });
   InputSystem::addBinding(Duplicate, { SDLK_d });
   InputSystem::addBinding(Delete, { SDLK_x });
+  InputSystem::addBinding(Create, { SDLK_c });
 
   api.LoadFont((std::filesystem::current_path().string() + ".\\Assets\\Roboto-Regular.ttf").c_str());
 
@@ -111,6 +112,22 @@ void EditorSystem::DrawSelectedInfo(void)
 
 }
 
+void EditorSystem::DrawObjectMenu(void) 
+{
+  glm::vec2 BGPos = { 0,0 };
+  api.DrawRect(BGPos, { api.GetWindowWidth() * .5f , api.GetWindowHeight() * .5f });
+
+
+}
+
+
+void EditorSystem::PostUpdate(void) 
+{
+  if (inObjectMenu)
+    DrawObjectMenu();
+}
+
+
 void EditorSystem::Update(void) 
 {
   activeScene = Scene::getSceneSystem()->EditorGetActive();
@@ -124,6 +141,9 @@ void EditorSystem::Update(void)
     GridLocked = true;
   else
     GridLocked = false;
+
+  if (InputSystem::isTriggered(Create))
+    inObjectMenu = !inObjectMenu;
 
   if (GridLocked) 
   {

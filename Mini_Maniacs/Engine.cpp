@@ -55,7 +55,7 @@ void Engine::Update(void)
       const_cast<System*>(system)->PostUpdate();
     contin = false;
     api.Update();
-#if STEPTHROUGH || 1
+#if STEPTHROUGH || 0
     std::cout << "FR: " << 1.0 / Time.deltaTime() << " DT: " << Time.deltaTime() << std::endl;
     std::cout << "--------------------------------------------------" << std::endl;
 #endif

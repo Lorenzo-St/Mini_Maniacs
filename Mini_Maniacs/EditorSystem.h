@@ -28,6 +28,7 @@ public:
   EditorSystem();
   void Update();
   
+  void PostUpdate();
 
 private:
   EditorSystem* Clone() { return nullptr; };
@@ -35,10 +36,14 @@ private:
   void DuplicateEntity(void);
   void DeleteEntity(void);
   void DrawSelectedInfo(void);
+  void DrawObjectMenu(void);
 
   Scene* activeScene = nullptr;
+  
   bool Selected = false;
   bool GridLocked = false;
+  bool inObjectMenu = false;
+
   SelectOBJ SelectedOBJ = {};
 };
 
