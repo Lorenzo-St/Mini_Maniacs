@@ -1,5 +1,24 @@
 #pragma once
 #include "system.h"
+#include "glm.hpp"
+#include "sdl.h"
+#ifdef ESystem
+struct button
+{
+  bool selected;
+  glm::vec2 pos;
+  glm::vec2 scale;
+  SDL_Color bgColor;
+  SDL_Color selectedColor;
+
+  SDL_Color textcolor;
+  std::string text;
+  int textSize;
+  void drawButton(void);
+  
+};
+#endif
+
 
 class Entity;
 class Scene;
@@ -38,6 +57,9 @@ private:
   void DrawSelectedInfo(void);
   void DrawObjectMenu(void);
 
+#ifdef ESystem
+  void UpdateButtons(std::vector<button>& but);
+#endif
   Scene* activeScene = nullptr;
   
   bool Selected = false;

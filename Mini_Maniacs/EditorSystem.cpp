@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#define ESystem
+
 
 #include "EditorSystem.h"
 #include "Entity.h"
@@ -10,6 +12,14 @@
 #include "Container.h"
 #include "Scene.h"
 #include "SceneSystem.h"
+
+void button::drawButton()
+{
+  api.SetColor(((selected == true) ? selectedColor : bgColor));
+  api.DrawRect(pos, scale);
+  api.SetColor(textcolor);
+  api.DrawText(text.c_str(), { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f }, textSize);
+}
 
 bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
 {
@@ -112,14 +122,23 @@ void EditorSystem::DrawSelectedInfo(void)
 
 }
 
+void EditorSystem::UpdateButtons(std::vector<button>& but) 
+{
+
+}
+
 void EditorSystem::DrawObjectMenu(void) 
 {
+  static std::vector<button> buttons = {};
   glm::vec2 BGPos = { 0,0 };
   api.SetColor({ 100, 100, 100, 175 });
   api.DrawRect(BGPos, { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f });
   api.SetColor({ 255,255,255,255 });
 
   api.DrawText("Objects",    api.ConvertToScreenSpace({-50, 65}), 50);
+
+
+
   api.DrawText("Create New", api.ConvertToScreenSpace({ -20, -55 }), 20);
 
 
