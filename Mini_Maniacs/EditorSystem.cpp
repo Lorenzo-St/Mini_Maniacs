@@ -18,7 +18,7 @@ void button::drawButton()
   api.SetColor(((selected == true) ? selectedColor : bgColor));
   api.DrawRect(pos, scale);
   api.SetColor(textcolor);
-  api.DrawText(const_cast<std::string*>(text)->c_str(), { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f }, textSize);
+  api.DrawText(text->c_str(), { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f }, textSize);
 }
 
 bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
