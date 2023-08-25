@@ -149,6 +149,7 @@ void EditorSystem::UpdateButtons(std::vector<button>& but)
 void EditorSystem::DrawObjectMenu(void) 
 {
   static std::vector<button> buttons = {};
+  UpdateButtons(buttons);
   glm::vec2 BGPos = { 0,0 };
   api.SetColor({ 100, 100, 100, 175 });
   api.DrawRect(BGPos, { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f });
