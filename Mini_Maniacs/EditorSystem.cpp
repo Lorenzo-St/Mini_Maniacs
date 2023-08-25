@@ -139,6 +139,7 @@ void EditorSystem::UpdateButtons(std::vector<button>& but)
       b.textcolor = { 255, 255, 255, 255 };
       b.text = &e->getName();
       b.textSize = static_cast<int>(b.scale.y / 3);
+      but.push_back(b);
     }
     ++i;
   }
