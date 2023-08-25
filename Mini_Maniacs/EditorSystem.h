@@ -12,7 +12,7 @@ struct button
   SDL_Color selectedColor;
 
   SDL_Color textcolor;
-  std::string text;
+  std::string const* text;
   int textSize;
   void drawButton(void);
   

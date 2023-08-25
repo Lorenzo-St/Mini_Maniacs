@@ -18,7 +18,7 @@ void button::drawButton()
   api.SetColor(((selected == true) ? selectedColor : bgColor));
   api.DrawRect(pos, scale);
   api.SetColor(textcolor);
-  api.DrawText(text.c_str(), { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f }, textSize);
+  api.DrawText(const_cast<std::string*>(text)->c_str(), { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f }, textSize);
 }
 
 bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
@@ -124,6 +124,24 @@ void EditorSystem::DrawSelectedInfo(void)
 
 void EditorSystem::UpdateButtons(std::vector<button>& but) 
 {
+  auto & col = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
+  glm::vec2 bgScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
+  int i = 0;
+  for (auto const& e : col.GetCollection()) 
+  {
+    if (but.size() >= i)
+    {
+      button b;
+      b.pos = {0,0};
+      b.scale = { bgScale.x / (i + 1),bgScale.x / (i + 1) };
+      b.bgColor = { 150, 150, 150, 255 };
+      b.selectedColor = { 50, 50, 50, 255 };
+      b.textcolor = { 255, 255, 255, 255 };
+      b.text = &e->getName();
+      b.textSize = static_cast<int>(b.scale.y / 3);
+    }
+    ++i;
+  }
 
 }
 
