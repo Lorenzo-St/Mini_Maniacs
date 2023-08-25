@@ -160,7 +160,10 @@ void EditorSystem::DrawObjectMenu(void)
 
 
   api.DrawText("Create New", api.ConvertToScreenSpace({ -20, -55 }), 20);
-
+  for (auto& b : buttons) 
+  {
+    b.drawButton();
+  }
 
 
 }
