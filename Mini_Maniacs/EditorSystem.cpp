@@ -146,25 +146,21 @@ void EditorSystem::Update(void)
   if (InputSystem::isTriggered(Create))
     inObjectMenu = !inObjectMenu;
 
+  if (inObjectMenu)
+    Selected = false;
+
   if (GridLocked) 
-  {
     mousePos = glm::roundEven(mousePos / 16.0f) * 16.0f;
-  }
 
   if (InputSystem::isTriggered(Save)) 
-  {
     SaveData();
-  }
 
   if (InputSystem::isTriggered(Delete) && Selected)
-  {
     DeleteEntity();
-  }
 
   if (InputSystem::isTriggered(Duplicate) && Selected && SelectedOBJ.type == entity) 
-  {
     DuplicateEntity();
-  }
+  
   glm::vec2 MouseOff = mousePos - offset;
 
   if (Selected)
@@ -187,9 +183,10 @@ void EditorSystem::Update(void)
   }
   if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
     DrawSelectedInfo();
+  
 
 
-  if (!Selected)
+  if (!Selected && !inObjectMenu)
   {
 
     auto& entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
