@@ -115,7 +115,7 @@ void EditorSystem::DrawSelectedInfo(void)
 void EditorSystem::DrawObjectMenu(void) 
 {
   glm::vec2 BGPos = { 0,0 };
-  api.DrawRect(BGPos, { api.GetWindowWidth() * .15f , api.GetWindowHeight() * .15f });
+  api.DrawRect(BGPos, { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f });
 
 
 }
