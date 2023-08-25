@@ -119,7 +119,7 @@ void EditorSystem::DrawObjectMenu(void)
   api.DrawRect(BGPos, { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f });
   api.SetColor({ 255,255,255,255 });
 
-  api.DrawText("Create Object",  api.ConvertToScreenSpace({-50, 50}), 50);
+  api.DrawText("Create Object",  api.ConvertToScreenSpace({-50, 75}), 50);
 
 }
 
