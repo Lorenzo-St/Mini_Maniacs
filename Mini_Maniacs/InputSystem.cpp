@@ -76,6 +76,9 @@ void InputSystem::inputEvent(SDL_Event event)
 {
   if (instance == nullptr)
     instance = new InputSystem();
+#if _DEBUG && 1
+  std::cout << "Pressed: " << static_cast<char>(event.key.keysym.sym) << std::endl;
+#endif
   switch (event.type)
   {
   case SDL_KEYDOWN:
