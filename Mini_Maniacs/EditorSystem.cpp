@@ -307,7 +307,7 @@ void EditorSystem::Update(void)
   
 
 
-  if (!Selected && !inObjectMenu)
+  if (!Selected && !inObjectMenu && !inParentMenu)
   {
 
     auto& entities = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
@@ -333,7 +333,7 @@ void EditorSystem::Update(void)
     }
 
   }
-  if (InputSystem::MouseDown() == false)
+  if (InputSystem::MouseDown() == false && !inParentMenu)
     Selected = false;
 
   //std::cout << Selected << "," << SelectedOBJ.OBJ.e << std::endl;
