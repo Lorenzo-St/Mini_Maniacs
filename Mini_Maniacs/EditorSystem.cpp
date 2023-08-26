@@ -138,8 +138,8 @@ void EditorSystem::DrawParentMenu(void)
   if (row < 1)
     row = 1;
 
-  glm::vec2 startingPos = { BGPos.x - (BGScale.x * .4f), BGPos.y + (BGScale.y * .25f) };
-  glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 3), 0 };
+  glm::vec2 startingPos = { BGPos.x - (BGScale.x * .42f), BGPos.y + (BGScale.y * .25f) };
+  glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 2), 0 };
   BoxScale.y = BoxScale.x;
   
   api.DrawText("Select Object to Parent Object to", api.ConvertToScreenSpace({ -50,  65 }), 50);
