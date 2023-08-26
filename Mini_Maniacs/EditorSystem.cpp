@@ -144,8 +144,8 @@ void EditorSystem::DrawParentMenu(void)
 
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
   int i = row * xCount;
-  //if (i < 0)
-  //  i = 0;
+  if (i < 0)
+    i = 0;
   for (auto const& e : col)
   {
     if (i / xCount >= yCount + row)
