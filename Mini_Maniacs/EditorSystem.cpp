@@ -124,7 +124,7 @@ void EditorSystem::DrawObjectMenu(void)
   api.DrawRect(BGPos, { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f });
   api.SetColor({ 255,255,255,255 });
 
-  api.DrawText("Objects",    api.ConvertToScreenSpace({ -20,  65 }), 50);
+  api.DrawText("Objects",    api.ConvertToScreenSpace({ -30,  65 }), 50);
 
 
 
