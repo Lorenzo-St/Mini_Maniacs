@@ -105,7 +105,7 @@ void EditorSystem::DeleteEntity()
 void EditorSystem::DrawSelectedInfo(void) 
 {
   glm::vec2 topCorner = { api.GetWindowWidth() * .75f, api.GetWindowHeight() * .05f };
-  glm::vec2 scale = { api.GetWindowWidth() * .125f, api.GetWindowHeight() * .5f };
+  glm::vec2 scale = { api.GetWindowWidth() * .14f, api.GetWindowHeight() * .5f };
   glm::vec2 pos = { api.GetWindowWidth() * .5f * .3f, 0 };
   api.SetColor({ 125, 125, 125, 125 });
   api.DrawRect(pos, scale);
