@@ -241,11 +241,15 @@ void EditorSystem::DrawObjectMenu(void)
 
 void EditorSystem::PostUpdate(void) 
 {
+  if (SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
+    DrawSelectedInfo();
+
   if (inObjectMenu)
     DrawObjectMenu();
 
   if (inParentMenu)
     DrawParentMenu();
+
 }
 
 
@@ -311,9 +315,7 @@ void EditorSystem::Update(void)
     api.SetColor({ 255,255,255,255 });
     api.DrawRect(mousePos, scale * 1.1f);
   }
-  if(SelectedOBJ.type == entity && SelectedOBJ.OBJ.e != nullptr)
-    DrawSelectedInfo();
-  
+
 
 
   if (!Selected && !inObjectMenu && !inParentMenu)
