@@ -284,7 +284,7 @@ void EditorSystem::Update(void)
   
   glm::vec2 MouseOff = mousePos - offset;
 
-  if (Selected)
+  if (Selected && !inParentMenu)
   {
     switch (SelectedOBJ.type)
     {
