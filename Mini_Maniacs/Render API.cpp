@@ -241,6 +241,24 @@ mesh* RenderFront::CreateMesh(void)
   return new mesh(); 
 }
 
+
+void RenderFront::DrawTextCentered(const char* text, glm::vec2 pos, int size)
+{
+  if (activeFont == nullptr)
+    throw std::runtime_error("Hello?? There is no font");
+
+  TTF_SetFontSize(activeFont->font, size);
+  SDL_Rect rect = { static_cast<int>(pos.x), static_cast<int>(pos.y) };
+  TTF_SizeText(activeFont->font, text, &rect.w, &rect.h);
+  rect.x -= rect.w / 2.0f;
+  rect.y -= rect.h / 2.0f;
+  SDL_Surface* surface = TTF_RenderText_Solid(activeFont->font, text, ActiveColor);
+
+  SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surface);
+
+  SDL_RenderCopy(renderer, message, nullptr, &rect);
+}
+
 void RenderFront::DrawText(const char* text, glm::vec2 pos, int size) 
 {
   if (activeFont == nullptr)

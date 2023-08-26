@@ -31,6 +31,7 @@ public:
   // Text
   void DrawText(const char* text, glm::vec2 pos, int size);
   void LoadFont(const char* path);
+  void DrawTextCentered(const char* text, glm::vec2 pos, int size);
 
   void SetTexture(Texture const* texture);
   void SetUVMatrix(glm::mat4x4 const& matrix) { UVmatrix = matrix; }
