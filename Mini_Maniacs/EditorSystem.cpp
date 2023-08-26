@@ -133,7 +133,7 @@ void EditorSystem::DrawObjectMenu(void)
   int i = 0;
   for (auto const& e : col) 
   {
-    api.DrawRect(startingPos + glm::vec2(BoxScale.x * (i % xCount), BoxScale.y * (i / yCount)), BoxScale);
+    api.DrawRect(startingPos + glm::vec2(startingPos.x * (i % xCount), startingPos.y * (i / yCount)), BoxScale);
   }
   
 
