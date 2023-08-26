@@ -135,6 +135,8 @@ void EditorSystem::DrawParentMenu(void)
   api.DrawRect(BGPos, BGScale);
   api.SetColor({ 255,255,255,255 });
   row -= InputSystem::WheelY();
+  if (row < 0)
+    row = 0;
 
   glm::vec2 startingPos = { BGPos.x - (BGScale.x * .4f), BGPos.y + (BGScale.y * .25f) };
   glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 1), 0 };
@@ -144,8 +146,6 @@ void EditorSystem::DrawParentMenu(void)
 
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
   int i = row * xCount;
-  if (i < 0)
-    i = 0;
   for (auto const& e : col)
   {
     if (i / xCount >= yCount + row)
