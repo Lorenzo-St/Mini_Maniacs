@@ -127,7 +127,7 @@ void EditorSystem::DrawObjectMenu(void)
   api.SetColor({ 100, 100, 100, 175 });
   api.DrawRect(BGPos, BGScale);
   api.SetColor({ 255,255,255,255 });
-  glm::vec2 startingPos = { BGPos.x - BGScale.x / (xCount + 1), BGPos.y + BGScale.y / (yCount + 1) };
+  glm::vec2 startingPos = { BGPos.x - (BGScale.x / (xCount + 1)), BGPos.y + (BGScale.y / (yCount + 1))};
   glm::vec2 BoxScale = BGScale / static_cast<float>(xCount + 1);
   api.DrawText("Objects",    api.ConvertToScreenSpace({ -30,  65 }), 50);
   int i = 0;
