@@ -13,13 +13,6 @@
 #include "Scene.h"
 #include "SceneSystem.h"
 
-void button::drawButton()
-{
-  api.SetColor(((selected == true) ? selectedColor : bgColor));
-  api.DrawRect(pos, scale);
-  api.SetColor(textcolor);
-  api.DrawText(text->c_str(), { pos.x - scale.x / 2.0f, pos.y + scale.y / 2.0f }, textSize);
-}
 
 bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
 {
@@ -122,42 +115,10 @@ void EditorSystem::DrawSelectedInfo(void)
 
 }
 
-void EditorSystem::UpdateButtons(std::vector<button>& but) 
-{
-  auto & col = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
-  glm::vec2 bgScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
-  int i = 0;
-  for (auto const& e : col.GetCollection()) 
-  {
-    if (but.size() >= i)
-    {
-      button b = {};
-      b.pos = {0,0};
-      b.bgColor = { 150, 150, 150, 255 };
-      b.selectedColor = { 50, 50, 50, 255 };
-      b.textcolor = { 255, 255, 255, 255 };
-      b.text = &e->getName();
-      but.push_back(b);
-    }
-    ++i;
-  }
-  i = 0;
-  float xOffset = 1 / bgScale.x;
-  float yOffset = 1 / bgScale.y;
-  for (auto& b : but) 
-  {
-    b.scale = glm::vec2(bgScale.x / (but.size() + 1), bgScale.x / (but.size() + 1));
-    b.pos = glm::vec2(xOffset + (i * xOffset), yOffset );
-    b.textSize = static_cast<int>(b.scale.y / 10);
-
-  }
-
-}
 
 void EditorSystem::DrawObjectMenu(void) 
 {
-  static std::vector<button> buttons = {};
-  UpdateButtons(buttons);
+  auto const& col = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
   glm::vec2 BGPos = { 0,0 };
   api.SetColor({ 100, 100, 100, 175 });
   api.DrawRect(BGPos, { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f });
@@ -168,11 +129,6 @@ void EditorSystem::DrawObjectMenu(void)
 
 
   api.DrawText("Create New", api.ConvertToScreenSpace({ -20, -55 }), 20);
-  for (auto& b : buttons) 
-  {
-    b.drawButton();
-  }
-
 
 }
 
