@@ -41,6 +41,7 @@ private:
   void DeleteEntity(void);
   void DrawSelectedInfo(void);
   void DrawObjectMenu(void);
+  void DrawParentMenu(void);
 
   Scene* activeScene = nullptr;
   

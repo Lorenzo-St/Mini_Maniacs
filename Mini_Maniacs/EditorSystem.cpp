@@ -119,12 +119,55 @@ void EditorSystem::DrawSelectedInfo(void)
 
 }
 
+void EditorSystem::DrawParentMenu(void)
+{
+  auto const& col = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
+  const int xCount = 10;
+  const int yCount = 3;
+
+  glm::vec2 BGPos = { 0,0 };
+  glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
+  api.SetColor({ 100, 100, 100, 175 });
+  api.DrawRect(BGPos, BGScale);
+  api.SetColor({ 255,255,255,255 });
+  glm::vec2 startingPos = { BGPos.x - (BGScale.x * .4f), BGPos.y + (BGScale.y * .25f) };
+  glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 1), 0 };
+  BoxScale.y = BoxScale.x;
+  api.DrawText("Select Object to Parent Object to", api.ConvertToScreenSpace({ -50,  65 }), 50);
+  int i = 0;
+  glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
+
+  for (auto const& e : col)
+  {
+
+    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (i % xCount) * 1.1f, BoxScale.y * (i / xCount) * 1.1f);
+    if (PointInRect(mousePos, pos, BoxScale))
+    {
+
+      api.SetColor({ 255, 255, 255, 255 });
+      if (InputSystem::MouseDown())
+      {
+        Entity* el = EntitySystem::GetActive().CreateEntity(e->getProto().c_str());
+        SelectedOBJ.type = entity;
+        Selected = true;
+        SelectedOBJ.OBJ.e = el;
+        inObjectMenu = false;
+        return;
+      }
+    }
+    else
+      api.SetColor({ 155, 155, 155, 255 });
+    api.DrawRect(pos, BoxScale);
+    ++i;
+  }
+}
+
 
 void EditorSystem::DrawObjectMenu(void) 
 {
   auto const& col = EntitySystem::GetActive().EditorGetAllPrototypeEntities().GetCollection();
-   const int xCount = 10; 
-   const int yCount = 3;
+  const int xCount = 10; 
+  const int yCount = 3;
   
   glm::vec2 BGPos = { 0,0 };
   glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
