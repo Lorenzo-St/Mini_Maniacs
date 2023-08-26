@@ -227,7 +227,7 @@ void EditorSystem::DrawObjectMenu(void)
     api.DrawRect(pos, BoxScale);
     api.SetColor({ 10, 10, 10, 255 });
 
-    api.DrawText(e->getName().c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 3.0f, -BoxScale.y / 3.0f)), 15);
+    api.DrawText(e->getName().c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 2.5f, -BoxScale.y / 3.5f)), 15);
     ++i;
   }
   
