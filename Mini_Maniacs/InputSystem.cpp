@@ -109,7 +109,7 @@ void InputSystem::inputEvent(SDL_Event event)
   case SDL_TEXTINPUT:
     for (auto& binding : instance->bindings)
     {
-      if (SDL_GetScancodeFromKey(binding.binding.key) == event.key.keysym.scancode)
+      if (binding.binding.key == event.text.text[0])
       {
         (binding.pressed == false) ? binding.triggered = true : 0;
         binding.pressed = true;
