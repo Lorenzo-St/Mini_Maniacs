@@ -32,7 +32,8 @@ EditorSystem::EditorSystem()
   InputSystem::addBinding(Delete, { SDLK_x });
   InputSystem::addBinding(Create, { SDLK_c });
   InputSystem::addBinding(Parents, { SDLK_p });
-
+  
+  
   api.LoadFont((std::filesystem::current_path().string() + ".\\Assets\\Roboto-Regular.ttf").c_str());
 
 }
@@ -123,16 +124,18 @@ void EditorSystem::DrawSelectedInfo(void)
 void EditorSystem::DrawParentMenu(void)
 {
   auto const& col = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
-  const int xCount = 10;
-  const int yCount = 5;
-
+  static const int xCount = 10;
+  static const int yCount = 4;
+  static  int row = 0;
+  
   glm::vec2 BGPos = { 0,0 };
   glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
   
   api.SetColor({ 100, 100, 100, 175 });
   api.DrawRect(BGPos, BGScale);
   api.SetColor({ 255,255,255,255 });
-  
+  row += InputSystem::WheelY();
+
   glm::vec2 startingPos = { BGPos.x - (BGScale.x * .4f), BGPos.y + (BGScale.y * .25f) };
   glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 1), 0 };
   BoxScale.y = BoxScale.x;
@@ -140,10 +143,10 @@ void EditorSystem::DrawParentMenu(void)
   api.DrawText("Select Object to Parent Object to", api.ConvertToScreenSpace({ -50,  65 }), 50);
 
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
-  int i = 0;
+  int i = row * xCount;
   for (auto const& e : col)
   {
-    if (i / xCount >= yCount)
+    if (i / xCount >= yCount + i)
       break;
 
     glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (i % (xCount - 1)) * 1.1f, -BoxScale.y * (i / xCount) * 1.1f);

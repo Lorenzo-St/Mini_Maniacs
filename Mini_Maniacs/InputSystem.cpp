@@ -16,6 +16,9 @@ void InputSystem::Update(void)
 {
   if (instance == nullptr)
     instance = new InputSystem();
+  instance->wheelX = 0;
+  instance->wheelY = 0;
+
   for (auto& binding : instance->bindings)
   {
 #if _DEBUG && 0
@@ -155,6 +158,11 @@ void InputSystem::MouseEvent(SDL_Event event)
 #if _DEBUG && 0
       std::cout << "Released: " << static_cast<int>(event.button.button) << std::endl;
 #endif
+      break;
+    case SDL_MOUSEWHEEL:
+      instance->wheelX = event.wheel.preciseX / std::abs(event.wheel.preciseX);
+      instance->wheelY = event.wheel.preciseY / std::abs(event.wheel.preciseY);
+
       break;
   }
 }

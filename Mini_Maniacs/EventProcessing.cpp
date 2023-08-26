@@ -17,6 +17,7 @@ void ProcessEvent(SDL_Event& event)
   case SDL_MOUSEMOTION:
   case SDL_MOUSEBUTTONDOWN:
   case SDL_MOUSEBUTTONUP:
+  case SDL_MOUSEWHEEL:
     InputSystem::MouseEvent(event);
   
   }

@@ -43,6 +43,8 @@ typedef struct Binding
 class InputSystem
 {
 public:
+  InputSystem(InputSystem const&) = delete;
+  InputSystem operator=(InputSystem) = delete;
   
   static void Update(void);
 
@@ -52,6 +54,9 @@ public:
   static bool MouseDown(bool left) { if (left)return instance->LMouseDown; else return instance->RMouseDown; }
   static float GetMouseX(void) { return instance->mouseX; }
   static float GetMouseY(void) { return instance->mouseY; }
+
+  static int WheelX(void) { return instance->wheelX; }
+  static int WheelY(void) { return instance->wheelY; }
 
   static void addBinding(Action a, char type,input b);
   static void addBinding(Action a, input b);
@@ -67,6 +72,9 @@ private:
   bool RMouseDown;
   float mouseX;
   float mouseY;
+
+  int wheelX;
+  int wheelY;
 
   static inline InputSystem* instance;
 };
