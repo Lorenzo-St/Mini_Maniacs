@@ -147,7 +147,7 @@ void EditorSystem::DrawParentMenu(void)
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
   int i = (row - 1) * xCount;
   int j = 0;
-  for (int k = 0; k < col.size(); ++k,++i,++j)
+  for (int k = 0; k < col.size(); ++k)
   {
     if (k < i)
       continue;
@@ -183,7 +183,7 @@ void EditorSystem::DrawParentMenu(void)
     api.DrawText(std::to_string(i).c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 3.0f, BoxScale.y / 2.0f)), 15);
     api.DrawText(std::to_string(j).c_str(), api.ConvertToScreenSpace(pos + glm::vec2(BoxScale.x / 3.0f, BoxScale.y / 2.0f)), 15);
 
-
+    ++i, ++j;
   }
 }
 
