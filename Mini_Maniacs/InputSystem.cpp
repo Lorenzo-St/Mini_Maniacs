@@ -79,6 +79,7 @@ void InputSystem::inputEvent(SDL_Event event)
 
   switch (event.type)
   {
+  case SDL_TEXTINPUT:
   case SDL_KEYDOWN:
     for (auto& binding : instance->bindings)
     {
