@@ -14,7 +14,7 @@
 #include "SceneSystem.h"
 
 
-bool PointInRect(glm::vec2& point, glm::vec2& rectPos, glm::vec2& scale)
+bool PointInRect(glm::vec2 const& point, glm::vec2 const& rectPos, glm::vec2 const& scale)
 {
 
   if (std::abs(point.x - rectPos.x) >= scale.x / 2.0f) return false;
@@ -132,12 +132,16 @@ void EditorSystem::DrawObjectMenu(void)
   BoxScale.y = BoxScale.x;
   api.DrawText("Objects",    api.ConvertToScreenSpace({ -30,  65 }), 50);
   int i = 0;
+  glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
+  
   for (auto const& e : col) 
   {
 
     glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (i % xCount) * 1.1f, BoxScale.y * (i / xCount) * 1.1f);
-
-
+    if (PointInRect(mousePos, pos, BoxScale))
+      api.SetColor({ 255, 255, 255, 255 });
+    else
+      api.SetColor({ 155, 155, 155, 255 });
     api.DrawRect(pos, BoxScale);
     ++i;
   }
