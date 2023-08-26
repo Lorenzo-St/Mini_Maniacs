@@ -124,7 +124,7 @@ void EditorSystem::DrawSelectedInfo(void)
 void EditorSystem::DrawParentMenu(void)
 {
   auto const& col = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
-  static const int xCount = 9;
+  static const int xCount = 10;
   static const int yCount = 4;
   static int row = 0;
   
@@ -139,7 +139,7 @@ void EditorSystem::DrawParentMenu(void)
     row = 1;
 
   glm::vec2 startingPos = { BGPos.x - (BGScale.x * .4f), BGPos.y + (BGScale.y * .25f) };
-  glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 1), 0 };
+  glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 2), 0 };
   BoxScale.y = BoxScale.x;
   
   api.DrawText("Select Object to Parent Object to", api.ConvertToScreenSpace({ -50,  65 }), 50);
