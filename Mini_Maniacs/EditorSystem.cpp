@@ -169,7 +169,7 @@ void EditorSystem::DrawParentMenu(void)
     else
       api.SetColor({ 155, 155, 155, 255 });
     api.DrawRect(pos, BoxScale);
-    api.DrawText(e->getName().c_str(), pos + glm::vec2(BoxScale.x / 2.0f, BoxScale.y / 3.0f), 10);
+    api.DrawText(e->getName().c_str(), api.ConvertToScreenSpace(pos + glm::vec2(BoxScale.x / 2.0f, BoxScale.y / 3.0f)), 10);
     ++i;
   }
 }
