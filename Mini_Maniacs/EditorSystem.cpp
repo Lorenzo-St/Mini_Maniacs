@@ -145,6 +145,10 @@ void EditorSystem::DrawObjectMenu(void)
       if (InputSystem::MouseDown())
       {
         Entity* el = EntitySystem::GetActive().CreateEntity(e->getProto().c_str());
+        SelectedOBJ.type = entity;
+        Selected = true;
+        SelectedOBJ.OBJ.e = el;
+        return;
       }
     }
     else
