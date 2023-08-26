@@ -11,7 +11,7 @@ void ProcessEvent(SDL_Event& event)
   case SDL_KEYUP:
   case SDL_CONTROLLERBUTTONDOWN:
   case SDL_CONTROLLERBUTTONUP:
-
+  case SDL_TEXTINPUT:
     InputSystem::inputEvent(event);
     break;
   case SDL_MOUSEMOTION:
