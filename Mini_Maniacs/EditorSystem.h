@@ -48,6 +48,8 @@ private:
   bool Selected = false;
   bool GridLocked = false;
   bool inObjectMenu = false;
+  bool inParentMenu = false;
+
 
   SelectOBJ SelectedOBJ = {};
 };

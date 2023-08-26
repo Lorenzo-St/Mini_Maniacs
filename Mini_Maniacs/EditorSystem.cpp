@@ -31,6 +31,7 @@ EditorSystem::EditorSystem()
   InputSystem::addBinding(Duplicate, { SDLK_d });
   InputSystem::addBinding(Delete, { SDLK_x });
   InputSystem::addBinding(Create, { SDLK_c });
+  InputSystem::addBinding(Parents, { SDLK_p });
 
   api.LoadFont((std::filesystem::current_path().string() + ".\\Assets\\Roboto-Regular.ttf").c_str());
 
@@ -127,16 +128,19 @@ void EditorSystem::DrawParentMenu(void)
 
   glm::vec2 BGPos = { 0,0 };
   glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
+  
   api.SetColor({ 100, 100, 100, 175 });
   api.DrawRect(BGPos, BGScale);
   api.SetColor({ 255,255,255,255 });
+  
   glm::vec2 startingPos = { BGPos.x - (BGScale.x * .4f), BGPos.y + (BGScale.y * .25f) };
   glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 1), 0 };
   BoxScale.y = BoxScale.x;
+  
   api.DrawText("Select Object to Parent Object to", api.ConvertToScreenSpace({ -50,  65 }), 50);
-  int i = 0;
-  glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
 
+  glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
+  int i = 0;
   for (auto const& e : col)
   {
 
@@ -216,6 +220,9 @@ void EditorSystem::PostUpdate(void)
 {
   if (inObjectMenu)
     DrawObjectMenu();
+
+  if (inParentMenu)
+    DrawParentMenu();
 }
 
 
@@ -235,6 +242,10 @@ void EditorSystem::Update(void)
 
   if (InputSystem::isTriggered(Create))
     inObjectMenu = !inObjectMenu;
+
+  if (InputSystem::isTriggered(Parents))
+    inParentMenu = !inParentMenu;
+
 
   if (inObjectMenu)
     Selected = false;
