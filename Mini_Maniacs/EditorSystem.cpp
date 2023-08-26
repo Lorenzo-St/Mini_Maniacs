@@ -171,7 +171,7 @@ void EditorSystem::DrawParentMenu(void)
     api.DrawRect(pos, BoxScale);
     
     api.SetColor({ 0, 0, 0, 255 });
-    api.DrawText(e->getName().c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 2.0f, BoxScale.y / 3.0f)), 20);
+    api.DrawText(e->getName().c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 3.0f, BoxScale.y / 3.0f)), 15);
     ++i;
   }
 }
