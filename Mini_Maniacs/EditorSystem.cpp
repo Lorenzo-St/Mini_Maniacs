@@ -270,7 +270,11 @@ void EditorSystem::Update(void)
     inParentMenu = !inParentMenu;
 
   if (InputSystem::isTriggered(RemoveParent) && Selected && SelectedOBJ.type == entity)
+  {
     SelectedOBJ.OBJ.e->SetParent(nullptr);
+    SelectedOBJ.OBJ.e->isPrefabChild(false);
+    SelectedOBJ.OBJ.e->isPrefabRoot(false);
+  }
 
   if (inObjectMenu)
     Selected = false;
