@@ -124,7 +124,7 @@ void EditorSystem::DrawSelectedInfo(void)
 void EditorSystem::DrawParentMenu(void)
 {
   auto const& col = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
-  static const int xCount = 10;
+  static const int xCount = 9;
   static const int yCount = 4;
   static int row = 0;
   
@@ -185,7 +185,7 @@ void EditorSystem::DrawParentMenu(void)
 void EditorSystem::DrawObjectMenu(void) 
 {
   auto const& col = EntitySystem::GetActive().EditorGetAllPrototypeEntities().GetCollection();
-  const int xCount = 10; 
+  const int xCount = 9; 
   const int yCount = 3;
   
   glm::vec2 BGPos = { 0,0 };
