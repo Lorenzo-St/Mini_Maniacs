@@ -148,6 +148,7 @@ void EditorSystem::DrawObjectMenu(void)
         SelectedOBJ.type = entity;
         Selected = true;
         SelectedOBJ.OBJ.e = el;
+        inObjectMenu = false;
         return;
       }
     }
