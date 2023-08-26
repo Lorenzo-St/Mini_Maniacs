@@ -146,12 +146,13 @@ void EditorSystem::DrawParentMenu(void)
 
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
   int i = (row - 1) * xCount;
+  int j = 0;
   for (auto const& e : col)
   {
     if (i / xCount >= yCount + (row - 1))
       break;
 
-    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (i % (xCount - 1)) * 1.1f, -BoxScale.y * (i / xCount) * 1.1f);
+    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (j % (xCount - 1)) * 1.1f, -BoxScale.y * (j / xCount) * 1.1f);
     if (PointInRect(mousePos, pos, BoxScale))
     {
 
@@ -173,6 +174,7 @@ void EditorSystem::DrawParentMenu(void)
     api.SetColor({ 0, 0, 0, 255 });
     api.DrawText(e->getName().c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 3.0f, BoxScale.y / 3.0f)), 15);
     ++i;
+    ++j;
   }
 }
 
