@@ -176,7 +176,8 @@ void EditorSystem::DrawParentMenu(void)
     api.DrawRect(pos, BoxScale);
     
     api.SetColor({ 0, 0, 0, 255 });
-    api.DrawText(e->getName().c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 3.0f, BoxScale.y / 3.0f)), 15);
+    api.DrawTextCentered(e->getName().c_str(), api.ConvertToScreenSpace(pos), 15);
+
     //api.DrawText(std::to_string(i).c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 3.0f, BoxScale.y / 2.0f)), 15);
     //api.DrawText(std::to_string(j).c_str(), api.ConvertToScreenSpace(pos + glm::vec2(BoxScale.x / 3.0f, BoxScale.y / 2.0f)), 15);
 
