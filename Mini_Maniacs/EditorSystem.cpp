@@ -119,8 +119,8 @@ void EditorSystem::DrawSelectedInfo(void)
 void EditorSystem::DrawObjectMenu(void) 
 {
   auto const& col = EntitySystem::GetActive().EditorGetAllPrototypeEntities().GetCollection();
-  static const int xCount = 10; 
-  static const int yCount = 3;
+   const int xCount = 10; 
+   const int yCount = 3;
   
   glm::vec2 BGPos = { 0,0 };
   glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
