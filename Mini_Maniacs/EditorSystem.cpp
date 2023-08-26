@@ -135,7 +135,7 @@ void EditorSystem::DrawParentMenu(void)
   api.DrawRect(BGPos, BGScale);
   api.SetColor({ 255,255,255,255 });
   row -= InputSystem::WheelY();
-  if (row < 0)
+  if (row < 1)
     row = 1;
 
   glm::vec2 startingPos = { BGPos.x - (BGScale.x * .4f), BGPos.y + (BGScale.y * .25f) };
