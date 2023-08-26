@@ -144,7 +144,7 @@ void EditorSystem::DrawParentMenu(void)
   for (auto const& e : col)
   {
 
-    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (i % xCount) * 1.1f, BoxScale.y * (i / xCount) * 1.1f);
+    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (i % xCount) * 1.1f, -BoxScale.y * (i / xCount) * 1.1f);
     if (PointInRect(mousePos, pos, BoxScale))
     {
 
