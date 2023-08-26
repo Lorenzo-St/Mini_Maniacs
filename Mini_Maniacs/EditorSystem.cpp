@@ -126,7 +126,7 @@ void EditorSystem::DrawParentMenu(void)
   auto const& col = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
   static const int xCount = 10;
   static const int yCount = 4;
-  static  int row = 0;
+  static int row = 0;
   
   glm::vec2 BGPos = { 0,0 };
   glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
@@ -144,8 +144,8 @@ void EditorSystem::DrawParentMenu(void)
 
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
   int i = row * xCount;
-  if (i < 0)
-    i = 0;
+  //if (i < 0)
+  //  i = 0;
   for (auto const& e : col)
   {
     if (i / xCount >= yCount + i)
