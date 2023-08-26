@@ -147,10 +147,17 @@ void EditorSystem::DrawParentMenu(void)
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
   int i = (row - 1) * xCount;
   int j = 0;
-  for (auto const& e : col)
+  for (int k = 0; k < col.size(); ++k,++i,++j)
   {
+    if (k < i)
+      continue;
+    Entity* e = col[k];
+
     if (i / xCount >= yCount + (row - 1))
       break;
+
+    
+
 
     glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (j % (xCount)) * 1.1f, -BoxScale.y * (j / xCount) * 1.1f);
     if (PointInRect(mousePos, pos, BoxScale))
@@ -176,8 +183,7 @@ void EditorSystem::DrawParentMenu(void)
     api.DrawText(std::to_string(i).c_str(), api.ConvertToScreenSpace(pos + glm::vec2(-BoxScale.x / 3.0f, BoxScale.y / 2.0f)), 15);
     api.DrawText(std::to_string(j).c_str(), api.ConvertToScreenSpace(pos + glm::vec2(BoxScale.x / 3.0f, BoxScale.y / 2.0f)), 15);
 
-    ++i;
-    ++j;
+
   }
 }
 
