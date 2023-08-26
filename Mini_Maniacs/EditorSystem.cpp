@@ -143,7 +143,7 @@ void EditorSystem::DrawParentMenu(void)
   int i = 0;
   for (auto const& e : col)
   {
-    if (i >= yCount)
+    if (i / xCount >= yCount)
       break;
 
     glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (i % xCount) * 1.1f, -BoxScale.y * (i / xCount) * 1.1f);
