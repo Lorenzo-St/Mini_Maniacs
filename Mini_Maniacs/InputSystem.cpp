@@ -76,6 +76,7 @@ void InputSystem::inputEvent(SDL_Event event)
 {
   if (instance == nullptr)
     instance = new InputSystem();
+
   switch (event.type)
   {
   case SDL_KEYDOWN:
