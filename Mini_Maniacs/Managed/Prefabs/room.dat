@@ -36,15 +36,15 @@
  <name>
   tile
  <localPosition>
-  -32 0
+  -112 -16
  <name>
   tile
  <localPosition>
-  -96 16
+  -112 16
  <name>
   tile
  <localPosition>
-  -96 32
+  -112 32
  <name>
   tile
  <localPosition>
@@ -52,7 +52,7 @@
  <name>
   tile
  <localPosition>
-  96 96
+  112 96
  <name>
   tile
  <localPosition>
@@ -72,7 +72,7 @@
  <name>
   tile
  <localPosition>
-  96 16
+  112 16
  <name>
   tile
  <localPosition>
@@ -80,7 +80,7 @@
  <name>
   tile
  <localPosition>
-  -96 0
+  -112 0
  <name>
   tile
  <localPosition>
@@ -88,7 +88,11 @@
  <name>
   tile
  <localPosition>
-  96 0
+  112 0
+ <name>
+  tile
+ <localPosition>
+  -96 16
  <name>
   tile
  <localPosition>
@@ -96,15 +100,11 @@
  <name>
   tile
  <localPosition>
-  -64 16
- <name>
-  tile
- <localPosition>
-  -64 0
- <name>
-  tile
- <localPosition>
   -80 0
+ <name>
+  tile
+ <localPosition>
+  -96 0
  <name>
   tile
  <localPosition>
@@ -124,19 +124,19 @@
  <name>
   tile
  <localPosition>
-  -96 64
+  -112 64
  <name>
   tile
  <localPosition>
-  -96 80
+  -112 80
  <name>
   tile
  <localPosition>
-  -96 96
+  -112 96
  <name>
   tile
  <localPosition>
-  96 64
+  112 64
  <name>
   tile
  <localPosition>
@@ -144,23 +144,23 @@
  <name>
   tile
  <localPosition>
-  96 48
+  112 48
  <name>
   tile
  <localPosition>
-  -96 48
+  -112 48
  <name>
   tile
  <localPosition>
-  96 32
+  112 32
  <name>
   tile
  <localPosition>
-  -96 112
+  -112 112
  <name>
   tile
  <localPosition>
-  96 80
+  112 80
  <name>
   tile
  <localPosition>
@@ -168,31 +168,51 @@
  <name>
   tile
  <localPosition>
-  -64 64
- <name>
-  tile
- <localPosition>
-  -96 128
- <name>
-  tile
- <localPosition>
   -80 64
  <name>
   tile
  <localPosition>
-  96 112
+  -112 128
  <name>
   tile
  <localPosition>
-  -48 64
+  -96 64
  <name>
   tile
  <localPosition>
-  96 128
+  112 112
  <name>
   tile
  <localPosition>
-  -96 144
+  -64 64
+ <name>
+  tile
+ <localPosition>
+  112 128
+ <name>
+  tile
+ <localPosition>
+  -112 144
+ <name>
+  tile
+ <localPosition>
+  112 144
+ <name>
+  tile
+ <localPosition>
+  112 160
+ <name>
+  tile
+ <localPosition>
+  -112 160
+ <name>
+  tile
+ <localPosition>
+  -112 176
+ <name>
+  tile
+ <localPosition>
+  112 176
  <name>
   tile
  <localPosition>
@@ -200,11 +220,15 @@
  <name>
   tile
  <localPosition>
-  96 160
+  80 128
  <name>
   tile
  <localPosition>
-  -96 160
+  96 128
+ <name>
+  tile
+ <localPosition>
+  -64 96
  <name>
   tile
  <localPosition>
@@ -212,43 +236,23 @@
  <name>
   tile
  <localPosition>
-  96 176
+  48 112
  <name>
   tile
  <localPosition>
-  80 144
+  -48 80
  <name>
   tile
  <localPosition>
-  64 144
+  64 128
  <name>
   tile
  <localPosition>
-  48 144
+  -64 0
  <name>
   tile
  <localPosition>
-  -48 96
- <name>
-  tile
- <localPosition>
-  -80 176
- <name>
-  tile
- <localPosition>
-  16 128
- <name>
-  tile
- <localPosition>
-  -32 80
- <name>
-  tile
- <localPosition>
-  80 112
- <name>
-  tile
- <localPosition>
-  -48 0
+  -16 80
  <name>
   tile
  <localPosition>
@@ -256,31 +260,23 @@
  <name>
   tile
  <localPosition>
-  16 80
- <name>
-  tile
- <localPosition>
   80 64
  <name>
   tile
  <localPosition>
-  -32 96
+  -48 96
  <name>
   tile
  <localPosition>
-  -80 128
+  -96 128
  <name>
   tile
  <localPosition>
-  -0 128
+  -96 80
  <name>
   tile
  <localPosition>
-  -80 80
- <name>
-  tile
- <localPosition>
-  80 0
+  112 -16
  <name>
   tile
  <localPosition>
@@ -288,5 +284,17 @@
  <name>
   tile
  <localPosition>
-  -16 128
+  -48 0
+ <name>
+  tile
+ <localPosition>
+  32 112
+ <name>
+  tile
+ <localPosition>
+  -32 144
+ <name>
+  tile
+ <localPosition>
+  -48 144
  </Entities>
