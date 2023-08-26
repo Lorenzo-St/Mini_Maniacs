@@ -3,7 +3,7 @@
 
 void ProcessEvent(SDL_Event& event) 
 {
-  std::cout << "Event: " << static_cast<char>(event.type) << std::endl;
+  std::cout << "Event: " << static_cast<int>(event.type) << std::endl;
 
   switch (event.type) 
   {
