@@ -136,7 +136,7 @@ void EditorSystem::DrawParentMenu(void)
   api.SetColor({ 255,255,255,255 });
   row -= InputSystem::WheelY();
   if (row < 0)
-    row = 0;
+    row = 1;
 
   glm::vec2 startingPos = { BGPos.x - (BGScale.x * .4f), BGPos.y + (BGScale.y * .25f) };
   glm::vec2 BoxScale = { BGScale.x / static_cast<float>(xCount + 1), 0 };
@@ -145,13 +145,13 @@ void EditorSystem::DrawParentMenu(void)
   api.DrawText("Select Object to Parent Object to", api.ConvertToScreenSpace({ -50,  65 }), 50);
 
   glm::vec2 mousePos = api.ConvertToWorldSpace(glm::vec2(InputSystem::GetMouseX(), InputSystem::GetMouseY()));
-  int i = row * xCount;
+  int i = (row - 1) * xCount;
   for (auto const& e : col)
   {
-    if (i / xCount >= yCount + row)
+    if (i / xCount >= yCount + (row - 1))
       break;
 
-    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * ((i / (row + 1)) % (xCount - 1)) * 1.1f, -BoxScale.y * ((i / (row + 1)) / xCount) * 1.1f);
+    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * ((i / row) % (xCount - 1)) * 1.1f, -BoxScale.y * ((i / row) / xCount) * 1.1f);
     if (PointInRect(mousePos, pos, BoxScale))
     {
 
