@@ -124,7 +124,7 @@ void EditorSystem::DrawParentMenu(void)
 {
   auto const& col = EntitySystem::GetActive().EditorGetAllActiveEntities().GetCollection();
   const int xCount = 10;
-  const int yCount = 3;
+  const int yCount = 5;
 
   glm::vec2 BGPos = { 0,0 };
   glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
