@@ -15,6 +15,7 @@ typedef enum InputActions
   Delete,
   Create,
   Parents,
+  RemoveParent,
 
 #endif
 

@@ -32,7 +32,8 @@ EditorSystem::EditorSystem()
   InputSystem::addBinding(Delete, { SDLK_x });
   InputSystem::addBinding(Create, { SDLK_c });
   InputSystem::addBinding(Parents, { SDLK_p });
-  
+  InputSystem::addBinding(RemoveParent, { SDLK_o });
+
   
   api.LoadFont((std::filesystem::current_path().string() + ".\\Assets\\Roboto-Regular.ttf").c_str());
 
@@ -156,9 +157,6 @@ void EditorSystem::DrawParentMenu(void)
     if (i / xCount >= yCount + (row - 1))
       break;
 
-    
-
-
     glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (j % (xCount)) * 1.1f, -BoxScale.y * (j / xCount) * 1.1f);
     if (PointInRect(mousePos, pos, BoxScale))
     {
@@ -166,11 +164,10 @@ void EditorSystem::DrawParentMenu(void)
       api.SetColor({ 255, 255, 255, 255 });
       if (InputSystem::MouseDown())
       {
-        Entity* el = EntitySystem::GetActive().CreateEntity(e->getProto().c_str());
-        SelectedOBJ.type = entity;
-        Selected = true;
-        SelectedOBJ.OBJ.e = el;
-        inObjectMenu = false;
+        SelectedOBJ.OBJ.e->SetParent(e);
+        inParentMenu = false;
+        if (e->isPrefabRoot())
+          SelectedOBJ.OBJ.e->isPrefabChild(true);
         return;
       }
     }
@@ -264,9 +261,11 @@ void EditorSystem::Update(void)
   if (InputSystem::isTriggered(Create))
     inObjectMenu = !inObjectMenu;
 
-  if (InputSystem::isTriggered(Parents))
+  if (InputSystem::isTriggered(Parents) && Selected && SelectedOBJ.type == entity)
     inParentMenu = !inParentMenu;
 
+  if (InputSystem::isTriggered(RemoveParent) && Selected && SelectedOBJ.type == entity)
+    SelectedOBJ.OBJ.e->SetParent(nullptr);
 
   if (inObjectMenu)
     Selected = false;
