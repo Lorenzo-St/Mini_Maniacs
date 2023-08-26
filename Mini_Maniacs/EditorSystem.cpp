@@ -152,7 +152,7 @@ void EditorSystem::DrawParentMenu(void)
     if (i / xCount >= yCount + (row - 1))
       break;
 
-    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (j % (xCount - 1)) * 1.1f, -BoxScale.y * (j / xCount) * 1.1f);
+    glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * ((j - 1) % (xCount - 1)) * 1.1f, -BoxScale.y * (j / xCount) * 1.1f);
     if (PointInRect(mousePos, pos, BoxScale))
     {
 
