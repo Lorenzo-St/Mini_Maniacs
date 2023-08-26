@@ -118,14 +118,24 @@ void EditorSystem::DrawSelectedInfo(void)
 
 void EditorSystem::DrawObjectMenu(void) 
 {
-  auto const& col = EntitySystem::GetActive().EditorGetAllPrototypeEntities();
+  auto const& col = EntitySystem::GetActive().EditorGetAllPrototypeEntities().GetCollection();
+  static const int xCount = 10; 
+  static const int yCount = 3;
+  
   glm::vec2 BGPos = { 0,0 };
+  glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
   api.SetColor({ 100, 100, 100, 175 });
-  api.DrawRect(BGPos, { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f });
+  api.DrawRect(BGPos, BGScale);
   api.SetColor({ 255,255,255,255 });
-
+  glm::vec2 startingPos = { BGPos.x - BGScale.x / (xCount + 1), BGPos.y + BGScale.y / (yCount + 1) };
+  glm::vec2 BoxScale = BGScale / static_cast<float>(xCount + 1);
   api.DrawText("Objects",    api.ConvertToScreenSpace({ -30,  65 }), 50);
-
+  int i = 0;
+  for (auto const& e : col) 
+  {
+    api.DrawRect(startingPos + glm::vec2(BoxScale.x * (i % xCount), BoxScale.y * (i / yCount)), BoxScale);
+  }
+  
 
 
   api.DrawText("Create New", api.ConvertToScreenSpace({ -20, -55 }), 20);
