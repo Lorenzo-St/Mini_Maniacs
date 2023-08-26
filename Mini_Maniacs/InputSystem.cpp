@@ -79,7 +79,6 @@ void InputSystem::inputEvent(SDL_Event event)
 
   switch (event.type)
   {
-  case SDL_TEXTINPUT:
   case SDL_KEYDOWN:
     for (auto& binding : instance->bindings)
     {
@@ -104,9 +103,23 @@ void InputSystem::inputEvent(SDL_Event event)
 #endif
       }
 
+
     }
     break;
+  case SDL_TEXTINPUT:
+    for (auto& binding : instance->bindings)
+    {
+      if (SDL_GetScancodeFromKey(binding.binding.key) == event.key.keysym.scancode)
+      {
+        (binding.pressed == false) ? binding.triggered = true : 0;
+        binding.pressed = true;
+#if _DEBUG && 1
+        std::cout << "Pressed: " << static_cast<char>(event.key.keysym.scancode) << std::endl;
+#endif
+      }
+    }
 
+    break;
   }
 
 }
