@@ -107,7 +107,7 @@ void EditorSystem::DrawSelectedInfo(void)
   glm::vec2 topCorner = { api.GetWindowWidth() * .75f, api.GetWindowHeight() * .05f };
   glm::vec2 scale = { api.GetWindowWidth() * .14f, api.GetWindowHeight() * .5f };
   glm::vec2 pos = { api.GetWindowWidth() * .5f * .3f, 0 };
-  api.SetColor({ 125, 125, 125, 125 });
+  api.SetColor({ 50, 50, 50, 125 });
   api.DrawRect(pos, scale);
   Transform* t = SelectedOBJ.OBJ.e->GetComponent<Transform>();
   std::string text = "Position: (" + std::to_string(t->GetPosition().x) + ", " + std::to_string(t->GetPosition().y) + ")";
