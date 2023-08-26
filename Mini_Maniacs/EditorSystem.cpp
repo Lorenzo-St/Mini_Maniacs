@@ -138,8 +138,15 @@ void EditorSystem::DrawObjectMenu(void)
   {
 
     glm::vec2 pos = startingPos + glm::vec2(BoxScale.x * (i % xCount) * 1.1f, BoxScale.y * (i / xCount) * 1.1f);
-    if (PointInRect(mousePos, pos, BoxScale))
+    if (PointInRect(mousePos, pos, BoxScale)) 
+    {
+    
       api.SetColor({ 255, 255, 255, 255 });
+      if (InputSystem::MouseDown())
+      {
+        Entity* el = EntitySystem::GetActive().CreateEntity(e->getProto().c_str());
+      }
+    }
     else
       api.SetColor({ 155, 155, 155, 255 });
     api.DrawRect(pos, BoxScale);
