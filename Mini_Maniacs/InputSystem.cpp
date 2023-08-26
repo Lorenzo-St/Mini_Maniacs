@@ -76,9 +76,6 @@ void InputSystem::inputEvent(SDL_Event event)
 {
   if (instance == nullptr)
     instance = new InputSystem();
-#if _DEBUG && 1
-  std::cout << "Pressed: " << static_cast<char>(event.key.keysym.sym) << std::endl;
-#endif
   switch (event.type)
   {
   case SDL_KEYDOWN:
@@ -88,7 +85,7 @@ void InputSystem::inputEvent(SDL_Event event)
       {
         (binding.pressed == false) ? binding.triggered = true : 0;
         binding.pressed = true;
-#if _DEBUG && 1
+#if _DEBUG && 0
         std::cout << "Pressed: " << static_cast<char>(event.key.keysym.sym) << std::endl;
 #endif
       }
@@ -100,7 +97,7 @@ void InputSystem::inputEvent(SDL_Event event)
       if (binding.binding.key == event.key.keysym.sym)
       {  
         binding.pressed = false;
-#if _DEBUG && 1
+#if _DEBUG && 0
         std::cout << "Released: " << static_cast<char>(event.key.keysym.sym) << std::endl;
 #endif
       }
