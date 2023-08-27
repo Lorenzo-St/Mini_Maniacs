@@ -274,7 +274,7 @@ void EditorSystem::NameMenu(void)
   api.SetColor({ 10, 10, 10, 255 });
 
   api.DrawTextCentered("Change Selected Name", api.ConvertToScreenSpace({ 0, 60 }), 40);
-
+  std::string& s = const_cast<std::string&>(SelectedOBJ.OBJ.e->getName());
 
 
 }

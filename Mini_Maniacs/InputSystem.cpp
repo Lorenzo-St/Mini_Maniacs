@@ -48,6 +48,19 @@ bool InputSystem::isPressed(Action a)
   return false;
 }
 
+SDL_Keycode InputSystem::isPressedAny(void) 
+{
+  if (instance->activeAny.triggered)
+    return instance->activeAny.pressedKey.key;
+}
+
+SDL_Keycode InputSystem::isTriggeredAny(void) 
+{
+  if (instance->activeAny.pressed)
+    return instance->activeAny.pressedKey.key;
+}
+
+
 bool InputSystem::isTriggered(Action a) 
 {
   if (instance == nullptr)
@@ -83,6 +96,10 @@ void InputSystem::inputEvent(SDL_Event event)
   switch (event.type)
   {
   case SDL_KEYDOWN:
+    instance->activeAny.pressedKey.key = event.key.keysym.sym;
+    (instance->activeAny.pressed == false) ? instance->activeAny.triggered = true : 0;
+    instance->activeAny.pressed = true;
+
     for (auto& binding : instance->bindings)
     {
       if (binding.binding.key == event.key.keysym.sym)

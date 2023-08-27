@@ -3,6 +3,7 @@
 #include <vector>
 typedef enum InputActions 
 {
+  Any,
   Enter, 
   Back,
   PosX,
@@ -23,7 +24,7 @@ typedef enum InputActions
 
 typedef union input 
 {
-  SDL_KeyCode key;
+  SDL_Keycode key;
   Uint8 button;
 }input;
 
@@ -40,6 +41,11 @@ typedef struct Binding
 
 }Binding;
 
+typedef struct AnyKey : Binding
+{
+  AnyKey() : Binding(Any, { SDLK_DELETE }), pressedKey() {}
+  input pressedKey;
+}AnyKey;
 
 class InputSystem
 {
@@ -51,6 +57,10 @@ public:
 
   static bool isPressed(Action a);
   static bool isTriggered(Action a);
+
+  static SDL_Keycode isPressedAny(void);
+  static SDL_Keycode isTriggeredAny(void);
+
   static bool MouseDown(void) {return instance->LMouseDown;}
   static bool MouseDown(bool left) { if (left)return instance->LMouseDown; else return instance->RMouseDown; }
   static float GetMouseX(void) { return instance->mouseX; }
@@ -69,13 +79,17 @@ public:
 private:
   InputSystem() = default;
   std::vector<Binding> bindings;
-  bool LMouseDown;
-  bool RMouseDown;
-  float mouseX;
-  float mouseY;
+  bool LMouseDown = false;
+  bool RMouseDown = false;
+  
 
-  int wheelX;
-  int wheelY;
+
+  AnyKey activeAny;
+  float mouseX = false;
+  float mouseY = false;
+
+  int wheelX = 0;
+  int wheelY = 0;
 
   static inline InputSystem* instance;
 };
