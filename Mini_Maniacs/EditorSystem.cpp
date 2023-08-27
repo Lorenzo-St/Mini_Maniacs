@@ -273,7 +273,7 @@ void EditorSystem::NameMenu(void)
   api.DrawRect(BGPos, BGScale);
   api.SetColor({ 10, 10, 10, 255 });
 
-  api.DrawTextCentered("Change Selected Name", api.ConvertToScreenSpace({ 0, 50 }), 20);
+  api.DrawTextCentered("Change Selected Name", api.ConvertToScreenSpace({ 0, 50 }), 50);
 
 
 
