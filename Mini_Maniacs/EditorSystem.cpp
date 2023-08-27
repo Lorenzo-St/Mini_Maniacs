@@ -33,7 +33,7 @@ EditorSystem::EditorSystem()
   InputSystem::addBinding(Create, { SDLK_c });
   InputSystem::addBinding(Parents, { SDLK_p });
   InputSystem::addBinding(RemoveParent, { SDLK_o });
-
+  InputSystem::addBinding(Naming, { SDLK_n });
   
   api.LoadFont((std::filesystem::current_path().string() + ".\\Assets\\Roboto-Regular.ttf").c_str());
 
@@ -289,6 +289,8 @@ void EditorSystem::PostUpdate(void)
   if (inParentMenu)
     DrawParentMenu();
 
+  if (inNameMenu)
+    NameMenu();
 }
 
 
@@ -309,14 +311,22 @@ void EditorSystem::Update(void)
   if (InputSystem::isTriggered(Create))
     inObjectMenu = !inObjectMenu;
 
-  if (InputSystem::isTriggered(Parents) && Selected && SelectedOBJ.type == entity)
+  if (Selected && SelectedOBJ.type == entity) 
+  {
+  
+  if (InputSystem::isTriggered(Parents))
     inParentMenu = !inParentMenu;
 
-  if (InputSystem::isTriggered(RemoveParent) && Selected && SelectedOBJ.type == entity)
+  if (InputSystem::isTriggered(Naming))
+    inNameMenu = !inNameMenu;
+
+  if (InputSystem::isTriggered(RemoveParent))
   {
     SelectedOBJ.OBJ.e->SetParent(nullptr);
     SelectedOBJ.OBJ.e->isPrefabChild(false);
     SelectedOBJ.OBJ.e->isPrefabRoot(false);
+  }
+
   }
 
   if (inObjectMenu)
@@ -331,7 +341,7 @@ void EditorSystem::Update(void)
   if (InputSystem::isTriggered(Delete) && Selected)
     DeleteEntity();
 
-  if (InputSystem::isTriggered(Duplicate) && Selected && SelectedOBJ.type == entity) 
+  if (InputSystem::isTriggered(Duplicate) && Selected && SelectedOBJ.type == entity && !inNameMenu) 
     DuplicateEntity();
   
   glm::vec2 MouseOff = mousePos - offset;
