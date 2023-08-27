@@ -18,6 +18,8 @@ void InputSystem::Update(void)
     instance = new InputSystem();
   instance->wheelX = 0;
   instance->wheelY = 0;
+  instance->activeAny.pressed = false;
+  instance->activeAny.triggered = false;
 
   for (auto& binding : instance->bindings)
   {
