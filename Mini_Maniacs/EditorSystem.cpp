@@ -243,12 +243,36 @@ void EditorSystem::DrawObjectMenu(void)
   if (PointInRect(mousePos, pos, scale))
   {
     api.SetColor({ 255, 255, 255, 255 });
+    if (InputSystem::MouseDown()) 
+    {
+      Selected = true;
+      SelectedOBJ.type = entity;
+      SelectedOBJ.OBJ.e = new Entity;
+      Entity*& e = SelectedOBJ.OBJ.e;
+      e->AddComponent(new Transform());
+      e->setProto("New Object");
+      e->SetName("New Object");
+      inObjectMenu = false;
+
+    }
   }
   else
     api.SetColor({ 175, 175, 175, 255 });
   api.DrawRect(pos, scale);
   api.SetColor({ 10, 10, 10, 255 });
   api.DrawTextCentered("Create New", api.ConvertToScreenSpace(pos), 20);
+
+
+}
+
+void EditorSystem::NameMenu(void) 
+{
+  glm::vec2 BGPos = { 0,0 };
+  glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
+  api.SetColor({ 100, 100, 100, 175 });
+  api.DrawRect(BGPos, BGScale);
+  api.DrawTextCentered("Change Selected Name", { 0, 50 }, 20);
+
 
 
 }

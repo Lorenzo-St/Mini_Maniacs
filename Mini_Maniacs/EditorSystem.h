@@ -42,6 +42,7 @@ private:
   void DrawSelectedInfo(void);
   void DrawObjectMenu(void);
   void DrawParentMenu(void);
+  void NameMenu();
 
   Scene* activeScene = nullptr;
   
@@ -49,7 +50,7 @@ private:
   bool GridLocked = false;
   bool inObjectMenu = false;
   bool inParentMenu = false;
-
+  bool inNameMenu = false;
 
   SelectOBJ SelectedOBJ = {};
 };
