@@ -238,7 +238,7 @@ void EditorSystem::DrawObjectMenu(void)
   
 
   api.SetColor({ 255, 255, 255, 255 });
-  api.DrawText("Create New", api.ConvertToScreenSpace({ -20, -55 }), 20);
+  api.DrawTextCentered("Create New", api.ConvertToScreenSpace({ 0, -60 }), 20);
 
 }
 
