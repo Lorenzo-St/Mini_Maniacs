@@ -238,7 +238,18 @@ void EditorSystem::DrawObjectMenu(void)
   
 
   api.SetColor({ 255, 255, 255, 255 });
-  api.DrawTextCentered("Create New", api.ConvertToScreenSpace({ 0, -60 }), 20);
+  glm::vec2 pos = { 0 , -60 };
+  glm::vec2 scale = { 60, 20 };
+  if (PointInRect(mousePos, pos, scale))
+  {
+    api.SetColor({ 255, 255, 255, 255 });
+  }
+  else
+    api.SetColor({ 175, 175, 175, 255 });
+  api.DrawRect(pos, scale);
+  api.SetColor({ 255,255,255,255 });
+  api.DrawTextCentered("Create New", api.ConvertToScreenSpace(pos), 20);
+
 
 }
 
