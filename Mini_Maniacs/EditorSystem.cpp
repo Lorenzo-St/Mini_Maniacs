@@ -271,7 +271,7 @@ void EditorSystem::NameMenu(void)
   glm::vec2 BGScale = { api.GetWindowWidth() * .2f , api.GetWindowHeight() * .2f };
   api.SetColor({ 100, 100, 100, 175 });
   api.DrawRect(BGPos, BGScale);
-  api.DrawTextCentered("Change Selected Name", { 0, 50 }, 20);
+  api.DrawTextCentered("Change Selected Name", api.ConvertToScreenSpace({ 0, 50 }), 20);
 
 
 
