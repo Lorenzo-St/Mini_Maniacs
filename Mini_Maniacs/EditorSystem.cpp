@@ -247,7 +247,7 @@ void EditorSystem::DrawObjectMenu(void)
   else
     api.SetColor({ 175, 175, 175, 255 });
   api.DrawRect(pos, scale);
-  api.SetColor({ 0, 0, 0, 255 });
+  api.SetColor({ 10, 10, 10, 255 });
   api.DrawTextCentered("Create New", api.ConvertToScreenSpace(pos), 20);
 
 
