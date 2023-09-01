@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+    
+
+jobs:
+  mirror:
+    name: mirror the repo
+    runs-on: ubuntu-18.04
+    steps:
+     - run: |
+          git clone --bare https://https://github.com/Lorenzo-St/Mini_Maniacs.git
+          cd Mini_Maniacs.git
+          git push --mirror https://github.com/Lorenzo-St/Mini_Maniacs2.git
+          cd ..
+          rm -rf Mini_Maniacs.git
