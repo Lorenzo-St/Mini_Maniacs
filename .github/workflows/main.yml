@@ -5,7 +5,7 @@ on:
 jobs:
   mirror:
     name: mirror the repo
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
      - run: |
           git clone --bare https://https://github.com/Lorenzo-St/Mini_Maniacs.git
