@@ -9,7 +9,7 @@ jobs:
     steps:
      - run: |
           git config --global user.name "Lorenzo-St"
-          git config --global user.email strea.lorenzo@gmail.com
+          git config --global user.email Strea.lorenzo@gmail.com
           git clone --bare https://github.com/Lorenzo-St/Mini_Maniacs.git
           cd Mini_Maniacs.git
           git push --mirror https://github.com/Lorenzo-St/Mini_Maniacs2.git
