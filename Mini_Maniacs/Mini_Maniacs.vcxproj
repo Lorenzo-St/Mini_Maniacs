@@ -97,15 +97,15 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>$(SolutionDir)SDL2\Lib\x64\$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)SDL_TTF\lib\</LibraryPath>
+    <LibraryPath>$(SolutionDir)SDL2\Lib;$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)SDL_TTF\lib\</LibraryPath>
     <IncludePath>$(SolutionDir)SDL2\Inc;$(SolutionDir)GLM;$(SolutionDir)STB;$(SolutionDir)SDL_TTF\Inc</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor|x64'">
-    <LibraryPath>$(SolutionDir)SDL2\Lib\x64\$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)SDL_TTF\lib\</LibraryPath>
+    <LibraryPath>$(SolutionDir)SDL2\Lib;$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)SDL_TTF\lib\</LibraryPath>
     <IncludePath>$(SolutionDir)SDL2\Inc;$(SolutionDir)GLM;$(SolutionDir)STB;$(SolutionDir)SDL_TTF\Inc</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>$(SolutionDir)SDL2\Lib\x64\$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)SDL_TTF\lib\</LibraryPath>
+    <LibraryPath>$(SolutionDir)SDL2\Lib;$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)SDL_TTF\lib\</LibraryPath>
     <IncludePath>$(SolutionDir)SDL2\Inc;$(SolutionDir)GLM;$(SolutionDir)STB;$(SolutionDir)SDL_TTF\Inc</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

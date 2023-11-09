@@ -54,12 +54,14 @@ SDL_Keycode InputSystem::isPressedAny(void)
 {
   if (instance->activeAny.triggered)
     return instance->activeAny.pressedKey.key;
+  return false;
 }
 
 SDL_Keycode InputSystem::isTriggeredAny(void) 
 {
   if (instance->activeAny.pressed)
     return instance->activeAny.pressedKey.key;
+  return false;
 }
 
 
