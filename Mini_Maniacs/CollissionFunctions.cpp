@@ -71,13 +71,15 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
       preserved.y = WallPos.y + ((WOffset.y + MOffset.y) * -1.f);
 
   }
-  //float distance = glm::distance(preserved, OldPosition);
-  //if (distance < 1.25) 
-  //{
+  float distance = glm::distance(preserved, OldPosition);
+  // This is to ensure that when we end up solving the collision and pushing the box up, we don't accidentally push the player in the wrong direction
+  constexpr float minimumDIstance = 1.25f;
+  if (distance < minimumDIstance) 
+  {
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
     if (std::abs(preserved.x - WallPos.x) >= MOffset.x + WOffset.x) return;
     if (std::abs(preserved.y - WallPos.y) >= MOffset.y + WOffset.y) return;
-  //}
+  }
   preserved.y = NewPosition.y;
   if (moveVec.x != 0) 
   {
