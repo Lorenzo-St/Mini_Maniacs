@@ -42,33 +42,42 @@ void RectangleCollision(Collider* rect1, Collider* rect2)
   RectCollider* wall  = static_cast<RectCollider*>(rect2);
   
   glm::vec2 MOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
-  glm::vec2 WOffset(mover->Width() / 2.0f, mover->Height() / 2.0f);
+  glm::vec2 WOffset(wall->Width() / 2.0f, wall->Height() / 2.0f);
+  // fast AABB collision check
   if (std::abs(NewPosition.x - WallPos.x) >= MOffset.x + WOffset.x) return;
   if (std::abs(NewPosition.y - WallPos.y) >= MOffset.y + WOffset.y) return;
+  
+  // Add collision to ledger
   CollisionLedger::AddInteraction({ rect1->GetParent(), rect2->GetParent() });
   if (rect1->IsTrigger() || rect2->IsTrigger()) 
   {
     //std::cout << "Trigger Collision" << std::endl;
     return;
   }
+
+  // Get local copy of positions to change
   glm::vec2 preserved = NewPosition;
   glm::vec2 moveVec = (NewPosition - OldPosition);
-
+  // Check if we moved in the Y
   if (moveVec.y != 0)
   {
+    // If we are moving down towards the box
     if(OldPosition.y > WallPos.y && moveVec.y < 0)
+      // Push up out of the box
       preserved.y = WallPos.y + ((WOffset.y + MOffset.y) * 1.f);
+    // Otherwise if we are moving up into the box
     else if(OldPosition.y < WallPos.y && moveVec.y > 0)
+      // Push down out of the box
       preserved.y = WallPos.y + ((WOffset.y + MOffset.y) * -1.f);
 
   }
-  float distance = glm::distance(preserved, OldPosition);
-  if (distance < 1.25) 
-  {
+  //float distance = glm::distance(preserved, OldPosition);
+  //if (distance < 1.25) 
+  //{
     rect1->GetParent()->GetComponent<Transform>()->SetPosition(preserved);
     if (std::abs(preserved.x - WallPos.x) >= MOffset.x + WOffset.x) return;
     if (std::abs(preserved.y - WallPos.y) >= MOffset.y + WOffset.y) return;
-  }
+  //}
   preserved.y = NewPosition.y;
   if (moveVec.x != 0) 
   {
